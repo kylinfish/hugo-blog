@@ -1,0 +1,65 @@
+baseurl = "https://www.kylinyu.win"
+languageCode = "zh-tw"
+title = "錢麟的墨冊"
+theme = "hugo-future-imperfect"
+preserveTaxonomyNames = true
+paginate = 3
+disqusShortname = "https-kylinyu-win"
+googleAnalytics = "UA-36878065-5"
+
+[params]
+author = "@win"
+description          = "錢麟的墨冊 墨冊 技術筆記 生活記事 旅遊日誌 筆墨日積終將成冊，知識月累便可結果"
+navbarTitle          = "Win"
+socialAppearAtTop    = true
+socialAppearAtBottom = false
+viewMorePostLink     = "/"
+pygmentsStyle        = "monokai"
+
+categoriesByCount    = true
+includeReadingTime   = false
+loadFavicon          = true
+
+customCSS            = ["/css/main.min.css"]
+customJS             = ["/js/main.min.js"]
+
+[params.intro]
+header    = "墨冊，知累成果"
+paragraph = "筆墨日積終將成冊，知識月累便可結果"
+
+about     = "研發替代役服役中 ING"
+
+[params.intro.pic]
+src       = "/img/avatar.jpg"
+circle    = true
+imperfect = false
+width     = "150px"
+alt       = "Avatar"
+
+[params.postAmount]
+sidebar = 5
+
+[[menu.main]]
+name = "所有文章"
+url = "/post"
+identifier = "fa fa-newspaper-o"
+weight = 1
+
+[[menu.main]]
+name = "分類"
+url = "/categories"
+weight = 2
+identifier = "fa fa-book"
+
+[[menu.main]]
+name = "關於我"
+url = "/about"
+identifier = "fa fa-user"
+weight = 3
+
+[social]
+github          = "kylinfish"
+flickr          = "kylinyu"
+linkedin        = "win-yu-0537717b"
+slideshare      = "kylinfish"
+email           = "kylinfish@gmail.tw"
