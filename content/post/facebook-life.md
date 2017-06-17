@@ -2,7 +2,6 @@
 author = "win"
 categories = ["技術"]
 date = "2017-04-12T00:25:22+08:00"
-description = "自我表述"
 tags = ["Facebook"]
 title = "走訪 Facebook 工程師的職涯 - 心得分享"
 banner = "https://scontent-tpe1-1.xx.fbcdn.net/v/t31.0-8/17834018_1247160802019964_6060533206865393127_o.jpg?oh=f73e804a2417b00f3ca418d7db380d7b&oe=59D89FB0"
