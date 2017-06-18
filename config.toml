@@ -1,7 +1,7 @@
 baseurl = "https://www.kylinyu.win"
 languageCode = "zh-tw"
 title = "錢麟的墨冊"
-theme = "hugo-future-imperfect"
+theme = "hugo-win"
 preserveTaxonomyNames = true
 paginate = 3
 disqusShortname = "https-kylinyu-win"
