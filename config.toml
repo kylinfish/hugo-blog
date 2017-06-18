@@ -27,7 +27,7 @@ customJS             = ["/js/main.min.js"]
 header    = "墨冊，知累成果"
 paragraph = "筆墨日積終將成冊，知識月累便可結果"
 
-about     = "研發替代役服役中 ING"
+about     = "關於我"
 
 [params.intro.pic]
 src       = "/img/avatar.jpg"
@@ -63,3 +63,6 @@ flickr          = "kylinyu"
 linkedin        = "win-yu-0537717b"
 slideshare      = "kylinfish"
 email           = "kylinfish@gmail.tw"
+
+[taxonomies]
+category = "categories"
