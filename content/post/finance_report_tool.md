@@ -29,7 +29,7 @@ banner = "https://fsv.cmoney.tw/cmstatic/notes/capture/29464/20140603145322995.p
 
 <iframe width="700px"  height="500px" src="https://docs.google.com/spreadsheets/d/10962IoGVE42szI2Rg7cJkiwhw5SR5cMUms3D7WtG6EU/pubhtml?widget=true&amp;headers=false"></iframe>
 
-### [☞ 個人整理的理財樣板 *傳送門* ➹](https://spreadsheets1.google.com/spreadsheet/pub?key=0AjU_rJcQHTNFdE9Iaml2Y0FzLTVfalZ5LW5mUWJsSkE&output=htm) 
+### [☞ 個人整理的理財樣板 *傳送門* ➹](https://docs.google.com/spreadsheets/d/10962IoGVE42szI2Rg7cJkiwhw5SR5cMUms3D7WtG6EU/edit?usp=sharing) 
 
 
 ----
@@ -47,6 +47,15 @@ banner = "https://fsv.cmoney.tw/cmstatic/notes/capture/29464/20140603145322995.p
 
 * __預算單__
     * 為自己擬定預算，提前做規劃，假設在不久之後要花一筆出國基金，你可以警惕自己最近該節省些來累積出國預算
+
+* __月理財計畫__
+    * 這是`最重要`的一部分，搭配記帳妥善分配每個月的支出與儲蓄項目。
+
+* __紅包/稅金__
+    * 獎金領多少
+    * 紅包每年都包多少
+    * 稅金繳多少
+    * 一表知多少
 
 * __保單__
     * ___人生在走，保單要有。___ 你知道你現在
