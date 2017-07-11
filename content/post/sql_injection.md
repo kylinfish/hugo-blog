@@ -1,11 +1,9 @@
 +++
 categories = ['技術']
+tags = ["PHP", "sql_injection", "web_security"]
 date = "2017-06-28T18:02:51+08:00"
 description = "SQL Injection 防範"
-featured = ""
 featuredalt = "sql injection demo"
-featuredpath = "https://encrypted-tbn0.gstatic.com/images?q=tbn:https://thecustomizewindows.com/wp-content/uploads/2013/03/SQL-Injection.jpg"
-linktitle = ""
 title = "基本的網頁安全與防護"
 +++
 
@@ -15,6 +13,7 @@ title = "基本的網頁安全與防護"
 * Using __PDO__
 * Using __MySQLi__ (MySQLi does true prepared statements all the time.)
 
+<!--more-->
 [🔗  How can I prevent SQL injection in PHP?](http://stackoverflow.com/questions/60174/how-can-i-prevent-sql-injection-in-php?rq=1)
 
 <br>
