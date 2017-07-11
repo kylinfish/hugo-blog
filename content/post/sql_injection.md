@@ -4,7 +4,7 @@ tags = ["PHP", "sql_injection", "web_security"]
 date = "2017-06-28T18:02:51+08:00"
 description = "SQL Injection 防範"
 featuredalt = "sql injection demo"
-title = "基本的網頁安全與防護"
+title = "基本的網頁安全與防護 - SQL Injection"
 +++
 
 ## 基礎 SQL Injection 防範
