@@ -9,7 +9,7 @@ title = "基本的網頁安全與防護 - SQL Injection"
 
 ## 基礎 SQL Injection 防範
 
-### <span class="text-primary">✵ 使用 `prepared statements` 和 `parameterized queries`</span>
+### ✵ 使用 `prepared statements` 和 `parameterized queries`
 * Using __PDO__
 * Using __MySQLi__ (MySQLi does true prepared statements all the time.)
 
@@ -18,7 +18,7 @@ title = "基本的網頁安全與防護 - SQL Injection"
 
 <br>
 
-### <span class="text-primary">✵ 別使用易受攻擊的編碼形式進行連線 (only use utf8 / latin1 / ascii / etc)</sapn>
+### ✵ 別使用易受攻擊的編碼形式進行連線 (only use utf8 / latin1 / ascii / etc)
 * 別使用 __utf8__, __latin1__, __ascii__ 以外的編碼
 * 可以在 MySQL 設定中指定 __charset__
 * 或針對 MySQL 連線指定編碼，使用 `set_charset`
@@ -27,7 +27,7 @@ title = "基本的網頁安全與防護 - SQL Injection"
 
 <br>
 
-### <span class="text-primary">✵ 跳脫 input 欄位，使用 `mysqli_real_escape_string()`</span>
+### ✵ 跳脫 input 欄位，使用 `mysqli_real_escape_string()`
 * 根據 __charset__ 來對字串做特殊字元的跳脫 escaped
 * `一定要指定 charset` __[重要]__
 
