@@ -9,3 +9,5 @@ deploy:
 	(cp robots.txt ./public/)
 	firebase deploy
 
+dev:
+	hugo server --theme=hugo-win-bs-theme --buildDrafts
