@@ -1,7 +1,7 @@
 baseurl = "https://kylinyu.win/"
 languageCode = "zh-tw"
 title = "錢麟的墨冊"
-theme = "phlat"
+theme = "hugo-win-bs-theme"
 preserveTaxonomyNames = true
 paginate = 3
 
@@ -22,7 +22,7 @@ includeReadingTime   = false
 loadFavicon          = true
 
 google_analytics = "UA-36878065-5"
-google_adsense = "ca-pub-XXXXXXXX"
+google_adsense = "ca-pub-2289914248932186"
 disqus = "https-kylinyu-win"
 google_webmaster = ""
 bing_webmaster = ""
