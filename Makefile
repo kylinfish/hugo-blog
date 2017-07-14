@@ -10,4 +10,6 @@ deploy:
 	firebase deploy
 
 dev:
-	hugo server --theme=hugo-win-bs-theme --buildDrafts
+	(rm -rf public)
+	(hugo)
+	(hugo server --theme=readable --buildDrafts)
