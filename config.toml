@@ -14,24 +14,27 @@ paginate = 3
     category = "categories"
 
 [params]
+author               = "Win"
 keywords             = ["錢麟的墨冊", "kylinwin", "win", "Blog", "技術筆記", "front"]
 description          = "錢麟的墨冊 墨冊 技術筆記 生活記事 旅遊日誌 筆墨日積終將成冊，知識月累便可結果"
+footer_description   = "技術筆記 x 生活記事 x 旅遊日誌。筆墨日積終將成冊，知識月累便可結果"
+blog_categories      = ["技術", "生活"]
 
 categoriesByCount    = true
 includeReadingTime   = false
 loadFavicon          = true
 
 google_analytics = "UA-36878065-5"
-google_adsense = "ca-pub-2289914248932186"
 disqus = "https-kylinyu-win"
-google_webmaster = ""
-bing_webmaster = ""
-alexa = ""
-twitter = "https://www.twitter.com/nraboy"
-googleplus = ""
-linkedin = ""
-youtube = ""
-paypal = ""
+
+[social]
+github          = "kylinfish"
+flickr          = "kylinyu"
+linkedin        = "win-yu-0537717b"
+slideshare      = "kylinfish"
+email           = "kylinfish@gmail.tw"
+
+
 
 [[menu.header]]
     name = "所有文章"
