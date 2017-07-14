@@ -4,7 +4,7 @@ date = "2017-07-12T17:21:50+08:00"
 tags = [ "Lumen", "tinker", "PHP" ]
 categories = ["技術"]
 title = "Lumen 使用 php artisan tinker"
-relative_banner = "/post/lumen.jpg"
+relative_banner = "post/lumen.jpg"
 +++
 Lumen 沒有像 Laravel 一樣可以直接使用 Tinker。
 
