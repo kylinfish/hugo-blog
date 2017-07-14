@@ -2,11 +2,10 @@
 categories = []
 date = "2017-06-17T22:52:12+08:00"
 description = "墨冊作者簡歷 自我介紹"
-featured = ""
-featuredalt = ""
-featuredpath = ""
+absolute_banner = "https://c1.staticflickr.com/1/428/20338708296_c5a37ef098_b.jpg"
 linktitle = "about 墨冊作者簡歷"
 title = "about"
+
 
 +++
 
