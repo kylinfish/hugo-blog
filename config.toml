@@ -6,7 +6,7 @@ preserveTaxonomyNames = true
 paginate = 3
 
 [permalinks]
-    post = "/post/:slug-:year-:month"
+    post = "/post/:slug"
     page = "/:slug"
 
 [taxonomies]
