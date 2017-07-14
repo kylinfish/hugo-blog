@@ -1,13 +1,13 @@
 baseurl = "https://kylinyu.win/"
 languageCode = "zh-tw"
 title = "錢麟的墨冊"
-theme = "hugo-win-bs-theme"
+theme = "readable"
 preserveTaxonomyNames = true
 paginate = 3
 
 [permalinks]
-    post = "/:year/:month/:slug/"
-    page = "/:slug/"
+    post = "/post/:slug-:year-:month"
+    page = "/:slug"
 
 [taxonomies]
     tag = "tags"
@@ -18,7 +18,7 @@ author               = "Win"
 keywords             = ["錢麟的墨冊", "kylinwin", "win", "Blog", "技術筆記", "front"]
 description          = "錢麟的墨冊 墨冊 技術筆記 生活記事 旅遊日誌 筆墨日積終將成冊，知識月累便可結果"
 footer_description   = "技術筆記 x 生活記事 x 旅遊日誌。筆墨日積終將成冊，知識月累便可結果"
-blog_categories      = ["技術", "生活"]
+blog_categories      = ["技術", "生活", "旅遊"]
 
 categoriesByCount    = true
 includeReadingTime   = false
