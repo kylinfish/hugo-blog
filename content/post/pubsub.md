@@ -4,14 +4,15 @@ tags = ['Google']
 date = "2017-06-19T19:09:12+08:00"
 description = "HEAD FIRST Google Pub/Sub"
 title = "認識 Google Pub/Sub"
-banner = "/img/wp_flow.png"
+absolute_banner = "https://firebasestorage.googleapis.com/v0/b/hugo-81880.appspot.com/o/post%2Fwp_flow.png?alt=media&token=af267843-69e6-438a-a528-cc8bf5bdfa70"
 +++
-# [🔗  What is Google Cloud Pub/Sub?](https://cloud.google.com/pubsub/docs/overview)
 
-## Note about Google `Pub/Sub`
+初探 Google PubSub，根據官方文件來做筆記
 
-`Pub/Sub` 是一種 messaging service，適合拿來做不同服務間的 __訊息傳遞__ 或者 __狀態同步__ 。
+[🔗  What is Google Cloud Pub/Sub?](https://cloud.google.com/pubsub/docs/overview)
+
 <!--more-->
+`Pub/Sub` 是一種 messaging service，適合拿來做不同服務間的 __訊息傳遞__ 或者 __狀態同步__ 。
 
 ## ❖ 主要名詞認識
 * __Message__: 要傳送的 data
@@ -61,7 +62,7 @@ banner = "/img/wp_flow.png"
 
 ## ❖ Subscriber 操作面
 
-### 對訂閱者來說有兩種處理 Message 的方式，分別為 __PULL__ 跟 __PUSH__.
+#### 對訂閱者來說有兩種處理 Message 的方式，分別為 __PULL__ 跟 __PUSH__.
 
 * [`push`](https://cloud.google.com/pubsub/docs/push)
  * 送一個 request 給 App 的 endpoint 說我要傳訊息來。
@@ -71,7 +72,7 @@ banner = "/img/wp_flow.png"
 * [`pull`](https://cloud.google.com/pubsub/docs/pull)
  * 視為被動的取得訂閱佇列 (subscription queue) 中的 Message
 
-### 兩者機制要怎麼選用，有以下建議
+#### 兩者機制要怎麼選用，有以下建議
 
 * `push`
  * 低流量情形 (< 10,000/second)

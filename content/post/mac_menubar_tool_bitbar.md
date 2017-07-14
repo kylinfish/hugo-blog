@@ -5,7 +5,7 @@ description = "理財工具 監控外幣 美金 日幣 外幣購買 自動化工
 draft = true
 tags = ["mac", "工具", "理財"]
 title = "監控外幣不求人，我的外幣自己看"
-banner = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1kmERoNgPYu21QYN8Oy17QFX9BvvelyrGx7Tw4ZTWOEa2D7AlvA"
+absolute_banner = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1kmERoNgPYu21QYN8Oy17QFX9BvvelyrGx7Tw4ZTWOEa2D7AlvA"
 +++
 
 偶然的某天發現 [BitBar](https://github.com/matryer/bitbar) 的工具。

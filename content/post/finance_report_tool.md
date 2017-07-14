@@ -4,7 +4,7 @@ date = "2017-01-07T23:11:43+08:00"
 description = "自己學會理財，先跨出這一步，才有投資"
 tags = ["理財","工具"]
 title = "免門檻的理財，自己的財自己理"
-banner = "https://fsv.cmoney.tw/cmstatic/notes/capture/29464/20140603145322995.png"
+absolute_banner = "https://firebasestorage.googleapis.com/v0/b/hugo-81880.appspot.com/o/post%2Ffinance.jpg?alt=media&token=63409e91-622d-4450-adc2-093a1b81e2c0"
 +++
 
 ## **『理財』**，學校沒教的事。

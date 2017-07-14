@@ -4,14 +4,13 @@ categories = ["技術"]
 date = "2017-04-12T00:25:22+08:00"
 tags = ["Facebook"]
 title = "走訪 Facebook 工程師的職涯 - 心得分享"
-banner = "https://scontent-tpe1-1.xx.fbcdn.net/v/t31.0-8/17834018_1247160802019964_6060533206865393127_o.jpg?oh=f73e804a2417b00f3ca418d7db380d7b&oe=59D89FB0"
+relative_banner = "post/fb_hq.jpg"
 +++
 上次參訪 Facebook 回來，再看到這篇文章，分享一下自己的見解:
 
 > ___[前 Facebook 工程師給年輕人的 8 個提醒：有一種瞎忙，叫做自我滿足式的忙碌] (https://buzzorange.com/techorange/2016/05/16/correct-thnking-entering-the-workforce/)___
 
 <!--more-->
-![Win's pic on FBHQ](https://scontent-tpe1-1.xx.fbcdn.net/v/t31.0-8/17834018_1247160802019964_6060533206865393127_o.jpg?oh=f73e804a2417b00f3ca418d7db380d7b&oe=59D89FB0)
 
 ## ❖ 主動找事做和思考
 
