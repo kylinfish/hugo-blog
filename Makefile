@@ -5,8 +5,7 @@ all:
 deploy:
 	(rm -rf public)
 	(hugo)
-	(cp ./public/post/index.html ./public/index.html)
-	(cp robots.txt ./public/)
+	(cp robots.txt ./public/robots.txt)
 	firebase deploy
 
 dev:
