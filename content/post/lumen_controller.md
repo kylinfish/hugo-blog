@@ -6,6 +6,7 @@ tags = [ "Lumen", "Controller" ]
 categories = [ "技術" ]
 title = "初探 Lumen Micro Framework - Controller"
 relative_banner = "post/lumen.jpg"
+og_images = ["https://kylinyu.win/img/post/lumen.jpg"]
 +++
 
 ## 簡介

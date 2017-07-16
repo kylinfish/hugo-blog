@@ -5,6 +5,7 @@ tags = [ "Lumen", "tinker", "PHP" ]
 categories = ["技術"]
 title = "Lumen 使用 php artisan tinker"
 relative_banner = "post/lumen.jpg"
+og_images = ["https://kylinyu.win/img/post/lumen.jpg"]
 +++
 Lumen 沒有像 Laravel 一樣可以直接使用 Tinker。
 

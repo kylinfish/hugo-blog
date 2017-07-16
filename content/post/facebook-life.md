@@ -5,6 +5,7 @@ date = "2017-04-12T00:25:22+08:00"
 tags = ["Facebook"]
 title = "走訪 Facebook 工程師的職涯 - 心得分享"
 relative_banner = "post/fb_hq.jpg"
+og_images = ["https://kylinyu.win/img/post/fb_hq.jpg"]
 +++
 上次參訪 Facebook 回來，再看到這篇文章，分享一下自己的見解:
 

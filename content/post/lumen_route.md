@@ -5,6 +5,7 @@ tags = [ "Lumen" ,"Routing"]
 categories = ["技術"]
 title = "初探 Lumen Micro Framework - Routing"
 relative_banner = "post/lumen_route.jpg"
+og_images = ["https://kylinyu.win/img/post/lumen_route.jpg"]
 +++
 
 筆記一下 Lumen 提供的 Route 功能

@@ -6,6 +6,7 @@ tags = [ "Lumen", "Middleware" ]
 categories = [ "技術" ]
 title = "初探 Lumen Micro Framework - Middleware"
 relative_banner = "post/lumen.jpg"
+og_images = ["https://kylinyu.win/img/post/lumen.jpg"]
 +++
 
 Middleware 是介於 Http 跟 Application 之間的中間層，Lumen 與 Laravel 一樣有提供 Middleware 的中繼層

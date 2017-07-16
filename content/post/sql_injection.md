@@ -6,6 +6,7 @@ description = "SQL Injection 防範"
 featuredalt = "sql injection demo"
 title = "基本的網頁安全與防護 - SQL Injection"
 relative_banner = "post/sql_injection.jpg"
+og_images = ["https://kylinyu.win/img/post/sql_injection.jpg"]
 +++
 
 現在都依賴 Framework 來幫我們阻擋基本的 SQL Injection 防範
