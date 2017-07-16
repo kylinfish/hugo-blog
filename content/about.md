@@ -2,12 +2,13 @@
 categories = []
 date = "2017-06-17T22:52:12+08:00"
 description = "墨冊作者簡歷 自我介紹"
-absolute_banner = "https://c1.staticflickr.com/1/428/20338708296_c5a37ef098_b.jpg"
+absolute_banner = "https://c1.staticflickr.com/9/8045/29896675335_3e91c5db99_b.jpg"
 linktitle = "about 墨冊作者簡歷"
-title = "about"
-
-
+title = "About Win"
+og_images = ["https://c1.staticflickr.com/9/8045/29896675335_3e91c5db99_b.jpg"]
 +++
+
+* [🔗  My Linkedin](https://www.linkedin.com/in/openwinyu)
 
 ## ♘ INTRODUCTION
 
