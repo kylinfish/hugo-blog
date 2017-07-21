@@ -6,6 +6,7 @@ tags = [ "vim", "zsh", "bash", "tmux" ]
 categories = [ "技術"]
 title = "在 Terminal 環境下的開發配置"
 relative_banner = "post/workenv.jpg"
+og_images = ["https://kylinyu.win/img/post/workenv.jpg"]
 +++
 
 在 Teminal 底下開發時間約三年，環境的工具以及整合修改隨著時間與見識也不斷進化。
