@@ -1,6 +1,6 @@
 +++
 draft = false
-description = "Terminal 底下的開發環境 vim 的設定 tmux bash fzf 套件整合"
+description = "Terminal 底下的開發環境 vim 的設定 tmux zsh fzf 套件整合"
 date = "2017-07-21T11:15:50+50:00"
 tags = [ "vim", "zsh", "bash", "tmux" ]
 categories = [ "技術"]
@@ -34,7 +34,7 @@ vim 的個人配置與使用習慣都大相徑庭，這邊點出對於工作流�
  * 有時候還是想要查看目錄底下的檔案方便進一步搜尋，並且可以在不離開 vim 做檔案的 __新增/重新命名/複製/刪除__ 等動作
 
 * `majutsushi/tagbar`
- * 總覽專案規模以及變處查找的時候會使用
+ * 總覽專案規模以及變數查找的時候會使用
 
 <img src="/img/post/nerdtree_with_tagbar.jpg" alt="nerdtree with tagbar image" width="100%">
 
