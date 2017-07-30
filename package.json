@@ -1,0 +1,24 @@
+{
+  "name": "hugo_blog",
+  "version": "1.0.0",
+  "description": "My blog build via hugo.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kylinfish/hugo-blog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kylinfish/hugo-blog/issues"
+  },
+  "homepage": "https://github.com/kylinfish/hugo-blog#readme",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-html-minifier": "^0.1.8",
+    "html-minifier": "^3.5.3"
+  }
+}
