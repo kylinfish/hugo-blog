@@ -1,10 +1,13 @@
 #
 all:
 	(git pull)
+	(rm -rf public)
+	(hugo)
 
 deploy:
 	(rm -rf public)
 	(hugo)
+	(gulp)
 	(cp robots.txt ./public/robots.txt)
 	firebase deploy
 
