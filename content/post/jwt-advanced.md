@@ -80,6 +80,9 @@ JWT Token 通常長度不會太小，特別是 <b class="text-primary">Stateless
 ```
 以上兩篇針對 JWT 的討論與筆記，如果有不同的意見歡迎討論，如果有錯誤也歡迎指證。 感謝
 ```
+<br>
+
+----
 
 #### 參考資料
 * [🔗  JWT, wtf?](https://www.slideshare.net/Codemotion/jwt-wtf-phil-nash-codemotion-amsterdam-2017)
