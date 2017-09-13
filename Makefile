@@ -11,7 +11,7 @@ deploy:
 	(cp robots.txt ./public/robots.txt)
 	firebase deploy
 
-dev:
+run:
 	(rm -rf public)
 	(hugo)
 	(hugo server --theme=readable --buildDrafts)
