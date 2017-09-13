@@ -60,3 +60,6 @@ National Kaohsiung University of Applied Science. (KUAS)
 * `Pattern Recognition Final Report` [Video Face Recognition](http://www.slideshare.net/kylinfish/video-face-recognition-pattern-recognition-final-report-43037436)
 
 
+<script type="text/javascript">
+(function(d,s,id){var z=d.createElement(s);z.type="text/javascript";z.id=id;z.async=true;z.src="//static.zotabox.com/0/b/0b20715fb7c5566c7604a7940f10f254/widgets.js";var sz=d.getElementsByTagName(s)[0];sz.parentNode.insertBefore(z,sz)}(document,"script","zb-embed-code"));
+</script>
