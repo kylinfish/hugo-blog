@@ -73,7 +73,7 @@ root 可以對 server 作任何修改，包含安裝軟體，或是 rm -rf /
 
 完成之後，可以看到在 GCP 的專案列表上的 instance 外部 IP 點選下去，會發現網頁出現 _拒絕連線_
 
-由於目前還沒有 SSL 憑證，所以會連不上，請手動取消 ~https~ 的 `s`，改用 http 連線，就可以看到你的 Apache2 Server 起來了
+由於目前還沒有 SSL 憑證，所以會連不上，請手動取消 `https` 的 `s`，改用 http 連線，就可以看到你的 Apache2 Server 起來了
 
 <img src="/img/post/workshop/1/7.png" width="100%">
 
