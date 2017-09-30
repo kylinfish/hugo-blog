@@ -3,7 +3,7 @@ description = "設定 Apache2 Server 的 Virtual Host"
 date = "2017-09-30T23:46:50+08:00"
 categories = [ "技術" ]
 title = "Workshop3 - My Virtual Host"
-tags = [ "GCP", "Apache2" ]
+tags = [ "GCP", "Apache2", "workshop-sre" ]
 relative_banner = "post/workshop/workshop-3.jpg"
 +++
 

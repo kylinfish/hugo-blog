@@ -2,7 +2,7 @@
 title = "Workshop2 - 安裝 PHP, MySQL, phpMyAdmin"
 description = "在 Google Cloud Platform(GCP) Web server. 安裝 PHP"
 date = "2017-09-16T12:04:50+08:00"
-tags = [ "GCP", "Apache2" ]
+tags = [ "Apache2", "workshop-sre"]
 categories = [ "技術" ]
 relative_banner = "post/workshop/workshop-2.jpg"
 +++
