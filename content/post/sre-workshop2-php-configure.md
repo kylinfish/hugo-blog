@@ -32,11 +32,11 @@ $ sudo apt-get install php7.0
 $ php -v
 ```
 
-<img src="/img/post/workshop/2/1.png" width="100%">
+<img src="/img/post/workshop/2/1.jpg" width="100%">
 
 安裝完之後檢查 PHP 版本...
 
-<img src="/img/post/workshop/2/2.png" width="100%">
+<img src="/img/post/workshop/2/2.jpg" width="100%">
 
 ## 2. Install & Configure MySQL 8
 
@@ -45,7 +45,7 @@ $ php -v
 #### 2.1 到 MySQL 官網複製 Package 網址
 [mysql-apt-config_0.8.7-1_all.deb 檔案下載頁面](https://dev.mysql.com/downloads/file/?id=472393) 
 
-<img src="/img/post/workshop/2/3.png" width="100%">
+<img src="/img/post/workshop/2/3.jpg" width="100%">
 
 #### 2.2 使用 wget 下載到你的 Server
 ```
@@ -57,13 +57,13 @@ $ wget https://dev.mysql.com/get/mysql-apt-config_0.8.7-1_all.deb
 $ sudo dpkg -i  {package}.deb
 ```
 
-<img src="/img/post/workshop/2/4.png" width="100%">
+<img src="/img/post/workshop/2/4.jpg" width="100%">
 
 #### 2.4 設定你要安裝的 Database
 
 ##### 2.4.1 設定 apt-get 來安裝 MySQL
 該流程有三種 options:
-<img src="/img/post/workshop/2/5.png" width="100%">
+<img src="/img/post/workshop/2/5.jpg" width="100%">
 
 
 我們選 `mysql-8.0 preview`，其餘兩個設定就使用 default 即可
@@ -79,11 +79,11 @@ ok 之後，我們要透過 apt-get 進行更新抓到我們的設定檔，並�
 $ sudo apt-get update
 $ sudo apt-get install mysql-server
 ```
-<img src="/img/post/workshop/2/6.png" width="100%">
+<img src="/img/post/workshop/2/6.jpg" width="100%">
 
 設定 root 密碼，接著進行一連串的安裝動作
 
-<img src="/img/post/workshop/2/7.png" width="100%">
+<img src="/img/post/workshop/2/7.jpg" width="100%">
 
 #### 2.5 測試安裝結果
 ```
@@ -96,7 +96,7 @@ $ show databases;
     - -p: 接著會進入輸入密碼模式
 - show databases; <span class="text-info">// 顯示目前的 Database 清單</span>
 
-<img src="/img/post/workshop/2/8.png" width="100%">
+<img src="/img/post/workshop/2/8.jpg" width="100%">
 
 影片部分可以參考[這裏](https://www.youtube.com/watch?v=G7F89QS5G3g)
 
@@ -121,8 +121,8 @@ $ ln -s /etc/phpmyadmin/apache.conf /etc/apache2/conf-enabled/phpmyadmin.conf
 $ sudo service apache2 restart
 ```
 
-<img src="/img/post/workshop/2/9.png" width="100%">
-<img src="/img/post/workshop/2/10.png" width="100%">
+<img src="/img/post/workshop/2/9.jpg" width="100%">
+<img src="/img/post/workshop/2/10.jpg" width="100%">
 
 
 ## 4. Build your staging
@@ -139,7 +139,7 @@ $ echo '<?php phpinfo(); ?>' > ~/staging/index.php
 ```
 
 拜訪 <a href="">http://{YOUR IP ADDRESS}/staging/</a>
-<img src="/img/post/workshop/2/11.png" width="100%">
+<img src="/img/post/workshop/2/11.jpg" width="100%">
 
 
 ## 5. Homework: put your PHP example for staging
@@ -148,4 +148,4 @@ $ echo '<?php phpinfo(); ?>' > ~/staging/index.php
 
 [PIXNET Emma API Example Source Code](https://github.com/kylinfish/pixnet-emma-demo)
 
-<img src="/img/post/workshop/2/12.png" width="100%">
+<img src="/img/post/workshop/2/12.jpg" width="100%">
