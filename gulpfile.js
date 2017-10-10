@@ -1,5 +1,7 @@
 const gulp = require('gulp'),
-    htmlmin = require('gulp-html-minifier');
+    htmlmin = require('gulp-html-minifier'),
+    minifyjs = require('gulp-js-minify'),
+    cleanCSS = require('gulp-clean-css');
 
 /*                                                                   oooo
  *                                                                   `888
@@ -12,9 +14,20 @@ const gulp = require('gulp'),
  *     "Y88888P'
  */
 
-gulp.task('default', function() {
+gulp.task('default', ['minify-css', 'minify-js'], () => {
   return gulp.src('./public/**/*.html')
     .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest('./public/'))
 });
 
+gulp.task('minify-css', () => {
+    return gulp.src('./public/css/**/*.css')
+    .pipe(cleanCSS({compatibility: 'ie8'}))
+    .pipe(gulp.dest('./public/css'));
+});
+
+gulp.task('minify-js', () => {
+    gulp.src('./public/js/**/*.js')
+    .pipe(minifyjs())
+    .pipe(gulp.dest('./public/js'));
+});
