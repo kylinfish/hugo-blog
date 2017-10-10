@@ -22,6 +22,7 @@ gulp.task('default', ['minify-css', 'minify-js'], () => {
 
 gulp.task('minify-css', () => {
     return gulp.src('./public/css/**/*.css')
+    .pipe(cleanCSS({compatibility: '*'}))
     .pipe(gulp.dest('./public/css'));
 });
 
