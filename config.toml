@@ -6,9 +6,9 @@ preserveTaxonomyNames = true
 paginate = 5
 
 [permalinks]
-    post    = "/:slug"
-    page    = "/:slug"
-    travel  = "/:slug"
+    post    = "/:filename"
+    page    = "/:filename"
+    travel  = "/:filename"
 
 [taxonomies]
     tag = "tags"
