@@ -2,7 +2,6 @@
 categories = ["技術", "生活"]
 date = "2017-06-10T01:16:40+08:00"
 description = "理財工具 監控外幣 美金 日幣 外幣購買 自動化工具 匯率擷取"
-draft = true
 tags = ["mac", "工具", "理財"]
 title = "監控外幣不求人，我的外幣自己看"
 absolute_banner = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1kmERoNgPYu21QYN8Oy17QFX9BvvelyrGx7Tw4ZTWOEa2D7AlvA"
