@@ -7,6 +7,7 @@ deploy: clean
 	(hugo)
 	(gulp)
 	(cp robots.txt ./public/robots.txt)
+	(cp sitemap.xml ./public/sitemap.xml)
 	firebase deploy
 
 run: clean
