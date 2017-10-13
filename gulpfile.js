@@ -1,6 +1,7 @@
 const gulp = require('gulp'),
     htmlmin = require('gulp-html-minifier'),
     minifyjs = require('gulp-js-minify'),
+    purify = require('gulp-purifycss'),
     cleanCSS = require('gulp-clean-css');
 
 /*                                                                   oooo
@@ -20,7 +21,13 @@ gulp.task('default', ['minify-css', 'minify-js'], () => {
     .pipe(gulp.dest('./public/'))
 });
 
-gulp.task('minify-css', () => {
+gulp.task('purify-css', () => {
+    return gulp.src('./public/css/**/*.css')
+    .pipe(purify(['./public/js/**/*.js', './public/**/*.html']))
+    .pipe(gulp.dest('./public/css/'));
+});
+
+gulp.task('minify-css', ['purify-css'], () => {
     return gulp.src('./public/css/**/*.css')
     .pipe(cleanCSS({compatibility: '*'}))
     .pipe(gulp.dest('./public/css'));
