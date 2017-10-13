@@ -15,3 +15,6 @@ run:
 	(rm -rf public)
 	(hugo)
 	(hugo server --theme=readable --buildDrafts)
+
+clean:
+	(rm -rf public)
