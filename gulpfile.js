@@ -17,7 +17,7 @@ const gulp = require('gulp'),
 
 gulp.task('default', ['minify-css', 'minify-js'], () => {
   return gulp.src('./public/**/*.html')
-    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(htmlmin({collapseWhitespace: true, conservativeCollapse: true}))
     .pipe(gulp.dest('./public/'))
 });
 
