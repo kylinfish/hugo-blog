@@ -13,7 +13,7 @@ relative_banner = "post/workshop/workshop-1.jpg"
 
 <!--more-->
 
-## Agenda:
+#### Agenda:
 1. Sign up GCP (Google Cloud Platform)
 2. Add SSK Key
 3. Boot your first server
