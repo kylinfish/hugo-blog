@@ -144,9 +144,10 @@ SELECT id, email, status FROM users WHERE `email` = {email} AND `token` = {token
 - 解決碎片浪費空間的方法
     - mysql optimze table
     - 需要時間，還會 `Lock Table` !!!!
-::: success
+
+{{< alert "alert-success" >}}
 若欄位業務很常要 update 但不想要產生碎片，就用 char 吧!!
-:::
+{{< /alert >}}
 
 
 ### 延伸問題
