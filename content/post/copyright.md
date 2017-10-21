@@ -4,7 +4,7 @@ tags = [ "智慧財產權", "個資法" ]
 date = "2017-09-28T17:05:12+08:00"
 categories = [ "生活" ]
 title = "數位媒體人的法律須知 - 著作權與個資法"
-absolute_banner="http://www.etheringtons.com.au/wp-content/uploads/2016/08/Depositphotos_15618835_s.jpg"
+relative_banner = "post/copyright.jpg"
 +++
 
 天天處在數位媒體環境中的工作者，對於著作權與個資法相關的法律知識要有基礎的認識。
