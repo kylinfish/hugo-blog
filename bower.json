@@ -1,0 +1,20 @@
+{
+    "name": "hugo_blog",
+    "description": "My blog build via hugo.",
+    "main": "index.js",
+    "authors": [
+        "kylinfish@gmail.com"
+    ],
+    "license": "ISC",
+    "homepage": "https://kylinyu.win",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "bootstrap-social": "^5.1.1"
+    }
+}
