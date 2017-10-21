@@ -164,6 +164,7 @@ SELECT id, email, status FROM users WHERE `email` = {email} AND `token` = {token
 <br>
 
 ***以上為聽 Ant 口語跟 Demo 操作時的個人筆記，建議大家都可以試著自己操作分析加深印象***
+
 ref. [Hackmd 版本] (https://hackmd.io/s/ry3xWNE6-)
 
 <br>
