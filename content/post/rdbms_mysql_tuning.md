@@ -69,7 +69,7 @@ https://github.com/major/MySQLTuner-perl
 
 
 ### Tuning the query cache
-![tuning the query cache sample flow](/img/post/rdbms_tune/query_tune.jpg)
+<img src="/img/post/rdbms_tune/query_tune.jpg" width="100%" alt="tuning the query cache sample flow">
 
 - 佔記憶體空間，又有查詢成本
 - Cache 最大的問題是 ***更新資料策略***
@@ -79,7 +79,7 @@ https://github.com/major/MySQLTuner-perl
     - So, `query cache` will no longer be supported in MySQL 8.0
 
 ### Connection Pool
-![connection pool demo flow](/img/post/rdbms_tune/connect_pool.jpg)
+<img src="/img/post/rdbms_tune/connect_pool.jpg" width="100%" alt="connection pool demo flow">
 
 - like [PHP swool extension](https://github.com/swoole/php-cp)
 - 傾向 Application 的執行面
@@ -87,7 +87,7 @@ https://github.com/major/MySQLTuner-perl
 - 建立連線的時候不用再走 3-steps Acks 跟 身份驗證層
 
 ### Thread Pool
-![MySQL with thread pool enabled](/img/post/rdbms_tune/mysql_thread_pool.jpg)
+<img src="/img/post/rdbms_tune/mysql_thread_pool.jpg" width="100%" alt="MySQL with thread pool enabled">
 
 - 在資料庫本身層級的 Pool
 - MySQL 的 Enterprise Edition 才有 Thread Pool
@@ -96,7 +96,7 @@ https://github.com/major/MySQLTuner-perl
 
 
 ### Buffer Pool
-![MySQL Buffer Pool demo flow](/img/post/rdbms_tune/mysql_buffer_pool.jpg)
+<img src="/img/post/rdbms_tune/mysql_buffer_pool.jpg" width="100%" alt="MySQL Buffer Pool demo flow">
 
 - 把資料跟 index 都從 Disk 抓出來放在 Memory(Buffer Pool) 中
 - 通常參數不要設定到 100%，系統層級還有其他部分要操作 Memory
