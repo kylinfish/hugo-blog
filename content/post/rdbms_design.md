@@ -4,12 +4,12 @@ description = "PHP 也有 Day - RDBMS 資料庫案例設計的口語筆記"
 date = "2017-10-18"
 tags = [ "RDBMS", "MySQL", "Index"]
 categories = [ "技術" ]
-title = "RDBMS 資料庫案例設計"
+title = "RDBMS 資料庫案例設計 (一) - Schema 設計技巧"
 relative_banner = "post/mysql-rdbms.jpg"
 og_images = ["post/mysql-rdbms.jpg"]
 +++
 
-此為 `PHP 也有 Day 番外篇 [name=Ant]` 的案例分享筆記
+`PHP 也有 Day 番外篇`，關於 Schema 的設計技巧 ...
 
 <!--more-->
 
@@ -177,3 +177,6 @@ ref. [Hackmd 版本] (https://hackmd.io/s/ry3xWNE6-)
 2. 複合鍵的 index 只有在後面的 index 可以用 RANGE QUERY (ex 大於, 小於) [ref](https://www.percona.com/blog/2009/09/12/3-ways-mysql-uses-indexes/)
 3. varchar & text 都會有 fragment 的問題，有些時候建議另外開一張表
 4. 如果 EXPLAIN 沒用 index，可以用 `USE INDEX ` 來 hint sql parse engine 來用
+
+
+see more: [RDBMS 資料庫案例設計 (二) - 最佳化設計技巧](/rdbms_mysql_tuning/)
