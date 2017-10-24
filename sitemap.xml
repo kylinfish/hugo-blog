@@ -3,6 +3,11 @@
     xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
     <url>
+        <loc>https://kylinyu.win/rdbms_mysql_tuning/</loc>
+        <lastmod>2017-10-24</lastmod>
+    </url>
+
+    <url>
         <loc>https://kylinyu.win/rdbms_design/</loc>
         <lastmod>2017-10-18</lastmod>
     </url>
