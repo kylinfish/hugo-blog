@@ -1,5 +1,4 @@
 +++
-draft = true
 description = "關於 2017 年的自我檢核"
 date = "2017-11-12T20:05:12+08:00"
 categories = [ "技術", "生活" ]
