@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/kylinfish/hugo-blog#readme",
   "dependencies": {
+    "critical": "^1.0.0",
     "gulp": "^3.9.1",
     "gulp-html-minifier": "^0.1.8",
     "gulp-js-minify": "0.0.3",
