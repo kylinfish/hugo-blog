@@ -1,9 +1,9 @@
 #
 all: clean
 	(git pull)
+	(hugo)
 	(gulp)
 	(cd themes/readable && make)
-	(hugo)
 
 deploy: clean
 	(hugo)
