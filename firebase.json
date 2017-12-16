@@ -1,17 +1,16 @@
 {
     "hosting": {
         "public": "public",
+        "ignore": [
+            "firebase.json",
+            "**/.*",
+            "**/node_modules/**"
+        ],
         "rewrites": [
             {
                 "source": "**",
                 "destination": "/index.html"
             }
-        ],
-
-        "ignore": [
-            "firebase.json",
-            "**/.*",
-            "**/node_modules/**"
         ],
 
         "redirects": [
@@ -94,29 +93,29 @@
 
         "headers": [
             {
-                "source": "**/*.@(eot|otf|ttf|ttc|woff|font.css)",
-                "headers": [
-                    {
-                        "key": "Access-Control-Allow-Origin",
-                        "value": "*"
-                    }
-                ]
-            },
-            {
                 "source": "**/*.@(jpg|jpeg|gif|png)",
                 "headers": [
                     {
                         "key": "Cache-Control",
-                        "value": "max-age=31536000"
+                        "value": "max-age=2592000"
                     }
                 ]
             },
             {
-                "source": "**/*.css)",
+                "source": "**/*.css",
                 "headers": [
                     {
                         "key": "Cache-Control",
-                        "value": "max-age=259200"
+                        "value": "max-age=604800"
+                    }
+                ]
+            },
+            {
+                "source": "**/*.js)",
+                "headers": [
+                    {
+                        "key": "Cache-Control",
+                        "value": "max-age=604800"
                     }
                 ]
             },
@@ -125,7 +124,7 @@
                 "headers": [
                     {
                         "key": "Cache-Control",
-                        "value": "max-age=7200"
+                        "value": "max-age=604800"
                     }
                 ]
             }
