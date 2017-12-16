@@ -3,10 +3,10 @@ categories = []
 tags = ["aboutme", "Machine learning", "Python", "Face Recognition"]
 date = "2017-06-17T22:52:12+08:00"
 description = "墨冊作者簡歷 自我介紹"
-absolute_banner = "https://c1.staticflickr.com/9/8045/29896675335_3e91c5db99_b.jpg"
+absolute_banner = "https://firebasestorage.googleapis.com/v0/b/hugo-81880.appspot.com/o/post%2Fcover.jpg?alt=media&token=00243998-b696-4581-8e4a-f452cd8bbc32"
 linktitle = "about 墨冊作者簡歷"
 title = "About Win"
-og_images = ["https://c1.staticflickr.com/9/8045/29896675335_3e91c5db99_b.jpg"]
+og_images = ["https://firebasestorage.googleapis.com/v0/b/hugo-81880.appspot.com/o/post%2Fcover.jpg?alt=media&token=00243998-b696-4581-8e4a-f452cd8bbc32"]
 +++
 
 <div class="pull-right col-md-4 widget-author  boxed  push-down-30">
