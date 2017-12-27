@@ -157,7 +157,7 @@ S3 Select 簡言之即是  partial select，部份擷取將可以更快速也能
 
 ### Getting into the Game
 - AWS 1-click
-    - Trigger by lambda function in every deviec.
+    - Trigger by lambda function in every device.
 
 ### Device Management
 - AWS IoT Device Management
