@@ -5,8 +5,8 @@ date = "2017-12-27T00:09:12+08:00"
 tags = [ "AWS", "reinvent" ]
 categories = [ "技術" ]
 title = "AWS re:Invent 2017 Keynote Day1 Recap"
-absolute_banner="https://firebasestorage.googleapis.com/v0/b/hugo-81880.appspot.com/o/post%2Freinvent%2Fkeynote1%2Freinvent-keynote1.jpg?alt=media&token=b29029ce-b1e7-4e19-b687-a3020954e291"
-og_images = ["https://firebasestorage.googleapis.com/v0/b/hugo-81880.appspot.com/o/post%2Freinvent%2Fkeynote1%2Freinvent-keynote1.jpg?alt=media&token=b29029ce-b1e7-4e19-b687-a3020954e291"]
+absolute_banner="/img/post/reinvent/reinvent-keynote.jpg"
+og_images = ["/img/post/reinvent/reinvent-keynote.jpg"]
 +++
 <style> h3 { color: #309ac1; } </style>
 
@@ -35,7 +35,7 @@ AWS 在這幾年的努力之後，除了累積了大量的企業用戶，整體�
 
 Andy 今年主要 Announce 所有與服務相關的項目，我們大致上可以分門別類為以下幾個大項
 
-{{< figure src="https://firebasestorage.googleapis.com/v0/b/hugo-81880.appspot.com/o/post%2Freinvent%2Fkeynote1%2Freinvent_1.jpg?alt=media&token=06239f3c-820e-4843-9bf6-e6940a946e90" title="AWS CEO Announce 2017 主線服務領域項目" >}}
+{{< figure src="/img/post/reinvent/service_items.jpg" title="AWS CEO Announce 2017 主線服務領域項目" >}}
 
 ## Compute
 包含運算單位的機器升級，產品變革。
@@ -43,7 +43,7 @@ Andy 今年主要 Announce 所有與服務相關的項目，我們大致上可�
 其中今年關注的最大賣點莫過於 EKS 的釋出，為容器化的世界帶來更大的整合
 
 ### Elastic Container Service for Kubernetes (EKS)
-{{< figure src="https://firebasestorage.googleapis.com/v0/b/hugo-81880.appspot.com/o/post%2Freinvent%2Fkeynote1%2Feks.jpg?alt=media&token=e0ca46e7-ed29-4f01-82e0-b39578825271" title="CEO 介紹 EKS for Kubernetes." >}}
+{{< figure src="/img/post/reinvent/eks.jpg" title="CEO 介紹 EKS for Kubernetes." >}}
 
 AWS 宣布 Support Kubernetes 了，這可以確認 Kubernetes 現今在 Container 場的地位
 
@@ -53,7 +53,7 @@ AWS 宣布 Support Kubernetes 了，這可以確認 Kubernetes 現今在 Contain
 
 
 ### AWS Fargate
-{{< figure src="https://firebasestorage.googleapis.com/v0/b/hugo-81880.appspot.com/o/post%2Freinvent%2Fkeynote1%2Ffargate.jpg?alt=media&token=a33ead71-24aa-4160-b70f-17cf6bb9e6cb" title="繼 EKS 之後，CEO announced AWS Fargate 投下震憾彈" >}}
+{{< figure src="/img/post/reinvent/fargate.jpg" title="繼 EKS 之後，CEO announced AWS Fargate 投下震憾彈" >}}
 
 - no cluster to manage
 - manages underlying infra
@@ -71,7 +71,7 @@ AWS Fargate 讓管理者只需要規劃 container ，專注於建立你的應用
 在資料庫層面，今年要強調的是全球化的支援
 
 ### Aurora Multi-Master
-{{< figure src="https://firebasestorage.googleapis.com/v0/b/hugo-81880.appspot.com/o/post%2Freinvent%2Fkeynote1%2Faurora_multi-master.jpg?alt=media&token=2078e665-6cfb-4a1a-9f20-2da42abc2eb5" title="CEO 宣布 AWS Aurora Multi-Master 服務" >}}
+{{< figure src="/img/post/reinvent/aurora_multi-master.jpg" title="CEO 宣布 AWS Aurora Multi-Master 服務" >}}
 
 號稱 node failure 跟 AZ 的 failure 沒有 downtime 
 
@@ -85,7 +85,7 @@ AWS Fargate 讓管理者只需要規劃 container ，專注於建立你的應用
 - automatically scales capacity up and down
 
 ### DynamoDB Global Tables
-{{< figure src="https://firebasestorage.googleapis.com/v0/b/hugo-81880.appspot.com/o/post%2Freinvent%2Fkeynote1%2Fdynamodb_global_tables.jpg?alt=media&token=d57107d0-0895-456c-bb8b-fc6acd5987bd" title="DynamoDB 也支援全球化了： DynamoDB Global Tables" >}}
+{{< figure src="/img/post/reinvent/dynamodb_global_tables.jpg" title="DynamoDB 也支援全球化了： DynamoDB Global Tables" >}}
 另一個全球化業務的 Support 就是 DynamoDB 的 Global Tables
 對於 Serverless 的架構支援是很大的關鍵，但相信台灣的市場跟業務其實很少有機會使用到
 
@@ -94,7 +94,7 @@ AWS Fargate 讓管理者只需要規劃 container ，專注於建立你的應用
 
 
 ### Amazon Neptune
-{{< figure src="https://firebasestorage.googleapis.com/v0/b/hugo-81880.appspot.com/o/post%2Freinvent%2Fkeynote1%2Fneptune.jpg?alt=media&token=402428b3-3275-4059-abe5-32529db08b39" title="Amazon Neptune for Graph Database" >}}
+{{< figure src="/img/post/reinvent/neptune.jpg" title="Amazon Neptune for Graph Database" >}}
 fully managed graph database
 
 - 6 replicas (reliable)
@@ -106,7 +106,7 @@ fully managed graph database
 
 
 ### S3 and Glacier Select
-{{< figure src="https://firebasestorage.googleapis.com/v0/b/hugo-81880.appspot.com/o/post%2Freinvent%2Fkeynote1%2Fs3_select.jpg?alt=media&token=cb59a63f-0761-4586-9fe7-b53b771fe866" title="CEO Announce S3 / Glacier Select" >}}
+{{< figure src="/img/post/reinvent/s3_select.jpg" title="CEO Announce S3 / Glacier Select" >}}
 S3 被廣泛的使用，其中
 
 - most popular choice for data lakes is S3
@@ -123,10 +123,10 @@ S3 Select 簡言之即是  partial select，部份擷取將可以更快速也能
 涵蓋範圍有機器學習，自然語言處理，語音辨識
 
 ### Amazon SageMaker
-{{< figure src="https://firebasestorage.googleapis.com/v0/b/hugo-81880.appspot.com/o/post%2Freinvent%2Fkeynote1%2Fsagemaker.jpg?alt=media&token=dbdae935-8b6e-4280-ae0f-19567af05fcd" title="Amazon SageMAker Feature Announced" >}}
+{{< figure src="/img/post/reinvent/sagemaker.jpg" title="Amazon SageMAker Feature Announced" >}}
 
 ### AWE DeepLens
-{{< figure src="https://firebasestorage.googleapis.com/v0/b/hugo-81880.appspot.com/o/post%2Freinvent%2Fkeynote1%2Fdeeplens.jpg?alt=media&token=3035b795-a59c-4c7e-9a86-6241a45e6286" title="DeepLens 內建深度學習影像攝影機" >}}
+{{< figure src="/img/post/reinvent/deeplens.jpg" title="DeepLens 內建深度學習影像攝影機" >}}
 一台內建深度學習的攝影機
 
 - Amazon Rekognition Video 影片辨識
