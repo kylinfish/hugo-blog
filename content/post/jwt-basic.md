@@ -59,9 +59,9 @@ JWT 的組成內容有三個部分，由 `. (dots)` 做區隔
 
 #### 3. Signature
 <b class="text-primary">第三個部分</b> 是用來確定發送請求對象的身份驗證，由前面兩個部分一起加密形成。以 HMAC SHA256 加密演算法為例:
-```
+{{< alert "alert-info" >}}
 HMACSHA256( base64UrlEncode(header) + "." + base64UrlEncode(payload), secret)
-```
+{{< /alert >}}
 
 ## JWT 建議使用方式
 #### ❖ 取得 JWT Token
@@ -69,10 +69,11 @@ HMACSHA256( base64UrlEncode(header) + "." + base64UrlEncode(payload), secret)
 
 #### ❖ JWT Token 驗證
 使用 `Bearer Token` 的方式進行溝通
-```
+{{< alert "alert-info" >}}
 Authorization: Bearer <JWT token>
-```
-<img src="https://cdn.auth0.com/content/jwt/jwt-diagram.png" alt="process diagram" width="100%">
+{{< /alert >}}
+{{< figure src="https://cdn.auth0.com/content/jwt/jwt-diagram.png" title="JWT-Token process diagram" >}}
+
 
 ## Main Idea
 [from: 5 Easy Steps to Understanding JSON Web Tokens (JWT)](https://medium.com/vandium-software/5-easy-steps-to-understanding-json-web-tokens-jwt-1164c0adfcec)

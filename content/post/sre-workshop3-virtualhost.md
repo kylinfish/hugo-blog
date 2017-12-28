@@ -37,17 +37,17 @@ relative_banner = "post/workshop/workshop-3.jpg"
 
 
 為了方便做 demo 我們先在自己的家目錄建立一個叫做 `production` 的資料夾
-```
+{{< alert "alert-info" >}}
 $ mkdir ~/production
-```
+{{< /alert >}}
 
 接著進入撰寫 Virtual Host 設定正題：
 
-```
-$ cd /etc/apache2/
-$ sudo cp sites-available/000-default.conf sites-available/win.blah.tw.conf
-$ sudo vim sites-available/win.blah.tw.conf
-```
+{{< alert "alert-info" >}}
+$ cd /etc/apache2/ <br>
+$ sudo cp sites-available/000-default.conf sites-available/win.blah.tw.conf <br>
+$ sudo vim sites-available/win.blah.tw.conf <br>
+{{< /alert >}}
 
 在 Apache _sites-available_ 裡面放的是該台 Apache2 會讀取的 Virtualhost 設定，建議檔案名稱以 <b class="text-primary">網域</b> 來做命名
 
@@ -77,19 +77,19 @@ $ sudo vim sites-available/win.blah.tw.conf
 方法有二種：
 
 1. 手動建立：
-```
+{{< alert "alert-info" >}}
 $ ln -s /etc/apache2/sites-available/win.blah.tw /etc/apache2/sites-enabled/win.blah.tw
-```
+{{< /alert >}}
 
 2. 透過 `a2ensite` 工具，這是 apache 2 enable site 的縮寫，等同於 _1. 手動建立_ 的做法
-```
+{{< alert "alert-info" >}}
 $ a2ensite win.blah.tw
-```
+{{< /alert >}}
 
 完成以上步驟之後，重新啟動 Apache server 來進行測試
-```
+{{< alert "alert-info" >}}
 $ sudo service apache2 reload
-```
+{{< /alert >}}
 
 ## 3. Configure PHP Error Log
 
@@ -101,20 +101,20 @@ $ sudo service apache2 reload
 
 接著先開立一個空白錯誤檔案，並且調整該檔案的權限後再行測試即可
 
-```
-$ sudo touch /var/log/php-err.log
-$ sudo chown www-data /var/log/php-err.log
+{{< alert "alert-info" >}}
+$ sudo touch /var/log/php-err.log <br>
+$ sudo chown www-data /var/log/php-err.log <br>
 $ sudo service apache2 restart
-```
+{{< /alert >}}
 
 
 測試時你可以故意把 PHP Code 寫錯使得請求時回報錯誤，看錯誤訊息是否有進入該目錄檔案中。
 
 可以透過 `tail -f ` 來自動 watch
 
-```
+{{< alert "alert-info" >}}
 $ tail -f /var/log/php-err.log
-```
+{{< /alert >}}
 
 
 ## 4. Upload Your Application
@@ -126,22 +126,22 @@ API 練習範本程式](https://github.com/kylinfish/pixnet-emma-demo)
 
 除了可以使用 wget 之外，我們已經可以利用 scp or rsync 指定網域的方式來傳送：
 
-```
+{{< alert "alert-info" >}}
 $ scp -r myprogram/ win@win.blah.tw:production/
-```
+{{< /alert >}}
 <i class="text-warning">只有檔案不同才上傳</i>
 
 
-```
+{{< alert "alert-info" >}}
 $ rsync -a myprogram/ win@win.blah.tw:production/
-```
+{{< /alert >}}
 <i class="text-warning">Server 與 Client 都要裝 rsync，但如果你是 mac user 太好了! 內建就有</i>
 
 ps. 如果要停用這個 Virtual Host
-```
-sudo a2dissite win.blah.tw
-sudo service apache2 restart
-```
+{{< alert "alert-info" >}}
+$ sudo a2dissite win.blah.tw <br>
+$ sudo service apache2 restart
+{{< /alert >}}
 
 ## 5. Homework: Set Staging Virtual Host
 - 試著建立 staging.win.blah.tw 的 Staging Virtual Host 看看

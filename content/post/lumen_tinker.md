@@ -15,20 +15,20 @@ Lumen 沒有像 Laravel 一樣可以直接使用 Tinker。
 
 #### Tinker 安裝步驟
 1. 使用 composer 載入 tinker
-```
+{{< alert "alert-primary" >}}
 composer require vluzrmos/tinker --dev
-```
+{{< /alert >}}
 
 2. 註冊在 lumen 的  service providers
  > lumen\bootstrap\app.php
-```
+{{< alert "alert-primary" >}}
 $app->register(Vluzrmos\Tinker\TinkerServiceProvider::class);
-```
+{{< /alert >}}
 
 3. 在 shell console 使用 tinker
-```
+{{< alert "alert-primary" >}}
 php artisan tinker
-```
+{{< /alert >}}
 
 ----
 

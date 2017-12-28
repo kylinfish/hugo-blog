@@ -46,7 +46,7 @@ relative_banner="post/kpi/book.jpg"
         - VPC
 
 
-<img class="col-md-offset-3 col-sm-offset-3 col-xs-offset-3" src="/img/post/kpi/book.jpg" width="50%">
+{{< figure src="/img/post/kpi/book.jpg" width="70%" title="我的書櫃清單示意圖-書單" >}}
 
 #### ⚀ 參加 <span style="color:red; font-size: 30px">10</span> 場會議研習
 
@@ -64,10 +64,10 @@ relative_banner="post/kpi/book.jpg"
 ## ✍ 分享
 
 #### ⚀ 寫了 <span style="color:red; font-size: 30px">17</span> 篇技術文章
-<img src="/img/post/kpi/github.jpg" width="100%">
+{{< figure src="/img/post/kpi/github.jpg" title="Github - kylinfish 這半年來的 commit 紀錄" >}}
 
 #### ⚀ 得到 <span style="color:red; font-size: 30px">> 11,000</span> 個 _技術人_ 眼球 👀 (PV)👁
-<img class="col-md-offset-3 col-sm-offset-3 col-xs-offset-3" src="/img/post/kpi/pv.jpg" width="50%">
+{{< figure src="/img/post/kpi/pv.jpg" width="70%" title="本部落格的上線至 2017 年 11 月的 PV 紀錄圖片" >}}
 
 #### ⚀ <span style="color:red; font-size: 30px">4</span> 場的 Talk 分享
 
@@ -112,7 +112,7 @@ relative_banner="post/kpi/book.jpg"
 
     覺得有誇張到，在自我深度學習的同時，忘了兼顧身體狀況的平衡，於是在 1111 打著光棍節名號，終於買了間隔一年才入手的 Aeron 椅子。但還是期許自己身體可以恢復以往的活力
 
-<img class="col-md-offset-3 col-sm-offset-3 col-xs-offset-3" src="/img/post/kpi/aeron.jpg" width="50%">
+{{< figure src="/img/post/kpi/aeron.jpg" >}}
 
 
 

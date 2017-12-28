@@ -25,7 +25,7 @@ og_images = ["https://firebasestorage.googleapis.com/v0/b/hugo-81880.appspot.com
 ----
 
 ## ❖ 簡易情境
-![Image](https://cloud.google.com/pubsub/images/wp_flow.svg)
+{{< figure src="https://cloud.google.com/pubsub/images/wp_flow.svg" title="PubSub 使用情境範例圖" >}}
 
 * A, B 同時可以 publish message 到相同的 Topic
 * 該 Topic 有兩個 subscriptions

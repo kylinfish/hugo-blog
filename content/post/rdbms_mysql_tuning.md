@@ -30,8 +30,7 @@ relative_banner="/post/mysql-tuning.jpg"
 6. Buffer Pool
 7. 其他的 MySQL server-system-variables 設定經驗
 
-<img src="/img/post/rdbms_tune/workload.jpg" width="100%">
-ref. [Ant_ModernWeb 恰如其分的MySQL設計技巧 p.35](https://s.itho.me/modernweb/2016/tracka/Ant_ModernWeb-%E6%81%B0%E5%A6%82%E5%85%B6%E5%88%86%E7%9A%84MySQL%E8%A8%AD%E8%A8%88%E6%8A%80%E5%B7%A7_%E4%BF%AE.pdf)
+{{< figure src="/img/post/rdbms_tune/workload.jpg" title="圖片出自 Ant_ModernWeb 恰如其分的MySQL設計技巧 p.35" >}}
 
 
 ## Workload
@@ -46,7 +45,7 @@ ref. [Ant_ModernWeb 恰如其分的MySQL設計技巧 p.35](https://s.itho.me/mod
 然而評估效能取捨時，通常考慮 `latency` 與 `throughput` 兩項指標
 
 ### 找尋 workload 的 Capacity:
-<img src="/img/post//rdbms_tune/workload-capacity.jpg" width="100%">
+{{< figure src="/img/post//rdbms_tune/workload-capacity.jpg" title="隨著 Throughput, latency 兩者因素變動下的 Capacity 關係折線圖" >}}
 
 在 connection 變高的時候
 
@@ -69,7 +68,7 @@ https://github.com/major/MySQLTuner-perl
 
 
 ### Tuning the query cache
-<img src="/img/post/rdbms_tune/query_tune.jpg" width="100%" alt="tuning the query cache sample flow">
+{{< figure src="/img/post/rdbms_tune/query_tune.jpg"  >}}
 
 - 佔記憶體空間，又有查詢成本
 - Cache 最大的問題是 ***更新資料策略***
@@ -79,7 +78,7 @@ https://github.com/major/MySQLTuner-perl
     - So, `query cache` will no longer be supported in MySQL 8.0
 
 ### Connection Pool
-<img src="/img/post/rdbms_tune/connect_pool.jpg" width="100%" alt="connection pool demo flow">
+{{< figure src="/img/post/rdbms_tune/connect_pool.jpg" title="Connection pool demo flow" >}}
 
 - like [PHP swool extension](https://github.com/swoole/php-cp)
 - 傾向 Application 的執行面
@@ -87,7 +86,7 @@ https://github.com/major/MySQLTuner-perl
 - 建立連線的時候不用再走 3-steps Acks 跟 身份驗證層
 
 ### Thread Pool
-<img src="/img/post/rdbms_tune/mysql_thread_pool.jpg" width="100%" alt="MySQL with thread pool enabled">
+{{< figure src="/img/post/rdbms_tune/mysql_thread_pool.jpg" title="MySQL with thread pool enabled" >}}
 
 - 在資料庫本身層級的 Pool
 - MySQL 的 Enterprise Edition 才有 Thread Pool
@@ -96,7 +95,7 @@ https://github.com/major/MySQLTuner-perl
 
 
 ### Buffer Pool
-<img src="/img/post/rdbms_tune/mysql_buffer_pool.jpg" width="100%" alt="MySQL Buffer Pool demo flow">
+{{< figure src="/img/post/rdbms_tune/mysql_buffer_pool.jpg" title="MySQL Buffer Pool demo flow" >}}
 
 - 把資料跟 index 都從 Disk 抓出來放在 Memory(Buffer Pool) 中
 - 通常參數不要設定到 100%，系統層級還有其他部分要操作 Memory
@@ -127,9 +126,9 @@ https://github.com/major/MySQLTuner-perl
 
 - [innodb_flush_method](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_flush_method)
     - 5.7 default: all_o_direct
-        <img src="/img/post/rdbms_tune/innodb_flush_method.jpg" width="100%">
+    {{< figure src="/img/post/rdbms_tune/innodb_flush_method.jpg" title="innodb_flush_method demo flow" >}}
     - direct io 省下記憶體，因為跳過 Page Cache  直接跟底層溝通
-        <img src="/img/post/rdbms_tune/direct_io.jpg" width="100%">
+    {{< figure src="/img/post/rdbms_tune/direct_io.jpg" title="Block I/O Layer demo image" >}}
 
 
 see more: [RDBMS 資料庫案例設計 (一) - Schema 設計技巧](/rdbms_design/)

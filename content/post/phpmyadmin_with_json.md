@@ -23,7 +23,9 @@ MySQL5.7 之後開始支援 JSON 的格式，在新專案的開發的時候，�
 
 
 #### Sequel Pro vs. phpMyAdmin
-* Sequel Pro <img src="/img/post/sequel_icon.png" alt="sequel pro logo" width="50px">:
+{{< figure src="/img/post/sequel_icon.png" >}}
+
+* Sequel Pro:
     * 預設 Export 出的 sql 檔案中註解會跟 phpMyAdmin Export 的資料有落差，試著使用 Sequel Pro 匯出的資料倒入，在 <b>phpMyAdmin </b> 版本中：
         * 2.11.x: 含有 json 的部分會卡住，其餘可以正常匯入
         * 4.7.x: 整份都會錯誤
@@ -41,7 +43,7 @@ SHOW TABLE STATUS LIKE  'stream_subscriptions';
 MySQL 傳回： 說明文件
 #2014 - Commands out of sync; you can't run this command now
 ```
-<img class="col-md-offset-4 col-xs-offset-2  pull-center" src="/img/post/json_sqlerror.png">
+{{< figure src="/img/post/json_sqlerror.png" >}}
 
 查一下網路災情，https://github.com/phpmyadmin/phpmyadmin/issues/12364 。
 
@@ -50,7 +52,8 @@ MySQL 傳回： 說明文件
 
 ## ❖ 解決 phpMyAdmin 在多種環境下的差異
 
-使用 `Dcoker` <img src="/img/post/docker_icon.png" width="50px">，網路上有別人串好的資源  :
+{{< figure src="/img/post/docker_icon.png" >}}
+使用 `Dcoker` ，網路上有別人串好的資源  :
 
 [MySQL with phpMyAdmin](http://www.andrewchen.tw/2017/05/05/20170505_NOTE_DOCKER_MYSQL/)
 
