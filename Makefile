@@ -18,3 +18,6 @@ run: clean
 
 clean:
 	(rm -rf public)
+
+style:
+	(cd themes/readable && make style)
