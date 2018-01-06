@@ -12,7 +12,7 @@ og_images = ["https://firebasestorage.googleapis.com/v0/b/hugo-81880.appspot.com
 <div class="pull-right col-md-4 widget-author  boxed  push-down-30">
     <div class="widget-author__image-container">
         <div class="widget-author__avatar--light">
-            <img src="/img/avatar.jpg" alt="Avatar image">
+            <img src="/img/avatar-L.jpg" alt="Avatar image">
         </div>
     </div>
     <div class="row">
