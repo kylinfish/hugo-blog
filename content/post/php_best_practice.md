@@ -4,8 +4,8 @@ date = "2017-11-09T22:05:12+08:00"
 tags = [ "PHP", "clean_code" ]
 categories = [ "技術" ]
 title = "Clean Code 實戰之 PHP 良好實踐"
-og_images = ["/post/php_best_practice.jpg"]
-relative_banner="/post/php_best_practice.jpg"
+og_images = ["post/php_best_practice.jpg"]
+relative_banner="post/php_best_practice.jpg"
 +++
 
 PHP 語言佔台灣網站開發有多數的比例，語言普及性高，甚至很多人在學校內就已經接觸過網站的開發實務，教科書書籍及坊間工具也很多元，
