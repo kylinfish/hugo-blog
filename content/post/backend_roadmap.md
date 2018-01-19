@@ -41,7 +41,7 @@ og_images = ["/img/post/backend-roadmap.jpg"]
 
 ## ❖ Develop Abilities
 
-- Program
+- Programming
     - Language Feature (PHP)
     - Code Tracing
     - Clean, Maintainable, Testable Code
@@ -90,7 +90,7 @@ og_images = ["/img/post/backend-roadmap.jpg"]
 
 ## ❖ HTTP Knowledge
 - Method and Status
-- Http2
+- HTTP/2
 - Header
     - Cache
     - Encoding
