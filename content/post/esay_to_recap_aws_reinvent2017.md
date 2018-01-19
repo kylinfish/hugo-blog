@@ -17,12 +17,12 @@ og_images = ["/img/post/reinvent/recap_reinvent.jpg"]
 
 <br>
 
-如果想要 <i class="text-primary">更簡單快速的了解</i> 今年 Amazon Web Service 所帶來雲端市場的影響及變化，可以參考我與同事 [Dennis](fb.me/hank418) 於今年前往 Vegas 參與後回來的內部報告，做更簡化精實的的概念了解
+如果想要 <i class="text-primary">更簡單快速的了解</i> 今年 Amazon Web Service 所帶來雲端市場的影響及變化，可以參考我與同事 [Dennis](/fb.me/hank418) 於今年前往 Vegas 參與後回來的內部報告，做更簡化精實的的概念了解
 
 ### 內容大綱
 - 什麼是 AWS re:Invent Conference?
 - 重要走向與趨勢
-- 對 PIXNET 而言產品改與影響力
+- 對 PIXNET 而言產品改善與影響力
 - 心得與反思
 
 
@@ -32,7 +32,7 @@ og_images = ["/img/post/reinvent/recap_reinvent.jpg"]
 #### 2. 重要走向與趨勢
 - 提要由 CEO, CTO 所提出的 Keynote 重要面向 release
 
-#### 3. 對 PIXNET 而言產品改與影響力
+#### 3. 對 PIXNET 而言產品改善與影響力
 - 我們認為對現在自家產品的改善面向
 
 #### 4.心得與反思
