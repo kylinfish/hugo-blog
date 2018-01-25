@@ -3,6 +3,12 @@
         "public": "public",
         "ignore": [
             "firebase.json",
+            "archetypes/*",
+            "themes/*",
+            "bower_components/*",
+            "content/*",
+            "data/*",
+            "layouts/*",
             "**/.*",
             "**/node_modules/**"
         ],
