@@ -27,11 +27,13 @@ paginate = 3
     disqus = "https-kylinyu-win"
 
 [social]
+    facebook        = "kylinwin"
     github          = "kylinfish"
     flickr          = "kylinyu"
-    linkedin        = "win-yu-0537717b"
+    linkedin        = "openwinyu"
     email           = "kylinfish@gmail.tw"
     twitter         = "kylinwin"
+    slideshare      = "kylinwin"
 
 [[menu.header]]
     name = "所有文章"
