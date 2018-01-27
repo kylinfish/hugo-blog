@@ -11,10 +11,11 @@ og_images = ["/img/post/api_token.jpg"]
 後端常見的工作是在對應的產品上出各種 API 提供串接，串接方有可能是 ___瀏覽器、手機___，另外在微服務 (MicroService) 興起的同時
 ___Server 與 Server 對接___ 也是常見的溝通方式。
 
+<!--more-->
+
 各服務使用 API 溝通的同時，除非是公開的 API 不需要認證，不然一般的 API 可能都需要經過 `認證` 或者是 `授權` 的行為
 來取得使用的允許權。
 
-<!--more-->
 <br>
 
 然而在當今雲端架構技術成熟，可以使用雲端服務提供的驗證服務，如 Amazon API Gateway 或 Google Cloud Endpoints 等
