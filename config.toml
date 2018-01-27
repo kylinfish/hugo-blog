@@ -3,7 +3,7 @@ languageCode = "zh-tw"
 title = "錢麟的墨冊"
 theme = "readable"
 preserveTaxonomyNames = true
-paginate = 3
+paginate = 5
 
 [permalinks]
     post    = "/:filename"
