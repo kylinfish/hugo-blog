@@ -131,3 +131,5 @@ Spot fleet with maintain option: 如果 Spot 被收回了，打開這個 Option 
 
 {{< figure src="https://cloudncode.files.wordpress.com/2016/07/hybrid_auto_scaling.png?w=640"
 title="EC2 On-demand + RI 混搭 Spot Instance Case. img from: cloudncode.blog" >}}
+
+{{< figure src="/img/post/serverless_sticker.jpg" title="AWS Serverless Sticker" >}}
