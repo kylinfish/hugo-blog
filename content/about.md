@@ -21,6 +21,7 @@ og_images = ["https://firebasestorage.googleapis.com/v0/b/hugo-81880.appspot.com
                 <a class="btn btn-social-icon btn-twitter" target="_blank" href="https://twitter.com/kylinwin"><span class="fa fa-twitter"></span></a>
                 <a class="btn btn-social-icon btn-linkedin" target="_blank" href="https://www.linkedin.com/in/win-yu-0537717b"><i class="fa fa-linkedin"></i></a>
                 <a class="btn btn-social-icon btn-instagram" target="_blank" href="//slideshare.net/kylinfish"><i class="fa fa-slideshare"></i></a>
+                <a class="btn btn-social-icon btn-facebook" target="_blank" href="//fb.me/kylinwin"><i class="fa fa-facebook"></i></a>
                 <a class="btn btn-social-icon btn-tumblr" target="_blank" href="mailto:kylinfish@gmail.tw"><i class="fa fa-envelope"></i></a>
                 <a class="btn btn-social-icon btn-github" target="_blank" href="https://github.com/kylinfish"><i class="fa fa-github"></i></a>
                 <a class="btn btn-social-icon btn-flickr" target="_blank" href="https://www.flickr.com/kylinyu"><i class="fa fa-flickr"></i></a>
@@ -48,7 +49,9 @@ og_images = ["https://firebasestorage.googleapis.com/v0/b/hugo-81880.appspot.com
 
 <span class="text-primary">__痞客邦 PIXNET__</span>
 
-* `Platform Software Engineer` Sept 2015 - Present
+* `Advanced Platform Software Engineer` 2018 Jan - Present
+
+* `Platform Software Engineer`  2015 Sep - 2018 Jan
 {{< alert "alert-warning" >}}
 * User Engagement 專案架構設計
 * 帳號中心
@@ -83,7 +86,7 @@ National Kaohsiung University of Applied Science. (KUAS)
 ## ♘ PUBLICATIONS
 
 {{< alert "alert-danger" >}}
-* [打造個人化網站 - Build Personal Website via Hugo](http://www.slideshare.net/kylinfish/php-best-practice-81744253)
+* [打造個人化網站 - Build Personal Website via Hugo](https://www.slideshare.net/kylinfish/build-personal-website-via-hugo)
 * [PHP 良好實踐 (Best Practice)](https://www.slideshare.net/kylinfish/build-personal-website-via-hugo)
 * [2017 ModernWeb 與會分享 - 與架構設計當朋友](https://www.slideshare.net/kylinfish/ss-80020439)
 * [無瑕的程式碼 Clean Code 讀書心得分享](https://www.slideshare.net/kylinfish/clean-code-72688451)
