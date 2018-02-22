@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
+        <loc>https://kylinyu.win/lumen55_tinker_reflection_handle/</loc>
+        <lastmod>2018-02-21</lastmod>
+    </url>
+
+    <url>
         <loc>https://kylinyu.win/ec2_spot_fleet/</loc>
         <lastmod>2018-02-08</lastmod>
     </url>
