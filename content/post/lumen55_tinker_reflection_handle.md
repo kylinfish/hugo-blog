@@ -11,7 +11,7 @@ og_images = ["https://kylinyu.win/img/post/lumen.jpg"]
 Lumen upgrade to 5.5 時，使用 `php artisan tinker` 發現出現以下錯誤:
 
 {{< alert "alert-danger" >}}
-➜  behavior.pixplug.in (master) ✔ pap artisan tinker
+➜  behavior.pixplug.in (master) ✔ php artisan tinker
 
 In BoundMethod.php line 135:
 
