@@ -1,11 +1,11 @@
 #
-all: clean
+all: clean style
 	(git pull)
 	(hugo)
 	(gulp)
 	(cd themes/readable && make)
 
-deploy: clean
+deploy: clean style
 	(hugo)
 	(gulp)
 	(cp robots.txt ./public/robots.txt)
