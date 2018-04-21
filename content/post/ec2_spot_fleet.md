@@ -10,13 +10,13 @@ og_images = ["/img/post/spot_instance.jpg"]
 +++
 2 月 7 日 參加 `Amaon EC2 Spot Fleet Design Patterns and Best Practice` 由 AWS User Group 台北小小聚主辦的活動
 
+<!--more-->
+
 是我第一次踏入 AWS 的社群聚會。平常沒什麼機會直接接觸 AWS 服務使用，最近在看文件的時候也不是這麼有感覺
 
 於是今天來聽 [@Pahud Hsieh](https://www.facebook.com/profile.php?id=660510468) 分享關於 AWS EC2 Spot 的相關知識
 
 以下紀錄我於議程中記錄到的筆記，把一些基本知識做清楚的理解，以及補充一些講者提到的最佳實踐筆記。
-
-<!--more-->
 
 ## Fundamentals
 

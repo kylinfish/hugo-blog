@@ -9,9 +9,10 @@ og_images = ["/img/post/backend-roadmap.jpg"]
 +++
 <style>h2 {color: #51ab6d;};</style>
 
-以親身於 _痞客邦 - PIXNET_ 兩年半的相關工作經驗撰寫相關於 __後端工程師(PHP Backend Engineer)__，
-在 `網頁領域開發者` 職涯路線會經歷的技術 Roadmap 項目概述:
+以親身於 _PIXNET_ 兩年半的相關工作經驗撰寫相關於 __後端工程師(PHP Backend Engineer)__
 <!--more-->
+
+在 `網頁領域開發者` 職涯路線會經歷的技術 Roadmap 項目概述:
 
 
 #### <span class="text-primary">PIXNET</span> _Platform Software Engineer_  職涯學習技能   👇  👇

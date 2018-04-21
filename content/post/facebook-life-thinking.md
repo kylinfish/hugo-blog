@@ -9,9 +9,9 @@ og_images = ["https://kylinyu.win/img/post/fb_hq.jpg"]
 +++
 上次參訪 Facebook 回來，再看到這篇文章，分享一下自己的見解:
 
+<!--more-->
 > ___[前 Facebook 工程師給年輕人的 8 個提醒：有一種瞎忙，叫做自我滿足式的忙碌] (https://buzzorange.com/techorange/2016/05/16/correct-thnking-entering-the-workforce/)___
 
-<!--more-->
 
 ## ❖ 主動找事做和思考
 

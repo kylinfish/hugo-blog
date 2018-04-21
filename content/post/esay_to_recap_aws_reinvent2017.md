@@ -10,10 +10,9 @@ og_images = ["/img/post/reinvent/recap_reinvent.jpg"]
 
 在去年 _AWS re:Invent 2017_ 年度盛會展示之後，今天 Amazon Taiwan 也辦了 __AWS 2017 re:reinvent Recap Taiwan__。
 
+<!--more-->
 除了可以透過眾多的官方資源了解 AWS re:Invent 2017 年的會議重點之外， 也可以看看我先前根據現場筆記以及影片資料整理的
 [AWS re:Invent 2017 Keynote Day1 Recap](/reinvent_keynote_day1_recap) ...
-
-<!--more-->
 
 <br>
 

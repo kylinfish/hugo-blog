@@ -13,8 +13,8 @@ og_images = ["https://kylinyu.win/img/post/sql_injection.jpg"]
 
 但當我自組 Raw Sql 的時候才發現漏洞百出，基礎防禦都沒做足...
 
-於是，查了一些相關知識，做一些筆記
 <!--more-->
+於是，查了一些相關知識，做一些筆記
 
 ## 基礎 SQL Injection 防範
 

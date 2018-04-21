@@ -14,11 +14,12 @@ og_images = ["https://firebasestorage.googleapis.com/v0/b/hugo-81880.appspot.com
 
 首要之務，就是得先要開始 `記帳`!!
 
+<!--more-->
+
 來，先下載一款記帳軟體，讓自己養成記帳的習慣吧！
 
 > 如果沒有記帳，將不清楚自我的金錢流向，不知道該你每月收入有多少拿來開銷？多少儲蓄？而多少是揮霍
 
-<!--more-->
 ![image for finance](https://fsv.cmoney.tw/cmstatic/notes/capture/29464/20140603145322995.png)
 
 買了好幾本理財觀念相關的入門知識來閱讀。各本書的內容闡述論點不盡相同，唯一清楚的脈絡是， 我們要 

@@ -12,8 +12,8 @@ og_images = ["https://firebasestorage.googleapis.com/v0/b/hugo-81880.appspot.com
 
 [🔗  What is Google Cloud Pub/Sub?](https://cloud.google.com/pubsub/docs/overview)
 
-<!--more-->
 `Pub/Sub` 是一種 messaging service，適合拿來做不同服務間的 __訊息傳遞__ 或者 __狀態同步__ 。
+<!--more-->
 
 ## ❖ 主要名詞認識
 * __Message__: 要傳送的 data
