@@ -3,7 +3,7 @@ languageCode = "zh-tw"
 title = "墨冊"
 theme = "hugo-readable"
 preserveTaxonomyNames = true
-paginate = 5
+paginate = 7
 
 [permalinks]
     post    = "/:filename"
