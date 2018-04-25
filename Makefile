@@ -21,3 +21,8 @@ clean:
 
 style:
 	(cd themes/hugo-readable && make style)
+
+init:
+	(mkdir themes)
+	(cd themes && git clone git@github.com:kylinfish/hugo-readable.git)
+	(make)
