@@ -1,7 +1,7 @@
 baseurl = "https://kylinyu.win/"
 languageCode = "zh-tw"
 title = "墨冊"
-theme = "readable"
+theme = "hugo-readable"
 preserveTaxonomyNames = true
 paginate = 5
 

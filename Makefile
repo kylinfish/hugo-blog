@@ -3,7 +3,7 @@ all: clean style
 	(git pull)
 	(hugo)
 	(gulp)
-	(cd themes/readable && make)
+	(cd themes/hugo-readable && make)
 
 deploy: clean style
 	(hugo)
@@ -14,10 +14,10 @@ deploy: clean style
 
 run: clean
 	(hugo)
-	(hugo server --theme=readable --buildDrafts)
+	(hugo server --theme=hugo-readable --buildDrafts)
 
 clean:
 	(rm -rf public)
 
 style:
-	(cd themes/readable && make style)
+	(cd themes/hugo-readable && make style)
