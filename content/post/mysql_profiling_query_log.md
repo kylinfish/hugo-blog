@@ -1,6 +1,6 @@
 +++
 draft = false
-description = "description"
+description = "使用 Percona Profiling Tool 分析系統 Log, 透過案例了解不同情境的 Query 與 Index 的效果"
 tags = [ "MySQL", "profiling" ]
 categories = [ "技術" ]
 date = "2018-05-14T13:22:20+08:00"
