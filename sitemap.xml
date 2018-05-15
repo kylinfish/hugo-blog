@@ -2,6 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
+        <loc>https://kylinyu.win/mysql_index_3star_system</loc>
+        <lastmod>2018-05-14</lastmod>
+    </url>
+
+    <url>
+        <loc>https://kylinyu.win/mysql_profiling_query_log</loc>
+        <lastmod>2018-05-14</lastmod>
+    </url>
+
+    <url>
+        <loc>https://kylinyu.win/install_percona_toolkit</loc>
+        <lastmod>2018-05-13</lastmod>
+    </url>
+
+    <url>
         <loc>https://kylinyu.win/simple_amp_tutorial/</loc>
         <lastmod>2018-04-20</lastmod>
     </url>
