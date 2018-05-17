@@ -7,7 +7,7 @@ date = "2018-05-16T22:23:46+08:00"
 title = "Filco 87 忍茶 開箱 Ninja"
 absolute_banner = "/img/post/filco/feature.JPG"
 og_images = ["/img/post/filco/feature.JPG",
-"/img/post/filco/company_layout.JPG",
+"/img/post/filco/company_layout-M.JPG",
 "/img/post/filco/logo_front.JPG"]
 +++
 
@@ -33,11 +33,11 @@ Herman Aeron 椅子都買了，區區一塊忍茶 🚬  _(( 快逃_
 
 在家裡搭配筆電的大小配置擺放
 
-{{< figure src="/img/post/filco/layout.JPG" title="Filco 電腦擺放配置大小比較" >}}
+{{< figure src="/img/post/filco/layout-M.JPG" title="Filco 電腦擺放配置大小比較" >}}
 
 在公司的位置擺放
 
-{{< figure src="/img/post/filco/company_layout.JPG" title="外接筆電把小螢幕收起來，突然位置也變大了" >}}
+{{< figure src="/img/post/filco/company_layout-M.JPG" title="外接筆電把小螢幕收起來，突然位置也變大了" >}}
 
 接著來看看細節
 
