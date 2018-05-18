@@ -3,7 +3,7 @@ description = "AMP 入門教學，從 HTML 到 AMP"
 date = "2018-04-20T10:35:12+08:00"
 tags = [ "AMP" ]
 categories = [ "技術" ]
-title = "AMP 入門教學 - Convert HTML to AMP"
+title = "AMP 教學入門 - Convert HTML to AMP"
 absolute_banner="/img/post/amp.jpg"
 og_images = ["/img/post/amp.jpg"]
 +++

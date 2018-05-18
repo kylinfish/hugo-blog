@@ -1,5 +1,5 @@
 +++
-title = "Workshop1 - 用 GCP 自架 Web server"
+title = "GCP Workshop1 - 用 GCP 自架 Web server"
 description = "使用 Google Cloud Platform(GCP) 自架 Web server."
 date = "2017-09-14T12:04:50+08:00"
 tags = [ "GCP", "Apache2", "workshop-sre" ]
