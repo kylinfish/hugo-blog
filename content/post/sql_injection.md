@@ -39,16 +39,15 @@ og_images = ["https://kylinyu.win/img/post/sql_injection.jpg"]
 * 根據 __charset__ 來對字串做特殊字元的跳脫 escaped
 * `一定要指定 charset` __[重要]__
 
-[🔗  http://php.net/manual/en/mysqli.real-escape-string.php](php manual：mysqli_real_escape_string)
+[🔗 php manual：mysqli_real_escape_string](http://php.net/manual/en/mysqli.real-escape-string.php)
 
-[🔗  https://www.funboxpower.com/gbk_addslashes_mysql_real_escape_string_injection](GBK字符集下addslashes、mysql_real_escape_string函数的注入漏洞及解决办法)
-
+[🔗 GBK字符集下addslashes、mysql_real_escape_string函数的注入漏洞及解决办法](https://www.funboxpower.com/gbk_addslashes_mysql_real_escape_string_injection])
 <br>
 
 ----
 
 ####  觀念
-SQL Injection 防範是要 __跳脫__ 而非 __過慮__，不能採用 strip_tags <b class="text-danger">[x]</b>
+SQL Injection 防範是要 __跳脫__ 而非 __過濾__，不能採用 strip_tags <b class="text-danger">[x]</b>
 
 ##### 如果自組 raw sql 一定要:
 * 自行跳脫 (mysqli_real_escape_string())
