@@ -180,10 +180,22 @@ mysql> SELECT `business_hours` FROM TelephoneBook WHERE `last_name` = 'Smith Plu
 ##### <i class="text-warning">欄位影響問題 (Columns Matter)</i>
 - 對一般的 Query 來說，Index 中欄位的配置是很重要的，即使 Query 中沒有用到欄位拿來做搜尋或排序
 
-----
 
 看完第一節 - 從 Log 分析 Query
 
 進入第二節了嗎?
 
 第二節: [MySQL Index 設計 - 三星評分法則](/mysql_index_3star_system/)
+
+<br>
+
+----
+
+### <span class="text-success">__文章系列__</span>
+
+1. [MySQL 效能 - How to design Indexes, Really](/mysql_performance/)
+2. <span class="text-info">_MySQL Index 設計第一節 - 從 Log 分析 Query_</span>
+3. [MySQL Index 設計第二節 - 三星評分法則](/mysql_index_3star_system/)
+4. [MySQL Index 設計第三節 - 檢驗與回顧設計不良的 Index](/mysql_index_review/)
+
+- [如何安裝 Percona toolkit 工具包?](/install_percona_toolkit/)

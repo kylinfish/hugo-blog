@@ -1,16 +1,16 @@
 +++
-draft = true
+draft = false
 description = "使用資料庫 MySQL 要如何設計 INDEX，以及如何分析 Query 的效能 "
 tags = [ "MySQL", "index" ]
 categories = [ "技術" ]
-date = "2018-05-14T23:24:49+08:00"
+date = "2018-05-25T12:00:49+08:00"
 title = "MySQL 效能 - How to design Indexes, Really"
 absolute_banner="/img/post/indexcover.png"
 og_images = ["/img/post/indexcover.png"]
 +++
 每每遇到系統資料幅度成長時，就會考慮到效能的問題。
 
-這次將要花心思來學習如何設計 MySQL Index，藉由投影片 [How to Design Indexes, Really](https://www.slideshare.net/billkarwin/how-to-design-indexes-really) 來好好學習
+這次將要花心思來學習如何設計 MySQL Index，藉由投影片 [How to Design Indexes, Really](https://www.slideshare.net/billkarwin/how-to-design-indexes-really) 做細部了解
 
 <!--more-->
 
@@ -42,8 +42,11 @@ og_images = ["/img/post/indexcover.png"]
 
 ----
 
-### __文章系列 (here)__
-1. [MySQL Index 設計第一節 - 從 Log 分析 Query](/mysql_profiling_query_log/)
-2. [MySQL Index 設計第二節 - 三星評分法則](/mysql_index_3star_system/)
+### <span class="text-success">__文章系列__</span>
+
+1. <span class="text-info">_MySQL 效能 - How to design Indexes, Really_</span>
+2. [MySQL Index 設計第一節 - 從 Log 分析 Query](/mysql_profiling_query_log/)
+3. [MySQL Index 設計第二節 - 三星評分法則](/mysql_index_3star_system/)
+4. [MySQL Index 設計第三節 - 檢驗與回顧設計不良的 Index](/mysql_index_review/)
 
 - [如何安裝 Percona toolkit 工具包?](/install_percona_toolkit/)

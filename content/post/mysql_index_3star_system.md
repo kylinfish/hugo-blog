@@ -191,8 +191,17 @@ mysql>  ALTER TABLE cast_info ADD INDEX pr_p (person_role_id, person_id);
     - join column 的順序不一定與排序的欄位相同
 
 
+下一篇： [MySQL Index 設計第一節 - 從 Log 分析 Query](/mysql_profiling_query_log/)
+
+<br>
+
 ----
 
-[MySQL Index 設計第一節 - 從 Log 分析 Query](/mysql_profiling_query_log/)
+### <span class="text-success">__文章系列__</span>
 
-MySQL Index 設計第二節 - 三星評分法則
+1. [MySQL 效能 - How to design Indexes, Really](/mysql_performance/)
+2. [MySQL Index 設計第一節 - 從 Log 分析 Query](/mysql_profiling_query_log/)
+3. <span class="text-info">_MySQL Index 設計第二節 - 三星評分法則_</span>
+4. [MySQL Index 設計第三節 - 檢驗與回顧設計不良的 Index](/mysql_index_review/)
+
+- [如何安裝 Percona toolkit 工具包?](/install_percona_toolkit/)
