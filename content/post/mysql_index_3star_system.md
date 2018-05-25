@@ -70,13 +70,15 @@ Extra         | Using where; Using filesort
 
 - `type = ALL`: 全表搜尋 (scan whole table)
 - `key = null`: 沒用到 index (uses no index)
-- `rows = 24001730`: 掃了很多筆 row 
+- `rows = 24001730`: 掃了很多筆 row
 - `Using filesort`: sorts the hard way
     - 引用 MySQL 官方文件 Using filesort
 
     > MySQL must do an extra pass to find out how to retrieve the rows in sorted order. The sort is done by going through all rows according to the join type and storing the sort key and pointer to the row for all rows that match the WHERE clause.
 {{< alert alert-info >}}
-簡言之，filesort 是速度較慢的外部排序方式，能避免最好
+filesort 是速度較慢的外部排序方式，通常看到不會太開心
+
+但不見得有 filesort 就會慢，主要要看影響的資料筆數有多少
 {{< / alert >}}
 
 #### First Star
