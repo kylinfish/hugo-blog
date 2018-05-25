@@ -191,7 +191,7 @@ mysql>  ALTER TABLE cast_info ADD INDEX pr_p (person_role_id, person_id);
     - join column 的順序不一定與排序的欄位相同
 
 
-下一篇： [MySQL Index 設計第一節 - 從 Log 分析 Query](/mysql_profiling_query_log/)
+下一篇： [MySQL Index 設計第三節 - 檢驗與回顧設計不良的 Index](/mysql_index_review/)
 
 <br>
 

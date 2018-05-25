@@ -68,7 +68,7 @@ $ pt-query-digest /usr/local/var/mysql/win-slow.log > ~/pgd.txt
 .#   10 0x09FB72D72ED18E93  361.1904  2.1%    78  4.6306 0.28 1.89 SELECT cast_info title
 {{< / highlight >}}
 
-- `Rank 1`: 呼叫數次，呼叫時間花費超過 1 分鐘 (calls: 78,  R/Call: 63.2346)
+- `Rank 1`: 呼叫數次 78 次，呼叫時間花費超過 1 分鐘 (calls: 78,  R/Call: 63.2346)
 - `Rank 6`: 呼叫頻率很高的 Query ，每次都很快 (calls: 16340, R/Call: 0.0476)
 
 ----

@@ -27,7 +27,7 @@ og_images = ["/img/post/indexcover.png"]
     - 大部分的 Index 可能都用不到
     - 打 Index 時會占硬碟空間
     - 當發生 __INSERT, UPDATE, DELETE__ 的語法時，需要修改 Index
-    - Query Optimizer 會在每個 Query 都參照 Index，這會增加 Query 成本增加
+    - Query Optimizer 會在每個 Query 都參照 Index，這會增加 Query 成本
         -  [Definition - What does Query Optimizer mean?](https://www.techopedia.com/definition/26224/query-optimizer)
 2. ~~打 Index 會增加成本，所以我不打任何的 Index~~
     - 正確(到位)的 index 可以加快 Query 的速度
