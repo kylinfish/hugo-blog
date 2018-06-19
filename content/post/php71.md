@@ -72,7 +72,6 @@ class ConstDemo
 
 // public / protected / private
 {{< /highlight >}}
-##
 
 
 ### <span class="text-success">❝ Multi catch exception handling</span>
