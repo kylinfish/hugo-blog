@@ -4,6 +4,7 @@ title = "墨冊"
 theme = "hugo-readable"
 preserveTaxonomyNames = true
 paginate = 7
+pygmentsStyle = "perldoc"
 
 [permalinks]
     post    = "/:filename"
