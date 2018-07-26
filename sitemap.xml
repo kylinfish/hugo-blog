@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
+        <loc>https://kylinyu.win/modernweb18_pubsub_feeds_system/</loc>
+        <lastmod>2018-07-26</lastmod>
+    </url>
+
+    <url>
         <loc>https://kylinyu.win/php71/</loc>
         <lastmod>2018-06-19</lastmod>
     </url>
