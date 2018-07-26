@@ -1,9 +1,9 @@
 +++
 categories = ['技術']
-tags = ['Google']
+tags = ['Google', 'Cloud Pub/Sub']
 date = "2017-06-19T19:09:12+08:00"
-description = "HEAD FIRST Google Pub/Sub"
-title = "認識 Google Pub/Sub"
+description = "HEAD FIRST Google Cloud Pub/Sub"
+title = "認識 Google Cloud Pub/Sub"
 absolute_banner = "https://firebasestorage.googleapis.com/v0/b/hugo-81880.appspot.com/o/post%2Fwp_flow.png?alt=media&token=af267843-69e6-438a-a528-cc8bf5bdfa70"
 og_images = ["https://firebasestorage.googleapis.com/v0/b/hugo-81880.appspot.com/o/post%2Fwp_flow.png?alt=media&token=af267843-69e6-438a-a528-cc8bf5bdfa70"]
 +++
