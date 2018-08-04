@@ -39,7 +39,7 @@ run localhost/amp/article.html
 git clone git@github.com:kylinfish/AMP-Foundations-Practice.git
 {{< / highlight >}}
 
-{{< figure src="/img/post/amp/git_log.png" title="git log history" >}}
+{{< lazy-img src="/img/post/amp/git_log.png" title="git log history" >}}
 
 ----
 
@@ -73,7 +73,7 @@ http://localhost/amp/article.amp.html#development=1
 
     > console log 會顯示  __Powered by AMP ⚡ HTML__
 
-{{< figure src="/img/post/amp/show_amp_message.png" title="inspect the JavaScript console will see AMP work" >}}
+{{< lazy-img src="/img/post/amp/show_amp_message.png" title="inspect the JavaScript console will see AMP work" >}}
 
 ## [Resolving validation errors <i class="fa fa-external-link-square"></i>](https://www.ampproject.org/docs/fundamentals/converting/resolving-errors)
 
@@ -276,7 +276,7 @@ index 3a476ea..e4d6587 100755
 {{< /highlight >}}
 10. Success
     AMP validation successful.
-{{< figure src="/img/post/amp/amp_validation_successful.png" title="AMP validation successful message in console" >}}
+{{< lazy-img src="/img/post/amp/amp_validation_successful.png" title="AMP validation successful message in console" >}}
 
 
 ## 小結

@@ -42,4 +42,4 @@ __將版本更新到 `dev-master` 後就可以正常使用了__
 }
 ```
 
-{{< figure src="/img/post/artisan_tinker.jpg" title="php artisan tinker demo" >}}
+{{< lazy-img src="/img/post/artisan_tinker.jpg" title="php artisan tinker demo" >}}

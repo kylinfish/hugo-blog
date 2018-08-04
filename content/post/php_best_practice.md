@@ -15,7 +15,7 @@ PHP 語言佔台灣網站開發有多數的比例，語言普及性高，甚至�
 
 寫程式有如作文一般，是要寫給人看的，當我們掌握良好的寫作技巧自然行雲流水，讀者也會體驗良好對作者給予認同。
 
-<img class="col-md-offset-3 col-sm-offset-3 col-xs-offset-3" src="/img/post/rules.jpg" width="50%">
+<img class="lazy col-md-offset-3 col-sm-offset-3 col-xs-offset-3" data-src="/img/post/rules.jpg" width="50%">
  
 在公司待了兩年半之久，陸陸續也看過一些新人在學習上遇到的一些情況，光有內部的 <i class="text-info">維基百科、 Coding style 準則</i> 還是不夠。
 

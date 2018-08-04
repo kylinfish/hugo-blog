@@ -32,11 +32,11 @@ $ sudo apt-get install php7.0 <br>
 $ php -v
 {{< /alert >}}
 
-{{< figure src="/img/post/workshop/2/1.jpg" title="install php7 via command line" >}}
+{{< lazy-img src="/img/post/workshop/2/1.jpg" title="install php7 via command line" >}}
 
 安裝完之後檢查 PHP 版本...
 
-{{< figure src="/img/post/workshop/2/2.jpg" title="check your php7 via command line" >}}
+{{< lazy-img src="/img/post/workshop/2/2.jpg" title="check your php7 via command line" >}}
 
 ## 2. Install & Configure MySQL 8
 
@@ -45,7 +45,7 @@ $ php -v
 #### 2.1 到 MySQL 官網複製 Package 網址
 [mysql-apt-config_0.8.7-1_all.deb 檔案下載頁面](https://dev.mysql.com/downloads/file/?id=472393)
 
-{{< figure src="/img/post/workshop/2/3.jpg" title="Copy MySQL 8 deb url" >}}
+{{< lazy-img src="/img/post/workshop/2/3.jpg" title="Copy MySQL 8 deb url" >}}
 
 #### 2.2 使用 wget 下載到你的 Server
 {{< alert "alert-info" >}}
@@ -57,13 +57,13 @@ $ wget https://dev.mysql.com/get/mysql-apt-config_0.8.7-1_all.deb
 $ sudo dpkg -i  {package}.deb
 {{< /alert >}}
 
-{{< figure src="/img/post/workshop/2/4.jpg" title="wget and dpkg Mysql 8 deb file in command line" >}}
+{{< lazy-img src="/img/post/workshop/2/4.jpg" title="wget and dpkg Mysql 8 deb file in command line" >}}
 
 #### 2.4 設定你要安裝的 Database
 
 ##### 2.4.1 設定 apt-get 來安裝 MySQL
 該流程有三種 options:
-{{< figure src="/img/post/workshop/2/5.jpg" title="MySqL install process." >}}
+{{< lazy-img src="/img/post/workshop/2/5.jpg" title="MySqL install process." >}}
 
 
 我們選 `mysql-8.0 preview`，其餘兩個設定就使用 default 即可
@@ -79,11 +79,11 @@ ok 之後，我們要透過 apt-get 進行更新抓到我們的設定檔，並�
 $ sudo apt-get update <br>
 $ sudo apt-get install mysql-server
 {{< /alert >}}
-{{< figure src="/img/post/workshop/2/6.jpg" >}}
+{{< lazy-img src="/img/post/workshop/2/6.jpg" >}}
 
 設定 root 密碼，接著進行一連串的安裝動作
 
-{{< figure src="/img/post/workshop/2/7.jpg" title="set your mysql root password" >}}
+{{< lazy-img src="/img/post/workshop/2/7.jpg" title="set your mysql root password" >}}
 
 #### 2.5 測試安裝結果
 {{< alert "alert-info" >}}
@@ -96,7 +96,7 @@ $ show databases;
     - -p: 接著會進入輸入密碼模式
 - show databases; <span class="text-info">// 顯示目前的 Database 清單</span>
 
-{{< figure src="/img/post/workshop/2/8.jpg" title="Connect your via with shell" >}}
+{{< lazy-img src="/img/post/workshop/2/8.jpg" title="Connect your via with shell" >}}
 
 影片部分可以參考[這裏](https://www.youtube.com/watch?v=G7F89QS5G3g)
 
@@ -121,8 +121,8 @@ $ ln -s /etc/phpmyadmin/apache.conf /etc/apache2/conf-enabled/phpmyadmin.conf <b
 $ sudo service apache2 restart
 {{< /alert >}}
 
-{{< figure src="/img/post/workshop/2/9.jpg" title="phpMyAdmin demo page" >}}
-{{< figure src="/img/post/workshop/2/10.jpg" title="login to phpMyAdmin to check your version" >}}
+{{< lazy-img src="/img/post/workshop/2/9.jpg" title="phpMyAdmin demo page" >}}
+{{< lazy-img src="/img/post/workshop/2/10.jpg" title="login to phpMyAdmin to check your version" >}}
 
 
 ## 4. Build your staging
@@ -148,4 +148,4 @@ $ echo '<?php phpinfo(); ?>' > ~/staging/index.php
 
 [PIXNET Emma API Example Source Code](https://github.com/kylinfish/pixnet-emma-demo)
 
-<img src="/img/post/workshop/2/12.jpg" width="100%">
+<img class="lazy" data-src="/img/post/workshop/2/12.jpg" width="100%">

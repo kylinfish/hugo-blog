@@ -24,15 +24,15 @@ relative_banner = "post/workshop/workshop-1.jpg"
 ## 1. Sign up GCP
 第一先準備一張信用卡，註冊 GCP 帳號。但別緊張，今天的練習基本上不會花到錢，根據他的步驟先把信用卡設定完畢之後。 我們要進行的是，建立一個新的 GCP 專案
 
-{{< figure src="/img/post/workshop/1/1.jpg" title="Create GCP Project" >}}
+{{< lazy-img src="/img/post/workshop/1/1.jpg" title="Create GCP Project" >}}
 
 ## 2. Add your SSH key
 選擇你建立的 Project，在該專案中來建立自己的 Web Server 之前，先把自己本機電腦中的 SSH Key 加到專案中，選擇對應的專案
-{{< figure src="/img/post/workshop/1/2.jpg" title="Select your project" >}}
+{{< lazy-img src="/img/post/workshop/1/2.jpg" title="Select your project" >}}
 接著設定 SSH Key 讓我們待會可以透過本機的 Terminal 連線上 GCP 的機器
 
 選擇 <b class="text-primary">Compute Engine -> 中繼資料 -> 新增 SSH Key</b>
-{{< figure src="/img/post/workshop/1/3.jpg" title="Add your ssh key to textbox" >}}
+{{< lazy-img src="/img/post/workshop/1/3.jpg" title="Add your ssh key to textbox" >}}
 
 
 ## 3. Boot your first server
@@ -48,18 +48,18 @@ relative_banner = "post/workshop/workshop-1.jpg"
 - `防火牆`: 開啟 HTTP, HTTPS 流量 (詳見下圖)
 
 <img src="/img/post/workshop/1/4.jpg" width="100%">
-{{< figure src="/img/post/workshop/1/4.jpg" title="Select free instance options." >}}
+{{< lazy-img src="/img/post/workshop/1/4.jpg" title="Select free instance options." >}}
 
 過幾秒鐘後，會看見你開的 instance 已經 on 起來了，你的第一台 GCP 機器就開好了
 
-{{< figure src="/img/post/workshop/1/5.jpg" title="Instance list" >}}
+{{< lazy-img src="/img/post/workshop/1/5.jpg" title="Instance list" >}}
 
 ## 4. Install Apache
 Connect to your VM.
 
 使用 ssh 連線剛剛列表頁面中的外部 IP
 
-{{< figure src="/img/post/workshop/1/6.jpg" title="ssh to gcp instance" >}}
+{{< lazy-img src="/img/post/workshop/1/6.jpg" title="ssh to gcp instance" >}}
 
 使用 __apt-get__ 把 Apache Server 安裝起來，記得要先成為 root，安裝 apache2  之後重開 apache2。
 {{< alert "alert-info" >}}
@@ -76,7 +76,7 @@ root 可以對 server 作任何修改，包含安裝軟體，或是 rm -rf /
 
 由於目前還沒有 SSL 憑證，所以會連不上，請手動取消 `https` 的 `s`，改用 http 連線，就可以看到你的 Apache2 Server 起來了
 
-{{< figure src="/img/post/workshop/1/7.jpg" title="Install Apache2 server success." >}}
+{{< lazy-img src="/img/post/workshop/1/7.jpg" title="Install Apache2 server success." >}}
 
 
 ## 本節最後

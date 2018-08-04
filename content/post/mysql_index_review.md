@@ -12,7 +12,7 @@ og_images = ["/img/post/mysql_index/tide_up.jpg"]
 
 <!--more-->
 
-{{< figure src="https://image.slidesharecdn.com/howtodesignindexesreally-121025130330-phpapp02/95/how-to-design-indexes-really-54-638.jpg?cb=1354609505" title="" >}}
+{{< lazy-img src="https://image.slidesharecdn.com/howtodesignindexesreally-121025130330-phpapp02/95/how-to-design-indexes-really-54-638.jpg?cb=1354609505" title="" >}}
 
 ## 使用 Percona 工具 Review Index Design
 
@@ -23,7 +23,7 @@ og_images = ["/img/post/mysql_index/tide_up.jpg"]
 - pt-duplcicate-key-checker
 
 
-{{< figure src="https://image.slidesharecdn.com/howtodesignindexesreally-121025130330-phpapp02/95/how-to-design-indexes-really-63-638.jpg?cb=1354609505" title="" >}}
+{{< lazy-img src="https://image.slidesharecdn.com/howtodesignindexesreally-121025130330-phpapp02/95/how-to-design-indexes-really-63-638.jpg?cb=1354609505" title="" >}}
 
 ## 定期回顧 Query (Review Queries Regularly)
 - 發生以下情形，重複並定期分析你的 Query
@@ -36,7 +36,7 @@ og_images = ["/img/post/mysql_index/tide_up.jpg"]
 ## 總回顧
 
 
-{{< figure src="https://image.slidesharecdn.com/howtodesignindexesreally-121025130330-phpapp02/95/how-to-design-indexes-really-68-638.jpg?cb=1354609505" title="" >}}
+{{< lazy-img src="https://image.slidesharecdn.com/howtodesignindexesreally-121025130330-phpapp02/95/how-to-design-indexes-really-68-638.jpg?cb=1354609505" title="" >}}
 
 整體建議在 Index 設計實踐上的四個步驟為：
 

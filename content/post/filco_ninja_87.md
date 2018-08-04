@@ -26,24 +26,24 @@ Herman Aeron 椅子都買了，區區一塊忍茶 🚬  _(( 快逃_
 但今天的重點是要開箱，所以想說入手機械式鍵盤看可否改善 __按壓觸感__ 跟使用習慣 ~
 
 直接來看照片
-{{< figure src="/img/post/filco/cover.JPG" title="Filco 忍茶盒裝封面" >}}
+{{< lazy-img src="/img/post/filco/cover.JPG" title="Filco 忍茶盒裝封面" >}}
 
 
-{{< figure src="/img/post/filco/background.JPG" title="Filco 忍茶盒裝背面" >}}
-
+{{< lazy-img src="/img/post/filco/background.JPG" title="Filco 忍茶盒裝背面" >}}
 在家裡搭配筆電的大小配置擺放
 
-{{< figure src="/img/post/filco/layout-M.JPG" title="Filco 電腦擺放配置大小比較" >}}
+
+{{< lazy-img src="/img/post/filco/layout-M.JPG" title="Filco 電腦擺放配置大小比較" >}}
 
 在公司的位置擺放
 
-{{< figure src="/img/post/filco/company_layout-M.JPG" title="外接筆電把小螢幕收起來，突然位置也變大了" >}}
+{{< lazy-img src="/img/post/filco/company_layout-M.JPG" title="外接筆電把小螢幕收起來，突然位置也變大了" >}}
 
 接著來看看細節
 
-{{< figure src="/img/post/filco/logo_front.JPG" title="Filco 鍵盤側面 Logo，字是側刻" >}}
+{{< lazy-img src="/img/post/filco/logo_front.JPG" title="Filco 鍵盤側面 Logo，字是側刻" >}}
 
-{{< figure src="/img/post/filco/feature.JPG" title="Filco 正面細節" >}}
+{{< lazy-img src="/img/post/filco/feature.JPG" title="Filco 正面細節" >}}
 
 
 

@@ -45,7 +45,7 @@ relative_banner="/post/mysql-tuning.jpg"
 然而評估效能取捨時，通常考慮 `latency` 與 `throughput` 兩項指標
 
 ### 找尋 workload 的 Capacity:
-{{< figure src="/img/post//rdbms_tune/workload-capacity.jpg" title="隨著 Throughput, latency 兩者因素變動下的 Capacity 關係折線圖" >}}
+{{< lazy-img src="/img/post//rdbms_tune/workload-capacity.jpg" title="隨著 Throughput, latency 兩者因素變動下的 Capacity 關係折線圖" >}}
 
 在 connection 變高的時候
 
@@ -68,7 +68,7 @@ https://github.com/major/MySQLTuner-perl
 
 
 ### Tuning the query cache
-{{< figure src="/img/post/rdbms_tune/query_tune.jpg"  >}}
+{{< lazy-img src="/img/post/rdbms_tune/query_tune.jpg"  >}}
 
 - 佔記憶體空間，又有查詢成本
 - Cache 最大的問題是 ***更新資料策略***
@@ -78,7 +78,7 @@ https://github.com/major/MySQLTuner-perl
     - So, `query cache` will no longer be supported in MySQL 8.0
 
 ### Connection Pool
-{{< figure src="/img/post/rdbms_tune/connect_pool.jpg" title="Connection pool demo flow" >}}
+{{< lazy-img src="/img/post/rdbms_tune/connect_pool.jpg" title="Connection pool demo flow" >}}
 
 - like [PHP swool extension](https://github.com/swoole/php-cp)
 - 傾向 Application 的執行面
@@ -86,7 +86,7 @@ https://github.com/major/MySQLTuner-perl
 - 建立連線的時候不用再走 3-steps Acks 跟 身份驗證層
 
 ### Thread Pool
-{{< figure src="/img/post/rdbms_tune/mysql_thread_pool.jpg" title="MySQL with thread pool enabled" >}}
+{{< lazy-img src="/img/post/rdbms_tune/mysql_thread_pool.jpg" title="MySQL with thread pool enabled" >}}
 
 - 在資料庫本身層級的 Pool
 - MySQL 的 Enterprise Edition 才有 Thread Pool
@@ -95,7 +95,7 @@ https://github.com/major/MySQLTuner-perl
 
 
 ### Buffer Pool
-{{< figure src="/img/post/rdbms_tune/mysql_buffer_pool.jpg" title="MySQL Buffer Pool demo flow" >}}
+{{< lazy-img src="/img/post/rdbms_tune/mysql_buffer_pool.jpg" title="MySQL Buffer Pool demo flow" >}}
 
 - 把資料跟 index 都從 Disk 抓出來放在 Memory(Buffer Pool) 中
 - 通常參數不要設定到 100%，系統層級還有其他部分要操作 Memory
@@ -126,9 +126,9 @@ https://github.com/major/MySQLTuner-perl
 
 - [innodb_flush_method](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_flush_method)
     - 5.7 default: all_o_direct
-    {{< figure src="/img/post/rdbms_tune/innodb_flush_method.jpg" title="innodb_flush_method demo flow" >}}
+    {{< lazy-img src="/img/post/rdbms_tune/innodb_flush_method.jpg" title="innodb_flush_method demo flow" >}}
     - direct io 省下記憶體，因為跳過 Page Cache  直接跟底層溝通
-    {{< figure src="/img/post/rdbms_tune/direct_io.jpg" title="Block I/O Layer demo image" >}}
+    {{< lazy-img src="/img/post/rdbms_tune/direct_io.jpg" title="Block I/O Layer demo image" >}}
 
 
 see more: [RDBMS 資料庫案例設計 (一) - Schema 設計技巧](/rdbms_design/)

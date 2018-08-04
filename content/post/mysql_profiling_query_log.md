@@ -15,7 +15,7 @@ Schema 設計是根據 data，而 Index 設計是根據 Query
 
 > _原文出處: [how-to-design-indexes-really](https://www.slideshare.net/billkarwin/how-to-design-indexes-really)_
 
-{{< figure src="https://image.slidesharecdn.com/howtodesignindexesreally-121025130330-phpapp02/95/how-to-design-indexes-really-12-638.jpg?cb=1354609505" title="design table is different from b" >}}
+{{< lazy-img src="https://image.slidesharecdn.com/howtodesignindexesreally-121025130330-phpapp02/95/how-to-design-indexes-really-12-638.jpg?cb=1354609505" title="design table is different from b" >}}
 
 ### 收集 Query Log
 - 打開 slow-query_log 設定:
@@ -49,7 +49,7 @@ $ pt-query-digest /usr/local/var/mysql/win-slow.log > ~/pgd.txt
 {{< / highlight >}}
 
 我們會看到類似以下的圖
-{{< figure src="/img/post/mysql_index/pgd_profile.png" title="Your mysql digest profile." >}}
+{{< lazy-img src="/img/post/mysql_index/pgd_profile.png" title="Your mysql digest profile." >}}
 
 {{< highlight SHELL>}}
 ### 如何解讀 profile 資訊

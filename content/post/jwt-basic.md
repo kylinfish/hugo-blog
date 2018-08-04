@@ -72,7 +72,7 @@ HMACSHA256( base64UrlEncode(header) + "." + base64UrlEncode(payload), secret)
 {{< alert "alert-info" >}}
 Authorization: Bearer <JWT token>
 {{< /alert >}}
-{{< figure src="https://cdn.auth0.com/content/jwt/jwt-diagram.png" title="JWT-Token process diagram" >}}
+{{< lazy-img src="https://cdn.auth0.com/content/jwt/jwt-diagram.png" title="JWT-Token process diagram" >}}
 
 
 ## Main Idea
