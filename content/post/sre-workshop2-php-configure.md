@@ -91,6 +91,7 @@ $ mysql --version <br>
 $ mysql -uroot -p <br>
 $ show databases;
 {{< /alert >}}
+
 - mysql -uroot -p
     - -u: 使用 root 帳號
     - -p: 接著會進入輸入密碼模式
