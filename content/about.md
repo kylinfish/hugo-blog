@@ -9,10 +9,10 @@ title = "About Win"
 og_images = ["https://firebasestorage.googleapis.com/v0/b/hugo-81880.appspot.com/o/post%2Fcover.jpg?alt=media&token=00243998-b696-4581-8e4a-f452cd8bbc32"]
 +++
 
-<div class="pull-right col-md-4 widget-author  boxed  push-down-30">
+<div class="pull-right col-md-4 col-sm-4 widget-author  boxed  push-down-30">
     <div class="widget-author__image-container">
         <div class="widget-author__avatar--light">
-            <img src="/img/avatar-L.jpg" alt="Avatar image">
+            <img src="/img/avatar-about.jpg" alt="Avatar image">
         </div>
     </div>
     <div class="row">
@@ -31,57 +31,42 @@ og_images = ["https://firebasestorage.googleapis.com/v0/b/hugo-81880.appspot.com
     <p>筆墨日積終將成冊，知識月累便可結果</p>
 </div>
 
-<div class="col-md-8 push-down-30">
+<div class="col-md-8 col-sm-8 push-down-30">
 <h2> ♘ INTRODUCTION</h2>
 
 <p>你好，感謝瀏覽我的簡歷，可以叫我 <code>Win</code></p>
-<p>目前正在服研發替代役 ...</p>
-<p>喜歡 Web，主要進行後端 PHP 開發</p>
-<p>也愛 Python 玩過一點 Data 跟做過一點機器學習</p>
-<p>目前正在學習雲端服務，持續在職場與人生的道路努力中</p>
-<p>歡迎一起討論學習</p>
+<p>喜歡 Web 與架構設計，探討設計精神背後的真理
+<p>主要進行後端 PHP 開發，也愛 Python 玩過一點 Data 跟做過一點機器學習</p>
+<p>目前正在學習雲端服務，持續在職場與人生的道路努力中💪 💪 </p>
+<p>期望自己能累積更多的知識能量，開發出更多令人喜愛的服務</p>
 
 </div>
 
 <hr>
 
-## ♘ WORK EXPERISENCES
+## ♘ Special Experiences
 
-<span class="text-primary">__痞客邦 PIXNET__</span>
+{{< alert "alert-info" >}}
+- [ModernWeb18 Conference](https://modernweb.tw/agenda.html) Speaker
+    - Builded a Cross-Platform for news feed system in PIXNET by Cloud Pub/Sub.
+    - [運用 Cloud Pub/Sub 實作 PIXNET 跨產品動態整合 #modernWeb2018](https://www.slideshare.net/kylinfish/newsfeed-for-crossplatformviapubsub)
 
-* `Advanced Platform Software Engineer` 2018 Jan - Present
+- Volunteer Conf Host at [2018 LaravelConf](https://laravelconf.tw/zh-TW)
+    - Some Pics in [Flickr](https://www.flickr.com/photos/laravelconftw/43013065034/in/album-72157693702967950/).
 
-* `Platform Software Engineer`  2015 Sep - 2018 Jan
-{{< alert "alert-warning" >}}
-* User Engagement 專案架構設計
-* 帳號中心
-* 一帳通
-* OAuth API 開發
-* PIXStyleMe 會員專區
-* 電子發票系統
-* 部落格服務維運
+- Participated in AWS re:invent 2017 Conference (in Las Vegas)
+    - Thanks for my company PIXNET to assist all expenses about this business trip.
+    - [Easy to recap AWS re:invent 2017](https://www.slideshare.net/kylinfish/easy-to-recap-aws-reinvent-2017)
+    - [AWS re:Invent 2017 Keynote Day1 Recap](https://kylinyu.win/reinvent_keynote_day1_recap/)
+
+- Lectured on ITSA Project in Ming Chuan University
+    - The course is about how to build quickly personal blog, and head first introduce GIT version control.
+    - [Build personal website via hugo](https://www.slideshare.net/kylinfish/build-personal-website-via-hugo)
+    - [Head first Git and Github Pages](https://www.slideshare.net/kylinfish/headfirstgitandgithubpages)
+
+- Volunteer Photography in 2016 PHPConf
+    - [flickr](https://www.flickr.com/photos/phpconf/sets/72157676129965046) - phpconf Signature Name: Win
 {{< /alert >}}
-
-<span class="text-primary">__IBM TAIWAN__</span>
-
-- `Engineer Intern` July. 2014 - Aug 2014.
-{{< alert "alert-warning" >}}
-* Develop N2N Testing System. using Bootstrap and NodeJS.
-{{< /alert >}}
-
-----
-
-## ♘ EDUCATIONS
-
-National Taiwan Normal University. (NTNU)
-
-* ___M.S. in Compouter Science.___
-
-National Kaohsiung University of Applied Science. (KUAS)
-
-* ___B.S. in Compouter Science.___
-
-----
 
 ## ♘ PUBLICATIONS
 
@@ -94,7 +79,7 @@ National Kaohsiung University of Applied Science. (KUAS)
 * [論文 - A Generalized Image Classifier based on Feature Selection.](http://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi?o=dnclcdr&s=id=%22103NTNU5392006%22.&searchmode=basic)
 * [Pattern Recognition 期末 Report - Video Face Recognition](https://www.slideshare.net/kylinfish/pattern-recognition-midterm-proposal)
 * [Pattern Recognition 期中 Propoal - Pattern Recognition midterm Proposal](https://www.slideshare.net/kylinfish/pattern-recognition-midterm-proposal)
-* [多媒體課程 期末 Report - MSR-Bing Image Retrieval Challengel](https://www.slideshare.net/kylinfish/msrbing-image-retrieval-challenge-written-by-win)
+* [多媒體課程 期末 Report - MSR-Bing Image Retrieval Challenge](https://www.slideshare.net/kylinfish/msrbing-image-retrieval-challenge-written-by-win)
 {{< /alert >}}
 
 ----
