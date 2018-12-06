@@ -150,3 +150,9 @@ $ echo '<?php phpinfo(); ?>' > ~/staging/index.php
 [PIXNET Emma API Example Source Code](https://github.com/kylinfish/pixnet-emma-demo)
 
 <img class="lazy" data-src="/img/post/workshop/2/12.jpg" width="100%">
+
+### <span class="text-success">__See more__</span>
+
+1. [GCP Workshop1 - 用 GCP 自架 Web server](/sre-workshop1-gcp-vm-server/)
+2. <span class="text-info">_GCP Workshop2 - 安裝 PHP, MySQL, phpMyAdmin_</span>
+3. [GCP Workshop3 - My Virtual Host](/sre-workshop3-virtualhost/)

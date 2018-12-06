@@ -87,5 +87,12 @@ $ sudo apt-get upgrade
 
 安裝各種你需要開發的環境工具 e.g. git, tmux, any shell, ...，但由於你開的是 Micro 的 instance 記憶體只有 0.6 M，有時候操作起來會頓是正常的 XD
 
-### 安裝環境延伸閱讀
-[在 Terminal 環境下的開發配置](https://kylinyu.win/%E5%9C%A8-terminal-%E7%92%B0%E5%A2%83%E4%B8%8B%E7%9A%84%E9%96%8B%E7%99%BC%E9%85%8D%E7%BD%AE/)
+
+### <span class="text-success">__See more__</span>
+
+1. <span class="text-info">_GCP Workshop1 - 用 GCP 自架 Web server_</span>
+2. [GCP Workshop2 - 安裝 PHP, MySQL, phpMyAdmin](/sre-workshop2-php-configure/)
+3. [GCP Workshop3 - My Virtual Host](/sre-workshop3-virtualhost/)
+
+- [在 Terminal 環境下的開發配置](https://kylinyu.win/%E5%9C%A8-terminal-%E7%92%B0%E5%A2%83%E4%B8%8B%E7%9A%84%E9%96%8B%E7%99%BC%E9%85%8D%E7%BD%AE/)
+

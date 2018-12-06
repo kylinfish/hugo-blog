@@ -150,3 +150,9 @@ $ sudo service apache2 restart
 
 #### 參考資料
 [配置 Apache 支援多個網域](http://wiki.linux.org.hk/w/Virtual_hosting_with_Apache)
+
+### <span class="text-success">__See more__</span>
+1. [GCP Workshop1 - 用 GCP 自架 Web server](/sre-workshop1-gcp-vm-server/)
+2. [GCP Workshop2 - 安裝 PHP, MySQL, phpMyAdmin](/sre-workshop2-php-configure/)
+3. <span class="text-info">_GCP Workshop3 - My Virtual Host_</span>
+

@@ -93,3 +93,6 @@ og_images = ["https://firebasestorage.googleapis.com/v0/b/hugo-81880.appspot.com
 * 31 天內沒有被 pull or push 就會被自動刪除，或者經過手動操作被刪除
 * 訂閱的名字沒有絕對關係，用同樣的名字也會被視為兩者不同的訂閱(情境可能是：刪除前，刪除後)
 * 刪除後就算有大量還沒寄出的訊息，或者是 Backlog，都與新建立的無關
+
+### <span class="text-success">__See more__</span>
+-  [運用 Cloud Pub/Sub 實作 PIXNET 跨產品動態整合 in ModernWeb18認識 Google Cloud Pub/Sub](/modernweb18_pubsub_feeds_system/)
