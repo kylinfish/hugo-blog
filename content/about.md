@@ -9,29 +9,6 @@ title = "About Win"
 og_images = ["https://firebasestorage.googleapis.com/v0/b/hugo-81880.appspot.com/o/post%2Fcover.jpg?alt=media&token=00243998-b696-4581-8e4a-f452cd8bbc32"]
 +++
 
-<div class="pull-right col-md-4 col-sm-4 widget-author  boxed  push-down-30">
-    <div class="widget-author__image-container">
-        <div class="widget-author__avatar--light">
-            <img src="/img/avatar-about.jpg" alt="Avatar image">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="widget-social-icons push-down-15">
-                <a class="btn btn-social-icon btn-twitter" target="_blank" href="https://twitter.com/kylinwin"><span class="fa fa-twitter"></span></a>
-                <a class="btn btn-social-icon btn-linkedin" target="_blank" href="https://www.linkedin.com/in/win-yu-0537717b"><i class="fa fa-linkedin"></i></a>
-                <a class="btn btn-social-icon btn-instagram" target="_blank" href="//slideshare.net/kylinfish"><i class="fa fa-slideshare"></i></a>
-                <a class="btn btn-social-icon btn-facebook" target="_blank" href="//fb.me/kylinwin"><i class="fa fa-facebook"></i></a>
-                <a class="btn btn-social-icon btn-tumblr" target="_blank" href="mailto:kylinfish@gmail.tw"><i class="fa fa-envelope"></i></a>
-                <a class="btn btn-social-icon btn-github" target="_blank" href="https://github.com/kylinfish"><i class="fa fa-github"></i></a>
-                <a class="btn btn-social-icon btn-flickr" target="_blank" href="https://www.flickr.com/kylinyu"><i class="fa fa-flickr"></i></a>
-            </div>
-        </div>
-    </div>
-    <p>筆墨日積終將成冊，知識月累便可結果</p>
-</div>
-
-<div class="col-md-8 col-sm-8 push-down-30">
 <h2> ♘ INTRODUCTION</h2>
 
 <p>你好，感謝瀏覽我的簡歷，可以叫我 <code>Win</code></p>
@@ -40,9 +17,8 @@ og_images = ["https://firebasestorage.googleapis.com/v0/b/hugo-81880.appspot.com
 <p>目前正在學習雲端服務，持續在職場與人生的道路努力中💪 💪 </p>
 <p>期望自己能累積更多的知識能量，開發出更多令人喜愛的服務</p>
 
-</div>
 
-<hr>
+----
 
 ## ♘ Special Experiences
 
