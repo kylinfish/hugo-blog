@@ -30,6 +30,12 @@ function refineImage()
     .pipe(gulp.dest("./_site/assets/img"));
 }
 
+function refineHTML()
+{
+    return gulp.src('./public/**/*.html')
+    .pipe(htmlmin({collapseWhitespace: true, conservativeCollapse: true}))
+    .pipe(gulp.dest('./public/'))
+}
 
 function refineCSS() {
     // gallery modules
@@ -61,5 +67,5 @@ gulp.task("refineCSS", refineCSS);
 gulp.task("refineJS", refineJS);
 gulp.task("refineImage", refineImage);
 
-gulp.task("build", gulp.series(gulp.parallel(refineCSS, refineJS)));
+gulp.task("build", gulp.series(gulp.parallel(refineCSS, refineJS, refineHTML)));
 
