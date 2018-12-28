@@ -2,12 +2,13 @@
 all: clean style
 	(git pull)
 	(hugo)
-	(gulp)
+	(gulp build)
 	(cd themes/hugo-readable && make)
 
 deploy: clean style
+	(npm install)
 	(hugo)
-	(gulp)
+	(gulp build)
 	(cp robots.txt ./public/robots.txt)
 	(cp sitemap.xml ./public/sitemap.xml)
 	firebase deploy
