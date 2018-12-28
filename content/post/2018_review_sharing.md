@@ -4,7 +4,8 @@ categories = [ "技術" ]
 tags = [ "pubsub", "MySQL", "Agile", "AI", "DesignPattern" ]
 date = "2018-12-28T10:04:29+08:00"
 title = "2018 年度回顧 - 分享之路"
-relative_banner = "/post/slide_share.png"
+relative_banner = "post/slide_share.png"
+og_images = ["/img/post/slide_share.png"]
 +++
 
 選在今年最後一個上班日來做 **2018 年度回顧**。
