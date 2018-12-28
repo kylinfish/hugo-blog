@@ -2,51 +2,64 @@ const gulp = require('gulp'),
     htmlmin = require('gulp-html-minifier'),
     minifyjs = require('gulp-js-minify'),
     purify = require('gulp-purifycss'),
-    cleanCSS = require('gulp-clean-css');
+    cleanCSS = require('gulp-clean-css'),
+    imagemin = require('gulp-imagemin'),
+    newer = require('gulp-newer'),
+    del = require("del");
 
-/*                                                                   oooo
- *                                                                   `888
- *      .oooooooo  .ooooo.  ooo. .oo.    .ooooo.  oooo d8b  .oooo.    888
- *     888' `88b  d88' `88b `888P"Y88b  d88' `88b `888""8P `P  )88b   888
- *     888   888  888ooo888  888   888  888ooo888  888      .oP"888   888
- *     `88bod8P'  888    .o  888   888  888    .o  888     d8(  888   888
- *     `8oooooo.  `Y8bod8P' o888o o888o `Y8bod8P' d888b    `Y888""8o o888o
- *     d"     YD
- *     "Y88888P'
- */
 
-gulp.task('default', ['minify-css', 'minify-js'], () => {
-  return gulp.src('./public/**/*.html')
-    .pipe(htmlmin({collapseWhitespace: true, conservativeCollapse: true}))
-    .pipe(gulp.dest('./public/'))
-});
+function refineImage()
+{
+  return gulp.src('./public/img/*')
+    .pipe(newer('./public/img/*'))
+    .pipe(
+      imagemin([
+        imagemin.gifsicle({ interlaced: true }),
+        imagemin.jpegtran({ progressive: true }),
+        imagemin.optipng({ optimizationLevel: 5 }),
+        imagemin.svgo({
+          plugins: [
+            {
+              removeViewBox: false,
+              collapseGroups: true
+            }
+          ]
+        })
+      ])
+    )
+    .pipe(gulp.dest("./_site/assets/img"));
+}
 
-gulp.task('purify-css', () => {
-     gulp.src('./public/modules/gallery/css/*.css')
-    .pipe(purify(['./public/modules/gallery/js/*.js', './public/**/*.html']))
-    .pipe(gulp.dest('./public/modules/gallery/css/'));
 
-     gulp.src('./public/css/**/*.css')
-    .pipe(purify(['./public/js/**/*.js', './public/**/*.html']))
-    .pipe(gulp.dest('./public/css/'));
-});
-
-gulp.task('minify-css', ['purify-css'], () => {
+function refineCSS() {
+    // gallery modules
      gulp.src('./public/modules/gallery/css/*.css')
     .pipe(cleanCSS({compatibility: '*'}))
     .pipe(gulp.dest('./public/modules/gallery/css'));
 
-     gulp.src('./public/css/**/*.css')
+    // blog
+    return gulp.src("./public/css/**/*.css")
+    .pipe(purify(['./public/css/**/*.css', './public/**/*.html']))
     .pipe(cleanCSS({compatibility: '*'}))
-    .pipe(gulp.dest('./public/css'));
-});
+    .pipe(gulp.dest('./public/css/'));;
+}
 
-gulp.task('minify-js', () => {
+function refineJS() {
+    // gallery modules
     gulp.src('./public/modules/gallery/js/**/*.js')
     .pipe(minifyjs())
     .pipe(gulp.dest('./public/modules/gallery/js'));
 
-    gulp.src('./public/js/**/*.js')
+    // blog
+    return gulp.src('./public/js/**/*.js')
     .pipe(minifyjs())
     .pipe(gulp.dest('./public/js'));
-});
+}
+
+// gulp.task("images", images);
+gulp.task("refineCSS", refineCSS);
+gulp.task("refineJS", refineJS);
+gulp.task("refineImage", refineImage);
+
+gulp.task("build", gulp.series(gulp.parallel(refineCSS, refineJS)));
+
