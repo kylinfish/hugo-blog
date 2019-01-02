@@ -37,7 +37,8 @@ function refineHTML()
     .pipe(gulp.dest('./public/'))
 }
 
-function refineCSS() {
+function refineCSS()
+{
     // gallery modules
      gulp.src('./public/modules/gallery/css/*.css')
     .pipe(cleanCSS({compatibility: '*'}))
@@ -50,7 +51,8 @@ function refineCSS() {
     .pipe(gulp.dest('./public/css/'));;
 }
 
-function refineJS() {
+function refineJS()
+{
     // gallery modules
     gulp.src('./public/modules/gallery/js/**/*.js')
     .pipe(minifyjs())
