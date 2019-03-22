@@ -123,7 +123,7 @@ JWT 其中的一個組成內容為 Signature，可以防止藉由 Base64 可逆�
 
 
 #### 看更多 (More)
-* [🔗  深入探討 JSON Web Token (JWT)](https://kylinyu.win/%E6%B7%B1%E5%85%A5%E6%8E%A2%E8%A8%8E-json-web-token-jwt/)
+* [🔗  深入探討 JSON Web Token (JWT)](https://kylinyu.win/jwt-advanced/)
 
 <br>
 

@@ -15,11 +15,11 @@ relative_banner="/post/pyvim-bg.jpg"
 ## 給 Py 用的套件 - Python Vim Plug
 - [`heavenshell/vim-pydocstring`](https://github.com/heavenshell/vim-pydocstring)
     - 自動產生 pydocstring ，個人習慣套用 *Ctrl + x* 來自動產生
-- [`davidhalter/jedi-vim`](https://github.com/heavenshell/vim-pydocstring)
+- [`davidhalter/jedi-vim`](https://github.com/davidhalter/jedi-vim)
     - 大家都推的 Python 用的自動補全，但這套我用起來不順所以後來用下面那套，大家還是可以嘗試看看
 - [`maralla/completor.vim`](https://github.com/maralla/completor.vim)
     - 自動補全後來改用這套
-- [`tell-k/vim-autopep8`](https://github.com/heavenshell/vim-pydocstring)
+- [`tell-k/vim-autopep8`](https://github.com/tell-k/vim-autopep8)
     - Python 介通用 Codging Style - [PEP8](https://www.python.org/dev/peps/pep-0008/) style
     - 先用 pip install autopep8，再裝這套
     - 套用 <F8> 來手動啟用，同時做些基礎設定，詳見 .vimrc
