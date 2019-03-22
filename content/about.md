@@ -12,11 +12,6 @@ og_images = ["https://firebasestorage.googleapis.com/v0/b/hugo-81880.appspot.com
 <h2> ♘ INTRODUCTION</h2>
 
 <p>你好，感謝瀏覽我的簡歷，可以叫我 <code>Win</code></p>
-<p>喜歡 Web 與架構設計，探討設計精神背後的真理
-<p>主要進行後端 PHP 開發，也愛 Python 玩過一點 Data 跟做過一點機器學習</p>
-<p>目前正在學習雲端服務，持續在職場與人生的道路努力中💪 💪 </p>
-<p>期望自己能累積更多的知識能量，開發出更多令人喜愛的服務</p>
-
 
 ----
 
