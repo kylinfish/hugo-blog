@@ -6,6 +6,7 @@ categories = [ "技術" ]
 date = "2019-03-23T00:22:03+08:00"
 title = "Vim for Python Development"
 relative_banner="/post/pyvim-bg.jpg"
+og_images = ["/img/post/pyvim-bg.jpg"]
 +++
 
 最近在寫 Python，已經習慣用 Vim 的我，當然先找看看 Python 相關的套件跟設定怎麼做開發起來比較方便，
