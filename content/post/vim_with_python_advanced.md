@@ -63,3 +63,4 @@ _⚠️   對了，不要加入 Git Tracking 喔 😅_
 ### <span class="text-success">__延伸閱讀__</span>
 
 - [Terminal 底下的開發環境 vim 的設定 tmux zsh fzf 套件整合](/unix-like-develop-env/)
+- [.vimrc](https://github.com/kylinfish/dotvim/blob/master/.vimrc)
