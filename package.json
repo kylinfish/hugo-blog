@@ -16,7 +16,7 @@
     "url": "https://github.com/kylinfish/hugo-blog/issues"
   },
   "homepage": "https://github.com/kylinfish/hugo-blog#readme",
-  "dependencies": {
+  "devDependencies": {
     "critical": "^1.3.4",
     "del": "^3.0.0",
     "gulp-html-minifier": "^0.1.8",
@@ -25,9 +25,7 @@
     "gulp-newer": "^1.4.0",
     "gulp-purifycss": "^0.2.0",
     "html-minifier": "^3.5.19",
-    "vanilla-lazyload": "^8.13.0"
-  },
-  "devDependencies": {
+    "vanilla-lazyload": "^8.13.0",
     "gulp": "^4.0.0",
     "gulp-clean-css": "^3.9.4"
   }
