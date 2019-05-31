@@ -2,6 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
+        <loc>https://kylinyu.win/py-method-type/</loc>
+        <lastmod>2019-05-30</lastmod>
+    </url>
+
+    <url>
+        <loc>https://kylinyu.win/vim_with_python_advanced/</loc>
+        <lastmod>2019-03-23</lastmod>
+    </url>
+
+    <url>
         <loc>https://kylinyu.win/2018_review_sharing/</loc>
         <lastmod>2018-12-28</lastmod>
     </url>
