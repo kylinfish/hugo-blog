@@ -1,7 +1,7 @@
 +++
 draft = false
 description = "釐清三種 Python Method 呼叫方式，Instance Method, Class Method, Static Method 差異"
-tags = [ "Python", "" ]
+tags = [ "python" ]
 categories = [ "技術" ]
 date = "2019-05-30T09:36:42+08:00"
 title = "Clarify Three Types of Method in Python"
