@@ -3,7 +3,7 @@ all: clean style
 	(git pull)
 	(hugo)
 	(gulp build)
-	(cd themes/hugo-readable && make)
+	(cd themes/hugo-readable && make style)
 
 deploy: clean style
 	(npm install)
