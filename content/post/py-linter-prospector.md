@@ -155,8 +155,10 @@ prospector `cat prospector_file_list.txt | sed "s/\n/ /g"` --profile prospector.
 Prospector 也允許利用 [pre-commit](https://pre-commit.com/) 做整合喔
 
 ## 延伸閱讀
-關心更多與 Python Quality 的主題，也可以來這裡 [PyCQA (Python Code Quality Authority)](http://meta.pycqa.org/en/latest/introduction.html)，
-也建議瀏覽 PyCQA [GitHub https://github.com/PyCQA](https://github.com/PyCQA) 上的 Repository
+- 關心更多與 Python Quality 的主題，也可以來這裡 [PyCQA (Python Code Quality Authority)](http://meta.pycqa.org/en/latest/introduction.html)，
+也建議瀏覽 PyCQA [GitHub](https://github.com/PyCQA) 上的 Repository
+- 更多 [awesome-static-analysis](https://github.com/mre/awesome-static-analysis) 在這連結中可以找到
+    - prospector 是屬於 **Python wrappers** 中的其中一種
 
 ##### Development FQA
 1. [Why does pylint object to single character variable names?](https://stackoverflow.com/questions/21833872/why-does-pylint-object-to-single-character-variable-names)
