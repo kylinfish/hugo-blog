@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-    xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    <url>
+        <loc>https://kylinyu.win/beautif_slides/</loc>
+        <lastmod>2019-07-01</lastmod>
+            <image:image>
+                <image:loc>https://kylinyu.win/img/post/free_image.png</image:loc>
+                <image:title>免費授權圖片網站示意圖</image:title>
+            </image:image>
+            <image:image>
+                <image:loc>https://kylinyu.win/img/post/slide_template.png</image:loc>
+                <image:title>免費投影片樣板示意圖</image:title>
+            </image:image>
+            <image:image>
+                <image:loc>https://kylinyu.win/img/post/icon.png</image:loc>
+                <image:title>免費 Icon 網站資源示意圖</image:title>
+            </image:image>
+    </url>
     <url>
         <loc>https://kylinyu.win/py-linter-prospector/</loc>
         <lastmod>2019-06-04</lastmod>
