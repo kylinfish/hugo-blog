@@ -17,7 +17,7 @@ pygmentsStyle = "perldoc"
 
 [params]
     author               = "Win"
-    blog_categories      = ["技術", "生活", "旅遊"]
+    blog_categories      = ["技術", "生活"]
     keywords             = ["墨冊", "kylinwin", "win", "Blog", "技術筆記", "front"]
     description          = "筆墨日積終將成冊，知識月累便可結果"
     footer_description   = "技術筆記 x 生活記事 x 旅遊日誌。筆墨日積終將成冊，知識月累便可結果"
