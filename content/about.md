@@ -17,21 +17,20 @@ og_images = ["https://firebasestorage.googleapis.com/v0/b/hugo-81880.appspot.com
 
 ## ♘ Special Experiences
 
-{{< alert "alert-info" >}}
+{{< alert "alert-primary" >}}
 - [ModernWeb18 Conference](https://modernweb.tw/agenda.html) Speaker
-    - Builded a Cross-Platform for news feed system in PIXNET by Cloud Pub/Sub.
+    - Build a PIXNET cross-platform news feed system by Cloud Pub/Sub.
     - [運用 Cloud Pub/Sub 實作 PIXNET 跨產品動態整合 #modernWeb2018](https://www.slideshare.net/kylinfish/newsfeed-for-crossplatformviapubsub)
 
 - Volunteer Conf Host at [2018 LaravelConf](https://laravelconf.tw/zh-TW)
     - Some Pics in [Flickr](https://www.flickr.com/photos/laravelconftw/43013065034/in/album-72157693702967950/).
 
 - Participated in AWS re:invent 2017 Conference (in Las Vegas)
-    - Thanks for my company PIXNET to assist all expenses about this business trip.
     - [Easy to recap AWS re:invent 2017](https://www.slideshare.net/kylinfish/easy-to-recap-aws-reinvent-2017)
     - [AWS re:Invent 2017 Keynote Day1 Recap](https://kylinyu.win/reinvent_keynote_day1_recap/)
 
 - Lectured on ITSA Project in Ming Chuan University
-    - The course is about how to build quickly personal blog, and head first introduce GIT version control.
+    - The course is about how to quickly build the personal blog, and head first introduce GIT version control.
     - [Build personal website via hugo](https://www.slideshare.net/kylinfish/build-personal-website-via-hugo)
     - [Head first Git and Github Pages](https://www.slideshare.net/kylinfish/headfirstgitandgithubpages)
 
@@ -39,21 +38,6 @@ og_images = ["https://firebasestorage.googleapis.com/v0/b/hugo-81880.appspot.com
     - [flickr](https://www.flickr.com/photos/phpconf/sets/72157676129965046) - phpconf Signature Name: Win
 {{< /alert >}}
 
-## ♘ PUBLICATIONS
-
-{{< alert "alert-danger" >}}
-* [打造個人化網站 - Build Personal Website via Hugo](https://www.slideshare.net/kylinfish/build-personal-website-via-hugo)
-* [PHP 良好實踐 (Best Practice)](https://www.slideshare.net/kylinfish/build-personal-website-via-hugo)
-* [2017 ModernWeb 與會分享 - 與架構設計當朋友](https://www.slideshare.net/kylinfish/ss-80020439)
-* [無瑕的程式碼 Clean Code 讀書心得分享](https://www.slideshare.net/kylinfish/clean-code-72688451)
-* [2016 ModernWeb 與會分享 - 恰如其分 MySQL 程式設計](https://www.slideshare.net/kylinfish/modernweb-mysql)
-* [論文 - A Generalized Image Classifier based on Feature Selection.](http://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi?o=dnclcdr&s=id=%22103NTNU5392006%22.&searchmode=basic)
-* [Pattern Recognition 期末 Report - Video Face Recognition](https://www.slideshare.net/kylinfish/pattern-recognition-midterm-proposal)
-* [Pattern Recognition 期中 Propoal - Pattern Recognition midterm Proposal](https://www.slideshare.net/kylinfish/pattern-recognition-midterm-proposal)
-* [多媒體課程 期末 Report - MSR-Bing Image Retrieval Challenge](https://www.slideshare.net/kylinfish/msrbing-image-retrieval-challenge-written-by-win)
-{{< /alert >}}
-
-----
 
 ## ♘ Face Recognition Demo
 
