@@ -1,5 +1,4 @@
 +++
-draft = true
 description = "Upgrading ElasticSearch from 5 to 6"
 tags = [ "ElasticSearch", "Kibana" ]
 categories = [ "技術" ]
