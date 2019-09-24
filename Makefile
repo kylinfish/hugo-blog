@@ -11,7 +11,7 @@ deploy: clean style
 	(gulp build)
 	(cp robots.txt ./public/robots.txt)
 	(cp sitemap.xml ./public/sitemap.xml)
-	firebase deploy
+	firebase deploy --only hosting:kylinyu-blog-site
 
 run: clean
 	(hugo)
