@@ -1,6 +1,5 @@
 {
     "hosting": {
-        "site": "kylinyu-blog-site",
         "public": "public",
         "ignore": [
             "firebase.json",
