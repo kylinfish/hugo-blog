@@ -179,4 +179,12 @@ ref. [Hackmd 版本] (https://hackmd.io/s/ry3xWNE6-)
 4. 如果 EXPLAIN 沒用 index，可以用 `USE INDEX ` 來 hint sql parse engine 來用
 
 
-see more: [RDBMS 資料庫案例設計 (二) - 最佳化設計技巧](/rdbms_mysql_tuning/)
+
+### <span class="text-success">__文章系列__</span>
+
+-  [RDBMS 資料庫案例設計 (二) - 最佳化設計技巧](/rdbms_mysql_tuning/)
+
+1. [MySQL 效能 - How to design Indexes, Really](/mysql_performance)
+2. [MySQL Index 設計第一節 - 從 Log 分析 Query](/mysql_profiling_query_log/)
+3. [MySQL Index 設計第二節 - 三星評分法則](/mysql_index_3star_system/)
+4. [MySQL Index 設計第三節 - 檢驗與回顧設計不良的 Index](/mysql_index_review/)
