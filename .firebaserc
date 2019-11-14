@@ -1,5 +1,5 @@
 {
   "projects": {
-    "blog": "hugo-81880"
+    "default": "hugo-81880"
   }
 }
