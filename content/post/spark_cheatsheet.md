@@ -3,8 +3,8 @@ draft = false
 categories = ['技術']
 tags = ['Scala', 'Python']
 date = "2019-12-25T14:30:12+08:00"
-description = "Spark CheatSheet for scala and python"
-title = "Spark CheatSheet for Scala/Python"
+description = "Spark Cheat Sheet for scala and python"
+title = "Spark Cheat Sheet for Scala/Python"
 absolute_banner="/img/post/spark.jpeg"
 og_images = ["/img/post/spark.jpeg"]
 +++
