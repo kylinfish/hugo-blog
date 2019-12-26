@@ -2,6 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <url>
+        <loc>https://kylinyu.win/spark_cheatsheet/</loc>
+        <lastmod>2019-12-25</lastmod>
+    </url>
+    <url>
         <loc>https://kylinyu.win/es_upgrade_5_to_6/</loc>
         <lastmod>2019-09-23</lastmod>
     </url>
