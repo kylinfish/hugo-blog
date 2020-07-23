@@ -9,12 +9,14 @@ absolute_banner="/img/post/spark.jpeg"
 og_images = ["/img/post/spark.jpeg"]
 +++
 <!--more-->
-## Read the parquet file
+
+## Spark Example
+### Read the parquet file
 {{< highlight shell >}}
 scala> val param = spark.read.parquet("s3://file_path_you_put")
 {{< /highlight  >}}
 
-## Print the parquet file schema
+### Print the parquet file schema
 {{< highlight shell >}}
 scala> param.printSchema()
 
@@ -24,7 +26,7 @@ root
  |-- time: long (nullable = true)
 {{< /highlight  >}}
 
-## Print the parquet content
+### Print the parquet content
 {{< highlight shell >}}
 scala> new_result.show()
 +--------------------+-----+----------+
@@ -33,41 +35,26 @@ scala> new_result.show()
 |d8f9ba869c19f25cc...| Hell|1562112000|
 |f8e172cb34d620bbe...|     |1562112000|
 |28eb0ec1e0d549a58...| PUMA|1562112000|
-|602e7cbc21f84c73c...| Hell|1562112000|
-|0dbdd026b7289c878...| Hell|1562112000|
-|769dc575d8c918a35...|     |1562112000|
-|eb2d649caaa5c50af...| PUMA|1562112000|
-|54c4a913e155e7498...| Hell|1562112000|
-|f869bc9db782403e6...| Hell|1562112000|
-|1267183b43b770323...| Hell|1562112000|
-|c688e203dddff994a...| Vior|1562112000|
-|9feebd3baf18ead6b...|  PUA|1562112000|
-|c1b24674530e9800e...| Hell|1562112000|
-|8e4b8fa293b59359e...| Hell|1562112000|
-|2743920303b11901a...| PUMA|1562112000|
-|0bcec8ac02f891fc7...| Hell|1562112000|
-|1cdafdde2a10df9fa...| Hell|1562112000|
-|c4ac9ae9db127a9d2...| SPYD|1562112000|
 |145760249908bb4f7...| PUMA|1562112000|
 |e5622270036303a86...| Hell|1562112000|
 +--------------------+-----+----------+
 only showing top 20 rows
 {{< /highlight  >}}
 
-## Get the number of rows
+### Get the number of rows
 {{< highlight shell >}}
 scala> new_result.count()
 res8: Long = 568
 {{< /highlight  >}}
 
-## Join two dataframes (with name alias)
+### Join two dataframes (with name alias)
 {{< highlight shell >}}
 scale> val jt = new_df.as("n").join(old_df.as("o"), "uuid")
 
 jt: org.apache.spark.sql.DataFrame = [uuid: string, label: string ... 3 more fields]
 {{< /highlight  >}}
 
-## Filter two fields for the different value
+### Filter two fields for the different value
 {{< highlight shell >}}
 scala> jt.filter(! ($"n.label" <=> $"o.label")).show()
 +--------------------+-----+----------+-----+----------+
@@ -81,7 +68,7 @@ ref: [scala filtering out rows in a joined df based on 2 columns with same value
 
 ## PySpark Example
 
-Read csv file and transform to data frame.
+### Read csv file and transform to data frame.
 {{< highlight python >}}
 ps_schema = StructType([
     StructField("sha1", StringType(), True),
@@ -90,6 +77,61 @@ ps_schema = StructType([
 ])
 
 spark.read.csv("file.csv", header=False, schema=ps_schema)
+{{< /highlight  >}}
+
+### Count number of duplicate rows
+
+{{< highlight python >}}
+import pyspark.sql.functions as funcs
+df.groupBy(df.columns) \
+    .count() \
+    .where(funcs.col('count') > 1) \ # Filter count condition
+    .select(funcs.sum('count')) \
+    .show()
+{{< /highlight  >}}
+
+[https://proinsias.github.io/til/Spark-Count-number-of-duplicate-rows/](https://proinsias.github.io/til/Spark-Count-number-of-duplicate-rows/)
+
+
+
+### Convert Dataframe to CSV or HTML String for email report usage
+
+{{< highlight python >}}
+
+df = spark.read.csv("file.csv", header=False, schema=ps_schema)
+panda_df = df.toPandas()
+
+panda_df.to_html()
+panda_df.to_csv()
+{{< /highlight  >}}
+
+[https://docs.databricks.com/spark/latest/spark-sql/spark-pandas.html](https://docs.databricks.com/spark/latest/spark-sql/spark-pandas.html)
+
+[https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_csv.html](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_csv.html)
+
+### Spark Read multiple CSV files and parquet files
+
+#### parquet
+
+{{< highlight python >}}
+release_date = datetime.strptime("2020/10/10", '%Y/%m/%d')
+process_dates = ["s3://sample/" + (release_date - timedelta(days=x)).strftime("%Y/%m/%d")
+                         for x in range(0, 10)]
+
+total_df = spark.read.parquet(*process_dates).select("sha1", "reqBody").cache()
+{{< /highlight  >}}
+
+#### CSV
+
+{{< highlight python >}}
+release_date = datetime.strptime("2020/10/10", '%Y/%m/%d')
+process_dates = ["s3://sample/" + (release_date - timedelta(days=x)).strftime("%Y/%m/%d")
+                         for x in range(0, 10)]
+
+total_df = spark.read.format("csv").option("header", "False").schema(StructType([
+    StructField("sha1", StringType(), True),
+    StructField("count", IntegerType(), True)
+])).load(process_dates)
 {{< /highlight  >}}
 
 ## PDF External Link
