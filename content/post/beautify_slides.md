@@ -1,12 +1,14 @@
-+++
-categories = ['技術', '生活']
-tags = ['Google Slides', 'Free']
-date = "2019-07-01T09:49:12+08:00"
-description = "製作漂亮的簡報需要素材，提供投影片樣板、圖片素材、Icon 圖示產生器等多樣性元素整理"
-title = "簡報投影片素材"
-relative_banner = "post/slide_share.png"
-og_images = ["/img/post/slide_template.png", "/img/post/icon.png", "/img/post/free_image.png"]
-+++
+---
+title: "簡報投影片素材"
+description: "製作漂亮的簡報需要素材，提供投影片樣板、圖片素材、Icon 圖示產生器等多樣性元素整理"
+date: "2019-07-01T09:49:12+08:00"
+draft: false
+tags: ['Google Slides', 'Free']
+categories: ["技術"]
+
+featuredImage: "/img/post/slide_share.png"
+images: [ "/img/post/slide_share.png" ]
+---
 
 全盛時期在做投影片的時候，一年產出[十份投影片](/2018_review_sharing/)。一份生動的投影片往往需要依賴漂亮並且適當的素材，本篇文章整理**免費、豐富、精緻**的投影片製作素材分享：
 
@@ -29,12 +31,13 @@ og_images = ["/img/post/slide_template.png", "/img/post/icon.png", "/img/post/fr
 - Google Slides 格式的圖板，類似 PowerPoint 的 SmartCharts
 - 自從 Google Slides 允許 View Only 後，就無法自由複製資源了，但仍然可以參考畫圖設計
 
-{{< alert alert-info >}}
-__小技巧__: <br>
-通用的版型想要凸顯特色或主題，可以直接調整投影片色系，能讓整份特影片與常見版型做出區別
-{{< / alert >}}
 
-{{< lazy-img src="/img/post/slide_template.png" title="免費投影片樣板示意圖" >}}
+{{< admonition tip "小技巧" >}}
+通用的版型想要凸顯特色或主題，可以直接調整投影片色系，能讓整份特影片與常見版型做出區別
+{{< / admonition >}}
+
+
+{{< figure src="/img/post/slide_template.png" title="免費投影片樣板示意圖" >}}
 
 ## Icon 系列
 
@@ -60,7 +63,7 @@ __小技巧__: <br>
     - 相同系列圖示打包下載
     - 支援不同風格瀏覽及相近種類圖示查詢
 
-{{< lazy-img src="/img/post/icon.png" title="免費 Icon 網站資源示意圖" >}}
+{{< figure src="/img/post/icon.png" title="免費 Icon 網站資源示意圖" >}}
 
 ## 圖片素材
 
@@ -76,7 +79,7 @@ __小技巧__: <br>
 
 - [https://undraw.co/search](https://undraw.co/search)
 
-{{< lazy-img src="/img/post/free_image.png" title="免費授權圖片網站示意圖" >}}
+{{< figure src="/img/post/free_image.png" title="免費授權圖片網站示意圖" >}}
 
 <br>
 最後，如果讀者還有不錯的口袋名單，也歡迎提供分享

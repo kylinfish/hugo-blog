@@ -5,8 +5,8 @@ date = "2018-02-08T00:10:12+08:00"
 tags = [ "AWS" ]
 categories = [ "技術" ]
 title = "Amaon EC2 Spot Fleet Design Patterns and Best Practice 筆記"
-absolute_banner="/img/post/spot_instance.jpg"
-og_images = ["/img/post/spot_instance.jpg"]
+featuredImage = "/img/post/spot_instance.jpg"
+images = ["/img/post/spot_instance.jpg"]
 +++
 2 月 7 日 參加 `Amaon EC2 Spot Fleet Design Patterns and Best Practice` 由 AWS User Group 台北小小聚主辦的活動
 
@@ -31,8 +31,9 @@ og_images = ["/img/post/spot_instance.jpg"]
 
 -    `Spot`: 閒置的資源用競標的方式讓大家取得，有市場價格。簡言之用標價得到 On-demand 的機器
 
-> Spot Instance 可以讓機房利用率提高
-
+{{<admonition tip >}}
+Spot Instance 可以讓機房利用率提高
+{{</admonition>}}
 
 以前是出的價格不等同於實際要付的費用，會以當時市場機制當作付費的金額
 
@@ -52,7 +53,11 @@ og_images = ["/img/post/spot_instance.jpg"]
 -  Time flexible
 -  Region flexible
 
-(可以選擇更便宜的 region。不同訂價可能取決於當地環境，像東京用電較貴所以費用較高)
+{{<admonition tip >}}
+可以選擇更便宜的 region
+
+>不同訂價可能取決於當地環境，像東京用電較貴所以費用較高
+{{</admonition >}}
 
 ----
 
@@ -111,14 +116,11 @@ Spot fleet with maintain option: 如果 Spot 被收回了，打開這個 Option 
 
 ### EC2 spot with ECS
 
-現在可以在 ECS console就可以開 Spot
+現在可以在 ECS console就可以開 Spot，其中 allocation 策略還可以選
+- Diversified(盡可能分散組合)
+- Lowest price. (雞蛋有可能放在同一個籃子裡)
 
-其中 allocation 策略還可以選
-
--    Diversified(盡可能分散組合)
--    Lowest price. (雞蛋有可能放在同一個籃子裡)
-
-
+### 實作
 1.  建議用 Diversified 得來做最小化 Distribution
 2.  Lowest allocation 可以給 dev/testing/staging 環境使用
 3.  Create CloudFormation template 用你的模板就可以讓別人起跟你一樣的環境 (Infra as code)
@@ -129,7 +131,7 @@ Spot fleet with maintain option: 如果 Spot 被收回了，打開這個 Option 
 8.  Container Draining with cloudWatch Events
     1.  ECS 有 Draining API, 可以讓你的主機通知要關機前，先讓 ELB 不會再把 connection 送進來，讓舊的做完再結束 instance
 
-{{< lazy-img src="https://cloudncode.files.wordpress.com/2016/07/hybrid_auto_scaling.png?w=640"
+{{< figure src="https://cloudncode.files.wordpress.com/2016/07/hybrid_auto_scaling.png?w=640"
 title="EC2 On-demand + RI 混搭 Spot Instance Case. img from: cloudncode.blog" >}}
 
-{{< lazy-img src="/img/post/serverless_sticker.jpg" title="AWS Serverless Sticker" >}}
+{{< figure src="/img/post/serverless_sticker.jpg" title="AWS Serverless Sticker" >}}

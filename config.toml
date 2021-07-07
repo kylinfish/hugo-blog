@@ -1,55 +1,187 @@
-baseurl = "https://kylinyu.win/"
-languageCode = "zh-tw"
+baseURL = "https://kylinyu.win"
+defaultContentLanguage = "zh-tw"
+languageCode = "zh-TW"
+hasCJKLanguage = true
 title = "墨冊"
-theme = "hugo-readable"
-preserveTaxonomyNames = true
-paginate = 7
-pygmentsStyle = "perldoc"
-
-[permalinks]
-    post    = "/:filename"
-    page    = "/:filename"
-    travel  = "/:filename"
-
-[taxonomies]
-    tag = "tags"
-    category = "categories"
+theme = "LoveIt"
 
 [params]
-    author               = "Win"
-    blog_categories      = ["技術", "生活"]
-    keywords             = ["墨冊", "kylinwin", "win", "Blog", "技術筆記", "front"]
-    description          = "筆墨日積終將成冊，知識月累便可結果"
-    footer_description   = "技術筆記 x 生活記事 x 旅遊日誌。筆墨日積終將成冊，知識月累便可結果"
-    categoriesByCount    = true
-    loadFavicon          = true
+  # LoveIt 主题版本
+  version = "0.2.X"
 
-    google_analytics = "UA-36878065-5"
-    disqus = "https-kylinyu-win"
+[permalinks]
+    posts = "/:filename"
 
-[social]
-    facebook        = "kylinwin"
-    github          = "kylinfish"
-    flickr          = "kylinyu"
-    linkedin        = "openwinyu"
-    email           = "kylinfish@gmail.tw"
-    twitter         = "kylinwin"
-    slideshare      = "kylinfish"
+[author]
+  name = "Win Yu"
+  email = ""
+  authorlink = "https://kylinyu.win"
 
-[[menu.header]]
+[params.verification]
+  google = ""
+
+[params.analytics]
+  enable = true
+  # Google Analytics
+  [params.analytics.google]
+    id = "UA-36878065-5"
+
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5
+
+[params.header]
+  # ("fixed", "normal", "auto")
+  desktopMode = "fixed"
+  # 移动端导航栏模式 ("fixed", "normal", "auto")
+  mobileMode = "normal"
+  [params.header.title]
+    logo = "/img/win.png"
+    name = "墨冊"
+    typeit = true
+
+[params.footer]
+  enable = true
+  hugo = false
+  copyright = true
+  # LoveIt 新增 | 0.2.0 是否显示作者
+  author = true
+  # 网站创立年份
+  since = 2017
+
+[params.page]
+  # LoveIt 新增 | 0.2.0 是否在主页隐藏一篇文章
+  hiddenFromHomePage = false
+  # LoveIt 新增 | 0.2.0 是否在搜索结果中隐藏一篇文章
+  hiddenFromSearch = false
+  # LoveIt 新增 | 0.2.0 是否使用 twemoji
+  twemoji = false
+  # 是否使用 lightgallery
+  lightgallery = false
+  # LoveIt 新增 | 0.2.0 是否使用 ruby 扩展语法
+  ruby = true
+  # LoveIt 新增 | 0.2.0 是否使用 fraction 扩展语法
+  fraction = true
+  # LoveIt 新增 | 0.2.0 是否使用 fontawesome 扩展语法
+  fontawesome = false
+  # 是否在文章页面显示原始 Markdown 文档链接
+  linkToMarkdown = true
+  # LoveIt 新增 | 0.2.4 是否在 RSS 中显示全文内容
+  rssFullText = false
+  # LoveIt 新增 | 0.2.0 目录配置
+  [params.page.toc]
+    # 是否使用目录
+    enable = true
+    # LoveIt 新增 | 0.2.9 是否保持使用文章前面的静态目录
+    keepStatic = false
+    # 是否使侧边目录自动折叠展开
+    auto = false
+  # LoveIt 新增 | 0.2.0 代码配置
+  [params.page.code]
+    # 是否显示代码块的复制按钮
+    copy = true
+    # 默认展开显示的代码行数
+    maxShownLines = 100
+  # LoveIt 更改 | 0.2.0 文章页面的分享信息设置
+  [params.page.share]
+    enable = true
+    Twitter = true
+    Facebook = true
+    Linkedin = true
+    Whatsapp = true
+    Line = true
+    Instapaper = false
+    Pocket = true
+    Evernote = true
+
+  # LoveIt 更改 | 0.2.0 评论系统设置
+  [params.page.comment]
+    enable = true
+    # Disqus 评论系统设置
+    [params.page.comment.disqus]
+      # LoveIt 新增 | 0.1.1
+      enable = true
+      # Disqus 的 shortname，用来在文章中启用 Disqus 评论系统
+      shortname = ""
+
+    # Facebook 评论系统设置
+    [params.page.comment.facebook]
+      enable = true
+      width = "100%"
+      numPosts = 10
+      appId = "875621863042622"
+      languageCode = "zh_TW"
+
+  # LoveIt 更改 | 0.2.10 页面 SEO 配置
+  [params.page.seo]
+    # 图片 URL
+    images = []
+    # 出版者信息
+    [params.page.seo.publisher]
+      name = "Win Yu"
+      logoUrl = "/img/win.png"
+
+[languages.zh-tw.params.home]
+    rss = 10
+    [languages.zh-tw.params.home.profile]
+      enable = true
+      avatarURL = "/img/avatar-2.jpg"
+      title = "墨冊"
+      subtitle = "筆墨日積終將成冊，知識月累便可結果"
+      typeit = true
+      social = true
+    # 主页文章列表
+    [languages.zh-tw.params.home.posts]
+      enable = true
+      paginate = 6
+    # 主页的社交信息设置
+    [languages.zh-tw.params.social]
+      GitHub = "kylinfish"
+      Linkedin = "openwinyu"
+      Twitter = "kylinwin"
+      Facebook = "kylinwin"
+      Email = "kylinfish@gmail.com"
+      RSS = true
+
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    pre = ""
+    post = ""
     name = "所有文章"
-    url = "/post"
-    identifier = "fa fa-newspaper-o"
+    url = "/posts/"
+    title = ""
     weight = 1
-
-[[menu.header]]
-    name = "分類"
-    url = "/categories"
+  [[menu.main]]
+    identifier = "tags"
+    pre = ""
+    post = ""
+    name = "標籤"
+    url = "/tags/"
+    title = ""
     weight = 2
-    identifier = "fa fa-book"
-
-[[menu.header]]
-    name = "關於我"
-    url = "/about"
-    identifier = "fa fa-user"
+  [[menu.main]]
+    identifier = "categories"
+    pre = ""
+    post = ""
+    name = "分類"
+    url = "/categories/"
+    title = ""
     weight = 3
+
+[markup]
+  # 语法高亮设置 (https://gohugo.io/content-management/syntax-highlighting)
+  [markup.highlight]
+    # false 是必要的设置 (https://github.com/dillonzq/LoveIt/issues/158)
+    noClasses = false
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  page = ["HTML"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  taxonomyTerm = ["HTML"]

@@ -1,14 +1,15 @@
-+++
-draft = false
-description = "AWS re:Invent 2017 Keynote Summary"
-date = "2017-12-27T00:09:12+08:00"
-tags = [ "AWS", "reinvent" ]
-categories = [ "技術" ]
-title = "AWS re:Invent 2017 Keynote Day1 Recap"
-absolute_banner="/img/post/reinvent/reinvent-keynote.jpg"
-og_images = ["/img/post/reinvent/reinvent-keynote.jpg"]
-+++
-<style> h3 { color: #309ac1; } </style>
+---
+title: "AWS re:Invent 2017 Keynote Day1 Recap"
+description: "AWS re:Invent 2017 Keynote Summary"
+date: "2017-12-27T00:09:12+08:00"
+draft: false
+tags:  [ "AWS", "reinvent" ]
+categories: ["技術"]
+
+featuredImage: "/img/post/reinvent-keynote.jpg"
+images: ["/img/post/reinvent-keynote.jpg"]
+
+---
 
 今年 AWS Keynote 由 CEO - Andy Jassy Release 出不少令人驚艷的服務
 
@@ -35,7 +36,7 @@ AWS 在這幾年的努力之後，除了累積了大量的企業用戶，整體�
 
 Andy 今年主要 Announce 所有與服務相關的項目，我們大致上可以分門別類為以下幾個大項
 
-{{< lazy-img src="/img/post/reinvent/service_items.jpg" title="AWS CEO Announce 2017 主線服務領域項目" >}}
+{{< figure src="/img/post/reinvent/service_items.jpg" title="AWS CEO Announce 2017 主線服務領域項目" >}}
 
 ## Compute
 包含運算單位的機器升級，產品變革。
@@ -43,7 +44,7 @@ Andy 今年主要 Announce 所有與服務相關的項目，我們大致上可�
 其中今年關注的最大賣點莫過於 EKS 的釋出，為容器化的世界帶來更大的整合
 
 ### Elastic Container Service for Kubernetes (EKS)
-{{< lazy-img src="/img/post/reinvent/eks.jpg" title="CEO 介紹 EKS for Kubernetes." >}}
+{{< figure src="/img/post/reinvent/eks.jpg" title="CEO 介紹 EKS for Kubernetes." >}}
 
 AWS 宣布 Support Kubernetes 了，這可以確認 Kubernetes 現今在 Container 場的地位
 
@@ -53,7 +54,7 @@ AWS 宣布 Support Kubernetes 了，這可以確認 Kubernetes 現今在 Contain
 
 
 ### AWS Fargate
-{{< lazy-img src="/img/post/reinvent/fargate.jpg" title="繼 EKS 之後，CEO announced AWS Fargate 投下震憾彈" >}}
+{{< figure src="/img/post/reinvent/fargate.jpg" title="繼 EKS 之後，CEO announced AWS Fargate 投下震憾彈" >}}
 
 - no cluster to manage
 - manages underlying infra
@@ -71,9 +72,9 @@ AWS Fargate 讓管理者只需要規劃 container ，專注於建立你的應用
 在資料庫層面，今年要強調的是全球化的支援
 
 ### Aurora Multi-Master
-{{< lazy-img src="/img/post/reinvent/aurora_multi-master.jpg" title="CEO 宣布 AWS Aurora Multi-Master 服務" >}}
+{{< figure src="/img/post/reinvent/aurora_multi-master.jpg" title="CEO 宣布 AWS Aurora Multi-Master 服務" >}}
 
-號稱 node failure 跟 AZ 的 failure 沒有 downtime 
+號稱 node failure 跟 AZ 的 failure 沒有 downtime
 
 在 2018 年還會 support Multi-region
 
@@ -85,7 +86,7 @@ AWS Fargate 讓管理者只需要規劃 container ，專注於建立你的應用
 - automatically scales capacity up and down
 
 ### DynamoDB Global Tables
-{{< lazy-img src="/img/post/reinvent/dynamodb_global_tables.jpg" title="DynamoDB 也支援全球化了： DynamoDB Global Tables" >}}
+{{< figure src="/img/post/reinvent/dynamodb_global_tables.jpg" title="DynamoDB 也支援全球化了： DynamoDB Global Tables" >}}
 另一個全球化業務的 Support 就是 DynamoDB 的 Global Tables
 對於 Serverless 的架構支援是很大的關鍵，但相信台灣的市場跟業務其實很少有機會使用到
 
@@ -94,7 +95,7 @@ AWS Fargate 讓管理者只需要規劃 container ，專注於建立你的應用
 
 
 ### Amazon Neptune
-{{< lazy-img src="/img/post/reinvent/neptune.jpg" title="Amazon Neptune for Graph Database" >}}
+{{< figure src="/img/post/reinvent/neptune.jpg" title="Amazon Neptune for Graph Database" >}}
 fully managed graph database
 
 - 6 replicas (reliable)
@@ -106,7 +107,7 @@ fully managed graph database
 
 
 ### S3 and Glacier Select
-{{< lazy-img src="/img/post/reinvent/s3_select.jpg" title="CEO Announce S3 / Glacier Select" >}}
+{{< figure src="/img/post/reinvent/s3_select.jpg" title="CEO Announce S3 / Glacier Select" >}}
 S3 被廣泛的使用，其中
 
 - most popular choice for data lakes is S3
@@ -123,10 +124,10 @@ S3 Select 簡言之即是  partial select，部份擷取將可以更快速也能
 涵蓋範圍有機器學習，自然語言處理，語音辨識
 
 ### Amazon SageMaker
-{{< lazy-img src="/img/post/reinvent/sagemaker.jpg" title="Amazon SageMAker Feature Announced" >}}
+{{< figure src="/img/post/reinvent/sagemaker.jpg" title="Amazon SageMAker Feature Announced" >}}
 
 ### AWE DeepLens
-{{< lazy-img src="/img/post/reinvent/deeplens.jpg" title="DeepLens 內建深度學習影像攝影機" >}}
+{{< figure src="/img/post/reinvent/deeplens.jpg" title="DeepLens 內建深度學習影像攝影機" >}}
 一台內建深度學習的攝影機
 
 - Amazon Rekognition Video 影片辨識
@@ -175,5 +176,7 @@ S3 Select 簡言之即是  partial select，部份擷取將可以更快速也能
 
 在一次聽下這麼多不同領域的功能發佈的同時，其實該說的是萬事俱備之下
 
-## 『唯一的限制即是如何使用雲的技能？以及如何利用雲來架構你的服務』
+{{<  admonition tip "總結" >}}
+唯一的限制即是如何使用雲的技能？以及如何利用雲來架構你的服務
+{{<  /admonition >}}
 

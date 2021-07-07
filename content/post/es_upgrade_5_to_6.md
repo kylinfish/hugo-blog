@@ -1,12 +1,14 @@
-+++
-description = "Upgrading ElasticSearch from 5 to 6"
-tags = [ "ElasticSearch", "Kibana" ]
-categories = [ "技術" ]
-date = "2019-09-23T14:19:36+08:00"
-title = "AWS ElasticSearch 升級紀錄 5/6"
-absolute_banner="/img/post/ElasticSearch.png"
-og_images = ["/img/post/ElasticSearch.png"]
-+++
+---
+title: "AWS ElasticSearch 升級紀錄 5/6"
+description: "Upgrading ElasticSearch from 5 to 6"
+date: "2019-09-23T14:19:36+08:00"
+draft: false
+tags: [ "ElasticSearch", "Kibana" ]
+categories: ["技術"]
+
+featuredImage: "/img/post/ElasticSearch.png"
+images: [ "/img/post/ElasticSearch.png" ]
+---
 
 本篇紀錄 AWS ES  升級相關資訊，這次是從版本 5.x 升到 6.x，因為敝 TEAM ES 資料龐大，為了不讓切換時影響 Prod ES ，擬定升級流程之外也需要 Dev/Stg 不同環境進行演練
 
@@ -29,10 +31,10 @@ og_images = ["/img/post/ElasticSearch.png"]
     9. Wait for green status (等待同步完成)
 - Kibana 設定匯出/匯入
     - 利用 Kibana Web Console 匯出 **Dashboard/Visualize/Search** 等資料 (json file)，等 V6 完成再匯入即可
-{{< alert alert-info>}}
-**注意**： <br>
+{{<admonition warning "注意">}}
 V5 的 kibana 無法匯出 Index Pattern·。如果有 V6 的DEV 環境，可以先把 PROD 的 Index Pattern 轉過去再使用 V6 匯出功能就可以連同 Index Pattern 一起輸出，這邊也要注意是否有設定 `scripted_fields`，如果轉移後有少會影響 Visualize 拉資料的轉換
-{{< /alert >}}
+{{</admonition>}}
+
 - 確認其他 AWS Service 是否有正確轉換接到新的 ES 版本
     - 如果有使用 [Cloudformation](https://docs.aws.amazon.com/zh_tw/AWSCloudFormation/latest/UserGuide/Welcome.html) 可能會搭配 [SSM](https://docs.aws.amazon.com/zh_tw/systems-manager/latest/userguide/what-is-systems-manager.html) 的 [Parameter Store](https://docs.aws.amazon.com/zh_tw/systems-manager/latest/userguide/systems-manager-parameter-store.html) 來管理 ELK Endpoint。確保相對應的 ELK 參數都有被更新為新版
 

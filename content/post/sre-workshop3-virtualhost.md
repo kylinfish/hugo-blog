@@ -1,11 +1,15 @@
-+++
-description = "設定 Apache2 Server 的 Virtual Host"
-date = "2017-09-30T23:46:50+08:00"
-categories = [ "技術" ]
-title = "GCP Workshop3 - My Virtual Host"
-tags = [ "GCP", "Apache2", "workshop-sre" ]
-relative_banner = "post/workshop/workshop-3.jpg"
-+++
+---
+title: "GCP Workshop3 - My Virtual Host"
+description: 設定 Apache2 Server 的 Virtual Host"
+date: "2017-09-30T23:46:50+08:00"
+draft: false
+tags: [ "gcp", "apache2", "workshop-sre" ]
+categories: ["技術"]
+
+featuredImage: "/img/post/workshop/workshop-3.jpg"
+images: ["/img/post/workshop/workshop-3.jpg"]
+
+---
 
 [PIXNET](https://www.pixnet.net/career) 內部開了 SA Workshop，學習自架網頁 Server 服務。練習時間半小時。
 
@@ -37,17 +41,17 @@ relative_banner = "post/workshop/workshop-3.jpg"
 
 
 為了方便做 demo 我們先在自己的家目錄建立一個叫做 `production` 的資料夾
-{{< alert "alert-info" >}}
+```SHELL
 $ mkdir ~/production
-{{< /alert >}}
+```
 
 接著進入撰寫 Virtual Host 設定正題：
 
-{{< alert "alert-info" >}}
-$ cd /etc/apache2/ <br>
-$ sudo cp sites-available/000-default.conf sites-available/win.blah.tw.conf <br>
-$ sudo vim sites-available/win.blah.tw.conf <br>
-{{< /alert >}}
+```SHELL
+$ cd /etc/apache2/
+$ sudo cp sites-available/000-default.conf sites-available/win.blah.tw.conf
+$ sudo vim sites-available/win.blah.tw.conf
+```
 
 在 Apache _sites-available_ 裡面放的是該台 Apache2 會讀取的 Virtualhost 設定，建議檔案名稱以 <b class="text-primary">網域</b> 來做命名
 
@@ -77,19 +81,19 @@ $ sudo vim sites-available/win.blah.tw.conf <br>
 方法有二種：
 
 1. 手動建立：
-{{< alert "alert-info" >}}
+```SHELL
 $ ln -s /etc/apache2/sites-available/win.blah.tw /etc/apache2/sites-enabled/win.blah.tw
-{{< /alert >}}
+```
 
 2. 透過 `a2ensite` 工具，這是 apache 2 enable site 的縮寫，等同於 _1. 手動建立_ 的做法
-{{< alert "alert-info" >}}
+```SHELL
 $ a2ensite win.blah.tw
-{{< /alert >}}
+```
 
 完成以上步驟之後，重新啟動 Apache server 來進行測試
-{{< alert "alert-info" >}}
+```SHELL
 $ sudo service apache2 reload
-{{< /alert >}}
+```
 
 ## 3. Configure PHP Error Log
 
@@ -101,20 +105,20 @@ $ sudo service apache2 reload
 
 接著先開立一個空白錯誤檔案，並且調整該檔案的權限後再行測試即可
 
-{{< alert "alert-info" >}}
-$ sudo touch /var/log/php-err.log <br>
-$ sudo chown www-data /var/log/php-err.log <br>
+```SHELL
+$ sudo touch /var/log/php-err.log
+$ sudo chown www-data /var/log/php-err.log
 $ sudo service apache2 restart
-{{< /alert >}}
+```
 
 
 測試時你可以故意把 PHP Code 寫錯使得請求時回報錯誤，看錯誤訊息是否有進入該目錄檔案中。
 
 可以透過 `tail -f ` 來自動 watch
 
-{{< alert "alert-info" >}}
+```SHELL
 $ tail -f /var/log/php-err.log
-{{< /alert >}}
+```
 
 
 ## 4. Upload Your Application
@@ -126,22 +130,23 @@ API 練習範本程式](https://github.com/kylinfish/pixnet-emma-demo)
 
 除了可以使用 wget 之外，我們已經可以利用 scp or rsync 指定網域的方式來傳送：
 
-{{< alert "alert-info" >}}
+```SHELL
 $ scp -r myprogram/ win@win.blah.tw:production/
-{{< /alert >}}
-<i class="text-warning">只有檔案不同才上傳</i>
+```
+
+只有檔案不同才上傳
 
 
-{{< alert "alert-info" >}}
+```SHELL
 $ rsync -a myprogram/ win@win.blah.tw:production/
-{{< /alert >}}
-<i class="text-warning">Server 與 Client 都要裝 rsync，但如果你是 mac user 太好了! 內建就有</i>
+```
+Server 與 Client 都要裝 rsync，但如果你是 mac user 太好了! 內建就有
 
 ps. 如果要停用這個 Virtual Host
-{{< alert "alert-info" >}}
-$ sudo a2dissite win.blah.tw <br>
+```SHELL
+$ sudo a2dissite win.blah.tw
 $ sudo service apache2 restart
-{{< /alert >}}
+```
 
 ## 5. Homework: Set Staging Virtual Host
 - 試著建立 staging.win.blah.tw 的 Staging Virtual Host 看看
@@ -151,8 +156,9 @@ $ sudo service apache2 restart
 #### 參考資料
 [配置 Apache 支援多個網域](http://wiki.linux.org.hk/w/Virtual_hosting_with_Apache)
 
-### <span class="text-success">__See more__</span>
+{{< admonition summary 文章系列>}}
 1. [GCP Workshop1 - 用 GCP 自架 Web server](/sre-workshop1-gcp-vm-server/)
 2. [GCP Workshop2 - 安裝 PHP, MySQL, phpMyAdmin](/sre-workshop2-php-configure/)
-3. <span class="text-info">_GCP Workshop3 - My Virtual Host_</span>
+3. _GCP Workshop3 - My Virtual Host_
+{{< /admonition>}}
 

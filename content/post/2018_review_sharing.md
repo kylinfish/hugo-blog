@@ -1,12 +1,15 @@
-+++
-description = "年度分享歷程，簡報釋出總整理"
-categories = [ "技術" ]
-tags = [ "pubsub", "MySQL", "Agile", "AI", "DesignPattern" ]
-date = "2018-12-28T10:04:29+08:00"
-title = "2018 年度回顧 - 分享之路"
-relative_banner = "post/slide_share.png"
-og_images = ["/img/post/slide_share.png"]
-+++
+---
+title: "2018 年度回顧 - 分享之路"
+description: "年度分享歷程，簡報釋出總整理"
+date: "2018-12-28T10:04:29+08:00"
+draft: false
+tags: [ "pubsub", "MySQL", "Agile", "AI", "DesignPattern" ]
+categories: ["生活", "技術"]
+
+featuredImage: "/img/post/slide_share.png"
+images: ["/img/post/slide_share.png"]
+---
+
 
 選在今年最後一個上班日來做 **2018 年度回顧**。
 
@@ -34,21 +37,21 @@ og_images = ["/img/post/slide_share.png"]
     - 使用 Cloud Pub/Sub 實作 News Feed 案例
 
 <a href="https://goo.gl/nKMh5X" target="_blank" rel="noopener">
-{{< lazy-img src="/img/post/2018-slides/cloud_pubsub_modernweb.jpg">}}
+{{< figure src="/img/post/2018-slides/cloud_pubsub_modernweb.jpg">}}
 </a>
 
 - 8/7   [Internal AI Class - Gender Prediction Assigment] (https://goo.gl/MPzs7i)
     - 公司內部 AI 課程作業分享 [non-sensitive]
 
 <a href="https://goo.gl/MPzs7i" target="_blank" rel="noopener">
-{{< lazy-img src="/img/post/2018-slides/ai_gender.jpg">}}
+{{< figure src="/img/post/2018-slides/ai_gender.jpg">}}
 </a>
 
 - 8/7   [Internal AI Class - Image Classification Assigment] (https://goo.gl/iQVVDQ)
     - 公司內部 AI 課程作業分享 [non-sensitive]
 
 <a href="https://goo.gl/iQVVDQ" target="_blank" rel="noopener">
-{{< lazy-img src="/img/post/2018-slides/ai_classification.jpg">}}
+{{< figure src="/img/post/2018-slides/ai_classification.jpg">}}
 </a>
 
 - 9/19  [經驗值專案介紹] (https://goo.gl/fzggsS)
@@ -56,7 +59,7 @@ og_images = ["/img/post/slide_share.png"]
     - 說明新型態 PIXNET 經驗值與遊戲化相關實作與設計
 
 <a href="https://goo.gl/fzggsS" target="_blank" rel="noopener">
-{{< lazy-img src="/img/post/2018-slides/gamification_project.jpg">}}
+{{< figure src="/img/post/2018-slides/gamification_project.jpg">}}
 </a>
 
 - 10/8  [Task Force  團隊執行分享] (https://goo.gl/ZyRK3u)
@@ -64,7 +67,7 @@ og_images = ["/img/post/slide_share.png"]
     - 分享首次由 Waterfall 轉向 Agile with Kanban 的心得分享
 
 <a href="https://goo.gl/ZyRK3u" target="_blank" rel="noopener">
-{{< lazy-img src="/img/post/2018-slides/task_forced.jpg">}}
+{{< figure src="/img/post/2018-slides/task_forced.jpg">}}
 </a>
 
 - 10/22 [Clean Architecture 9 - Ch18 - Ch20] (https://goo.gl/b3tNdr)
@@ -72,7 +75,7 @@ og_images = ["/img/post/slide_share.png"]
     - 其他同仁與社群朋友分享[資料](https://docs.google.com/spreadsheets/d/1gR-PC_VervfsURC9os21AJA3fByCn1aI1Z_LIZotBQA/edit#gid=0)
 
 <a href="https://goo.gl/b3tNdr" target="_blank" rel="noopener">
-{{< lazy-img src="/img/post/2018-slides/clean_architecture.jpg">}}
+{{< figure src="/img/post/2018-slides/clean_architecture.jpg">}}
 </a>
 
 - 11/03 [MySQL 開發實戰] (https://goo.gl/Rfc8S4)
@@ -81,7 +84,7 @@ og_images = ["/img/post/slide_share.png"]
     - 內涵：`Database Schema 設計`, `MySQL Index 設計`, `Index Profiling` 等
 
 <a href="https://goo.gl/Rfc8S4" target="_blank" rel="noopener">
-{{< lazy-img src="/img/post/2018-slides/mysql_workshop.jpg">}}
+{{< figure src="/img/post/2018-slides/mysql_workshop.jpg">}}
 </a>
 
 - 11/20 [CS 未來之路] (https://goo.gl/s7pGAi)
@@ -89,7 +92,7 @@ og_images = ["/img/post/slide_share.png"]
     - 給還在校時學生的 CS 人生路線的預覽模式，介紹職場選擇以及學生可以深耕的方向與心法
 
 <a href="https://goo.gl/s7pGAi" target="_blank" rel="noopener">
-{{< lazy-img src="/img/post/2018-slides/cs_future_path.jpg">}}
+{{< figure src="/img/post/2018-slides/cs_future_path.jpg">}}
 </a>
 
 - 11/27 [Design Pattern in 30 Minutes.] (https://goo.gl/1NkCCh)
@@ -98,7 +101,7 @@ og_images = ["/img/post/slide_share.png"]
     - `Creational`、`Structural`、`Behavioral`
 
 <a href="https://goo.gl/1NkCCh" target="_blank" rel="noopener">
-{{< lazy-img src="/img/post/2018-slides/design_pattern_in_30_mins.jpg">}}
+{{< figure src="/img/post/2018-slides/design_pattern_in_30_mins.jpg">}}
 </a>
 
 ### <span class="text-success">__See more__</span>

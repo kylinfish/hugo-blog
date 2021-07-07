@@ -1,27 +1,26 @@
-+++
-description = "AMP 入門教學，從 HTML 到 AMP"
-date = "2018-04-20T10:35:12+08:00"
-tags = [ "AMP" ]
-categories = [ "技術" ]
-title = "AMP 教學入門 - Convert HTML to AMP"
-absolute_banner="/img/post/amp.jpg"
-og_images = ["/img/post/amp.jpg"]
-+++
+---
+title: "AMP 教學入門 - Convert HTML to AMP"
+description: "AMP 入門教學，從 HTML 到 AMP"
+date: "2018-04-20T10:35:12+08:00"
+draft: false
+tags:  [ "AMP" ]
+categories: ["技術"]
+
+featuredImage: "/img/post/amp.jpg"
+images: [ "/img/post/amp.jpg"]
+
+---
+
 Accelerated Mobile Pages (AMP) 正夯，來看一下如何把基本的 HTML 轉成 AMP 吧!!
 <!--more-->
 
 你可以跟著[AMP 官方文件](https://www.ampproject.org/docs/fundamentals/converting) 走，或者看我幫你整理好的文章內容做練習，簡易入門 AMP。
 
-#### ToC:
-1. 初始化環境範本 - Setting up
-2. 把範本跑起來 - Building a regular HTML page
-3. 修正 AMP 標準 - Resolving validation errors
-4. 小結
-
 ## [Setting up <i class="fa fa-external-link-square"></i>](https://www.ampproject.org/docs/fundamentals/converting/setting-up)
 1. 下載範例包，放到 Downloads 資料夾
 {{< highlight bash>}}
-cd ~/Downloads && git clone https://github.com/googlecodelabs/accelerated-mobile-pages-foundations.git
+cd ~/Downloads
+git clone https://github.com/googlecodelabs/saccelerated-mobile-pages-foundations.git
 {{< / highlight >}}
 
 2. 把範例程式放到 Local Web Server。如果你的 Mac 已經預設有 Apache Server，你可以這樣做
@@ -39,7 +38,7 @@ run localhost/amp/article.html
 git clone git@github.com:kylinfish/AMP-Foundations-Practice.git
 {{< / highlight >}}
 
-{{< lazy-img src="/img/post/amp/git_log.png" title="git log history" >}}
+{{< figure src="/img/post/amp/git_log.png" title="git log history" >}}
 
 ----
 
@@ -67,13 +66,13 @@ index c6fa38e..c6df106 100755
 
 {{< /highlight >}}
 使用 _AMP Validator_ 來做檢測，把網址加上 `#development=1` 參數
-{{< alert "alert-info" >}}
+{{<admonition info >}}
 http://localhost/amp/article.amp.html#development=1
-{{< /alert >}}
+{{</admonition >}}
 
     > console log 會顯示  __Powered by AMP ⚡ HTML__
 
-{{< lazy-img src="/img/post/amp/show_amp_message.png" title="inspect the JavaScript console will see AMP work" >}}
+{{< figure src="/img/post/amp/show_amp_message.png" title="inspect the JavaScript console will see AMP work" >}}
 
 ## [Resolving validation errors <i class="fa fa-external-link-square"></i>](https://www.ampproject.org/docs/fundamentals/converting/resolving-errors)
 
@@ -152,9 +151,10 @@ index 7c6db0f..46d451a 100755
 5. Replace external stylesheets
 
     移除外部引入的 css 改用 inline 的方式。簡言之，inline 讀取比載入外部資源快
-{{< alert "alert-primary" >}}
+{{<admonition primary>}}
 <b>NOTE</b> inline style 有 50 Kb 限制，記得要做 Minify
-{{< /alert >}}
+{{</admonition>}}
+
 {{< highlight diff>}}
 commit aeafb1a34c130db379c5178b25447615c1946312
 diff --git a/article.amp.html b/article.amp.html
@@ -180,9 +180,9 @@ index 46d451a..c25018f 100755
     1. 帶有 async (非同步載入) 屬性的資源
     2. AMP Library 和 AMP Components
 
-    {{< alert "alert-primary" >}}
+{{<admonition primary >}}
 <b>NOTE</b> user-generated third-party scripts 限制對 json 與 json-ld 例外
-{{< /alert >}}
+{{</admonition >}}
 {{< highlight diff>}}
 commit 9f69ee429ad31f2142830b8cca4f7e132fe3ac44
 diff --git a/article.amp.html b/article.amp.html
@@ -276,7 +276,7 @@ index 3a476ea..e4d6587 100755
 {{< /highlight >}}
 10. Success
     AMP validation successful.
-{{< lazy-img src="/img/post/amp/amp_validation_successful.png" title="AMP validation successful message in console" >}}
+{{< figure src="/img/post/amp/amp_validation_successful.png" title="AMP validation successful message in console" >}}
 
 
 ## 小結

@@ -1,24 +1,27 @@
-+++
-description = "修復 Lumen 升級 5.5 tinker 例外"
-date = "2018-02-21T12:00:50+08:00"
-tags = [ "lumen", "artisan" ]
-categories = [ "技術" ]
-title = "Lumen artisan tinker - TinkerCommand::handle() does not exist. [solved]"
-relative_banner = "post/lumen.jpg"
-og_images = ["https://kylinyu.win/img/post/lumen.jpg"]
-+++
+---
+title: "Lumen artisan tinker - TinkerCommand::handle() does not exist. [solved]"
+description: "修復 Lumen 升級 5.5 tinker 例外"
+date: "2017-07-12T17:21:50+08:00"
+draft: false
+tags: [ "lumen", "artisan" ]
+categories: ["技術"]
+
+featuredImage: "/img/post/lumen.jpg"
+images: [ "/img/post/lumen.jpg" ]
+---
 
 Lumen upgrade to 5.5 時，使用 `php artisan tinker` 發現出現以下錯誤:
 
 <!--more-->
 
-{{< alert "alert-danger" >}}
+
+{{<admonition danger "錯誤" >}}
 ➜  behavior.pixplug.in (master) ✔ php artisan tinker
 
 In BoundMethod.php line 135:
 
   Method Vluzrmos\Tinker\TinkerCommand::handle() does not exist
-{{< /alert >}}
+{{</admonition>}}
 
 
 <br>
@@ -42,4 +45,4 @@ __將版本更新到 `dev-master` 後就可以正常使用了__
 }
 ```
 
-{{< lazy-img src="/img/post/artisan_tinker.jpg" title="php artisan tinker demo" >}}
+{{< figure src="/img/post/artisan_tinker.jpg" title="php artisan tinker demo" >}}

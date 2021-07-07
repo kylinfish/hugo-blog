@@ -4,8 +4,8 @@ tags = ['Google', 'Cloud Pub/Sub', 'ModernWeb', 'NewsFeed']
 categories = [ "技術" ]
 date = "2018-07-26T11:49:06+08:00"
 title = "運用 Cloud Pub/Sub 實作 PIXNET 跨產品動態整合 in ModernWeb18"
-absolute_banner="/img/post/modernWeb.jpg"
-og_images = ["/img/post/modernWeb.jpg"]
+featuredImage ="/img/post/modernWeb.jpg"
+images= ["/img/post/modernWeb.jpg"]
 +++
 
 第一次擔任技術型 Conference 的 Speaker. 在執行該產品專案的時候，其實不是一開始就能把整體架構勾勒的如此清楚。

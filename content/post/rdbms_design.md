@@ -1,24 +1,21 @@
-+++
-draft = false
-description = "PHP 也有 Day - RDBMS 資料庫案例設計的口語筆記"
-date = "2017-10-18"
-tags = [ "RDBMS", "MySQL", "Index"]
-categories = [ "技術" ]
-title = "RDBMS 資料庫案例設計 (一) - Schema 設計技巧"
-relative_banner = "post/mysql-rdbms.jpg"
-og_images = ["post/mysql-rdbms.jpg"]
-+++
+---
+title: "RDBMS 資料庫案例設計 (一) - Schema 設計技巧"
+description: "PHP 也有 Day - RDBMS 資料庫案例設計的口語筆記"
+date: "2017-10-18T21:31:24+08:00"
+draft: false
+tags: [ "RDBMS", "MySQL", "Index"]
+categories: ["技術"]
+
+featuredImage: "/img/post/mysql-rdbms.jpg"
+images: ["/img/post/mysql-rdbms.jpg"]
+
+---
 
 `PHP 也有 Day 番外篇`，關於 Schema 的設計技巧 ...
 
-<!--more-->
 
 ref. [教材參考 ](https://blog.gcos.me/Spec.pdf) 由 [Ant](https://about.me/yftzeng) 提供
 
-#### Agenda:
-1. Schema 欄位設計怎麼開
-2. 怎麼對欄位打 Index
-3. 資料的底層儲存
 
 ## Schema 欄位設計怎麼開？
 
@@ -32,19 +29,19 @@ ref. [教材參考 ](https://blog.gcos.me/Spec.pdf) 由 [Ant](https://about.me/y
     - 國際區碼 (Country Code)
     - 各國幣值
 
-{{< alert "alert-warning" >}}
+{{< admonition info>}}
 其實沒有絕對的標準，通常搭配業務需求來決定，也非僅有一組最佳答案
-{{< /alert >}}
-
-- 舉例來說，密碼欄位長度設計：根據我的加密演算法產生的長度來制定
+{{< /admonition >}}
+{{< admonition example "舉例來說">}}
+- 密碼欄位長度設計：根據我的加密演算法產生的長度來制定
     - password: char(60)
     - by `password_hash("password", PASSWORD_BCRYPT)` 固定產生長度為 60 的字串
-
+{{< /admonition >}}
 
 ## 怎麼對欄位打 Index
-{{< alert "alert-success" >}}
+{{< admonition success>}}
 原則上看 where 後面用到什麼，搭配 explain 指令來查看 sql 語法吃到的 index 是哪個
-{{< /alert >}}
+{{< /admonition >}}
 
 
 ### <span class="text-primary">情境一：用戶登入頁</span>
@@ -64,9 +61,10 @@ where 後面主要有 `email` OR `username` AND `password` AND `password_expired
 - **explain**: `idx_email`
     - 發現原先打的 username 跟 password 都用不到了，只用 email 就可以
 
----- 清除所有 index ----
 
-#### 3. 複合鍵的 Index 順序差別為何
+> ---- 清除所有 index ----
+
+#### 3. 複合鍵的 Index 順序差別為何?
 ##### 3.1 username + email
 - **index**: `[username, email]`
 - **explain**: 沒吃到複合鍵的 index
@@ -76,24 +74,23 @@ where 後面主要有 `email` OR `username` AND `password` AND `password_expired
 - **explain**: index sort_union`(idx_email_username, idx_username_email)`
 
 
-### <span class="text-primary">情境二：用戶認證頁</span>
-
-```sql
+### 情境二：用戶認證頁
+``` sql
 SELECT id, email, status FROM users WHERE `email` = {email} AND `token` = {token} AND `token_expired_at` > NOW() AND `status` = {unverified}
 ```
 - **index**: `[email]`
 - **explain**: 直接吃掉 email index.
 
-### <span class="text-primary">覆蓋索引 Covering Index. (最快速的 index)</span>
-{{< alert "alert-info" >}}
+### 覆蓋索引 Covering Index. (最快速的 index)
+
+{{< admonition info>}}
 通常我們可以把資料儲存分成 Index 跟 data，這兩塊是分地儲存的
-{{< /alert >}}
+{{< /admonition >}}
 
 撈資料的流程，通常是從 index 查找看是否滿足。
 
 如果所要欄位在 index 裡面沒有，就要額外到 data 區查找來回傳。
 
-<br>
 
 但是如果要撈出來的資料在 index 裡面就涵蓋了，就不需要去 data 區撈資料了。這種取得方式稱為`Covering Index` 也可以說是最快速的 Index.
 
@@ -105,7 +102,7 @@ SELECT id, email, status FROM users WHERE `email` = {email} AND `token` = {token
 - `page_illustrate`
     - 畫出實際資料在 page 中的儲存大小與位置
 
-### <span class="text-primary">案例分析 char vs varchar</span>
+### 案例分析 char vs varchar
 利用 innodb_space, page_illustrate 來分析 char, varchar 之間的更新變換
 
 #### char 變動資料案例
@@ -145,13 +142,16 @@ SELECT id, email, status FROM users WHERE `email` = {email} AND `token` = {token
     - mysql optimze table
     - 需要時間，還會 `Lock Table` !!!!
 
-{{< alert "alert-success" >}}
+{{< admonition success>}}
 若欄位業務很常要 update 但不想要產生碎片，就用 char 吧!!
-{{< /alert >}}
+{{< /admonition >}}
 
 
-### 延伸問題
-> Question: 為何不允許 nullable?
+## 延伸問題
+{{< admonition question>}}
+為何不允許 nullable?
+{{< /admonition>}}
+
 
 - 當你要 update 從 null 改成有值時，會留下一個很大的碎片。
 - 讀的時候無法預測，速度會變慢
@@ -159,19 +159,16 @@ SELECT id, email, status FROM users WHERE `email` = {email} AND `token` = {token
 - 對於底層影響很大
 - 程式不用處理 null 的情境*(自行補充)*
 
-@ 當然如果有業務需求也可以使用
+> 當然如果有業務需求也可以使用
 
 <br>
 
 ***以上為聽 Ant 口語跟 Demo 操作時的個人筆記，建議大家都可以試著自己操作分析加深印象***
 
-ref. [Hackmd 版本] (https://hackmd.io/s/ry3xWNE6-)
+ref. {{< link "https://hackmd.io/s/ry3xWNE6-" Hackmd 版本 >}}
 
-<br>
 
-----
-
-### 延伸補充 (via 同事 [jnlin](https://jnlin.org/))
+## 延伸補充 (via 同事 [jnlin](https://jnlin.org/))
 
 1. timestamp 還是用 integer 存會比較好，因為有時區的 bug : https://bugs.mysql.com/bug.php?id=38455
 2. 複合鍵的 index 只有在後面的 index 可以用 RANGE QUERY (ex 大於, 小於) [ref](https://www.percona.com/blog/2009/09/12/3-ways-mysql-uses-indexes/)
@@ -180,11 +177,12 @@ ref. [Hackmd 版本] (https://hackmd.io/s/ry3xWNE6-)
 
 
 
-### <span class="text-success">__文章系列__</span>
 
+{{< admonition summary 文章系列>}}
 -  [RDBMS 資料庫案例設計 (二) - 最佳化設計技巧](/rdbms_mysql_tuning/)
 
 1. [MySQL 效能 - How to design Indexes, Really](/mysql_performance)
 2. [MySQL Index 設計第一節 - 從 Log 分析 Query](/mysql_profiling_query_log/)
 3. [MySQL Index 設計第二節 - 三星評分法則](/mysql_index_3star_system/)
 4. [MySQL Index 設計第三節 - 檢驗與回顧設計不良的 Index](/mysql_index_review/)
+{{< /admonition>}}

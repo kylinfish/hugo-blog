@@ -1,12 +1,14 @@
-+++
-description = ""
-date = "2017-07-12T17:21:50+08:00"
-tags = [ "Lumen", "tinker", "PHP" ]
-categories = ["技術"]
-title = "Lumen 使用 php artisan tinker"
-relative_banner = "post/lumen.jpg"
-og_images = ["https://kylinyu.win/img/post/lumen.jpg"]
-+++
+---
+title: "Lumen 使用 php artisan tinker"
+date: "2017-07-12T17:21:50+08:00"
+draft: false
+tags: [ "Lumen", "tinker", "PHP" ]
+categories: ["技術"]
+
+featuredImage: "/img/post/lumen.jpg"
+images: [ "/img/post/lumen.jpg" ]
+---
+
 Lumen 沒有像 Laravel 一樣可以直接使用 Tinker。
 
 如果想要使用 psysh shell 必須要自己安裝。
@@ -15,20 +17,20 @@ Lumen 沒有像 Laravel 一樣可以直接使用 Tinker。
 
 #### Tinker 安裝步驟
 1. 使用 composer 載入 tinker
-{{< alert "alert-primary" >}}
+```SHELL
 composer require vluzrmos/tinker --dev
-{{< /alert >}}
+```
 
 2. 註冊在 lumen 的  service providers
- > lumen\bootstrap\app.php
-{{< alert "alert-primary" >}}
+> lumen\bootstrap\app.php
+```SHELL
 $app->register(Vluzrmos\Tinker\TinkerServiceProvider::class);
-{{< /alert >}}
+```
 
 3. 在 shell console 使用 tinker
-{{< alert "alert-primary" >}}
+```SHELL
 php artisan tinker
-{{< /alert >}}
+```
 
 ----
 

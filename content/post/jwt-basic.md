@@ -1,17 +1,18 @@
-+++
-draft = false
-description = "description"
-date = "2017-07-24T14:58:50+50:00"
-tags = [ "JWT", "JSON" ]
-categories = [ "技術" ]
-title = "Head First JSON Web Token (JWT)"
-relative_banner = "post/jwt.jpg"
-+++
+---
+title: "Head First JSON Web Token (JWT)"
+description: "JWT 初步認識與介紹"
+date: "2017-07-24T14:58:50+50:00"
+lastmod: "2021-07-07T09:30:12+08:00"
+draft: false
+tags: [ "JWT", "JSON" ]
+categories: ["技術"]
+featuredImage: "/img/post/jwt.jpg"
+images: [ "/img/post/jwt.jpg" ]
+---
 在設計 Web API 的時候常常會需要授權或者是驗證，常見的框架跟標準就屬 OAuth 跟 JWT 兩種
 
 這次來看看 JWT 的知識介紹以及為什麼要用 JWT?
 
-<!--more-->
 
 > JWT 是基於 JSON 的開放標準 (RFC 7519)
 
@@ -59,9 +60,9 @@ JWT 的組成內容有三個部分，由 `. (dots)` 做區隔
 
 #### 3. Signature
 <b class="text-primary">第三個部分</b> 是用來確定發送請求對象的身份驗證，由前面兩個部分一起加密形成。以 HMAC SHA256 加密演算法為例:
-{{< alert "alert-info" >}}
+{{<admonition info >}}
 HMACSHA256( base64UrlEncode(header) + "." + base64UrlEncode(payload), secret)
-{{< /alert >}}
+{{</admonition >}}
 
 ## JWT 建議使用方式
 #### ❖ 取得 JWT Token
@@ -69,10 +70,11 @@ HMACSHA256( base64UrlEncode(header) + "." + base64UrlEncode(payload), secret)
 
 #### ❖ JWT Token 驗證
 使用 `Bearer Token` 的方式進行溝通
-{{< alert "alert-info" >}}
+{{<admonition info >}}
 Authorization: Bearer <JWT token>
-{{< /alert >}}
-{{< lazy-img src="https://cdn.auth0.com/content/jwt/jwt-diagram.png" title="JWT-Token process diagram" >}}
+{{</admonition >}}
+
+{{< figure src="https://cdn.auth0.com/content/jwt/jwt-diagram.png" title="JWT-Token process diagram" >}}
 
 
 ## Main Idea
@@ -105,27 +107,26 @@ JWT 內的 `資料` 組成方式是就由簽名 (防偽造) 及編碼所處成�
 
 ## 常見問題
 
-#### ①  JWT 安全嗎?
+ {{<admonition question "①  JWT 安全嗎?" >}}
 Base64 編碼方式是可逆的，也就是透過編碼後發放的 Token 內容是可以被解析的
 
 一般而言，我們都不建議在 Payload 內放敏感訊息，比如使用者的密碼
+{{</admonition >}}
 
 
-
-#### ②  JWT Payload 內容可以被偽造嗎？
+{{<admonition question "②  JWT Payload 內容可以被偽造嗎？">}}
 JWT 其中的一個組成內容為 Signature，可以防止藉由 Base64 可逆方法回推 payload 內容並將其修改。
 
 因為 Signature 是經由 Header 跟 Payload 一起 Base64 組成的。當然如果你的加密的金鑰 (secret) 流失，
 便可經由第三方自行重置合法的 Token 導致失去驗證授權與否的效益
+{{</admonition >}}
 
-#### ③  如果我的 Cookie 被竊取了，那不就表示第三方可以做 CSRF 攻擊?
+{{<admonition question "③  如果我的 Cookie 被竊取了，那不就表示第三方可以做 CSRF 攻擊?" >}}
 是的，Cookie 掉了，就表示身份就可以被偽造。故官方建議的使用方式是存放在 LocalStorage 中，並使用 Header 送出
-
+{{</admonition >}}
 
 #### 看更多 (More)
 * [🔗  深入探討 JSON Web Token (JWT)](https://kylinyu.win/jwt-advanced/)
-
-<br>
 
 ----
 

@@ -1,14 +1,15 @@
-+++
-draft = false
-categories = ['技術']
-tags = ['Scala', 'Python']
-date = "2019-12-25T14:30:12+08:00"
-description = "Spark Cheat Sheet for scala and python"
-title = "Spark Cheat Sheet for Scala/Python"
-absolute_banner="/img/post/spark.jpeg"
-og_images = ["/img/post/spark.jpeg"]
-+++
-<!--more-->
+---
+title: "Spark Cheat Sheet for Scala/Python"
+description: "Spark Cheat Sheet for scala and python"
+date: "2019-12-25T14:30:12+08:00"
+draft: false
+tags: ['Scala', 'python', 'spark']
+categories: ["技術"]
+
+featuredImage: "/img/post/spark.jpeg"
+images: [ "/img/post/spark.jpeg" ]
+
+---
 
 ## Spark Example
 ### Read the parquet file
@@ -135,7 +136,4 @@ total_df = spark.read.format("csv").option("header", "False").schema(StructType(
 {{< /highlight  >}}
 
 ## PDF External Link
-
-{{< pdf url="https://s3.amazonaws.com/assets.datacamp.com/blog_assets/PySpark_SQL_Cheat_Sheet_Python.pdf" height="500px" >}}
-
 [https://s3.amazonaws.com/assets.datacamp.com/blog_assets/PySpark_SQL_Cheat_Sheet_Python.pdf](https://s3.amazonaws.com/assets.datacamp.com/blog_assets/PySpark_SQL_Cheat_Sheet_Python.pdf)

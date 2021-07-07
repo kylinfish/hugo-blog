@@ -1,34 +1,20 @@
-+++
-draft = false
-description = "紀錄 PHP 7.1 新的 Feature，以及不相容的項目"
-tags = [ "PHP" ]
-categories = [ "技術" ]
-date = "2018-06-19T09:44:58+08:00"
-title = "PHP7.1 Feature/Incompatible 升級注意事項"
-absolute_banner="/img/post/php71.jpg"
-og_images = ["/img/post/php71.jpg"]
-+++
+---
+title: "PHP7.1 Feature/Incompatible 升級注意事項"
+description: "紀錄 PHP 7.1 新的 Feature，以及不相容的項目"
+date: "2018-06-19T09:44:58+08:00"
+draft: false
+tags: [ "PHP" ]
+categories: ["技術"]
+
+featuredImage: "/img/post/php71.jpg"
+images: ["/img/post/php71.jpg"]
+
+---
 
 PHP 從 7 的問世後，後續更新速度很快， 讀了一下 7.0 到 7.1 [PHP 官方升級文件](http://php.net/manual/en/migration71.new-features.php) 做個筆記， 這邊列出對於開發常見項目的 Feature 做簡述:
 
-<!--more-->
-#### ToC:
-
-- __New features__
-    1. Symmetric array destructuring
-    2. Class constant visibility
-    3. Multi catch exception handling
-    4. Support for keys in list()
-    5. Support for negative string offsets
-
-- __Backward incompatible changes__
-    1. Throw on passing too few function arguments
-    2. `error_log` changes with syslog value
-    3. The empty index operator is not supported for strings anymore
-    4. ... 太多寫不下去 
-
-
-### <span class="text-success">❝ Symmetric array destructuring</span>
+## Features
+### Symmetric array destructuring
 - 用一個 foreach  支援印出二維陣列
 - 可以用 `list` 以及 shorthand `[]` 兩種表示法
 
@@ -57,7 +43,7 @@ foreach ($data as [$id, $name]) {
 {{< /highlight >}}
 
 
-### <span class="text-success">❝ Class constant visibility</span>
+### Class constant visibility
 - Class 內的 constant 可以決定 Visibility
 
 {{< highlight php >}}
@@ -74,7 +60,7 @@ class ConstDemo
 {{< /highlight >}}
 
 
-### <span class="text-success">❝ Multi catch exception handling</span>
+### Multi catch exception handling
 - 支援在同一個 catch 內捕捉多組 Exception type
 
 {{< highlight php>}}
@@ -87,7 +73,7 @@ try {
 {{< /highlight >}}
 
 
-### <span class="text-success">❝ Support for keys in list()</span>
+### Support for keys in list()
 - 可以在 array 的表示式內如 `list()` 或 `shorthand []` 指定 key 來賦值
 
 {{< highlight php>}}
@@ -115,7 +101,7 @@ foreach ($data as ["id" => $id, "name" => $name]) {
 {{< /highlight >}}
 
 
-### <span class="text-success">❝ Support for negative string offsets</span>
+### Support for negative string offsets
 - String 的 index offset 支援負數
 
 
@@ -129,13 +115,11 @@ string (1) "e"
 int(3)
 {{< /highlight >}}
 
-<br>
-
-----
+<hr>
 
 ## Backward incompatible changes
 
-### <span class="text-danger">❞ Throw on passing too few function arguments</span>
+### Throw on passing too few function arguments
 - 以前如果沒有傳入對應的參數會噴出 Warning 做提示，7.1 升級成更嚴謹的 Error exception.
 
 {{< highlight php>}}
@@ -143,16 +127,17 @@ int(3)
 function test($param){}
 test();
 {{< /highlight >}}
-{{< highlight shell>}}
-Fatal error: Uncaught ArgumentCountError: Too few arguments to function test(), 0 passed in %s on line %d and exactly 1 expected in %s:%d
-{{< /highlight >}}
 
-### <span class="text-danger">❞ `error_log` changes with syslog value </span>
-### <span class="text-danger">❞ The empty index operator is not supported for strings anymore</span>
+{{< admonition danger>}}
+Fatal error: Uncaught ArgumentCountError: Too few arguments to function test(), 0 passed in %s on line %d and exactly 1 expected in %s:%d
+{{< /admonition >}}
+
+### `error_log` changes with syslog value
+### The empty index operator is not supported for strings anymore
 - If the error_log ini setting is set to syslog, the PHP error levels are mapped to the syslog error levels
 
 
-### <span class="text-danger">❞ The empty index operator is not supported for strings anymore</span>
+### The empty index operator is not supported for strings anymore
 - 替 string 設置空的 index operator (e.g. $str[] = $x) 現在將會噴 fatal error
 
 

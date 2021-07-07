@@ -1,17 +1,18 @@
-+++
-draft = false
-description = "使用 Percona toolkit 提供的工具進行 profiling 分析，工具安裝筆記"
-tags = [ "percona", "MySQL" ]
-categories = [ "技術" ]
-date = "2018-05-13T22:38:54+08:00"
-title = "如何安裝 Percona toolkit 工具包?"
-absolute_banner = "/img/post/percona_toolkit.png"
-og_images = ["/img/post/percona_toolkit.png"]
-+++
+---
+title: "如何安裝 Percona toolkit 工具包?"
+description: "使用 Percona toolkit 提供的工具進行 profiling 分析，工具安裝筆記"
+date: "2018-05-13T22:38:54+08:00"
+draft: false
+tags: [ "percona", "MySQL" ]
+categories: ["技術"]
+
+featuredImage: "/img/post/percona_toolkit.png"
+images: [ "/img/post/percona_toolkit.png" ]
+---
+
 利用 percona 提供的 toolkit 來進行 mysql DB 資料分析。如何在我們開發環境安裝?
 
 How to install __percona-toolkit__ on MacOSX or Linux?
-<!--more-->
 
 > 前情提要：我們要透過 `pt-query-digest` 等指令，對 DB query 進行分析，所以先來安裝吧
 
@@ -19,22 +20,21 @@ How to install __percona-toolkit__ on MacOSX or Linux?
 
 ## 安裝 percona-toolkit
 1. 如果是 __Mac OSX__ 可以透過 brew 來進行安裝 percona-toolkit
-{{< alert "alert-warning" >}}
+```SHELL
 brew install percona-toolkit
-{{< / alert >}}
+```
 
 2. 如果是 __Linux__ 系統
-
     - For Debian or Ubuntu:
-{{< alert "alert-warning" >}}
-sudo apt-get install percona-toolkit
-{{< / alert >}}
+        ```shell
+        sudo apt-get install percona-toolkit
+        ```
     - For RHEL or CentOS:
-{{< alert "alert-warning" >}}
-sudo yum install percona-toolkit
-{{< / alert >}}
+        ```shell
+        sudo yum install percona-toolkit
+        ```
 
-ref: https://www.percona.com/doc/percona-toolkit/LATEST/installation.html
+> ref: https://www.percona.com/doc/percona-toolkit/LATEST/installation.html
 
 ## Percona Toolkit Tools
 
@@ -81,8 +81,8 @@ Percona 工具包安裝完後，可以使用的指令有以下
 
 查詢文件做進一步的學習操作
 
-ref: https://www.percona.com/doc/percona-toolkit/LATEST/index.html
+> ref: https://www.percona.com/doc/percona-toolkit/LATEST/index.html
 
-<br>
+----
 
-###### cover image from [percona.com](https://www.percona.com/software/database-tools/percona-toolkit)
+> cover image from [percona.com](https://www.percona.com/software/database-tools/percona-toolkit)

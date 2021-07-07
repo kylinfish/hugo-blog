@@ -1,15 +1,17 @@
-+++
-draft = false
-description = "釐清三種 Python Method 呼叫方式，Instance Method, Class Method, Static Method 差異"
-tags = [ "python" ]
-categories = [ "技術" ]
-date = "2019-05-30T09:36:42+08:00"
-title = "Clarify Three Types of Method in Python"
-relative_banner="/post/python.jpg"
-og_images = ["/img/post/python.jpg"]
-+++
+---
+title: "Clarify Three Types of Method in Python"
+description: "釐清三種 Python Method 呼叫方式，Instance Method, Class Method, Static Method 差異"
+date: "2019-05-30T09:36:42+08:00"
+draft: false
+tags: [ "python" ]
+categories: ["技術"]
 
-在 Python 中， Method 被呼叫的方式有三種，Instance, Class, Static 
+featuredImage: "/img/post/python.jpg"
+images: ["/img/post/python.jpg"]
+
+---
+
+在 Python 中， Method 被呼叫的方式有三種，Instance, Class, Static
 其中 Class Method 跟一般我們用物件導向程式語言溝通有別，參考 RealPython 撰寫的文章釐清差異
 <!--more-->
 ## Instance Method
@@ -42,7 +44,7 @@ og_images = ["/img/post/python.jpg"]
 
 ## 使用範例
 
-### Instance Method 
+### Instance Method
 
 {{< highlight python>}}
 >>> obj = MyClass()
@@ -86,25 +88,23 @@ PS. `self`, `cls` 只是命名，也可以用 `_object`, `_class`，但其實還
 >>> obj.staticmethod()
 'static method called'
 {{< /highlight>}}
- 
+
 其實背後，一樣也是透過糖衣(dot syntax)呼叫 Staic Method，Python 只是不幫你傳入 Class 或是 Object 而已
 。其用意如文起所及，為了限制被存取的資料與屬性而生
 
 
 ## 關鍵重點 Key Takeaways
-- Instance Method 
+- Instance Method
     - 最常見的物件導向觀念，需要建立整個 Class Instance 並且可以透過 `self` 存取 Instance 本身 data 和 properties
 - Class Method
     - 不需要 Class Instance，**無法**透過 `self` 存取 Instance，但可以使用 `cls` 存取 Class 本身的 data 和 properies
 - Static Method 無法使用 `self, cls` 存取 data 和 properties。操作有如一般的 function 但屬於 Class 的 Namespace
 
-{{< bootstrap-table "table table-bordered" >}}
 |Method 種類     | 需要 Class Instance | 使用 `self`| 使用 `cls` | 存取 Class | 存取 Instance|
 |:--------------:|:-------------------:|:--------:|:----------:|:-----------:|:-------------:|
 |Instance Method | **Yes** | **Yes** | No      | No      | **Yes** |
 |Class Method    |  No     | No      | **Yes** | **Yes** |  No     |
 |Static Method   |  No     | No      | No      | **Yes** |  No     |
-{{< /bootstrap-table >}}
 
 
 進階了解 Class Method 應用實例，可以參考

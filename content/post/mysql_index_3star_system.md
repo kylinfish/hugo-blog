@@ -1,23 +1,28 @@
-+++
-draft = false
-description = "介紹 Index 設計心法 - 何謂三星評分法則"
-tags = [ "MySQL", "index" ]
-categories = [ "技術" ]
-date = "2018-05-14T13:25:13+08:00"
-title = "MySQL Index 設計第二節 - 三星評分法則"
-absolute_banner="/img/post/mysql_index/3star_rule.png"
-og_images = ["/img/post/mysql_index/3star_rule.png"]
-+++
+---
+title: "MySQL Index 設計第二節 - 三星評分法則"
+description: "介紹 Index 設計心法 - 何謂三星評分法則"
+date: "2018-05-14T13:25:13+08:00"
+lastmod: "2021-07-07T09:30:12+08:00"
+draft: false
+tags: [ "MySQL", "index" ]
+categories: ["技術"]
+
+featuredImage: "/img/post/mysql_index/3star_rule.png"
+images: [ "/img/post/mysql_index/3star_rule.png" ]
+---
+
 Rate your indexes using the star system.
 
 根據三星評分法檢驗 Index 設計， 用星等對 Query 做評分
-<!--more-->
 
 > _原文出處: [how-to-design-indexes-really](https://www.slideshare.net/billkarwin/how-to-design-indexes-really)_
 
 ## 什麼是 Three-Star System （三星評分法則)
-#### ★ First Star
+
+### ★ First Star
+{{<admonition info 準則>}}
 Rows referenced by your query are grouped together in the index.
+{{</admonition >}}
 
 如果一個索引可以將 SELECT 中掃描的相關或相鄰的排列盡可能的相近
 
@@ -25,23 +30,27 @@ Rows referenced by your query are grouped together in the index.
     - 減少隨機的 I/O
     - 減少被掃瞄的索引片段
 
-#### ★ Second Star
+### ★ Second Star
+{{<admonition info 準則>}}
 Rows referenced by your query are ordered in the index the way you want them.
+{{</admonition >}}
 
 SELECT 中 ORDER BY 的資料順序和索引的順序一致
 
 - 目標：
     - 可以避免資料在 Memory 中進行排序
 
-#### ★ Third Star
+### ★ Third Star
+{{<admonition info 準則>}}
 The index contains all columns referenced by your query (covering index).
+{{</admonition >}}
 
 所有欄位都被 Index 所覆蓋
 
 - 目標：
     - 只用索引就完成查詢的所有工作
 
-#### Summary
+### Summary
 三星評分法則的本質其實是在減少 I/O
 
 - 減少需要掃描的 index page
@@ -75,13 +84,13 @@ Extra         | Using where; Using filesort
     - 引用 MySQL 官方文件 Using filesort
 
     > MySQL must do an extra pass to find out how to retrieve the rows in sorted order. The sort is done by going through all rows according to the join type and storing the sort key and pointer to the row for all rows that match the WHERE clause.
-{{< alert alert-info >}}
+{{<admonition info>}}
 filesort 是速度較慢的外部排序方式，通常看到不會太開心
 
 但不見得有 filesort 就會慢，主要要看影響的資料筆數有多少
-{{< / alert >}}
+{{</admonition >}}
 
-#### First Star
+### ★ First Star
 挑出使用等號搜尋的欄位 (Equality predicates)，對這些欄位下 index
 
 {{< highlight sql>}}
@@ -97,7 +106,7 @@ mysql>  SELECT person_id, person_role_id
 mysql>  ALTER TABLE cast_info ADD INDEX (movie_id, role_id)
 {{< / highlight >}}
 
-#### Second Star
+### ★ Second Star
 替 GROUP BY 或 ORDER BY 所用到的欄位加 index
 {{< highlight sql>}}
 mysql>  SELECT person_id, person_role_id
@@ -112,7 +121,7 @@ mysql>  SELECT person_id, person_role_id
 mysql>  ALTER TABLE cast_info ADD INDEX (movie_id, role_id, nr_order)
 {{< / highlight >}}
 
-#### Third Star
+### ★ Third Star
 替任何在 Query 中被選取剩餘的 column (Selet List) 補上 index
 {{< highlight sql>}}
 mysql>  SELECT person_id, person_role_id
@@ -152,6 +161,7 @@ Extra         | Using where; Using index;
 3. `covering index`: Using Index
 
 ## Complications 複雜情況
+
 1. 無法使用 First-Star indexes 的情況
     - 當 WHERE 條件句中包含 OR (Disjunction)時，
 {{< highlight sql>}}
@@ -179,31 +189,33 @@ mysql> Explain SELECT STRAIGHT_JOIN n.*
     ORDER BY n.name ;
 {{< / highlight >}}
 
-- First-star index:
+### First-star index
 {{< highlight sql>}}
 mysql>  ALTER TABLE char_name ADD INDEX n (name(20));
 {{< / highlight >}}
-- Third-star index:
+
+### Third-star index
 {{< highlight sql>}}
 mysql>  ALTER TABLE cast_info ADD INDEX pr_p (person_role_id, person_id);
 {{< / highlight >}}
 
-- 為何不建立 Second-star index ?
-    - 這裏不可能建立 Second-star index，跨表無法做到
-    - join column 的順序不一定與排序的欄位相同
 
+{{< admonition question "為何不建立 Second-star index ?">}}
+- 這裏不可能建立 Second-star index，跨表無法做到
+- join column 的順序不一定與排序的欄位相同
+{{< /admonition>}}
+
+---
 
 下一篇： [MySQL Index 設計第三節 - 檢驗與回顧設計不良的 Index](/mysql_index_review/)
 
-<br>
 
-----
-
-### <span class="text-success">__文章系列__</span>
+{{< admonition summary 文章系列>}}
 
 1. [MySQL 效能 - How to design Indexes, Really](/mysql_performance/)
 2. [MySQL Index 設計第一節 - 從 Log 分析 Query](/mysql_profiling_query_log/)
-3. <span class="text-info">_MySQL Index 設計第二節 - 三星評分法則_</span>
+3. _MySQL Index 設計第二節 - 三星評分法則_
 4. [MySQL Index 設計第三節 - 檢驗與回顧設計不良的 Index](/mysql_index_review/)
 
 - [如何安裝 Percona toolkit 工具包?](/install_percona_toolkit/)
+{{< /admonition >}}

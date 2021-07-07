@@ -1,13 +1,15 @@
-+++
-draft = false
-description = "Terminal 底下的開發環境 vim 的設定 tmux zsh fzf 套件整合"
-date = "2017-07-21T11:15:50+50:00"
-tags = [ "vim", "zsh", "bash", "tmux" ]
-categories = [ "技術"]
-title = "在 Terminal 環境下的開發配置"
-relative_banner = "post/workenv.jpg"
-og_images = ["https://kylinyu.win/img/post/workenv.jpg"]
-+++
+---
+title: "在 Terminal 環境下的開發配置"
+description: "Terminal 底下的開發環境 vim 的設定 tmux zsh fzf 套件整合"
+date: "2017-07-21T11:15:50+50:00"
+draft: false
+tags: [ "vim", "zsh", "bash", "tmux" ]
+categories: ["技術"]
+
+featuredImage: "/img/post/workenv.jpg"
+images: ["/img/post/workenv.jpg"]
+
+---
 
 在 Teminal 底下開發時間約三年，環境的工具以及整合修改隨著時間與見識也不斷進化。
 這篇是紀錄自己在工作操作方式流程與配置，或許不是最好的工作流，但與大家分享，也樂見給予回饋
@@ -36,17 +38,17 @@ vim 的個人配置與使用習慣都大相徑庭，這邊點出對於工作流�
 * `majutsushi/tagbar`
  * 總覽專案規模以及變數查找的時候會使用
 
-{{< lazy-img src="/img/post/nerdtree_with_tagbar.jpg" title="Nerdtree with tagbar image" >}}
+{{< figure src="/img/post/nerdtree_with_tagbar.jpg" title="Nerdtree with tagbar image" >}}
 
 ### fzf vs CtrlP
 模糊搜尋的功能在其他類似的 IDE 也有提供，在 vim 裡面廣為人知的的套件就是 `CtrlP`，但是裝了 `fzf` 之後，速度快過 CtrlP 許多，除了在 vim 裡面使用之外，還可以在 unix 環境底下做檔案或者歷史紀錄的查詢，兼具 __自動補全__ 及 __模糊查詢__ 的功能
 
-{{< lazy-img src="/img/post/fzf.jpg" title="fzf demo image" >}}
+{{< figure src="/img/post/fzf.jpg" title="fzf demo image" >}}
 
 ## tig
 查看 GIT 版本控制的工具，可撰寫 `.tigrc` 調整自己喜歡的樣式，在 terminal 底下使用 tig 指令就可以不用開 git sourcetree
 
-{{< lazy-img src="/img/post/tig.jpg" title="tig tool demo" >}}
+{{< figure src="/img/post/tig.jpg" title="tig tool demo" >}}
 
 
 ## 顏色及主題的配置
@@ -64,7 +66,7 @@ vim 的個人配置與使用習慣都大相徑庭，這邊點出對於工作流�
 * itermcolos: [winyu.itermcolors](https://github.com/kylinfish/dotvim/blob/master/winyu.itermcolors)
     * 使用 iTerm2 很多地方的預設顏色都會根據 iTerm2 走
 
-{{< lazy-img src="/img/post/winyu_theme.jpg" title="winyu.vim 在 `PHP` 中的顏色主題" >}}
+{{< figure src="/img/post/winyu_theme.jpg" title="winyu.vim 在 `PHP` 中的顏色主題" >}}
 
 #### 參考資料
 * [🔗  GitHub 上的設定檔](https://github.com/kylinfish/dotvim/blob/master/README.md)

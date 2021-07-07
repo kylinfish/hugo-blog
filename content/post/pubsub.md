@@ -1,12 +1,13 @@
-+++
-categories = ['技術']
-tags = ['Google', 'Cloud Pub/Sub']
-date = "2017-06-19T19:09:12+08:00"
-description = "HEAD FIRST Google Cloud Pub/Sub"
-title = "認識 Google Cloud Pub/Sub"
-absolute_banner = "https://firebasestorage.googleapis.com/v0/b/hugo-81880.appspot.com/o/post%2Fwp_flow.png?alt=media&token=af267843-69e6-438a-a528-cc8bf5bdfa70"
-og_images = ["https://firebasestorage.googleapis.com/v0/b/hugo-81880.appspot.com/o/post%2Fwp_flow.png?alt=media&token=af267843-69e6-438a-a528-cc8bf5bdfa70"]
-+++
+---
+title: "認識 Google Cloud Pub/Sub"
+description: "HEAD FIRST Google Cloud Pub/Sub"
+date: "2017-06-19T19:09:12+08:00"
+draft: false
+tags: ['Google', 'Cloud Pub/Sub']
+categories: ["技術"]
+
+
+---
 
 初探 Google PubSub，根據官方文件來做筆記
 
@@ -25,7 +26,7 @@ og_images = ["https://firebasestorage.googleapis.com/v0/b/hugo-81880.appspot.com
 ----
 
 ## ❖ 簡易情境
-{{< lazy-img src="https://cloud.google.com/pubsub/images/wp_flow.svg" title="PubSub 使用情境範例圖" >}}
+{{< figure src="https://cloud.google.com/pubsub/images/wp_flow.svg" title="PubSub 使用情境範例圖" >}}
 
 * A, B 同時可以 publish message 到相同的 Topic
 * 該 Topic 有兩個 subscriptions
@@ -94,5 +95,7 @@ og_images = ["https://firebasestorage.googleapis.com/v0/b/hugo-81880.appspot.com
 * 訂閱的名字沒有絕對關係，用同樣的名字也會被視為兩者不同的訂閱(情境可能是：刪除前，刪除後)
 * 刪除後就算有大量還沒寄出的訊息，或者是 Backlog，都與新建立的無關
 
-### <span class="text-success">__See more__</span>
--  [運用 Cloud Pub/Sub 實作 PIXNET 跨產品動態整合 in ModernWeb18認識 Google Cloud Pub/Sub](/modernweb18_pubsub_feeds_system/)
+
+{{< admonition summary "文章系列">}}
+-  [運用 Cloud Pub/Sub 實作 PIXNET 跨產品動態整合](/modernweb18_pubsub_feeds_system/)
+{{< /admonition >}}

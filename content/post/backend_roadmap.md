@@ -1,16 +1,17 @@
-+++
-description = "條列關於 PHP 網頁後端工作者該學習的技術指標"
-date = "2018-01-19T14:52:50+50:00"
-tags = [ "roadmap", "PHP" , "XSS", "JWT", "AWS", "GCP", "RDBMS", "GIT"]
-categories = [ "技術" ]
-title = "網頁後端工程師的學習技能 Roadmap - The Roadmap for Web Backend Developer in PIXNET"
-absolute_banner="/img/post/backend-roadmap.jpg"
-og_images = ["/img/post/backend-roadmap.jpg"]
-+++
-<style>h2 {color: #51ab6d;};</style>
+---
+title: "網頁後端工程師的學習技能 Roadmap - The Roadmap for Web Backend Developer in PIXNET"
+description: "條列關於 PHP 網頁後端工作者該學習的技術指標"
+date: "2018-01-19T14:52:50+50:00"
+draft: false
+tags: [ "roadmap", "PHP" , "XSS", "JWT", "AWS", "GCP", "RDBMS", "GIT"]
+categories: ["技術"]
+
+featuredImage: "/img/post/backend-roadmap.jpg"
+images: [ "/img/post/backend-roadmap.jpg" ]
+---
 
 以親身於 _PIXNET_ 兩年半的相關工作經驗撰寫相關於 __後端工程師(PHP Backend Engineer)__
-<!--more-->
+
 
 在 `網頁領域開發者` 職涯路線會經歷的技術 Roadmap 項目概述:
 
@@ -124,11 +125,3 @@ og_images = ["/img/post/backend-roadmap.jpg"]
 ----
 
 不能以偏概全，不同的環境接觸到的技術規模架構不一，這邊盡可能是以常見的技能與知識項目做列舉
-
-### 當然，
-
-### <span class="text-danger">❖ We are hiring.</span>
-
-- [資深平台軟體工程師](https://www.104.com.tw/job/?jobno=5bxit&jobsource=)
-
-- [程式研發工程師(研發替代役可)](https://www.104.com.tw/job/?jobno=56zhn&jobsource=)

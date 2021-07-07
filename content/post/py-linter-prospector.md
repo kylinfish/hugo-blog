@@ -1,16 +1,19 @@
-+++
-description = "如何導入 Python Linter Tool，使用 Prospector 多合一整合工具守護你的程式碼品質"
-tags = [ "python", "linter" ]
-categories = [ "技術" ]
-date = "2019-06-04T10:23:15+08:00"
-title = "導入 Python Linter - 使用 Prospector"
-relative_banner="/post/python.jpg"
-og_images = ["/img/post/python.jpg"]
-+++
+---
+title: "導入 Python Linter - 使用 Prospector"
+description: "如何導入 Python Linter Tool，使用 Prospector 多合一整合工具守護你的程式碼品質"
+date: "2019-06-04T10:23:15+08:00"
+draft: false
+tags: [ "python", "linter" ]
+categories: ["技術"]
+
+featuredImage: "/img/post/python.jpg"
+images: ["/img/post/python.jpg"]
+
+---
 
 開發自動化工具時，發現沒有 Linter 保護程式碼。提到[持續整合 CI](https://zh.wikipedia.org/wiki/%E6%8C%81%E7%BA%8C%E6%95%B4%E5%90%88) ，
 除了自動化、單元測試以外，靜態語言分析工具檢查也是重要環節，本篇將介紹如何整合 Python 的程式碼靜態分析工具。
-<!--more--> 
+<!--more-->
 
 <br>
 
@@ -36,9 +39,9 @@ Python 的程式碼靜態分析工具多元，開始導入的時候會發現種�
 ### 2. 設定 Linter，制定團隊規範
 理解分析工具的特色後，接著你會需要知道如何設定 lintrc (config file) 同時來符合團隊需求，以下提供我在導入的時候有挑選到的工具。
 
-{{< alert "alert-warning" >}}
+{{<admonition warning >}}
 *看到這裡先不用急著設定你的 lintrc，在下節會介紹工具整合，可以省去各別設定的麻煩喔!。*
-{{< /alert >}}
+{{</admonition >}}
 
 #### [pylint](https://www.pylint.org/)
 在眾多 linter 中就屬它最為常見，提供足夠的彈性客製化。這裡我們主要需要 pylint 的:
@@ -120,27 +123,27 @@ mccabe:
         - 特別一提，在 PEP8 中規定的是 79 個字，但其實現在的螢幕相較以往都較寬，有些團隊會放寬這條限制
         - 上述範例參考 GitHub 的 file 顯示做參照調整為 125 > [Stack Overflow 討論參考](https://stackoverflow.com/questions/22207920/)
 
-{{< alert "alert-success" >}}
+{{<admonition success >}}
 直接開始深入 Prospector 的 prospector.yaml 設定，若有缺的再回去第二節找，參考網址如下
 https://prospector.landscape.io/en/master/profiles.html#example
-{{</ alert >}}
+{{</admonition>}}
 
 ## 導入細節補充
 
 ### pylintrc 整合
 如果已經有 pylintrc 想做整合，Prospector 會根據 pylint 讀取 pylintrc 的邏輯尋找可以套用的 pylintrc
 
-1. Project root path 
+1. Project root path
 2. Your home path
 
-{{< lazy-img src="/img/post/prospector_results.png" title="Prospector Demo Result" >}}
+{{< figure src="/img/post/prospector_results.png" title="Prospector Demo Result" >}}
 跑完結果直接告訴你，`現在用什麼 profile、用什麼 Tool、用哪裡的 pylintrc`。
 是不是覺得整合的很好呢?
 
 ### 平穩導入小技巧
 如果是現有專案尚未有 Lint 的，當你導入任何一套檢查規範時不免會讓專案陷入動彈不得的情況，一定會有很多目前的檔案不符合規範，這時候可以考慮採用白名單方式...
 
-- 建立驗證白名單 e.g. prospector_file_list.txt 
+- 建立驗證白名單 e.g. prospector_file_list.txt
 {{< highlight shell>}}
 foo.py
 bar.py

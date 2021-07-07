@@ -1,13 +1,14 @@
-+++
-draft = false
-date = "2017-07-14T18:05:50+50:00"
-description = "Lumen 入門筆記 - Middleware, Lumen 介紹, Lumen 中文"
-tags = [ "Lumen", "Controller" ]
-categories = [ "技術" ]
-title = "初探 Lumen Micro Framework - Controller"
-relative_banner = "post/lumen.jpg"
-og_images = ["https://kylinyu.win/img/post/lumen.jpg"]
-+++
+---
+title: "初探 Lumen Micro Framework - Controller"
+description:  "Lumen 入門筆記 - Middleware, Lumen 介紹, Lumen 中文"
+date: "2017-07-14T18:05:50+50:00"
+draft: false
+tags: [ "Lumen", "Controller" ]
+categories: ["技術"]
+
+featuredImage: "/img/post/lumen.jpg"
+images: [ "/img/post/lumen.jpg" ]
+---
 
 ## 簡介
 

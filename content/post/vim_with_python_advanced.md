@@ -1,13 +1,15 @@
-+++
-draft = false
-description = "替 Vim 設定適合 Python 開發的環境以及套件，讓開發速度得以加快"
-tags = [ "vim" ]
-categories = [ "技術" ]
-date = "2019-03-23T00:22:03+08:00"
-title = "Vim for Python Development"
-relative_banner="/post/pyvim-bg.jpg"
-og_images = ["/img/post/pyvim-bg.jpg"]
-+++
+---
+title: "Vim for Python Development"
+description: "替 Vim 設定適合 Python 開發的環境以及套件，讓開發速度得以加快"
+date: "2019-03-23T00:22:03+08:00"
+draft: false
+tags: [ "vim" ]
+categories: ["技術"]
+
+featuredImage: "/img/post/pyvim-bg.jpg"
+images: ["/img/post/pyvim-bg.jpg"]
+
+---
 
 最近在寫 Python，已經習慣用 Vim 的我，當然先找看看 Python 相關的套件跟設定怎麼做開發起來比較方便，
 於是 整理近期有套用的設定與大家分享，如果有更好的作法也歡迎分享給我
@@ -56,7 +58,7 @@ _⚠️   對了，不要加入 Git Tracking 喔 😅_
 
 <script src="https://gist.github.com/kylinfish/a43b730f43a780c64a29357ef6c41269.js"></script>
 
-{{< lazy-img src="/img/post/py_print_with_color.png" title="Python print with colors" >}}
+{{< figure src="/img/post/py_print_with_color.png" title="Python print with colors" >}}
 
 
 

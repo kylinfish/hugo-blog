@@ -1,11 +1,14 @@
-+++
-description = "數位媒體人必須知悉的著作權及個資法知識"
-tags = [ "智慧財產權", "個資法" ]
-date = "2017-09-28T17:05:12+08:00"
-categories = [ "生活" ]
-title = "數位媒體人的法律須知 - 著作權與個資法"
-relative_banner = "post/copyright.jpg"
-+++
+---
+title: "數位媒體人的法律須知 - 著作權與個資法"
+description: "數位媒體人必須知悉的著作權及個資法知識"
+date: "2017-09-28T17:05:12+08:00"
+draft: false
+tags: [ "智慧財產權", "個資法" ]
+categories: ["生活"]
+
+featuredImage: "/img/post/copyright.jpg"
+images: ["/img/post/copyright.jpg"]
+---
 
 天天處在數位媒體環境中的工作者，對於著作權與個資法相關的法律知識要有基礎的認識。
 
@@ -53,13 +56,13 @@ relative_banner = "post/copyright.jpg"
 - 屬於文學、科學、藝術等其他學術範圍
 - 不屬於著作權法保護的標的
 
-{{< alert "alert-primary" >}}
+{{< admonition note >}}
 - 著作權是以人出發
 - 思想與概念的表達，要表現出來才有著作權
 - cosplay、二創都已經觸犯著作權法，但原權利人希望可以藉由行銷推廣而選擇不提告
-{{< /alert >}}
+{{< /admonition >}}
 
-### 什麼時候會擁有著作權
+### 什麼時候會擁有著作權?
 - 創作完成當下就享有了
 - 與商標、專利不同，著作權沒有 **登記** 制度
 - 期限公開發表後 50 年
@@ -79,25 +82,23 @@ relative_banner = "post/copyright.jpg"
 
 
 ## 常見誤解
-> 沒有營利行為就不會侵害著作權？
-
+{{< admonition question "沒有營利行為就不會侵害著作權？" >}}
 著作權法在判斷是否構成侵權時，重點並不在於利用人是否有營利行為，而是在於著作權人是否受有利益上的損害。
 只要有重製就算
+{{< /admonition >}}
 
-> 只要註明出處、作者，就是合理使用？
-
+{{< admonition question "只要註明出處、作者，就是合理使用？" >}}
 正確的概念應該是只有符合著作權法第 44 條到第 63 條及第 65 條第 2
 項有關合理使用規定，才是合法的「合理使用」行為。
+{{< /admonition >}}
 
-> 轉載網路上的文章、照片，是幫作者的忙，當然
-是多多益善？
-
+{{< admonition question "轉載網路上的文章、照片，是幫作者的忙?" >}}
 不行的
-
-> 電視節目本來就是免費提供給大家看，錄下來放上 Youtube 也沒什麼問題？
+{{< /admonition >}}
+{{< admonition question "電視節目本來就是免費提供給大家看，錄下來放上 Youtube 也沒什麼問題？" >}}
 
 使得觀眾可以重製、公開傳輸就觸犯著作權法
-
+{{< /admonition >}}
 
 
 ### Blog 著作權問題
@@ -107,9 +108,9 @@ relative_banner = "post/copyright.jpg"
 ----
 
 ## 個資法
-{{< alert "alert-primary" >}}
+{{<admonition note >}}
 搜集前進行到告知的義務
-{{</alert>}}
+{{</admonition>}}
 
 ### 個資 vs 隱私
 **個資法** 不管 **隱私權** 的
@@ -124,9 +125,9 @@ relative_banner = "post/copyright.jpg"
 分享親友照片不算在個資法的保護範圍內
 但不代表可以任意散佈，還有其餘法條在對應的情境內有所保護
 
-{{< alert "alert-warning" >}}
+{{<admonition warning >}}
 公開 line 的對話足以識別對象就有機會違法個資法
-{{</alert>}}
+{{</admonition>}}
 
 
 ### 個資收集告知義務是什麼

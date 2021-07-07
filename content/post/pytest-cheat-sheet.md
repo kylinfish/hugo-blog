@@ -1,13 +1,16 @@
-+++
-draft = false
-description = "Pytest 常用情境小抄: fixture, mark.parametrize, raises(Exception), capsys.readouterr(), side_effect, mocker object assertion"
-tags = [ "python", "pytest" ]
-categories = [ "技術" ]
-date = "2020-06-11T16:55:04+08:00"
-title = "Pytest Example and Cheat Sheet 小抄"
-relative_banner="/post/python.jpg"
-og_images = ["/img/post/python.jpg"]
-+++
+---
+title: "Pytest Example and Cheat Sheet 小抄"
+description: "Pytest 常用情境小抄: fixture, mark.parametrize, raises(Exception), capsys.readouterr(), side_effect, mocker object assertion"
+date: "2020-06-11T16:55:04+08:00"
+draft: false
+tags: [ "python", "pytest" ]
+categories: ["技術"]
+
+featuredImage: "/img/post/python.jpg"
+images: ["/img/post/python.jpg"]
+
+---
+
 Pytest 常用的情境小抄
 <!--more-->
 
