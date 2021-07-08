@@ -1,0 +1,19 @@
+/* Overwrite theme css*/
+
+#header-desktop {
+    border-bottom: 3px solid #a8d6a8;
+}
+
+.home .home-profile .home-avatar img {
+    border: 4px;
+    box-shadow: 0 0 0 .1618em #54ab54;
+}
+
+.home[posts] .home-avatar img {
+    width: 8rem;
+}
+
+.fixed-button {
+    color: #ffffff;
+    background: #a8d6a8;
+}

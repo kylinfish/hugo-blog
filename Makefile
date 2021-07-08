@@ -1,29 +1,18 @@
 #
-all: clean style
+all: clean
 	(git pull)
 	(hugo)
-	(gulp build)
-	(cd themes/hugo-readable && make style)
 
-deploy: clean style
+deploy: clean
 	(npm install)
 	(hugo)
-	(gulp build)
-	(cp robots.txt ./public/robots.txt)
-	(cp sitemap.xml ./public/sitemap.xml)
 	firebase deploy
 
 run: clean
-	(hugo)
-	(hugo server --theme=hugo-readable --buildDrafts)
+	(hugo serve --disableFastRender)
 
 clean:
 	(rm -rf public)
 
-style:
-	(cd themes/hugo-readable && make style)
-
 init:
-	(mkdir themes)
-	(cd themes && git clone git@github.com:kylinfish/hugo-readable.git)
-	(make)
+	(cd themes && git clone https://github.com/dillonzq/LoveIt.git themes/LoveIt

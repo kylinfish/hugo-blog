@@ -1,0 +1,196 @@
+# === baseof ==
+[backToTop]
+other = "回到頂部"
+
+[viewComments]
+other = "查看討論"
+# === baseof ==
+
+# === Post ===
+[posts]
+other = "文章"
+# === Post ===
+
+# === Taxonomy ===
+[allSome]
+other = "所有{{ .Some }}"
+
+[tag]
+other = "標籤"
+
+[tags]
+other = "標籤"
+
+[category]
+other = "分類"
+
+[categories]
+other = "分類"
+# === Taxonomy ===
+
+# === Pagination ===
+[more]
+other = "更多"
+# === Pagination ===
+
+# === partials/header.html ===
+[selectLanguage]
+other = "選擇語言"
+
+[switchTheme]
+other = "切换主題"
+# === partials/header.html ===
+
+# === partials/footer.html ===
+[poweredBySome]
+other = "Power By {{ .Hugo }} | 主题 Fork {{ .Theme }}"
+# === partials/footer.html ===
+
+# === partials/comment.html ===
+[valineLang]
+other = "zh-TW"
+
+[valinePlaceholder]
+other = "你的評論 ..."
+
+[facebookLanguageCode]
+other = "zh_TW"
+# === partials/comment.html ===
+
+# === partials/assets.html ===
+[search]
+other = "查詢"
+
+[searchPlaceholder]
+other = "查詢文章標題或内容..."
+
+[clear]
+other = "清空"
+
+[cancel]
+other = "取消"
+
+[noResultsFound]
+other = "没有找到结果"
+
+[lunrLanguageCode]
+other = "zh"
+
+[lunrLanguageLib]
+other = "lib/lunr/lunr.zh.js"
+
+[lunrSegmentitLib]
+other = "lib/lunr/lunr.segmentit.js"
+
+[copyToClipboard]
+other = "複製"
+
+[cookieconsentMessage]
+other = "本網站使用 Cookies 来改善您的瀏覽體驗."
+
+[cookieconsentDismiss]
+other = "同意"
+
+[cookieconsentLink]
+other = "了解更多"
+# === partials/assets.html ===
+
+# === partials/plugin/share.html ===
+[shareOn]
+other = "分享到"
+# === partials/plugin/share.html ===
+
+# === posts/single.html ===
+[contents]
+other = "目錄"
+
+[publishedOnDate]
+other = "建立於 {{ .Date }}"
+
+[includedInCategories]
+other = "分類於 {{ .Categories }}"
+
+[wordCount]
+other = "约 {{ .Count }} 字"
+
+[readingTime]
+other = "預計閱讀 {{ .Count }} 分鐘"
+
+[views]
+other = "次閱讀"
+
+[author]
+other = "作者"
+
+[updatedOnDate]
+other = "更新於 {{ .Date }}"
+
+[readMarkdown]
+other = "閱讀原始檔"
+
+[back]
+other = "返回"
+
+[home]
+other = "主頁"
+
+[readMore]
+other = "讀取全文"
+# === posts/single.html ===
+
+# === 404.html ===
+[pageNotFound]
+other = "找不到"
+
+[pageNotFoundText]
+other = "抱歉，您查詢的內容不存在。"
+# === 404.html ===
+
+# === shortcodes/admonition.html ===
+[note]
+other = "注意"
+
+[abstract]
+other = "摘要"
+
+[info]
+other = "資訊"
+
+[tip]
+other = "小提示"
+
+[success]
+other = "成功"
+
+[question]
+other = "問題"
+
+[warning]
+other = "警告"
+
+[failure]
+other = "失败"
+
+[danger]
+other = "危險"
+
+[bug]
+other = "Bug"
+
+[example]
+other = "範例"
+
+[quote]
+other = "引用"
+# === shortcodes/admonition.html ===
+
+# === shortcodes/version.html ===
+[new]
+other = "新增"
+
+[changed]
+other = "修改"
+
+[deleted]
+other = "删除"
+# === shortcodes/version.html ===
