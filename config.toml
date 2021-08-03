@@ -140,7 +140,7 @@ theme = "LoveIt"
       GitHub = "kylinfish"
       Linkedin = "openwinyu"
       Twitter = "kylinwin"
-      Facebook = "kylinwin"
+      #Facebook = "kylinwin"
       Email = "kylinfish@gmail.com"
       RSS = true
 
@@ -170,6 +170,19 @@ theme = "LoveIt"
     title = ""
     weight = 3
 
+  [[menu.main]]
+    identifier = "MySQL"
+    name = "MySQL"
+    url = "/tags/mysql/"
+    title = "MySQL"
+    weight = 4
+
+  [[menu.main]]
+    identifier = "es"
+    name = "ElasticSearch"
+    url = "/tags/elasticsearch/"
+    title = "ElasticSearch"
+    weight = 5
 [markup]
   # 语法高亮设置 (https://gohugo.io/content-management/syntax-highlighting)
   [markup.highlight]
