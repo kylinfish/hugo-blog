@@ -4,7 +4,7 @@ description: "製作漂亮的簡報需要素材，提供投影片樣板、圖片
 date: "2019-07-01T09:49:12+08:00"
 draft: false
 tags: ['Google Slides', 'Free']
-categories: ["技術"]
+categories: ["生活"]
 
 featuredImage: "/img/post/slide_share.png"
 images: [ "/img/post/slide_share.png" ]
