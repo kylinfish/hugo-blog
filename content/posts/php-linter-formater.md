@@ -6,7 +6,7 @@ lastmod: 2021-08-01T18:25:39+08:00
 draft: false
 description: "剖析常見的 PHP Linter 和 Foramter 工具，協助選擇適應自己及團隊的開發工具。"
 
-tags: ["PHP"]
+tags: ["PHP", "linter"]
 categories: ["技術"]
 
 featuredImage: "/img/post/php.jpg"
