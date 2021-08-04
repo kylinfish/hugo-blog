@@ -6,7 +6,7 @@ lastmod: 2021-08-01T18:25:39+08:00
 draft: false
 description: "剖析常見的 PHP Linter 和 Foramter 工具，協助選擇適應自己及團隊的開發工具。"
 
-tags: ["PHP", "linter"]
+tags: ["PHP", "linter", "CS_Sniffer"]
 categories: ["技術"]
 
 featuredImage: "/img/post/php.jpg"
@@ -73,3 +73,9 @@ PHP Formater 以及 Linter 的選擇
 同時 Reviewer 可以不用人肉檢查 Style 只需要專注於商業邏輯以及程式設計寫法。
 - Config Rule 規範建議從大範圍往細部制定 **(粒度由粗至細)**，根據團隊習慣規則慢慢演進，以及各個專案可以個別定義
 {{</admonition>}}
+
+{{< admonition summary 文章系列>}}
+1. _PHP Linter 和 Formater 選擇_
+2. [解密 PHP_CodeSniffer Configuration File](/reveal-php-cs-sniffer-config/)
+3. [優雅導入 PHP CS_Sniffer 至 Legacy 專案](/introduce-php-linter-in-the-smooth-way/)
+{{< /admonition>}}

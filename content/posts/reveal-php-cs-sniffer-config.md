@@ -5,7 +5,7 @@ date: 2021-08-04T13:57:03+08:00
 lastmod: 2021-08-04T13:57:03+08:00
 draft: false
 description: "解密 PHP CodeSniffer 的 XML configuration file，針對自己團隊專案作客製化"
-tags: ["PHP", "Linter"]
+tags: ["PHP", "Linter", "CS_Sniffer"]
 categories: ["技術"]
 featuredImage: "/img/post/php.jpg"
 images: ["/img/post/php.jpg"]
@@ -121,3 +121,9 @@ Squiz (1 sniff)
 <rule ref="Generic.PHP.Syntax"/>
 <rule ref="Generic.WhiteSpace.IncrementDecrementSpacing"/>
 ```
+
+{{< admonition summary 文章系列>}}
+1. [PHP Linter 和 Formater 選擇](/php-linter-formater/)
+2. _解密 PHP_CodeSniffer Configuration File_
+3. [優雅導入 PHP CS_Sniffer 至 Legacy 專案](/introduce-php-linter-in-the-smooth-way/)
+{{< /admonition>}}
