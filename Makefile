@@ -1,11 +1,14 @@
-#
+.PHONY: all, deploy, run, clean, init
+
 all: clean
 	(git pull)
 	(hugo)
 
 deploy: clean
 	(hugo)
-	firebase deploy
+	(cp robots.txt ./public/)
+	(cp ads.txt ./public/)
+	(firebase deploy)
 
 run: clean
 	(hugo serve --disableFastRender -D)

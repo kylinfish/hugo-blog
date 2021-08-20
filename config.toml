@@ -183,6 +183,13 @@ theme = "LoveIt"
     url = "/tags/elasticsearch/"
     title = "ElasticSearch"
     weight = 5
+
+  [[menu.main]]
+    identifier = "about"
+    name = "AboutMe"
+    url = "/about/"
+    title = "AboutMe"
+    weight = 6
 [markup]
   # 语法高亮设置 (https://gohugo.io/content-management/syntax-highlighting)
   [markup.highlight]
