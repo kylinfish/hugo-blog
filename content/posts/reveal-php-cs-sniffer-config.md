@@ -122,6 +122,74 @@ Squiz (1 sniff)
 <rule ref="Generic.WhiteSpace.IncrementDecrementSpacing"/>
 ```
 
+#### 程式碼忽略檢查 ignore by inline comment
+```diff
+@@ -42,6 +43,7 @@ class Ticket extends Model
+         return $this->belongsTo(Customer::class, 'customer_id');
+     }
+
++    // phpcs:disable PSR1.Methods.CamelCapsMethodName
+     public function customer_inventory()
+     {
+         return $this->hasMany(CustomerInventory::class, 'order_id', 'id');
+```
+
+#### 完整 Config 參考
+```xml
+<?xml version="1.0"?>
+<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="PHP_CodeSniffer" xsi:noNamespaceSchemaLocation="phpcs.xsd">
+    <description>The coding standard for PHP_CodeSniffer itself.</description>
+
+    <!-- Scan Folder Settings -->
+    <file>application</file>
+
+    <exclude-pattern>*/application/libraries/*\.(inc|css|js|php)$</exclude-pattern>
+    <exclude-pattern>*/application/third_party/*/*\.(inc|css|js|php)$</exclude-pattern>
+    <exclude-pattern>*/application/modules/*/*\.(inc|css|js|php)$</exclude-pattern>
+
+
+    <!-- Default Settings -->
+    <arg name="colors"/>
+    <arg name="parallel" value="75"/>
+
+
+    <!-- Apply Standard -->
+    <rule ref="Generic.Arrays.ArrayIndent"/>
+    <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
+    <rule ref="Generic.ControlStructures.InlineControlStructure"/>
+    <rule ref="Generic.Formatting.SpaceAfterCast"/>
+    <rule ref="Generic.PHP.DeprecatedFunctions"/>
+    <rule ref="Generic.PHP.Syntax"/>
+    <rule ref="Generic.WhiteSpace.IncrementDecrementSpacing"/>
+
+    <rule ref="PSR2">
+        <exclude name="PSR1.Files.SideEffects"/>
+        <exclude name="PSR1.Methods.CamelCapsMethodName"/>
+        <exclude name="PSR1.Classes.ClassDeclaration.MissingNamespace"/>
+    </rule>
+
+
+    <!-- Custom Rule or Threshold -->
+    <!--
+        lineLimit will show warnings
+        absoulteLineLimit will show errors
+    -->
+    <rule ref="Generic.Files.LineLength">
+        <properties>
+            <property name="lineLimit" value="120"/>
+            <!--<property name="absoluteLineLimit" value="120"/>-->
+        </properties>
+    </rule>
+
+    <rule ref="Generic.Files.LineLength.MaxExceeded">
+        <message>Line contains %s chars, which is longer than the max limit of %s</message>
+    </rule>
+    <rule ref="Generic.Files.LineLength.TooLong">
+        <message>Line longer than %s characters; contains %s characters</message>
+    </rule>
+</ruleset>
+
+```
 {{< admonition summary 文章系列>}}
 1. [PHP Linter 和 Formater 選擇](/php-linter-formater/)
 2. _解密 PHP_CodeSniffer Configuration File_

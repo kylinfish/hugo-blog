@@ -14,7 +14,7 @@ images: ["/img/post/php.jpg"]
 
 導入工具限制常常會有機會聽到反對的聲音，因為害怕工具造成開發效能降低，雖然這是必然的...
 <!--more-->
-產品的 `品質` 跟 `效率` 本身存在著互斥的關係，既有的開發資源中如何在這兩點之間取捨，一項是開發者每天會面臨的課題。
+產品的 `品質` 跟 `效率` 本身存在著互斥的關係，既有的開發資源中如何在這兩點之間取捨，一樣是開發者每天會面臨的課題。
 
 <BR>
 
@@ -71,18 +71,19 @@ composer require exussum12/coverage-checker --dev
 .PHONY: lint, lint-summary, fix
 
 CS_SNIFF_CONFIG := phpcs.xml
+APP_DEFAULT_PATH := application
 
 lint:
 	@echo "> Check coding style for diff sections only"
 	@git diff origin/master > diff.txt
-	@./vendor/bin/phpcs --standard=$(CS_SNIFF_CONFIG) --report=json > phpcs.json || true
+	@./vendor/bin/phpcs --standard=$(CS_SNIFF_CONFIG) --report=json $(APP_DEFAULT_PATH) > phpcs.json || true
 	@./vendor/bin/diffFilter --phpcs diff.txt phpcs.json 100
 
 lint-summary:
 	@./vendor/bin/phpcs --standard=$(CS_SNIFF_CONFIG) --report=summary
 
 fix:
-	@phpcbf --standard=$(CS_SNIFF_CONFIG)
+	@./vendor/bin/phpcbf --standard=$(CS_SNIFF_CONFIG)
 
 ```
 
