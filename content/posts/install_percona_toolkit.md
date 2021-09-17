@@ -86,3 +86,11 @@ Percona 工具包安裝完後，可以使用的指令有以下
 ----
 
 > cover image from [percona.com](https://www.percona.com/software/database-tools/percona-toolkit)
+
+
+## 單一安裝
+
+e.g. 獨立安裝 pt-duplicate-key-checker
+```
+wget percona.com/get/pt-duplicate-key-checker
+```
