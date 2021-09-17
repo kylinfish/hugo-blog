@@ -1,6 +1,6 @@
 ---
-title: "Mysql Index Cardinality 索引基數"
-subtitle: "SHOW INDEX STATUS FROM TABLE"
+title: "MySQL Index Cardinality 索引基數"
+subtitle: "SHOW INDEX FROM TABLE"
 description: "認識索引基數，以及判斷 Index 是否會被 Query Optimizer 使用的依據"
 date: 2021-09-17T10:37:21+08:00
 lastmod: 2021-09-17T10:37:21+08:00
