@@ -16,7 +16,7 @@ Glad to see you here :wave: !
 
 後端工程師起家，前陣子潛入 Data Infra 當起了 DevOps，現在前往打造資料樂園的路上
 
-推一下自己的 Side Project ([XLASHIE 微圈 Micro CRM](https://xlashie.com))
+推一下自己的 Side Project ([XLASHIE 微圈 Micro CRM](https://xlashie.net))
 
 歡迎互相交流分享
 
@@ -41,8 +41,7 @@ Glad to see you here :wave: !
 
 
 ## Side Project
-- [XLASHIE Micro CRM](https://xlashie.com)
-- [Covid19 Sale Shop Taiwan](https://covid19-sale.tw/)
+- [XLASHIE Micro CRM](https://xlashie.net)
 - [Spark Submit Argument Paraser](https://sparksubmit-parser-online.web.app)
 - [HTML attributes insight](https://github.com/kylinfish/html_attribute_insight)
 - [jQuery Games](https://github.com/kylinfish/html5_game)
