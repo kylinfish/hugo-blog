@@ -14,12 +14,7 @@ og_images = ["/img/aboutme_banner.jpg"]
 
 Glad to see you here :wave: !
 
-後端工程師起家，前陣子潛入 Data Infra 當起了 DevOps，現在前往打造資料樂園的路上
-
-推一下自己的 Side Project ([XLASHIE 微圈 Micro CRM](https://xlashie.net))
-
 歡迎互相交流分享
-
 
 
 ## TechStack
@@ -27,27 +22,17 @@ Glad to see you here :wave: !
 - Python (Django)
 - JavaScript (VueJS)
 - Spark(Python/Java)
-- MySQL
-- ElasticSearch
-- AWS
-    - StepFunction
-    - Lambda
-    - EMR
-    - Cloudformation
-- GCP
-    - CloudSQL
-    - Pub/Sub
+- MySQL / OpenSearch
+- AWS / GCP
 - CDN (Akamai)
 
 
-## Side Project
-- [XLASHIE Micro CRM](https://xlashie.net)
-- [Spark Submit Argument Paraser](https://sparksubmit-parser-online.web.app)
-- [HTML attributes insight](https://github.com/kylinfish/html_attribute_insight)
-- [jQuery Games](https://github.com/kylinfish/html5_game)
+## Technical Speaker
+- 2024/03/28 [2024 AWS 智慧零售論壇](https://aws.amazon.com/tw/events/retail/) - Empowering Business Growth through Data Mesh
+- 2023/08/18 [2023 LaravelVueConf](https://laravelconf.tw/agendas) - MySQL 權衡之道 - 卓越與優雅的設計心法
+- 2018/07/19 [2018 ModernWeb](https://modernweb.tw/2018/) - [運用 Cloud Pub/Sub 實作 PIXNET 跨產品動態整合](https://docs.google.com/presentation/d/1nMIuYPdR-UCEef9Bw7iEpItucpILt-XKiYlGdr5201o/edit?usp=sharing)
 
-
-## Presentation
+## Presentation Sharing
 - 2021
     - 2021/10/19 淺談架構選型 (與 MySQL 架構擴展與特性)
     - 2021/09/28 細聊 MySQL Index
@@ -65,7 +50,6 @@ Glad to see you here :wave: !
     - 2018/11/20 [CS 未來之路(高應大系友分享](https://docs.google.com/presentation/d/1J-sIXys50V2mXpFWKt5H2DhNhtjSObbrZ3WdBplDjQw/edit#slide=id.g4807fa89c5_0_0)
     - 2018/11/14 [會員遊戲化專案介紹](https://docs.google.com/presentation/d/1ehiADOC82iVrBke49bS6GAyC4J5ZwwuwVik9f0Zmuuc/edit?usp=sharing)
     - 2018/11/03 MySQL 開發實戰
-    - 2018/07/19 [運用 Cloud Pub/Sub 實作 PIXNET 跨產品動態整合 #ModernWeb18](https://docs.google.com/presentation/d/1nMIuYPdR-UCEef9Bw7iEpItucpILt-XKiYlGdr5201o/edit?usp=sharing)
     - 2018/03/31 [AMP Roadshow Taipei](https://www.slideshare.net/kylinfish/amp-roadshow-taipei)
     - 2018/01/16 [Recap AWS re:invent 2017](https://www.slideshare.net/kylinfish/easy-to-recap-aws-reinvent-2017)
 - 2017
