@@ -1,22 +1,17 @@
 +++
-categories = []
 date = "2017-06-17T22:52:12+08:00"
 description = "墨冊作者簡歷 自我介紹"
-absolute_banner = "/img/aboutme_banner.jpg"
+absolute_banner = "/img/aboutme.jpg"
 linktitle = "about 墨冊作者簡歷"
 title = "About Win Yu"
-og_images = ["/img/aboutme_banner.jpg"]
+og_images = ["/img/aboutme.jpg"]
 +++
 
-
-
-<img src="/img/hello-win.png">
-
-> Hello Win !
+<img src="/img/aboutme.jpg">
 
 <br>
 
-Glad to see you here!  歡迎互相交流分享
+Glad to see you here!  歡迎交流分享
 
 ## Intro
 
@@ -45,6 +40,7 @@ High stress level detected. Recommend coffee intake.
 
 
 ## Technical Speaker
+- 2025/07/30 [2025 AWS Summit](https://aws.amazon.com/tw/events/summits/taipei/2025-startup-day/) - [犀牛盾品牌電商萬花筒 - AI 多模態策展新戰略](https://docs.google.com/presentation/d/1QYHUGDF_F8RHCI7R09ix_ZEMUAJrDTtpYN5-lKuVAOs/edit?usp=sharing)
 - 2024/03/28 [2024 AWS 智慧零售論壇](https://aws.amazon.com/tw/events/retail/) - [Empowering Business Growth through Data Mesh](https://docs.google.com/presentation/d/1f8OrSbi21A2N1rb17U38_WOQC6z_q8qbCtjSi_wys38/edit?usp=sharing)
 - 2023/08/18 [2023 LaravelVueConf](https://laravelconf.tw/agendas) - [MySQL 權衡之道 - 卓越與優雅的設計心法](https://gamma.app/docs/MySQL--irlgih1wb767azi)
 - 2018/07/19 [2018 ModernWeb](https://modernweb.tw/2018/) - [運用 Cloud Pub/Sub 實作 PIXNET 跨產品動態整合](https://docs.google.com/presentation/d/1nMIuYPdR-UCEef9Bw7iEpItucpILt-XKiYlGdr5201o/edit?usp=sharing)
