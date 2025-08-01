@@ -1,30 +1,15 @@
 ---
-title: "MySQL Row Constructor"
-subtitle: ""
+title: "MySQL Row Constructor Expression"
+description: " MySQL/MariaDB 中，Row Constructor Expression 是一種語法，用於同時處理多個列的值。它可以用來進行多列比較、插入多行數據、或作為查詢條件，這種語法在特定場景下非常有用。"
+subtitle: "用於同時處理多個列的值。它可以用來進行多列比較、插入多行數據、或作為查詢條件，這種語法在特定場景下非常有用。"
 date: 2025-06-30T10:39:24+08:00
 lastmod: 2025-06-30T10:39:24+08:00
-draft: true
-author: ""
-authorLink: ""
-description: ""
-license: ""
-images: []
+draft: false
+tags: [ "MySQL", "index" ]
+categories: ["技術"]
 
-tags: []
-categories: []
-
-featuredImage: ""
-featuredImagePreview: ""
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
-twemoji: false
-lightgallery: true
-ruby: true
-fraction: true
-fontawesome: true
-linkToMarkdown: true
-rssFullText: false
+featuredImage: "/img/post/mysql-rdbms.jpg"
+images: ["/img/post/mysql-rdbms.jpg"]
 
 toc:
   enable: true
@@ -32,39 +17,27 @@ toc:
 code:
   copy: true
   maxShownLines: 50
-math:
-  enable: false
-  # ...
-mapbox:
-  # ...
-share:
-  enable: true
-  # ...
-comment:
-  enable: true
-  # ...
-library:
-  css:
-    # someCSS = "some.css"
-    # located in "assets/"
-    # Or
-    # someCSS = "https://cdn.example.com/some.css"
-  js:
-    # someJS = "some.js"
-    # located in "assets/"
-    # Or
-    # someJS = "https://cdn.example.com/some.js"
-seo:
-  images: []
-  # ...
 ---
 
 <!--more-->
 
-## Row Constructor
+## Row Constructor Expression
 
-先來看看 [Row Constructor Expression](https://dev.mysql.com/doc/refman/8.4/en/row-constructor-optimization.html)
-是什麼?
+先給你看 GPT 總結:
+
+{{< admonition note >}}
+MySQL 的 Row Constructor Expression 主要用於以下場景：
+
+- 多列值的範圍比較（字典序）。
+- 批量插入多行數據。
+- 多列匹配（如 IN 子句）。
+- 引用插入值進行更新（如 ON DUPLICATE KEY UPDATE）。
+- 與子查詢結合進行多列比較。
+- 基於多列的排序或分組。
+{{< /admonition >}}
+
+
+看看官網怎麼說 [Row Constructor Expression](https://dev.mysql.com/doc/refman/8.4/en/row-constructor-optimization.html)?
 
 ```sql
 SELECT * FROM t1 WHERE (column1,column2) = (1,1);
@@ -99,8 +72,8 @@ See more in  [Range Optimization of Row Constructor Expressions.](https://dev.my
 
 手上一個場景是，在 OLTP 中資料庫高度正規化因為需要嚴格控管資料的關係，只有在適時必要才會做反正規化 (Denormalize)，以及反正規化展開對組合對資料同步的成本極高。在踏入分布式解方之前還在嘗試找尋資料上可用的方案。
 
----
-以下有兩張主要的資料表: `dp_codes`, `fp_codes`
+### Example Tables
+以下有兩張主要的資料表: `dp_codes`, `fp_codes`，兩表量很大。
 {{< admonition warning>}}
 _The data has been obfuscated_
 {{< /admonition>}}
@@ -130,7 +103,7 @@ MariaDB root@localhost:core_entity> select id, sku, dp_code from fp_skus limit 5
 +------+-------------+-----------+
 ```
 
-
+### Query Scenario
 我需要得知:
 {{< admonition question "fp_skus 跟 dp_codes 對應關係?" >}}
 - 是否有 3PB09999116T + A023 的組合
@@ -138,4 +111,69 @@ MariaDB root@localhost:core_entity> select id, sku, dp_code from fp_skus limit 5
 - 是否有 3PB09999123 + A999 的組合
 {{< /admonition >}}
 
-兩表如果透過反正規化展開數量組合數千萬，如果要在資料同步時做維護，不管是使用類似 Materialized View 或者是自行維護，都有巨大的成本，同時資料會有難以控管的時間差議題。在走向
+- 兩表如果透過反正規化展開數量組合 **數千萬**
+- 資料同步維護成本，不管是使用 Materialized View 或者是自行維護，都有巨大的成本
+  - 場景有可能異動會一次帶起 **數萬筆** 以上的更新事件
+  - 資料有難以控管的時間差議題
+
+### Solution
+
+在走向反正規化之前。最後找到 Row Constructor 這個方向可以讓我們使用 View 就可以有好的搭配。
+
+#### 1. Create View Table
+```sql
+CREATE OR REPLACE VIEW v_combinations AS
+SELECT 
+    dp.code as dp_code,
+    fs.sku
+FROM dp_codes dp
+LEFT JOIN fp_skus fs 
+  ON dp.code = fs.dp_code
+```
+
+透過 View Table 可以先避免做反正規化的資料維護成本以及時間差議題。
+
+---
+
+#### 2. Use Row Constructor Expression
+使用 Row Constructor Expression 可以滿足我們原先想要跨表查詢兩表的主鍵，滿足需求又有效能
+
+```sql
+MariaDB root@localhost:core_entity>
+SELECT * FROM v_combinations 
+WHERE (col1, col2) IN (
+  ('A001', '3PB099224T'), 
+  ('A002', '3PB099224T')
+)
+limit 10;
++-------------+------------+-------+
+| design_code | code       | width |
++-------------+------------+-------+
+| A001        | 3PB099224T | 95.0  |
+| A002        | 3PB099224T | 95.0  |
++-------------+------------+-------+
+```
+
+#### Explain Performance Check
+Row 裡面的兩個欄位都有吃到兩表 (dp_code, fp_codes) 的索引，scan rows 也極低。
+
+```sql
+MariaDB root@localhost:core_entity> EXPLAIN 
+SELECT * FROM v_combinations 
+WHERE (col1, col2) IN (
+  ('A001', '3PB099224T'), 
+  ('A002', '3PB099224T')
+)
+limit 10;
++----+-------------+-------+-------+----------------------------------------+-----------------------+---------+------+------+----------------------------------------------------+
+| id | select_type | table | type  | possible_keys                          | key_len  | ref     | rows | extra                                                      |
++----+-------------+-------+-------+----------------------------------------+-----------------------+---------+------+------+----------------------------------------------------+
+|  1 | SIMPLE      | us    | range | PRIMARY,ux_table_xxxxxxxxxx            | ux_uxxx  | NULL    |    1 | Using index condition                                      |
+|  1 | SIMPLE      | ms    | ref   | ux_xx_xx_xx_,xxx_xxx_xxx__unified...   | xxx_x... | core... |    1 |                                                            |
+|  1 | SIMPLE      | sku   | eq_ref| PRIMARY,ix_xxx_xxx_xxx_id              | PRIMARY  | core... |    1 | Using where                                                |
+|  1 | SIMPLE      | dms   | range | ux_xxxxxxwe_xxxxx,idx_xxxxxx           | ux_xxx   | NULL    |  437 | Using where; Using index; Using join buffer (flat...       |
++----+-------------+-------+-------+----------------------------------------+-----------------------+---------+------+------+----------------------------------------------------+
+```
+
+## 總結
+透過 `View` + `Row Constructor Expression` 讓我們避免掉跨兩張大表條件查詢，同時避免反正規化帶來的資料維護成本。

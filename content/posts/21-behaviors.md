@@ -6,6 +6,7 @@ lastmod: 2024-03-16T11:10:46+08:00
 draft: false
 description: ""
 
+categories: [生活]
 featuredImage: "/img/post/reading.png"
 images: [ "/img/post/reading.png" ]
 

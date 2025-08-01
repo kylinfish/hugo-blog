@@ -37,7 +37,7 @@ theme = "LoveIt"
   # 移动端导航栏模式 ("fixed", "normal", "auto")
   mobileMode = "normal"
   [params.header.title]
-    logo = "/img/hello-win.png"
+    logo = "/img/win.png"
     name = "墨冊"
     typeit = true
 
