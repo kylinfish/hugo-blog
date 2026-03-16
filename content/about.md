@@ -7,11 +7,11 @@ title = "About Win Yu"
 og_images = ["/img/aboutme.jpg"]
 +++
 
-<img src="/img/aboutme.jpg">
+<img src="/img/aboutme-2.jpg">
 
 <br>
 
-Glad to see you here!  歡迎交流分享
+Glad to see you here!
 
 ## Intro
 
@@ -23,12 +23,8 @@ name            | Win "Super Dad"
 current_company | RHINOSHIELD 犀牛盾
 position        | Official Web Manager - 白天寫程式，晚上講故事
 blog            | kylinyu.win
-family          | wife + 2 kids (Bug Maker & Infinite Loop Runner)
-life_motto      | 人生很苦，育兒更苦，偷偷吃零食最補
 hobbies         | 抓出生活的 NullPointerException
-special_skill   | 用膠帶修理玩具、用愛填滿家庭氛圍
 status          | Dad mode: Always ON. Always querying for new ideas...
-ig_story        | @uncle_win_taigi_story
 
 
 1 rows in set (0.01 sec)
@@ -46,7 +42,10 @@ High stress level detected. Recommend coffee intake.
 - 2018/07/19 [2018 ModernWeb](https://modernweb.tw/2018/) - [運用 Cloud Pub/Sub 實作 PIXNET 跨產品動態整合](https://docs.google.com/presentation/d/1nMIuYPdR-UCEef9Bw7iEpItucpILt-XKiYlGdr5201o/edit?usp=sharing)
 
 ## Presentation Sharing
+- 2026
+    - 01/28 AI Team Brains - 透過 Agent Skills 建構團隊技術知識庫
 - 2025
+    - 10/15 軟體開發在 AI 驅動下的演進 - SDD
     - 05/07 [AWS AI Workshop - Agent/n8n](https://drive.google.com/file/d/1cLxIPJXgygQJVNAJcpnVvyq_kSg3Ewg5/view?usp=drive_link)
 - 2022
     - 06/30 [雙圓模型-自創收斂](https://docs.google.com/presentation/d/1c-iWMr2k4r8Cu_hj86-8thqSncRGhJDCf_TwTyM_TRo/edit?usp=sharing)
@@ -73,3 +72,6 @@ High stress level detected. Recommend coffee intake.
     - 11/08 [PHP 良好實踐 (Best Practice)](https://www.slideshare.net/kylinfish/php-best-practice-81744253)
     - 09/21 [與設計架構當朋友 (ModernWeb17 與會心得分享)](https://www.slideshare.net/kylinfish/ss-80020439)
     - 03/01 [無瑕的程式碼 Clean Code 心得分享](https://www.slideshare.net/kylinfish/clean-code-72688451)
+
+## Side Project
+- [NeonFlux - 智慧分類瀏覽記錄，你的 Chrome 領航員](https://neonflux-web.web.app/)
