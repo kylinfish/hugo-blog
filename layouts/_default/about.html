@@ -1,0 +1,35 @@
+{{- define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end -}}
+
+{{- define "content" -}}
+    {{- $params := .Scratch.Get "params" -}}
+    {{- $desc := .Description -}}
+    {{- $heroImage := .Params.hero_image | default $params.absolute_banner -}}
+
+    <div class="page about-page">
+        <link rel="stylesheet" href="/css/about.css">
+        <section class="about-hero">
+            <div class="about-hero__text">
+                <p class="about-eyebrow">ABOUT</p>
+                <h1 class="about-title">{{ .Title }}</h1>
+                {{- with $desc -}}
+                    <p class="about-lead">{{ . }}</p>
+                {{- end -}}
+                <div class="about-cta">
+                    <a class="about-btn about-btn--primary" href="#intro">開始閱讀</a>
+                    <a class="about-btn about-btn--ghost" href="#technical-speaker">演講紀錄</a>
+                </div>
+            </div>
+            {{- with $heroImage -}}
+                <div class="about-hero__media">
+                    <img src="{{ . }}" alt="{{ $.Title }}" loading="eager" />
+                </div>
+            {{- end -}}
+        </section>
+
+        <div class="about-content content" id="content">
+            {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
+        </div>
+
+        {{- partial "comment.html" . -}}
+    </div>
+{{- end -}}

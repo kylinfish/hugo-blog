@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>00631L 基準線計算器</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #070709;
+    --bg-card:   #0e0f12;
+    --bg-input:  #13141a;
+    --border:    #1e2028;
+    --border-hi: #2e3040;
+    --amber:     #f0a500;
+    --amber-dim: #7a5200;
+    --text:      #c8cad4;
+    --text-dim:  #4a4d5c;
+    --text-hi:   #e8eaf2;
+    --green:     #00c96e;
+    --green-bg:  #001f10;
+    --yellow:    #f5c518;
+    --yellow-bg: #1f1800;
+    --red:       #ff4545;
+    --red-bg:    #1f0000;
+    --purple:    #9d7eff;
+    --purple-bg: #0f0a1e;
+    --mono: 'JetBrains Mono', monospace;
+    --sans: 'Noto Sans TC', sans-serif;
+  }
+
+  /* ── LIGHT THEME ── */
+  html.light {
+    --bg:        #f4f1ea;
+    --bg-card:   #ffffff;
+    --bg-input:  #ece8df;
+    --border:    #d6d0c4;
+    --border-hi: #b8b0a0;
+    --amber:     #a06200;
+    --amber-dim: #c8963c;
+    --text:      #2a2c36;
+    --text-dim:  #888a98;
+    --text-hi:   #08080e;
+    --green:     #006838;
+    --green-bg:  #e6f4ee;
+    --yellow:    #6e5000;
+    --yellow-bg: #fdf6d8;
+    --red:       #b81c1c;
+    --red-bg:    #fde8e8;
+    --purple:    #5030b8;
+    --purple-bg: #eeebf8;
+  }
+  html.light .recal-alert {
+    background: #fdf5e0;
+    border-color: var(--amber-dim);
+    border-left-color: var(--amber);
+  }
+  html.light .type-annual { background: #e4eeff; color: #1a50b8; border-color: #a8c0e8; }
+  html.light .type-rule2  { background: #fff3d8; color: var(--amber); border-color: var(--amber-dim); }
+  html.light .type-manual { background: #e8f3e0; color: #3a6020; border-color: #98c070; }
+  html.light .status-bar  { background: var(--bg); }
+  html.light .tl-dot      { background: var(--bg-card); }
+
+  /* theme transition */
+  html, body, header, .price-section, .zone-section, .thresholds,
+  .threshold-card, .baseline-panel, .edit-panel, .history-item,
+  .year-header, .year-range-bar, .timeline, .tl-dot,
+  .recal-alert, .status-bar, .fetch-btn, .action-btn, .edit-input,
+  .note-input, .clear-btn, .cancel-btn {
+    transition: background-color 0.22s ease, border-color 0.22s ease, color 0.22s ease;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  html, body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    min-height: 100vh;
+    overscroll-behavior: none;
+  }
+
+  /* ── HEADER ── */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px 10px;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 100;
+  }
+  .header-title {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+  .header-ticker {
+    font-family: var(--mono);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--amber);
+    letter-spacing: 0.05em;
+  }
+  .fetch-btn {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    color: var(--text-dim);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: all 0.15s;
+    text-transform: uppercase;
+  }
+  .fetch-btn:active { background: var(--border); color: var(--amber); }
+  .fetch-btn.loading { color: var(--amber); border-color: var(--amber-dim); }
+
+  /* ── THEME TOGGLE ── */
+  .header-right { display: flex; align-items: center; gap: 8px; }
+  .theme-toggle {
+    font-size: 17px;
+    line-height: 1;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 4px 7px;
+    cursor: pointer;
+    transition: background-color 0.22s, border-color 0.22s;
+    user-select: none;
+  }
+  .theme-toggle:active { background: var(--border); }
+
+  /* ── MAIN PRICE DISPLAY ── */
+  .price-section {
+    padding: 20px 16px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .price-label {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .price-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+  }
+  .price-input-wrap {
+    position: relative;
+    flex: 1;
+  }
+  .price-input {
+    font-family: var(--mono);
+    font-size: 40px;
+    font-weight: 600;
+    color: var(--amber);
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 100%;
+    caret-color: var(--amber);
+    letter-spacing: 0.02em;
+  }
+  .price-input::placeholder { color: var(--amber-dim); }
+  .price-underline {
+    height: 2px;
+    background: linear-gradient(90deg, var(--amber) 0%, var(--amber-dim) 60%, transparent 100%);
+    margin-top: 4px;
+    border-radius: 1px;
+  }
+  .price-pct {
+    font-family: var(--mono);
+    font-size: 15px;
+    font-weight: 600;
+    padding-bottom: 6px;
+    min-width: 60px;
+    text-align: right;
+  }
+
+  /* ── ZONE BADGE ── */
+  .zone-section {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .zone-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .zone-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: 0 0 8px currentColor;
+  }
+  .zone-name {
+    font-family: var(--mono);
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .zone-action {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+    text-align: right;
+    line-height: 1.6;
+    text-transform: uppercase;
+  }
+
+  /* ── THRESHOLD GRID ── */
+  .thresholds {
+    padding: 16px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .threshold-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 11px 12px;
+    position: relative;
+    overflow: hidden;
+  }
+  .threshold-card.active-zone {
+    border-color: var(--active-color, var(--border-hi));
+  }
+  .threshold-card.active-zone::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--active-bg, transparent);
+    pointer-events: none;
+  }
+  .threshold-card.full-width { grid-column: 1 / -1; }
+  .tc-label {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+  .tc-value {
+    font-family: var(--mono);
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1;
+  }
+  .tc-formula {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-top: 4px;
+  }
+  .tc-buffer {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-top: 3px;
+  }
+
+  /* ── RECAL ALERT ── */
+  .recal-alert {
+    margin: 0 16px 8px;
+    background: #1a0f00;
+    border: 1px solid var(--amber-dim);
+    border-left: 3px solid var(--amber);
+    border-radius: 6px;
+    padding: 10px 12px;
+    display: none;
+  }
+  .recal-alert.visible { display: flex; align-items: center; gap: 10px; }
+  .recal-icon { font-size: 16px; flex-shrink: 0; }
+  .recal-text {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--amber);
+    line-height: 1.5;
+  }
+  .recal-apply-btn {
+    margin-left: auto;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--bg);
+    background: var(--amber);
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    flex-shrink: 0;
+    text-transform: uppercase;
+  }
+
+  /* ── BASELINE PANEL ── */
+  .baseline-panel {
+    margin: 0 16px 8px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px;
+  }
+  .panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+  .panel-title {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+  .baseline-value {
+    font-family: var(--mono);
+    font-size: 29px;
+    font-weight: 700;
+    color: var(--text-hi);
+  }
+  .baseline-meta {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-top: 2px;
+  }
+  .baseline-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .action-btn {
+    flex: 1;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 6px;
+    padding: 8px;
+    border: 1px solid var(--border);
+    background: var(--bg-input);
+    color: var(--text-dim);
+    cursor: pointer;
+    transition: all 0.15s;
+    text-align: center;
+  }
+  .action-btn:active { background: var(--border); color: var(--text-hi); }
+  .action-btn.primary {
+    background: var(--amber);
+    color: var(--bg);
+    border-color: var(--amber);
+    font-weight: 600;
+  }
+  .action-btn.primary:active { opacity: 0.85; }
+
+  /* ── MANUAL BASELINE EDIT ── */
+  .edit-panel {
+    margin: 0 16px 8px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-hi);
+    border-radius: 10px;
+    padding: 14px;
+    display: none;
+  }
+  .edit-panel.visible { display: block; }
+  .edit-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+    align-items: end;
+  }
+  .edit-field { display: flex; flex-direction: column; gap: 5px; }
+  .edit-label {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+  .edit-input {
+    font-family: var(--mono);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text-hi);
+    background: var(--bg-input);
+    border: 1px solid var(--border-hi);
+    border-radius: 6px;
+    padding: 9px 10px;
+    outline: none;
+    width: 100%;
+  }
+  .edit-input:focus { border-color: var(--amber-dim); }
+  .note-input {
+    font-family: var(--sans);
+    font-size: 15px;
+    color: var(--text);
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 8px 10px;
+    outline: none;
+    width: 100%;
+    margin-top: 8px;
+  }
+  .note-input::placeholder { color: var(--text-dim); }
+  .save-btn {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--bg);
+    background: var(--amber);
+    border: none;
+    border-radius: 6px;
+    padding: 10px 14px;
+    cursor: pointer;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .cancel-btn {
+    display: block;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text-dim);
+    padding: 8px;
+    cursor: pointer;
+    margin-top: 4px;
+  }
+
+  /* ── BASELINE CHART ── */
+  .chart-section {
+    margin: 0 16px 8px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px 8px;
+  }
+  .chart-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  .chart-title {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+  .chart-legend {
+    display: flex;
+    gap: 10px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-dim);
+  }
+  .legend-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    border: 2px solid currentColor;
+    flex-shrink: 0;
+  }
+
+  /* ── BUTTON RULE2 STATE ── */
+  .action-btn.btn-rule2 {
+    animation: pulse-amber 1.6s ease-in-out infinite;
+  }
+  @keyframes pulse-amber {
+    0%,100% { box-shadow: 0 0 0 0 rgba(240,165,0,0.5); }
+    50%      { box-shadow: 0 0 0 7px rgba(240,165,0,0); }
+  }
+  html.light .action-btn.btn-rule2 {
+    animation: pulse-amber-light 1.6s ease-in-out infinite;
+  }
+  @keyframes pulse-amber-light {
+    0%,100% { box-shadow: 0 0 0 0 rgba(160,98,0,0.4); }
+    50%      { box-shadow: 0 0 0 7px rgba(160,98,0,0); }
+  }
+
+  /* ── HISTORY ── */
+  .history-section {
+    padding: 0 16px 16px;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0 10px;
+    border-top: 1px solid var(--border);
+  }
+  .section-title {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+  .clear-btn {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    padding: 4px 0;
+  }
+
+  /* ── YEAR GROUP ── */
+  .year-group { margin-bottom: 20px; }
+  .year-header {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px 10px 0 0;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: none;
+  }
+  .year-label {
+    font-family: var(--mono);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-hi);
+    letter-spacing: 0.04em;
+  }
+  .year-ytd {
+    text-align: right;
+  }
+  .ytd-pct {
+    font-family: var(--mono);
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .ytd-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 1px;
+  }
+  .year-range-bar {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-bottom: none;
+    padding: 8px 14px 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .range-start, .range-end {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+  .range-end { color: var(--amber); font-weight: 600; }
+  .range-arrow {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--border-hi) 0%, var(--amber-dim) 100%);
+    position: relative;
+  }
+  .range-arrow::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -3px;
+    width: 6px;
+    height: 6px;
+    border-top: 1px solid var(--amber-dim);
+    border-right: 1px solid var(--amber-dim);
+    transform: rotate(45deg);
+  }
+
+  /* ── TIMELINE ── */
+  .timeline {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 0 0 10px 10px;
+    padding: 4px 14px 6px;
+    position: relative;
+  }
+  .tl-item {
+    display: grid;
+    grid-template-columns: 22px 1fr auto;
+    gap: 0 10px;
+    align-items: start;
+    padding: 10px 0;
+    position: relative;
+  }
+  .tl-item:not(:last-child) { border-bottom: 1px solid var(--border); }
+  .tl-dot-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4px;
+  }
+  .tl-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    border: 2px solid currentColor;
+    background: var(--bg-card);
+  }
+  .tl-content { min-width: 0; }
+  .tl-date {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 0.05em;
+    margin-bottom: 3px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .tl-note {
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.4;
+  }
+  .tl-baseline {
+    font-family: var(--mono);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--amber);
+    text-align: right;
+    grid-row: 1 / 3;
+    grid-column: 3;
+    align-self: center;
+  }
+  .history-type {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    padding: 2px 6px;
+    border-radius: 3px;
+    text-transform: uppercase;
+  }
+  .type-annual  { background: #0e1a2e; color: #4d9fff; border: 1px solid #1a3050; }
+  .type-rule2   { background: #1a0f00; color: var(--amber); border: 1px solid var(--amber-dim); }
+  .type-manual  { background: #0f100a; color: #6db33f; border: 1px solid #2a3a1a; }
+  .empty-history {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text-dim);
+    text-align: center;
+    padding: 20px 0;
+    letter-spacing: 0.08em;
+  }
+
+  /* ── STATUS BAR ── */
+  .status-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    padding: 8px 16px calc(8px + env(safe-area-inset-bottom));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .status-text {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text-dim);
+    letter-spacing: 0.08em;
+  }
+  .status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--text-dim);
+  }
+  .status-dot.live { background: var(--green); box-shadow: 0 0 6px var(--green); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+  /* ── SPACER for fixed bottom bar ── */
+  .bottom-spacer { height: 60px; }
+
+  /* ── ZONE COLOR MAPPING ── */
+  .zone-normal  { color: var(--green); }
+  .zone-warning { color: var(--yellow); }
+  .zone-danger  { color: var(--red); }
+  .zone-crisis  { color: var(--red); }
+  .bg-normal  { --active-color: var(--green); --active-bg: rgba(0,201,110,0.05); }
+  .bg-warning { --active-color: var(--yellow); --active-bg: rgba(245,197,24,0.05); }
+  .bg-danger  { --active-color: var(--red); --active-bg: rgba(255,69,69,0.06); }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div>
+    <div class="header-ticker">00631L</div>
+    <div class="header-title">基準線計算器</div>
+  </div>
+  <div class="header-right">
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="切換主題">☀</button>
+    <button class="fetch-btn" id="fetchBtn" onclick="fetchPrice()">↻ 取得報價</button>
+  </div>
+</header>
+
+<!-- PRICE INPUT -->
+<div class="price-section">
+  <div class="price-label">今日收盤</div>
+  <div class="price-row">
+    <div class="price-input-wrap">
+      <input
+        type="number"
+        class="price-input"
+        id="priceInput"
+        placeholder="0.00"
+        step="0.01"
+        inputmode="decimal"
+        oninput="onPriceChange()"
+      >
+      <div class="price-underline"></div>
+    </div>
+    <div class="price-pct" id="pricePct">—</div>
+  </div>
+</div>
+
+<!-- ZONE STATUS -->
+<div class="zone-section">
+  <div class="zone-badge">
+    <div class="zone-dot" id="zoneDot" style="color:var(--text-dim);background:var(--text-dim)"></div>
+    <div class="zone-name" id="zoneName">— 請輸入價格 —</div>
+  </div>
+  <div class="zone-action" id="zoneAction"></div>
+</div>
+
+<!-- RECAL ALERT -->
+<div class="recal-alert" id="recalAlert">
+  <div class="recal-icon">⚡</div>
+  <div class="recal-text" id="recalText"></div>
+  <button class="recal-apply-btn" onclick="applyRecalibration()">更新</button>
+</div>
+
+<!-- THRESHOLD GRID -->
+<div class="thresholds" id="thresholds">
+  <div class="threshold-card full-width" id="cardBaseline">
+    <div class="tc-label">基準線</div>
+    <div class="tc-value" id="tvBaseline">—</div>
+    <div class="tc-formula" id="tfBaseline">—</div>
+  </div>
+  <div class="threshold-card" id="cardNormal">
+    <div class="tc-label">正常區下緣</div>
+    <div class="tc-value zone-normal" id="tvNormal">—</div>
+    <div class="tc-formula">× 0.80</div>
+    <div class="tc-buffer" id="tbNormal"></div>
+  </div>
+  <div class="threshold-card" id="cardWarning">
+    <div class="tc-label">警示區下緣</div>
+    <div class="tc-value zone-warning" id="tvWarning">—</div>
+    <div class="tc-formula">× 0.70</div>
+    <div class="tc-buffer" id="tbWarning"></div>
+  </div>
+  <div class="threshold-card" id="cardDanger">
+    <div class="tc-label">危機區下緣</div>
+    <div class="tc-value zone-danger" id="tvDanger">—</div>
+    <div class="tc-formula">× 0.50</div>
+    <div class="tc-buffer" id="tbDanger"></div>
+  </div>
+  <div class="threshold-card" id="cardRecal">
+    <div class="tc-label">再校準觸發</div>
+    <div class="tc-value" style="color:var(--amber)" id="tvRecal">—</div>
+    <div class="tc-formula">× 1.35</div>
+    <div class="tc-buffer" id="tbRecal"></div>
+  </div>
+</div>
+
+<!-- BASELINE PANEL -->
+<div class="baseline-panel">
+  <div class="panel-header">
+    <div class="panel-title">有效基準線</div>
+    <div>
+      <div class="baseline-value" id="baselineDisplay">—</div>
+      <div class="baseline-meta" id="baselineMeta">尚未設定</div>
+    </div>
+  </div>
+  <div class="baseline-actions">
+    <button class="action-btn" onclick="toggleEdit()">手動更新基準</button>
+    <button class="action-btn primary" id="applyTodayBtn" onclick="applyCurrentAsBaseline()">以今日收盤更新</button>
+  </div>
+</div>
+
+<!-- BASELINE CHART -->
+<div class="chart-section">
+  <div class="chart-header">
+    <div class="chart-title">基準線位移</div>
+    <div class="chart-legend">
+      <div class="legend-item" style="color:var(--green)"><div class="legend-dot"></div>Rule1</div>
+      <div class="legend-item" style="color:var(--amber)"><div class="legend-dot"></div>Rule2</div>
+      <div class="legend-item" style="color:var(--text-dim)"><div class="legend-dot"></div>手動</div>
+      <div class="legend-item" style="color:var(--purple)"><div class="legend-dot"></div>B3目標</div>
+    </div>
+  </div>
+  <svg id="baselineChart" viewBox="0 0 360 130" preserveAspectRatio="xMidYMid meet" style="width:100%;height:auto;display:block"></svg>
+</div>
+
+<!-- EDIT PANEL -->
+<div class="edit-panel" id="editPanel">
+  <div class="edit-row">
+    <div class="edit-field">
+      <div class="edit-label">新基準線</div>
+      <input type="number" class="edit-input" id="newBaselineInput" placeholder="0.00" step="0.01" inputmode="decimal">
+    </div>
+    <button class="save-btn" onclick="saveManualBaseline()">儲存</button>
+  </div>
+  <input type="text" class="note-input" id="noteInput" placeholder="備註（例：Rule 1 年度重設 / 35%上移 #2）">
+  <div class="cancel-btn" onclick="toggleEdit()">取消</div>
+</div>
+
+<!-- HISTORY -->
+<div class="history-section">
+  <div class="section-header">
+    <div class="section-title">校準歷史</div>
+    <button class="clear-btn" onclick="clearHistory()">清除</button>
+  </div>
+  <div class="history-list" id="historyList">
+    <div class="empty-history">尚無校準紀錄</div>
+  </div>
+</div>
+
+<div class="bottom-spacer"></div>
+
+<!-- STATUS BAR -->
+<div class="status-bar">
+  <div class="status-text" id="statusText">手動輸入模式</div>
+  <div class="status-dot" id="statusDot"></div>
+</div>
+
+<script>
+// ── STATE ──────────────────────────────────────────
+const STORAGE_KEY = 'baseline_calculator_v2';
+let state = {
+  baseline: 32.52,
+  baselineDate: '2026-05-12',
+  baselineNote: 'Rule2 第二次35%上移（5/12高點確立）',
+  history: [
+    { date: '2026-01-01', baseline: 17.05, type: 'annual', note: 'Rule1 年度重設（375÷22 拆分還原）' },
+    { date: '2026-03-??', baseline: 23.01, type: 'rule2',  note: 'Rule2 第一次35%上移' },
+    { date: '2026-05-12', baseline: 32.52, type: 'rule2',  note: 'Rule2 第二次35%上移（確立當前基準）' },
+  ]
+};
+let priceSource = 'manual';
+
+function loadState() {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      state = { ...state, ...parsed };
+    }
+  } catch(e) {}
+}
+
+function saveState() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch(e) {}
+}
+
+// ── ZONE LOGIC ─────────────────────────────────────
+function getZone(price, baseline) {
+  const r = price / baseline;
+  if (r >= 0.80) return 'normal';
+  if (r >= 0.70) return 'warning';
+  if (r >= 0.50) return 'danger';
+  return 'crisis';
+}
+
+const ZONE_CONFIG = {
+  normal:  { name: '正常區', color: 'var(--green)',  bg: 'var(--green-bg)',  action: 'Year1/2029+：買入1張\nYear2–3：季底才執行' },
+  warning: { name: '警示區', color: 'var(--yellow)', bg: 'var(--yellow-bg)', action: '本月跳過\n現金累積→危機加碼' },
+  danger:  { name: '危機區', color: 'var(--red)',    bg: 'var(--red-bg)',    action: '-30%：加碼2x\n-50%：加碼3x' },
+  crisis:  { name: '深度危機', color: 'var(--red)',  bg: 'var(--red-bg)',    action: '動用全部子彈\n極端加碼' },
+};
+
+function fmt(n) { return n.toFixed(2); }
+function fmtPct(n) {
+  const s = (n >= 0 ? '+' : '') + n.toFixed(1) + '%';
+  return s;
+}
+function bufferText(price, threshold, label) {
+  if (!price) return '';
+  const dist = ((price - threshold) / threshold * 100);
+  const arrow = dist >= 0 ? '↑' : '↓';
+  return `${arrow} ${Math.abs(dist).toFixed(1)}% ${dist >= 0 ? '以上' : '以下'}`;
+}
+
+// ── RENDER ─────────────────────────────────────────
+function render() {
+  const baseline = state.baseline;
+  const normalFloor  = baseline * 0.80;
+  const warningFloor = baseline * 0.70;
+  const dangerFloor  = baseline * 0.50;
+  const recalTrigger = baseline * 1.35;
+
+  // Baseline panel
+  document.getElementById('baselineDisplay').textContent = fmt(baseline);
+  document.getElementById('baselineMeta').textContent =
+    state.baselineDate + (state.baselineNote ? ' · ' + state.baselineNote : '');
+
+  // Thresholds
+  document.getElementById('tvBaseline').textContent = fmt(baseline);
+  document.getElementById('tfBaseline').textContent = state.baselineDate;
+  document.getElementById('tvNormal').textContent   = fmt(normalFloor);
+  document.getElementById('tvWarning').textContent  = fmt(warningFloor);
+  document.getElementById('tvDanger').textContent   = fmt(dangerFloor);
+  document.getElementById('tvRecal').textContent    = fmt(recalTrigger);
+
+  const priceStr = document.getElementById('priceInput').value;
+  const price = parseFloat(priceStr);
+
+  if (isNaN(price) || price <= 0) {
+    // No price
+    document.getElementById('pricePct').textContent = '—';
+    document.getElementById('pricePct').className = 'price-pct';
+    document.getElementById('zoneDot').style.background = 'var(--text-dim)';
+    document.getElementById('zoneDot').style.color = 'var(--text-dim)';
+    document.getElementById('zoneName').textContent = '— 請輸入價格 —';
+    document.getElementById('zoneName').className = 'zone-name';
+    document.getElementById('zoneAction').textContent = '';
+    document.getElementById('recalAlert').classList.remove('visible');
+    ['cardNormal','cardWarning','cardDanger'].forEach(id => {
+      const el = document.getElementById(id);
+      el.classList.remove('active-zone','bg-normal','bg-warning','bg-danger');
+    });
+    ['tbNormal','tbWarning','tbDanger','tbRecal'].forEach(id =>
+      document.getElementById(id).textContent = '');
+    renderHistory();
+    renderChart();
+    updateBaselineBtn(null);
+    return;
+  }
+
+  // Pct vs baseline
+  const pct = (price - baseline) / baseline * 100;
+  const pctEl = document.getElementById('pricePct');
+  pctEl.textContent = fmtPct(pct);
+  pctEl.className = 'price-pct ' + (pct >= 0 ? 'zone-normal' : (pct < -20 ? 'zone-warning' : ''));
+
+  // Zone
+  const zone = getZone(price, baseline);
+  const zc = ZONE_CONFIG[zone];
+  const dot = document.getElementById('zoneDot');
+  dot.style.background = zc.color;
+  dot.style.color = zc.color;
+  const nameEl = document.getElementById('zoneName');
+  nameEl.textContent = zc.name;
+  nameEl.className = 'zone-name zone-' + zone;
+  document.getElementById('zoneAction').textContent = zc.action;
+
+  // Card highlights
+  const cardMap = { normal: 'cardNormal', warning: 'cardWarning', danger: 'cardDanger', crisis: 'cardDanger' };
+  const bgMap   = { normal: 'bg-normal',  warning: 'bg-warning',  danger: 'bg-danger',  crisis: 'bg-danger' };
+  ['cardNormal','cardWarning','cardDanger'].forEach(id => {
+    document.getElementById(id).classList.remove('active-zone','bg-normal','bg-warning','bg-danger');
+  });
+  if (cardMap[zone]) {
+    document.getElementById(cardMap[zone]).classList.add('active-zone', bgMap[zone]);
+  }
+
+  // Buffer texts
+  document.getElementById('tbNormal').textContent  = bufferText(price, normalFloor, '正常區');
+  document.getElementById('tbWarning').textContent = bufferText(price, warningFloor, '警示區');
+  document.getElementById('tbDanger').textContent  = bufferText(price, dangerFloor, '危機區');
+
+  const toRecal = recalTrigger - price;
+  document.getElementById('tbRecal').textContent = toRecal > 0
+    ? `還差 ${toRecal.toFixed(2)} 觸發`
+    : '⚡ 觸發條件成立';
+
+  // Recal alert
+  if (price >= recalTrigger) {
+    document.getElementById('recalText').textContent =
+      `收盤 ${fmt(price)} > ${fmt(recalTrigger)}（基準×1.35）\nRule 2 觸發，建議更新基準線`;
+    document.getElementById('recalAlert').classList.add('visible');
+  } else {
+    document.getElementById('recalAlert').classList.remove('visible');
+  }
+
+  renderHistory();
+  renderChart();
+  updateBaselineBtn(price);
+}
+
+function onPriceChange() { render(); }
+
+// ── HISTORY ────────────────────────────────────────
+function renderHistory() {
+  const list = document.getElementById('historyList');
+  if (!state.history || state.history.length === 0) {
+    list.innerHTML = '<div class="empty-history">尚無校準紀錄</div>';
+    return;
+  }
+  // Group by year
+  const byYear = {};
+  state.history.forEach(h => {
+    const yr = (h.date || '').slice(0, 4) || '—';
+    if (!byYear[yr]) byYear[yr] = [];
+    byYear[yr].push(h);
+  });
+
+  const typeClass = { annual: 'type-annual', rule2: 'type-rule2', manual: 'type-manual' };
+  const typeLabel = { annual: 'Rule 1', rule2: 'Rule 2', manual: '手動' };
+  const dotColor  = { annual: 'var(--green)', rule2: 'var(--amber)', manual: 'var(--text-dim)' };
+
+  const years = Object.keys(byYear).sort().reverse();
+
+  list.innerHTML = years.map(yr => {
+    const entries = byYear[yr]; // chronological
+    const startBaseline = entries[0].baseline;
+    const endBaseline   = entries[entries.length - 1].baseline;
+    const ytdPct = ((endBaseline - startBaseline) / startBaseline * 100);
+    const ytdColor = ytdPct >= 0 ? 'var(--green)' : 'var(--red)';
+
+    const timelineItems = [...entries].reverse().map((h, i, arr) => {
+      const tc = typeClass[h.type] || 'type-manual';
+      const tl = typeLabel[h.type] || '手動';
+      const dc = dotColor[h.type]  || 'var(--text-dim)';
+      return `
+        <div class="tl-item">
+          <div class="tl-dot-col">
+            <div class="tl-dot" style="color:${dc}"></div>
+          </div>
+          <div class="tl-content">
+            <div class="tl-date">
+              ${h.date}
+              <span class="history-type ${tc}">${tl}</span>
+            </div>
+            <div class="tl-note">${h.note || ''}</div>
+          </div>
+          <div class="tl-baseline">${fmt(h.baseline)}</div>
+        </div>`;
+    }).join('');
+
+    return `
+      <div class="year-group">
+        <div class="year-header">
+          <div class="year-label">${yr}</div>
+          <div class="year-ytd">
+            <div class="ytd-pct" style="color:${ytdColor}">${ytdPct >= 0 ? '+' : ''}${ytdPct.toFixed(1)}%</div>
+            <div class="ytd-label">YTD</div>
+          </div>
+        </div>
+        <div class="year-range-bar">
+          <span class="range-start">${fmt(startBaseline)}</span>
+          <div class="range-arrow"></div>
+          <span class="range-end">${fmt(endBaseline)}</span>
+        </div>
+        <div class="timeline">${timelineItems}</div>
+      </div>`;
+  }).join('');
+}
+
+function clearHistory() {
+  if (!confirm('清除所有校準紀錄？')) return;
+  state.history = [];
+  saveState();
+  renderHistory();
+}
+
+// ── BASELINE UPDATE ────────────────────────────────
+function applyCurrentAsBaseline() {
+  const price = parseFloat(document.getElementById('priceInput').value);
+  if (isNaN(price) || price <= 0) { alert('請先輸入今日收盤價'); return; }
+  const today = new Date().toISOString().split('T')[0];
+  const note = price >= state.baseline * 1.35
+    ? `Rule2 35%上移（${fmt(state.baseline)}→${fmt(price)}）`
+    : `手動更新基準（${fmt(state.baseline)}→${fmt(price)}）`;
+  const type = price >= state.baseline * 1.35 ? 'rule2' : 'manual';
+  addHistoryEntry(today, price, type, note);
+  state.baseline = price;
+  state.baselineDate = today;
+  state.baselineNote = note;
+  saveState();
+  render();
+}
+
+function applyRecalibration() { applyCurrentAsBaseline(); }
+
+function toggleEdit() {
+  const panel = document.getElementById('editPanel');
+  panel.classList.toggle('visible');
+  if (panel.classList.contains('visible')) {
+    document.getElementById('newBaselineInput').value = state.baseline;
+    document.getElementById('newBaselineInput').focus();
+  }
+}
+
+function saveManualBaseline() {
+  const val = parseFloat(document.getElementById('newBaselineInput').value);
+  if (isNaN(val) || val <= 0) { alert('請輸入有效數值'); return; }
+  const note = document.getElementById('noteInput').value || '手動更新';
+  const today = new Date().toISOString().split('T')[0];
+  addHistoryEntry(today, val, 'manual', note);
+  state.baseline = val;
+  state.baselineDate = today;
+  state.baselineNote = note;
+  saveState();
+  document.getElementById('editPanel').classList.remove('visible');
+  document.getElementById('noteInput').value = '';
+  render();
+}
+
+function addHistoryEntry(date, baseline, type, note) {
+  if (!state.history) state.history = [];
+  state.history.push({ date, baseline, type, note });
+  saveState();
+}
+
+// ── PRICE FETCH ────────────────────────────────────
+async function fetchPrice() {
+  const btn = document.getElementById('fetchBtn');
+  btn.textContent = '載入中…';
+  btn.classList.add('loading');
+  setStatus('取得報價中…', false);
+
+  // Try via CORS proxy worker (server-side Yahoo Finance fetch)
+  const PROXY = 'https://yahoo-proxy.yahooproxy.workers.dev/price?symbol=00631L.TW';
+  try {
+    const res = await fetch(PROXY, { signal: AbortSignal.timeout(8000) });
+    if (res.ok) {
+      const { price, ts } = await res.json();
+      if (price) {
+        document.getElementById('priceInput').value = price.toFixed(2);
+        priceSource = 'live';
+        const timeStr = ts
+          ? new Date(ts * 1000).toLocaleTimeString('zh-TW', {hour:'2-digit',minute:'2-digit'})
+          : '';
+        setStatus(`即時報價 ${timeStr ? timeStr + ' · ' : ''}Yahoo Finance`, true);
+        btn.textContent = '↻ 取得報價';
+        btn.classList.remove('loading');
+        render();
+        return;
+      }
+    }
+  } catch(e) {}
+
+  // Fallback message
+  btn.textContent = '↻ 取得報價';
+  btn.classList.remove('loading');
+  setStatus('無法取得報價，請手動輸入', false);
+}
+
+function setStatus(text, live) {
+  document.getElementById('statusText').textContent = text;
+  const dot = document.getElementById('statusDot');
+  dot.className = 'status-dot' + (live ? ' live' : '');
+}
+
+// ── BASELINE CHART ─────────────────────────────────
+function renderChart() {
+  const svg = document.getElementById('baselineChart');
+  if (!svg || !state.history || state.history.length === 0) return;
+
+  const W = 360, H = 130;
+  const padL = 40, padR = 16, padT = 18, padB = 28;
+  const cW = W - padL - padR;
+  const cH = H - padT - padB;
+
+  const entries = [...state.history].sort((a, b) => (a.date || '').localeCompare(b.date || ''));
+  const baseline = state.baseline;
+  const currentPrice = parseFloat(document.getElementById('priceInput').value) || null;
+
+  const allV = entries.map(e => e.baseline).concat(currentPrice ? [currentPrice] : []);
+  const minV = Math.min(...allV, baseline * 0.43);
+  const maxV = Math.max(...allV, baseline * 1.42);
+
+  const toY = v => padT + cH - ((v - minV) / (maxV - minV)) * cH;
+  const totalSlots = entries.length + (currentPrice ? 1 : 0);
+  const slotW = cW / (totalSlots + 0.4);
+  const toX = i => padL + slotW * (i + 0.7);
+  const xNow = toX(entries.length);
+
+  const isLight = document.documentElement.classList.contains('light');
+  const C = {
+    amber:   isLight ? '#a06200' : '#f0a500',
+    green:   isLight ? '#006838' : '#00c96e',
+    yellow:  isLight ? '#6e5000' : '#f5c518',
+    red:     isLight ? '#b81c1c' : '#ff4545',
+    dim:     isLight ? '#888a98' : '#4a4d5c',
+    border:  isLight ? '#d6d0c4' : '#2e3040',
+    bg:      isLight ? '#ffffff' : '#0e0f12',
+    textdim: isLight ? '#888a98' : '#4a4d5c',
+    bandY:   isLight ? 'rgba(245,197,24,0.12)' : 'rgba(245,197,24,0.07)',
+    bandR:   isLight ? 'rgba(184,28,28,0.08)'  : 'rgba(255,69,69,0.06)',
+    purple:  isLight ? '#5030b8' : '#9d7eff',
+  };
+  const dotC = { annual: C.green, rule2: C.amber, manual: C.dim };
+
+  const y_base = toY(baseline);
+  const y_norm = toY(baseline * 0.80);
+  const y_warn = toY(baseline * 0.70);
+  const y_cris = toY(baseline * 0.50);
+
+  let h = '';
+
+  // Zone bands
+  h += `<rect x="${padL}" y="${y_norm}" width="${cW}" height="${Math.max(0, y_warn - y_norm)}" fill="${C.bandY}"/>`;
+  h += `<rect x="${padL}" y="${y_warn}" width="${cW}" height="${Math.max(0, y_cris - y_warn)}" fill="${C.bandR}"/>`;
+
+  // Reference lines
+  const refLines = [
+    { y: y_base, color: C.amber,  label: fmt(baseline),        dash: '5 3' },
+    { y: y_norm, color: C.green,  label: fmt(baseline * 0.80), dash: '3 3' },
+    { y: y_warn, color: C.yellow, label: fmt(baseline * 0.70), dash: '3 3' },
+  ];
+  refLines.forEach(({ y, color, label, dash }) => {
+    h += `<line x1="${padL}" y1="${y}" x2="${padL + cW}" y2="${y}" stroke="${color}" stroke-width="1" stroke-dasharray="${dash}" opacity="0.55"/>`;
+    h += `<text x="${padL - 3}" y="${y + 4}" text-anchor="end" font-size="8" fill="${color}" font-family="JetBrains Mono,monospace">${label}</text>`;
+  });
+
+  // B3 recalibration trigger line (next target)
+  const y_recal = toY(baseline * 1.35);
+  h += `<line x1="${padL}" y1="${y_recal}" x2="${padL + cW}" y2="${y_recal}" stroke="${C.purple}" stroke-width="1" stroke-dasharray="2 4" opacity="0.75"/>`;
+  h += `<text x="${padL - 3}" y="${y_recal + 4}" text-anchor="end" font-size="8" fill="${C.purple}" font-family="JetBrains Mono,monospace">${fmt(baseline * 1.35)}</text>`;
+  h += `<text x="${padL + cW - 2}" y="${y_recal - 4}" text-anchor="end" font-size="8" fill="${C.purple}" font-family="JetBrains Mono,monospace" opacity="0.9">→ B3</text>`;
+
+  // Connecting path between calibration points
+  if (entries.length > 1) {
+    const pts = entries.map((e, i) => `${toX(i)},${toY(e.baseline)}`).join(' ');
+    h += `<polyline points="${pts}" fill="none" stroke="${C.amber}" stroke-width="1.5" opacity="0.35" stroke-linejoin="round"/>`;
+  }
+
+  // Calibration dots + labels
+  entries.forEach((e, i) => {
+    const x = toX(i);
+    const y = toY(e.baseline);
+    const dc = dotC[e.type] || C.dim;
+    const dateShort = (e.date || '').replace(/^\d{4}-/, '').replace(/-\?\?$/, '').replace('??', '?');
+    h += `<circle cx="${x}" cy="${y}" r="5" fill="${C.bg}" stroke="${dc}" stroke-width="2"/>`;
+    h += `<text x="${x}" y="${y - 10}" text-anchor="middle" font-size="9" fill="${dc}" font-family="JetBrains Mono,monospace" font-weight="600">${fmt(e.baseline)}</text>`;
+    h += `<text x="${x}" y="${H - padB + 14}" text-anchor="middle" font-size="8" fill="${C.textdim}" font-family="JetBrains Mono,monospace">${dateShort}</text>`;
+  });
+
+  // Current price marker
+  if (currentPrice) {
+    const zone = getZone(currentPrice, baseline);
+    const pc = { normal: C.green, warning: C.yellow, danger: C.red, crisis: C.red }[zone];
+    const yP = toY(currentPrice);
+    // Dashed connector from last calibration
+    if (entries.length > 0) {
+      const lx = toX(entries.length - 1), ly = toY(entries[entries.length - 1].baseline);
+      h += `<line x1="${lx}" y1="${ly}" x2="${xNow}" y2="${yP}" stroke="${C.border}" stroke-width="1" stroke-dasharray="3 3" opacity="0.6"/>`;
+    }
+    // Triangle marker (pointing down)
+    h += `<path d="M${xNow},${yP} L${xNow - 5},${yP - 10} L${xNow + 5},${yP - 10} Z" fill="${pc}" opacity="0.9"/>`;
+    h += `<text x="${xNow}" y="${yP + 16}" text-anchor="middle" font-size="9" fill="${pc}" font-family="JetBrains Mono,monospace" font-weight="600">${fmt(currentPrice)}</text>`;
+    h += `<text x="${xNow}" y="${H - padB + 14}" text-anchor="middle" font-size="8" fill="${C.textdim}" font-family="JetBrains Mono,monospace">今日</text>`;
+  }
+
+  svg.innerHTML = h;
+}
+
+// ── BASELINE BUTTON STATE ───────────────────────────
+function updateBaselineBtn(price) {
+  const btn = document.getElementById('applyTodayBtn');
+  if (!btn) return;
+  const baseline = state.baseline;
+
+  if (!price || isNaN(price) || price <= 0) {
+    btn.textContent = '以今日收盤更新';
+    btn.style.opacity = '0.4';
+    btn.classList.remove('btn-rule2');
+    return;
+  }
+
+  btn.style.opacity = '1';
+
+  if (price >= baseline * 1.35) {
+    btn.textContent = '⚡ Rule 2 觸發 → 更新';
+    btn.classList.add('btn-rule2');
+  } else if (price > baseline) {
+    btn.textContent = '↑ 今日收盤 → 更新';
+    btn.classList.remove('btn-rule2');
+  } else {
+    btn.textContent = '↓ 低於基準，確認更新';
+    btn.classList.remove('btn-rule2');
+  }
+}
+
+// ── THEME ──────────────────────────────────────────
+function toggleTheme() {
+  const isLight = document.documentElement.classList.toggle('light');
+  document.getElementById('themeToggle').textContent = isLight ? '☾' : '☀';
+  localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  renderChart();
+}
+
+function initTheme() {
+  const saved = localStorage.getItem('theme');
+  const preferLight = saved === 'light' || (!saved && window.matchMedia('(prefers-color-scheme: light)').matches);
+  if (preferLight) {
+    document.documentElement.classList.add('light');
+    document.getElementById('themeToggle').textContent = '☾';
+  }
+}
+
+// ── INIT ───────────────────────────────────────────
+initTheme();
+loadState();
+render();
+setStatus('手動輸入模式', false);
+</script>
+</body>
+</html>
