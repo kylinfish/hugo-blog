@@ -1,0 +1,45 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//kylinyu//domain-transfer-reminder//ZH-TW
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:kylinyu-win-transfer-start-2027@kylinyu.win
+DTSTAMP:20260617T000000Z
+DTSTART;VALUE=DATE:20270419
+DTEND;VALUE=DATE:20270420
+SUMMARY:🔓 開始把 kylinyu.win 從 Gandi 轉到 Cloudflare
+DESCRIPTION:到期日 2027-06-10。提前作業：\n1) Gandi 解除鎖定 (移除 clientTransferProhibited)\n2) 取得授權碼 EPP/Auth code\n3) Cloudflare Dashboard → Domain Registration → Transfer Domains 貼碼付款 (~$5)\n轉移會自動 +1 年。詳見 repo docs/domain-migration.md
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:開始 kylinyu.win 轉移到 Cloudflare
+TRIGGER:-PT9H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:kylinyu-win-transfer-backstop-2027@kylinyu.win
+DTSTAMP:20260617T000000Z
+DTSTART;VALUE=DATE:20270517
+DTEND;VALUE=DATE:20270518
+SUMMARY:⚠️ kylinyu.win 還沒轉好?最後檢查 (到期 6/10)
+DESCRIPTION:若轉移尚未完成，今天務必處理或先在 Gandi 續費避免再次 clientHold 斷線。到期日 2027-06-10。
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:kylinyu.win 轉移最後檢查
+TRIGGER:-PT9H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:kylinyu-win-expiry-2027@kylinyu.win
+DTSTAMP:20260617T000000Z
+DTSTART;VALUE=DATE:20270610
+DTEND;VALUE=DATE:20270611
+SUMMARY:📅 kylinyu.win 網域到期日
+DESCRIPTION:此日到期。理想情況此時已轉到 Cloudflare 並開啟 auto-renew。
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:kylinyu.win 到期日
+TRIGGER:-PT9H
+END:VALARM
+END:VEVENT
+END:VCALENDAR
