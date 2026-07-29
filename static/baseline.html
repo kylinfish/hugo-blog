@@ -506,6 +506,217 @@
     50%      { box-shadow: 0 0 0 7px rgba(160,98,0,0); }
   }
 
+  /* ── RULE CHECK ── */
+  .rule-section {
+    margin: 0 16px 8px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px 14px;
+  }
+  .rule-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .rule-verdict {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 3px 8px;
+    border-radius: 4px;
+    border: 1px solid currentColor;
+    text-transform: uppercase;
+  }
+  .verdict-hold   { color: var(--text-dim); }
+  .verdict-update { color: var(--amber); background: var(--yellow-bg); }
+  .rule-row {
+    display: grid;
+    grid-template-columns: 34px 1fr auto;
+    gap: 0 8px;
+    padding: 8px 0;
+    align-items: start;
+  }
+  .rule-row:not(:last-child) { border-bottom: 1px solid var(--border); }
+  .rule-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 2px 0;
+    text-align: center;
+    border-radius: 3px;
+    border: 1px solid currentColor;
+    line-height: 1.4;
+  }
+  .rule-name {
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--text-hi);
+    line-height: 1.35;
+  }
+  .rule-cond {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-top: 2px;
+    line-height: 1.5;
+    word-break: break-all;
+  }
+  .rule-state {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    padding-top: 2px;
+  }
+  .rs-pass  { color: var(--green); }
+  .rs-fail  { color: var(--text-dim); }
+  .rs-guard { color: var(--purple); }
+  .rule-summary {
+    margin-top: 10px;
+    padding: 10px 11px;
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text);
+    line-height: 1.7;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+  .rule-summary b { color: var(--text-hi); font-weight: 700; }
+  .rule-toggle {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 0 0;
+    text-transform: uppercase;
+  }
+  .rule-math {
+    display: none;
+    margin-top: 8px;
+    padding: 10px 11px;
+    background: var(--bg-input);
+    border: 1px dashed var(--border-hi);
+    border-radius: 7px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 1.8;
+    white-space: pre;
+    overflow-x: auto;
+  }
+  .rule-math.visible { display: block; }
+
+  /* ── SNAPSHOT LOG ── */
+  .snap-list { margin-top: 4px; }
+  .snap-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    gap: 0 10px;
+    align-items: center;
+    padding: 9px 0;
+    font-family: var(--mono);
+    font-size: 13px;
+  }
+  .snap-item:not(:last-child) { border-bottom: 1px solid var(--border); }
+  .snap-date  { color: var(--text-dim); font-size: 12px; }
+  .snap-price { color: var(--text-hi); font-weight: 600; }
+  .snap-zone  { font-size: 11px; letter-spacing: 0.06em; }
+  .row-del {
+    background: none;
+    border: none;
+    color: var(--text-dim);
+    font-size: 15px;
+    cursor: pointer;
+    padding: 2px 4px;
+    line-height: 1;
+  }
+
+  /* ── RULE3 OVERRIDE ── */
+  .override-box {
+    display: none;
+    margin-top: 8px;
+    padding: 9px 10px;
+    background: var(--red-bg);
+    border: 1px solid var(--red);
+    border-radius: 6px;
+  }
+  .override-box.visible { display: block; }
+  .override-box.warn {
+    background: var(--yellow-bg);
+    border-color: var(--amber);
+  }
+  .override-box.warn .override-label { color: var(--amber); }
+  .override-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--red);
+    line-height: 1.45;
+    cursor: pointer;
+  }
+  .override-label input { margin-top: 3px; flex-shrink: 0; }
+
+  /* ── TOAST / UNDO ── */
+  .toast {
+    position: fixed;
+    left: 16px;
+    right: 16px;
+    bottom: calc(58px + env(safe-area-inset-bottom));
+    background: var(--bg-card);
+    border: 1px solid var(--border-hi);
+    border-left: 3px solid var(--amber);
+    border-radius: 8px;
+    padding: 11px 12px;
+    display: none;
+    align-items: center;
+    gap: 10px;
+    z-index: 200;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.45);
+  }
+  .toast.visible { display: flex; }
+  .toast-text {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text);
+    line-height: 1.5;
+    flex: 1;
+  }
+  .toast-undo {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--bg);
+    background: var(--amber);
+    border: none;
+    border-radius: 5px;
+    padding: 7px 12px;
+    cursor: pointer;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+
+  /* ── DISABLED PRIMARY ── */
+  .action-btn.locked {
+    background: var(--bg-input);
+    color: var(--text-dim);
+    border-color: var(--border);
+    font-weight: 400;
+    cursor: not-allowed;
+  }
+
   /* ── HISTORY ── */
   .history-section {
     padding: 0 16px 16px;
@@ -724,6 +935,7 @@
   .bg-normal  { --active-color: var(--green); --active-bg: rgba(0,201,110,0.05); }
   .bg-warning { --active-color: var(--yellow); --active-bg: rgba(245,197,24,0.05); }
   .bg-danger  { --active-color: var(--red); --active-bg: rgba(255,69,69,0.06); }
+
 </style>
 </head>
 <body>
@@ -822,6 +1034,21 @@
     <button class="action-btn" onclick="toggleEdit()">手動更新基準</button>
     <button class="action-btn primary" id="applyTodayBtn" onclick="applyCurrentAsBaseline()">以今日收盤更新</button>
   </div>
+  <div class="baseline-actions">
+    <button class="action-btn" id="snapBtn" onclick="addSnapshot()">＋ 記錄本月 Review（不動基準）</button>
+  </div>
+</div>
+
+<!-- RULE CHECK -->
+<div class="rule-section">
+  <div class="rule-header">
+    <div class="section-title">規則檢查</div>
+    <div class="rule-verdict verdict-hold" id="ruleVerdict">—</div>
+  </div>
+  <div class="rule-list" id="ruleList"></div>
+  <div class="rule-summary" id="ruleSummary">—</div>
+  <button class="rule-toggle" onclick="toggleMath()" id="mathToggle">▸ 顯示計算式</button>
+  <div class="rule-math" id="ruleMath"></div>
 </div>
 
 <!-- BASELINE CHART -->
@@ -848,7 +1075,24 @@
     <button class="save-btn" onclick="saveManualBaseline()">儲存</button>
   </div>
   <input type="text" class="note-input" id="noteInput" placeholder="備註（例：Rule 1 年度重設 / 35%上移 #2）">
+  <div class="override-box" id="overrideBox">
+    <label class="override-label">
+      <input type="checkbox" id="overrideCheck">
+      <span id="overrideText">低於現行基準，違反規則三（只升不降）。僅限拆分還原／資料修正時勾選。</span>
+    </label>
+  </div>
   <div class="cancel-btn" onclick="toggleEdit()">取消</div>
+</div>
+
+<!-- MONTHLY SNAPSHOT LOG -->
+<div class="history-section">
+  <div class="section-header">
+    <div class="section-title">月度 Review 紀錄</div>
+    <button class="clear-btn" onclick="clearSnapshots()">清除</button>
+  </div>
+  <div class="snap-list" id="snapList">
+    <div class="empty-history">尚無 Review 紀錄</div>
+  </div>
 </div>
 
 <!-- HISTORY -->
@@ -860,6 +1104,15 @@
   <div class="history-list" id="historyList">
     <div class="empty-history">尚無校準紀錄</div>
   </div>
+  <div class="baseline-actions">
+    <button class="action-btn" onclick="resetToCanonical()">↺ 重置為官方基準 32.52</button>
+  </div>
+</div>
+
+<!-- UNDO TOAST -->
+<div class="toast" id="toast">
+  <div class="toast-text" id="toastText"></div>
+  <button class="toast-undo" onclick="undoLastChange()">復原</button>
 </div>
 
 <div class="bottom-spacer"></div>
@@ -872,20 +1125,39 @@
 
 <script>
 // ── STATE ──────────────────────────────────────────
-const STORAGE_KEY = 'baseline_calculator_v2';
-let state = {
-  baseline: 32.52,
-  baselineDate: '2026-05-12',
-  baselineNote: 'Rule2 第二次35%上移（5/12高點確立）',
-  history: [
-    { date: '2026-01-01', baseline: 17.05, type: 'annual', note: 'Rule1 年度重設（375÷22 拆分還原）' },
-    { date: '2026-03-??', baseline: 23.01, type: 'rule2',  note: 'Rule2 第一次35%上移' },
-    { date: '2026-05-12', baseline: 32.52, type: 'rule2',  note: 'Rule2 第二次35%上移（確立當前基準）' },
-  ]
-};
+// v3: v2 had an off-spec manual baseline write (2026-07-17). Bumping the key
+// discards it on every device; the old key is also actively purged below.
+const STORAGE_KEY  = 'baseline_calculator_v3';
+const LEGACY_KEYS  = ['baseline_calculator', 'baseline_calculator_v2'];
+
+function canonicalState() {
+  return {
+    baseline: 32.52,
+    baselineDate: '2026-05-12',
+    baselineNote: 'Rule2 第二次35%上移（5/12高點確立）',
+    history: [
+      { date: '2026-01-01', baseline: 17.05, type: 'annual', note: 'Rule1 年度重設（375÷22 拆分還原）' },
+      { date: '2026-03-??', baseline: 23.01, type: 'rule2',  note: 'Rule2 第一次35%上移' },
+      { date: '2026-05-12', baseline: 32.52, type: 'rule2',  note: 'Rule2 第二次35%上移（確立當前基準）' },
+    ],
+    snapshots: [
+      { date: '2026-07-17', price: 41.32, baseline: 32.52, zone: 'normal',
+        note: '今年最高點 · +27.1%，未達 R2 43.90（差 2.58），基準不動' },
+    ]
+  };
+}
+
+let state = canonicalState();
 let priceSource = 'manual';
+let undoSnapshot = null;   // { baseline, baselineDate, baselineNote, historyLen }
+let undoTimer = null;
+
+function purgeLegacy() {
+  LEGACY_KEYS.forEach(k => { try { localStorage.removeItem(k); } catch(e) {} });
+}
 
 function loadState() {
+  purgeLegacy();
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
@@ -893,10 +1165,21 @@ function loadState() {
       state = { ...state, ...parsed };
     }
   } catch(e) {}
+  if (!Array.isArray(state.snapshots)) state.snapshots = [];
 }
 
 function saveState() {
   try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch(e) {}
+}
+
+function resetToCanonical() {
+  if (!confirm('重置為官方基準 32.52（2026-05-12）？\n\n校準歷史會回到三筆原始紀錄，月度 Review 紀錄保留。')) return;
+  const snaps = state.snapshots || [];
+  state = canonicalState();
+  state.snapshots = snaps;
+  purgeLegacy();
+  saveState();
+  render();
 }
 
 // ── ZONE LOGIC ─────────────────────────────────────
@@ -925,6 +1208,90 @@ function bufferText(price, threshold, label) {
   const dist = ((price - threshold) / threshold * 100);
   const arrow = dist >= 0 ? '↑' : '↓';
   return `${arrow} ${Math.abs(dist).toFixed(1)}% ${dist >= 0 ? '以上' : '以下'}`;
+}
+
+// ── RULE ENGINE ────────────────────────────────────
+// 判定式： (規則一 OR 規則二) AND 規則三
+//   規則一 = 每年 1 月第一個交易日的年度重設
+//   規則二 = 收盤 ≥ 基準 × 1.35 的 35% 上移
+//   規則三 = 只升不降（守門，優先權最高）
+const R2_MULT = 1.35;
+const JAN_WINDOW_DAYS = 10;   // 1/1–1/10 視為「年度重設視窗」，避開交易日曆判斷
+
+function todayISO() { return new Date().toISOString().split('T')[0]; }
+
+function daysBetween(a, b) {
+  return Math.round((b - a) / 86400000);
+}
+
+function evaluateRules(price, baseline) {
+  const now   = new Date();
+  const year  = now.getFullYear();
+  const inJan = now.getMonth() === 0 && now.getDate() <= JAN_WINDOW_DAYS;
+  const doneThisYear = (state.history || []).some(
+    h => h.type === 'annual' && (h.date || '').startsWith(String(year))
+  );
+
+  // 下一次年度視窗開啟日
+  const nextJan = new Date(inJan ? year : year + 1, 0, 1);
+  const daysToJan = Math.max(0, daysBetween(now, nextJan));
+
+  const hasPrice = !!price && !isNaN(price) && price > 0;
+  const trigger  = baseline * R2_MULT;
+
+  // ── 規則一 ──
+  const r1 = { tag: 'R1', name: '年度重設', pass: false };
+  r1.cond = `每年 1 月第一個交易日（視窗 1/1–1/${JAN_WINDOW_DAYS}）`;
+  if (!inJan) {
+    r1.state = '未到期';
+    r1.detail = `今天 ${todayISO()} 不在視窗內 · 距 ${nextJan.getFullYear()}-01-01 還有 ${daysToJan} 天`;
+  } else if (doneThisYear) {
+    r1.state = '已執行';
+    r1.detail = `${year} 年度重設已完成，本年不再觸發`;
+  } else if (!hasPrice) {
+    r1.state = '待輸入';
+    r1.detail = '視窗開啟中 · 請先輸入今日收盤';
+  } else if (price <= baseline) {
+    r1.state = '不成立';
+    r1.detail = `收盤 ${fmt(price)} ≤ 基準 ${fmt(baseline)} → 規則三擋下，不更新（市場未恢復）`;
+  } else {
+    r1.pass = true;
+    r1.state = '✓ 成立';
+    r1.detail = `視窗開啟 · 收盤 ${fmt(price)} > 基準 ${fmt(baseline)} → 年度重設`;
+  }
+
+  // ── 規則二 ──
+  const r2 = { tag: 'R2', name: '35% 上移', pass: false };
+  r2.cond = `收盤 ≥ 基準 × ${R2_MULT} = ${fmt(trigger)}`;
+  if (!hasPrice) {
+    r2.state = '待輸入';
+    r2.detail = `觸發價 ${fmt(trigger)} · 請先輸入今日收盤`;
+  } else if (price >= trigger) {
+    r2.pass = true;
+    r2.state = '✓ 成立';
+    r2.detail = `收盤 ${fmt(price)} ≥ ${fmt(trigger)} → 立即上移至 ${fmt(price)}`;
+  } else {
+    r2.state = '不成立';
+    const gapPct = (trigger - price) / price * 100;
+    r2.detail = `${fmt(price)} / ${fmt(trigger)} · 還差 ${fmt(trigger - price)}（需 +${gapPct.toFixed(1)}%）`;
+  }
+
+  // ── 規則三 ──（守門，不是觸發器）
+  const r3 = { tag: 'R3', name: '只升不降', guard: true };
+  r3.cond = '任何情況都不向下調整基準（優先權最高）';
+  if (!hasPrice) {
+    r3.state = '守門中';
+    r3.detail = `現行基準 ${fmt(baseline)} 為下限`;
+  } else if (price < baseline) {
+    r3.state = '● 阻擋中';
+    r3.detail = `若以今日 ${fmt(price)} 更新 → 低於 ${fmt(baseline)}，會被擋下`;
+  } else {
+    r3.state = '守門中';
+    r3.detail = `今日 ${fmt(price)} ≥ ${fmt(baseline)}，方向不違規`;
+  }
+
+  const verdict = r1.pass ? 'rule1' : (r2.pass ? 'rule2' : 'hold');
+  return { r1, r2, r3, verdict, trigger, hasPrice, inJan, daysToJan, doneThisYear };
 }
 
 // ── RENDER ─────────────────────────────────────────
@@ -968,7 +1335,9 @@ function render() {
     ['tbNormal','tbWarning','tbDanger','tbRecal'].forEach(id =>
       document.getElementById(id).textContent = '');
     renderHistory();
+    renderSnapshots();
     renderChart();
+    renderRuleCheck(null);
     updateBaselineBtn(null);
     return;
   }
@@ -1020,11 +1389,92 @@ function render() {
   }
 
   renderHistory();
+  renderSnapshots();
   renderChart();
+  renderRuleCheck(price);
   updateBaselineBtn(price);
 }
 
 function onPriceChange() { render(); }
+
+// ── RULE CHECK RENDER ──────────────────────────────
+function renderRuleCheck(price) {
+  const baseline = state.baseline;
+  const ev = evaluateRules(price, baseline);
+
+  const stateClass = s =>
+    s.startsWith('✓') ? 'rs-pass' : (s.startsWith('●') ? 'rs-guard' : 'rs-fail');
+  const tagColor = { R1: 'var(--green)', R2: 'var(--amber)', R3: 'var(--purple)' };
+
+  document.getElementById('ruleList').innerHTML = [ev.r1, ev.r2, ev.r3].map(r => `
+    <div class="rule-row">
+      <div class="rule-tag" style="color:${tagColor[r.tag]}">${r.tag}</div>
+      <div>
+        <div class="rule-name">${r.name}</div>
+        <div class="rule-cond">${r.cond}<br>${r.detail}</div>
+      </div>
+      <div class="rule-state ${stateClass(r.state)}">${r.state}</div>
+    </div>`).join('');
+
+  const badge = document.getElementById('ruleVerdict');
+  const zone  = ev.hasPrice ? ZONE_CONFIG[getZone(price, baseline)].name : null;
+
+  if (ev.verdict === 'hold') {
+    badge.textContent = '維持基準';
+    badge.className = 'rule-verdict verdict-hold';
+    document.getElementById('ruleSummary').innerHTML =
+      `(R1 ✗ <b>OR</b> R2 ✗) <b>AND</b> R3 → <b>不更新</b>\n` +
+      `基準維持 <b>${fmt(baseline)}</b>（${state.baselineDate}）\n` +
+      (ev.hasPrice
+        ? `今日動作：<b>${zone}</b> → ${ZONE_CONFIG[getZone(price, baseline)].action.replace(/\n/g, ' / ')}`
+        : `今日動作：請先輸入或取得收盤價`);
+  } else {
+    const label = ev.verdict === 'rule1' ? 'R1 年度重設' : 'R2 35% 上移';
+    badge.textContent = '可更新';
+    badge.className = 'rule-verdict verdict-update';
+    document.getElementById('ruleSummary').innerHTML =
+      `(${ev.verdict === 'rule1' ? 'R1 ✓' : 'R1 ✗'} <b>OR</b> ${ev.verdict === 'rule2' ? 'R2 ✓' : 'R2 ✗'}) <b>AND</b> R3 ✓ → <b>更新</b>\n` +
+      `依據 <b>${label}</b>：${fmt(baseline)} → <b>${fmt(price)}</b>\n` +
+      `更新後：正常 ${fmt(price * 0.80)} / 警示 ${fmt(price * 0.70)} / 危機 ${fmt(price * 0.50)} / 再校準 ${fmt(price * R2_MULT)}`;
+  }
+
+  // 計算式
+  const lines = [
+    `基準  ${fmt(baseline)}   ${state.baselineDate}`,
+    `  × 0.80 = ${fmt(baseline * 0.80)}   正常區下緣`,
+    `  × 0.70 = ${fmt(baseline * 0.70)}   警示區下緣`,
+    `  × 0.50 = ${fmt(baseline * 0.50)}   危機區下緣`,
+    `  × 1.35 = ${fmt(baseline * R2_MULT)}   再校準觸發`,
+  ];
+  if (ev.hasPrice) {
+    const ratio = price / baseline;
+    lines.push(
+      ``,
+      `今日  ${fmt(price)}`,
+      `  ${fmt(price)} ÷ ${fmt(baseline)} = ${ratio.toFixed(4)}`,
+      `  (${fmt(price)} − ${fmt(baseline)}) ÷ ${fmt(baseline)}`,
+      `        = ${fmtPct((price - baseline) / baseline * 100)}`,
+      `  → ${ZONE_CONFIG[getZone(price, baseline)].name}（門檻 ${
+        ratio >= 0.80 ? '≥ 0.80' : ratio >= 0.70 ? '0.70–0.80' : ratio >= 0.50 ? '0.50–0.70' : '< 0.50'
+      }）`
+    );
+  }
+  lines.push(
+    ``,
+    `下次校準機會`,
+    `  R1  ${new Date(new Date().getMonth() === 0 && new Date().getDate() <= JAN_WINDOW_DAYS
+        ? new Date().getFullYear() : new Date().getFullYear() + 1, 0, 1)
+        .toISOString().split('T')[0]}   還有 ${ev.daysToJan} 天`,
+    `  R2  ${fmt(ev.trigger)}${ev.hasPrice ? `   需 +${((ev.trigger - price) / price * 100).toFixed(1)}%` : ''}`
+  );
+  document.getElementById('ruleMath').textContent = lines.join('\n');
+}
+
+function toggleMath() {
+  const el = document.getElementById('ruleMath');
+  const on = el.classList.toggle('visible');
+  document.getElementById('mathToggle').textContent = on ? '▾ 隱藏計算式' : '▸ 顯示計算式';
+}
 
 // ── HISTORY ────────────────────────────────────────
 function renderHistory() {
@@ -1067,6 +1517,7 @@ function renderHistory() {
             <div class="tl-date">
               ${h.date}
               <span class="history-type ${tc}">${tl}</span>
+              <button class="row-del" onclick="deleteHistoryEntry(${state.history.indexOf(h)})" title="刪除這筆">×</button>
             </div>
             <div class="tl-note">${h.note || ''}</div>
           </div>
@@ -1104,17 +1555,35 @@ function clearHistory() {
 function applyCurrentAsBaseline() {
   const price = parseFloat(document.getElementById('priceInput').value);
   if (isNaN(price) || price <= 0) { alert('請先輸入今日收盤價'); return; }
-  const today = new Date().toISOString().split('T')[0];
-  const note = price >= state.baseline * 1.35
+
+  const ev = evaluateRules(price, state.baseline);
+  if (ev.verdict === 'hold') {
+    alert(
+      `規則未成立，不更新基準。\n\n` +
+      `R1 年度重設：${ev.r1.state}\n${ev.r1.detail}\n\n` +
+      `R2 35% 上移：${ev.r2.state}\n${ev.r2.detail}\n\n` +
+      `若真的要覆寫，請走「手動更新基準」。`
+    );
+    return;
+  }
+
+  const type = ev.verdict;   // 'rule1' | 'rule2'
+  const note = type === 'rule2'
     ? `Rule2 35%上移（${fmt(state.baseline)}→${fmt(price)}）`
-    : `手動更新基準（${fmt(state.baseline)}→${fmt(price)}）`;
-  const type = price >= state.baseline * 1.35 ? 'rule2' : 'manual';
-  addHistoryEntry(today, price, type, note);
+    : `Rule1 年度重設（${fmt(state.baseline)}→${fmt(price)}）`;
+
+  if (!confirm(`${note}\n\n更新後區間：\n正常 ${fmt(price*0.80)} / 警示 ${fmt(price*0.70)} / 危機 ${fmt(price*0.50)}\n再校準 ${fmt(price*R2_MULT)}\n\n確定更新？`)) return;
+
+  captureUndo();
+  const from  = state.baseline;
+  const today = todayISO();
+  addHistoryEntry(today, price, type === 'rule1' ? 'annual' : 'rule2', note);
   state.baseline = price;
   state.baselineDate = today;
   state.baselineNote = note;
   saveState();
   render();
+  showUndoToast(from, price);
 }
 
 function applyRecalibration() { applyCurrentAsBaseline(); }
@@ -1123,24 +1592,103 @@ function toggleEdit() {
   const panel = document.getElementById('editPanel');
   panel.classList.toggle('visible');
   if (panel.classList.contains('visible')) {
-    document.getElementById('newBaselineInput').value = state.baseline;
-    document.getElementById('newBaselineInput').focus();
+    const input = document.getElementById('newBaselineInput');
+    input.value = state.baseline;
+    input.oninput = checkOverrideNeeded;
+    checkOverrideNeeded();
+    input.focus();
+  }
+}
+
+// 手動輸入分類：三條路徑對稱檢查（向下＝規則三、向上＝是否符合 R1/R2）
+function classifyManual(val) {
+  const b = state.baseline;
+  if (isNaN(val) || val <= 0) return { kind: 'invalid' };
+  if (val === b)              return { kind: 'same' };
+
+  if (val < b) {
+    return {
+      kind: 'lower',
+      warnClass: false,
+      text: `${fmt(val)} < 現行基準 ${fmt(b)}，違反規則三（只升不降）。` +
+            `僅限拆分還原／撤銷誤觸等資料修正時勾選，並務必填寫備註。`,
+      confirmPrefix: '⚠ 向下覆寫（規則三例外）\n\n',
+      noteLabel: '向下覆寫',
+    };
+  }
+
+  const ev = evaluateRules(val, b);
+  if (ev.verdict !== 'hold') {
+    return {
+      kind: 'legit',
+      label: ev.verdict === 'rule2' ? 'Rule2 35%上移' : 'Rule1 年度重設',
+      type:  ev.verdict === 'rule2' ? 'rule2' : 'annual',
+    };
+  }
+
+  return {
+    kind: 'offspec',
+    warnClass: true,
+    text: `${fmt(val)} 不符合 R1／R2。R2 需 ≥ ${fmt(ev.trigger)}（還差 ${fmt(ev.trigger - val)}）` +
+          `· R1 ${ev.inJan ? '視窗開啟但條件未滿足' : `視窗未開（還有 ${ev.daysToJan} 天）`}。` +
+          `此筆會記為「手動覆寫」，不是合法校準。`,
+    confirmPrefix: '⚠ 不符合規則的手動覆寫\n\n',
+    noteLabel: '違規覆寫',
+  };
+}
+
+function checkOverrideNeeded() {
+  const val = parseFloat(document.getElementById('newBaselineInput').value);
+  const box = document.getElementById('overrideBox');
+  const c   = classifyManual(val);
+  const need = c.kind === 'lower' || c.kind === 'offspec';
+
+  box.classList.toggle('visible', need);
+  box.classList.toggle('warn', need && !!c.warnClass);
+  if (need) {
+    document.getElementById('overrideText').textContent = c.text;
+  } else {
+    document.getElementById('overrideCheck').checked = false;
   }
 }
 
 function saveManualBaseline() {
   const val = parseFloat(document.getElementById('newBaselineInput').value);
   if (isNaN(val) || val <= 0) { alert('請輸入有效數值'); return; }
-  const note = document.getElementById('noteInput').value || '手動更新';
-  const today = new Date().toISOString().split('T')[0];
-  addHistoryEntry(today, val, 'manual', note);
+
+  const c = classifyManual(val);
+  if (c.kind === 'same') { alert('與現行基準相同，無需更新。'); return; }
+
+  const needsOverride = c.kind === 'lower' || c.kind === 'offspec';
+  if (needsOverride) {
+    if (!document.getElementById('overrideCheck').checked) {
+      alert(`${c.kind === 'lower' ? '規則三：基準只升不降。' : '此數值不符合 R1／R2。'}\n\n${c.text}`);
+      checkOverrideNeeded();
+      return;
+    }
+    if (!document.getElementById('noteInput').value.trim()) {
+      alert(`${c.noteLabel}必須填寫備註（說明為何是例外）。`);
+      return;
+    }
+  }
+
+  const note  = document.getElementById('noteInput').value.trim()
+                || (c.kind === 'legit' ? `${c.label}（${fmt(state.baseline)}→${fmt(val)}）` : '手動更新');
+  const today = todayISO();
+  if (!confirm(`${c.confirmPrefix || ''}基準 ${fmt(state.baseline)} → ${fmt(val)}\n備註：${note}\n\n確定？`)) return;
+
+  captureUndo();
+  const from = state.baseline;
+  addHistoryEntry(today, val, c.type || 'manual', note);
   state.baseline = val;
   state.baselineDate = today;
   state.baselineNote = note;
   saveState();
   document.getElementById('editPanel').classList.remove('visible');
   document.getElementById('noteInput').value = '';
+  document.getElementById('overrideCheck').checked = false;
   render();
+  showUndoToast(from, val);
 }
 
 function addHistoryEntry(date, baseline, type, note) {
@@ -1294,30 +1842,129 @@ function renderChart() {
 }
 
 // ── BASELINE BUTTON STATE ───────────────────────────
+// 按鈕是「判決」不是「邀請」：規則沒成立就鎖住，避免誤觸。
 function updateBaselineBtn(price) {
   const btn = document.getElementById('applyTodayBtn');
   if (!btn) return;
   const baseline = state.baseline;
+  const ev = evaluateRules(price, baseline);
 
-  if (!price || isNaN(price) || price <= 0) {
-    btn.textContent = '以今日收盤更新';
-    btn.style.opacity = '0.4';
-    btn.classList.remove('btn-rule2');
+  btn.classList.remove('btn-rule2', 'locked', 'primary');
+
+  if (!ev.hasPrice) {
+    btn.textContent = '先輸入今日收盤';
+    btn.classList.add('locked');
+    btn.disabled = true;
     return;
   }
 
-  btn.style.opacity = '1';
-
-  if (price >= baseline * 1.35) {
-    btn.textContent = '⚡ Rule 2 觸發 → 更新';
-    btn.classList.add('btn-rule2');
-  } else if (price > baseline) {
-    btn.textContent = '↑ 今日收盤 → 更新';
-    btn.classList.remove('btn-rule2');
+  if (ev.verdict === 'rule2') {
+    btn.textContent = `⚡ R2 觸發 → 更新為 ${fmt(price)}`;
+    btn.classList.add('primary', 'btn-rule2');
+    btn.disabled = false;
+  } else if (ev.verdict === 'rule1') {
+    btn.textContent = `R1 年度重設 → 更新為 ${fmt(price)}`;
+    btn.classList.add('primary');
+    btn.disabled = false;
   } else {
-    btn.textContent = '↓ 低於基準，確認更新';
-    btn.classList.remove('btn-rule2');
+    btn.textContent = `維持基準 ${fmt(baseline)} · 今日無需更新`;
+    btn.classList.add('locked');
+    btn.disabled = true;
   }
+}
+
+// ── SNAPSHOT LOG ───────────────────────────────────
+function addSnapshot() {
+  const price = parseFloat(document.getElementById('priceInput').value);
+  if (isNaN(price) || price <= 0) { alert('請先輸入今日收盤價'); return; }
+  const zone = getZone(price, state.baseline);
+  if (!state.snapshots) state.snapshots = [];
+  state.snapshots.push({
+    date: todayISO(),
+    price,
+    baseline: state.baseline,
+    zone,
+    note: ZONE_CONFIG[zone].action.split('\n')[0],
+  });
+  saveState();
+  renderSnapshots();
+}
+
+function renderSnapshots() {
+  const list = document.getElementById('snapList');
+  if (!list) return;
+  const snaps = state.snapshots || [];
+  if (snaps.length === 0) {
+    list.innerHTML = '<div class="empty-history">尚無 Review 紀錄</div>';
+    return;
+  }
+  const zoneClass = { normal: 'zone-normal', warning: 'zone-warning', danger: 'zone-danger', crisis: 'zone-crisis' };
+  list.innerHTML = [...snaps].reverse().map((s, i) => {
+    const idx = snaps.length - 1 - i;
+    const pct = (s.price - s.baseline) / s.baseline * 100;
+    return `
+      <div class="snap-item">
+        <div class="snap-date">${s.date}</div>
+        <div>
+          <div class="snap-price">${fmt(s.price)} <span class="snap-date">/ ${fmt(s.baseline)} · ${fmtPct(pct)}</span></div>
+          ${s.note ? `<div class="snap-date" style="margin-top:2px">${s.note}</div>` : ''}
+        </div>
+        <div class="snap-zone ${zoneClass[s.zone] || ''}">${ZONE_CONFIG[s.zone] ? ZONE_CONFIG[s.zone].name : s.zone}</div>
+        <button class="row-del" onclick="deleteSnapshot(${idx})" title="刪除">×</button>
+      </div>`;
+  }).join('');
+}
+
+function deleteSnapshot(i) {
+  state.snapshots.splice(i, 1);
+  saveState();
+  renderSnapshots();
+}
+
+function clearSnapshots() {
+  if (!confirm('清除所有月度 Review 紀錄？')) return;
+  state.snapshots = [];
+  saveState();
+  renderSnapshots();
+}
+
+// ── UNDO ───────────────────────────────────────────
+function captureUndo() {
+  undoSnapshot = {
+    baseline: state.baseline,
+    baselineDate: state.baselineDate,
+    baselineNote: state.baselineNote,
+    historyLen: (state.history || []).length,
+  };
+}
+
+function showUndoToast(from, to) {
+  const t = document.getElementById('toast');
+  document.getElementById('toastText').textContent = `基準已更新 ${fmt(from)} → ${fmt(to)}`;
+  t.classList.add('visible');
+  clearTimeout(undoTimer);
+  undoTimer = setTimeout(() => t.classList.remove('visible'), 12000);
+}
+
+function undoLastChange() {
+  if (!undoSnapshot) return;
+  state.baseline     = undoSnapshot.baseline;
+  state.baselineDate = undoSnapshot.baselineDate;
+  state.baselineNote = undoSnapshot.baselineNote;
+  state.history      = (state.history || []).slice(0, undoSnapshot.historyLen);
+  undoSnapshot = null;
+  clearTimeout(undoTimer);
+  document.getElementById('toast').classList.remove('visible');
+  saveState();
+  render();
+}
+
+function deleteHistoryEntry(i) {
+  const h = state.history[i];
+  if (!confirm(`刪除這筆校準紀錄？\n\n${h.date} · ${fmt(h.baseline)}\n${h.note || ''}\n\n（不會改動目前的有效基準）`)) return;
+  state.history.splice(i, 1);
+  saveState();
+  render();
 }
 
 // ── THEME ──────────────────────────────────────────
