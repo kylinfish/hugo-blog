@@ -26,6 +26,7 @@
     --red-bg:    #1f0000;
     --purple:    #9d7eff;
     --purple-bg: #0f0a1e;
+    --cyan:      #3ad6e0;
     --mono: 'JetBrains Mono', monospace;
     --sans: 'Noto Sans TC', sans-serif;
   }
@@ -50,6 +51,7 @@
     --red-bg:    #fde8e8;
     --purple:    #5030b8;
     --purple-bg: #eeebf8;
+    --cyan:      #0e6f78;
   }
   html.light .recal-alert {
     background: #fdf5e0;
@@ -1069,7 +1071,7 @@
       <div class="legend-item" style="color:var(--amber)"><div class="legend-dot"></div>Rule2</div>
       <div class="legend-item" style="color:var(--text-dim)"><div class="legend-dot"></div>手動</div>
       <div class="legend-item" style="color:var(--purple)"><div class="legend-dot"></div>B3目標</div>
-      <div class="legend-item" style="color:var(--amber)">★年度高</div>
+      <div class="legend-item" style="color:var(--cyan)">★年度高</div>
     </div>
   </div>
   <svg id="baselineChart" viewBox="0 0 360 130" preserveAspectRatio="xMidYMid meet" style="width:100%;height:auto;display:block"></svg>
@@ -1891,10 +1893,13 @@ function renderChart() {
   const maxV = Math.max(...allV, baseline * 1.42);
 
   const toY = v => padT + cH - ((v - minV) / (maxV - minV)) * cH;
-  const totalSlots = entries.length + (currentPrice ? 1 : 0);
+  // 年度高點吃一個獨立的 x 槽（日期在最後一次校準之後、今日之前）
+  const hasHigh = !!yhEntry;
+  const totalSlots = entries.length + (hasHigh ? 1 : 0) + (currentPrice ? 1 : 0);
   const slotW = cW / (totalSlots + 0.4);
   const toX = i => padL + slotW * (i + 0.7);
-  const xNow = toX(entries.length);
+  const xHigh = hasHigh ? toX(entries.length) : null;
+  const xNow = toX(entries.length + (hasHigh ? 1 : 0));
 
   const isLight = document.documentElement.classList.contains('light');
   const C = {
@@ -1909,6 +1914,7 @@ function renderChart() {
     bandY:   isLight ? 'rgba(245,197,24,0.12)' : 'rgba(245,197,24,0.07)',
     bandR:   isLight ? 'rgba(184,28,28,0.08)'  : 'rgba(255,69,69,0.06)',
     purple:  isLight ? '#5030b8' : '#9d7eff',
+    cyan:    isLight ? '#0e6f78' : '#3ad6e0',   // 年度高：跟琥珀基準線區隔
   };
   const dotC = { annual: C.green, rule2: C.amber, manual: C.dim };
 
@@ -1934,14 +1940,6 @@ function renderChart() {
     h += `<text x="${padL - 3}" y="${y + 4}" text-anchor="end" font-size="8" fill="${color}" font-family="JetBrains Mono,monospace">${label}</text>`;
   });
 
-  // 年度最高價：實線 + ★，說明「為什麼基準沒動」
-  if (yhEntry) {
-    const yHigh = toY(yhEntry.price);
-    h += `<line x1="${padL}" y1="${yHigh}" x2="${padL + cW}" y2="${yHigh}" stroke="${C.amber}" stroke-width="1" opacity="0.4"/>`;
-    h += `<text x="${padL - 3}" y="${yHigh + 4}" text-anchor="end" font-size="8" fill="${C.amber}" font-family="JetBrains Mono,monospace">${fmt(yhEntry.price)}</text>`;
-    h += `<text x="${padL + cW - 2}" y="${yHigh - 4}" text-anchor="end" font-size="8" fill="${C.amber}" font-family="JetBrains Mono,monospace" opacity="0.9">★ ${yhEntry.date.slice(5)} 年度高</text>`;
-  }
-
   // B3 recalibration trigger line (next target)
   const y_recal = toY(baseline * 1.35);
   h += `<line x1="${padL}" y1="${y_recal}" x2="${padL + cW}" y2="${y_recal}" stroke="${C.purple}" stroke-width="1" stroke-dasharray="2 4" opacity="0.75"/>`;
@@ -1965,15 +1963,28 @@ function renderChart() {
     h += `<text x="${x}" y="${H - padB + 14}" text-anchor="middle" font-size="8" fill="${C.textdim}" font-family="JetBrains Mono,monospace">${dateShort}</text>`;
   });
 
+  // 年度高點：只畫 data point（虛線圈），不畫貫穿的水平線
+  if (hasHigh) {
+    const yH = toY(yhEntry.price);
+    if (entries.length > 0) {
+      const lx = toX(entries.length - 1), ly = toY(entries[entries.length - 1].baseline);
+      h += `<line x1="${lx}" y1="${ly}" x2="${xHigh}" y2="${yH}" stroke="${C.border}" stroke-width="1" stroke-dasharray="3 3" opacity="0.6"/>`;
+    }
+    h += `<circle cx="${xHigh}" cy="${yH}" r="5" fill="${C.bg}" stroke="${C.cyan}" stroke-width="1.6" stroke-dasharray="2.2 2"/>`;
+    h += `<text x="${xHigh}" y="${yH - 10}" text-anchor="middle" font-size="9" fill="${C.cyan}" font-family="JetBrains Mono,monospace" font-weight="600">${fmt(yhEntry.price)}</text>`;
+    h += `<text x="${xHigh}" y="${H - padB + 14}" text-anchor="middle" font-size="8" fill="${C.cyan}" font-family="JetBrains Mono,monospace">★${yhEntry.date.slice(5)}</text>`;
+  }
+
   // Current price marker
   if (currentPrice) {
     const zone = getZone(currentPrice, baseline);
     const pc = { normal: C.green, warning: C.yellow, danger: C.red, crisis: C.red }[zone];
     const yP = toY(currentPrice);
-    // Dashed connector from last calibration
-    if (entries.length > 0) {
-      const lx = toX(entries.length - 1), ly = toY(entries[entries.length - 1].baseline);
-      h += `<line x1="${lx}" y1="${ly}" x2="${xNow}" y2="${yP}" stroke="${C.border}" stroke-width="1" stroke-dasharray="3 3" opacity="0.6"/>`;
+    // Dashed connector：優先接年度高點，其次接最後一次校準
+    const prevX = hasHigh ? xHigh : (entries.length ? toX(entries.length - 1) : null);
+    const prevY = hasHigh ? toY(yhEntry.price) : (entries.length ? toY(entries[entries.length - 1].baseline) : null);
+    if (prevX !== null) {
+      h += `<line x1="${prevX}" y1="${prevY}" x2="${xNow}" y2="${yP}" stroke="${C.border}" stroke-width="1" stroke-dasharray="3 3" opacity="0.6"/>`;
     }
     // Triangle marker (pointing down)
     h += `<path d="M${xNow},${yP} L${xNow - 5},${yP - 10} L${xNow + 5},${yP - 10} Z" fill="${pc}" opacity="0.9"/>`;
