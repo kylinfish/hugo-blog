@@ -1963,13 +1963,10 @@ function renderChart() {
     h += `<text x="${x}" y="${H - padB + 14}" text-anchor="middle" font-size="8" fill="${C.textdim}" font-family="JetBrains Mono,monospace">${dateShort}</text>`;
   });
 
-  // 年度高點：只畫 data point（虛線圈），不畫貫穿的水平線
+  // 年度高點：孤立的 data point，刻意不與基準線連線
+  // （它是價格觀測值，不是校準事件，連線會讓人誤以為基準走過那裡）
   if (hasHigh) {
     const yH = toY(yhEntry.price);
-    if (entries.length > 0) {
-      const lx = toX(entries.length - 1), ly = toY(entries[entries.length - 1].baseline);
-      h += `<line x1="${lx}" y1="${ly}" x2="${xHigh}" y2="${yH}" stroke="${C.border}" stroke-width="1" stroke-dasharray="3 3" opacity="0.6"/>`;
-    }
     h += `<circle cx="${xHigh}" cy="${yH}" r="5" fill="${C.bg}" stroke="${C.cyan}" stroke-width="1.6" stroke-dasharray="2.2 2"/>`;
     h += `<text x="${xHigh}" y="${yH - 10}" text-anchor="middle" font-size="9" fill="${C.cyan}" font-family="JetBrains Mono,monospace" font-weight="600">${fmt(yhEntry.price)}</text>`;
     h += `<text x="${xHigh}" y="${H - padB + 14}" text-anchor="middle" font-size="8" fill="${C.cyan}" font-family="JetBrains Mono,monospace">★${yhEntry.date.slice(5)}</text>`;
@@ -1980,11 +1977,10 @@ function renderChart() {
     const zone = getZone(currentPrice, baseline);
     const pc = { normal: C.green, warning: C.yellow, danger: C.red, crisis: C.red }[zone];
     const yP = toY(currentPrice);
-    // Dashed connector：優先接年度高點，其次接最後一次校準
-    const prevX = hasHigh ? xHigh : (entries.length ? toX(entries.length - 1) : null);
-    const prevY = hasHigh ? toY(yhEntry.price) : (entries.length ? toY(entries[entries.length - 1].baseline) : null);
-    if (prevX !== null) {
-      h += `<line x1="${prevX}" y1="${prevY}" x2="${xNow}" y2="${yP}" stroke="${C.border}" stroke-width="1" stroke-dasharray="3 3" opacity="0.6"/>`;
+    // Dashed connector：一律從最後一次校準直接連到今日，跳過年度高點
+    if (entries.length > 0) {
+      const lx = toX(entries.length - 1), ly = toY(entries[entries.length - 1].baseline);
+      h += `<line x1="${lx}" y1="${ly}" x2="${xNow}" y2="${yP}" stroke="${C.border}" stroke-width="1" stroke-dasharray="3 3" opacity="0.6"/>`;
     }
     // Triangle marker (pointing down)
     h += `<path d="M${xNow},${yP} L${xNow - 5},${yP - 10} L${xNow + 5},${yP - 10} Z" fill="${pc}" opacity="0.9"/>`;
