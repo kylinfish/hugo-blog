@@ -936,6 +936,40 @@
   .bg-warning { --active-color: var(--yellow); --active-bg: rgba(245,197,24,0.05); }
   .bg-danger  { --active-color: var(--red); --active-bg: rgba(255,69,69,0.06); }
 
+  /* ── DESKTOP: 固定寬度單欄，維持手機版比例 ── */
+  :root { --app-w: 520px; }
+
+  @media (min-width: 600px) {
+    html { background: #030304; }
+    html.light { background: #e8e4da; }
+    body {
+      max-width: var(--app-w);
+      margin: 0 auto;
+      min-height: 100vh;
+      background: var(--bg);
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+    }
+    /* fixed 元素要跟著 body 置中，否則會貼滿整個 viewport */
+    .status-bar {
+      max-width: var(--app-w);
+      margin-left: auto;
+      margin-right: auto;
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+    }
+    .toast {
+      max-width: calc(var(--app-w) - 32px);
+      margin-left: auto;
+      margin-right: auto;
+    }
+    /* 桌機游標回饋（手機沒有 hover） */
+    .action-btn:not(.locked):hover,
+    .fetch-btn:hover,
+    .theme-toggle:hover { border-color: var(--border-hi); color: var(--text-hi); }
+    .row-del:hover { color: var(--red); }
+    .rule-toggle:hover { color: var(--text-hi); }
+  }
 </style>
 </head>
 <body>
