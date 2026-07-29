@@ -8,7 +8,6 @@ deploy: clean
 	(hugo)
 	(cp robots.txt ./public/)
 	(cp ads.txt ./public/)
-	(cp baseline.html ./public/)
 	(firebase deploy)
 
 deploy-worker:
