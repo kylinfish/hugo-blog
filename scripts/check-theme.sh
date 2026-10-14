@@ -39,6 +39,17 @@ has dementia-disease/index.html '\[WARN\]</span> 症狀'
 has rdbms_design/index.html '\[SUMMARY\]</span> 文章系列'
 has api_token_design/index.html 'href="https://[^"]+" target="_blank" rel="noopener noreferrer"'
 
+echo "== task 2: post page"
+has es-reindex/index.html 'cat es-reindex\.md'
+has es-reindex/index.html 'class="pl pl-meta"'
+has es-reindex/index.html 'class="toc toc-side"'
+has es-reindex/index.html 'id="TableOfContents"'
+has es-reindex/index.html '<a href="#[^"]+">'
+has mailquill-gmail-statements-to-ledger/index.html 'class="post-cover"'
+has mailquill-gmail-statements-to-ledger/index.html 'class="toc toc-side"'
+lacks lumen_tinker/index.html 'class="toc'
+has es_reindex_for_merge_indices/index.html 'class="chroma"'
+has es_reindex_for_merge_indices/index.html 'class="post-nav"'
 # --- assertions above this line ---
 
 echo

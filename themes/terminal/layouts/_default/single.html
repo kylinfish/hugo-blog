@@ -1,6 +1,38 @@
 {{ define "main" }}
-<article class="post">
-  <h1 class="post-title">{{ .Title }}</h1>
-  <div class="post-body">{{ .Content }}</div>
-</article>
+{{- $tocOn := true }}
+{{- with .Params.toc }}
+  {{- if reflect.IsMap . }}{{ $tocOn = ne .enable false }}{{ else if eq . false }}{{ $tocOn = false }}{{ end }}
+{{- end }}
+{{- $toc := and $tocOn (ge (len (findRE "<a href" .TableOfContents)) 2) }}
+<p class="prompt-line"><span class="cmd">cat {{ .File.ContentBaseName }}.md</span></p>
+<div class="post-layout{{ if $toc }} has-toc{{ end }}">
+  <article class="post">
+    <header>
+      <h1 class="post-title">{{ .Title }}</h1>
+      {{- with .Params.subtitle }}<p class="post-subtitle">{{ . }}</p>{{ end }}
+      <div class="pl pl-meta">
+        <span class="pl-seg pl-date">{{ .Date.Format "2006-01-02" }}</span>
+        <span class="pl-seg pl-time">{{ .ReadingTime }} min</span>
+        {{- range .GetTerms "categories" }}<a class="pl-seg pl-cat" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}
+      </div>
+      {{- with .GetTerms "tags" }}
+      <div class="tags post-tags">{{ range . }}<a class="tag" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}</div>
+      {{- end }}
+    </header>
+    {{- with .Params.featuredImage }}
+    <img class="post-cover" src="{{ . }}" alt="" loading="eager">
+    {{- end }}
+    {{- if $toc }}
+    <details class="toc toc-inline"><summary>tree .</summary>{{ .TableOfContents }}</details>
+    {{- end }}
+    <div class="post-body">{{ .Content }}</div>
+    <nav class="post-nav">
+      {{- with .NextInSection }}<a href="{{ .RelPermalink }}"><span>← cd ../</span>{{ .Title }}</a>{{ else }}<span></span>{{ end }}
+      {{- with .PrevInSection }}<a class="next" href="{{ .RelPermalink }}"><span>cd ../ →</span>{{ .Title }}</a>{{ end }}
+    </nav>
+  </article>
+  {{- if $toc }}
+  <aside class="toc toc-side"><div class="toc-head">tree .</div>{{ .TableOfContents }}</aside>
+  {{- end }}
+</div>
 {{ end }}
