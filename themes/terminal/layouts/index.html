@@ -20,12 +20,14 @@
 </section>
 
 {{- with site.Data.career.hops }}
+{{- /* only the latest 3 hops; `traceroute -f N` starts tracing at hop N, so the number shows where we cut */}}
+{{- $skip := cond (gt (len .) 3) (sub (len .) 3) 0 }}
 <section class="home-block">
-  <p class="prompt-line"><span class="cmd">traceroute career</span></p>
+  <p class="prompt-line"><span class="cmd">traceroute {{ with $skip }}-f {{ add . 1 }} {{ end }}career</span></p>
   <ol class="hops">
-    {{- range $i, $h := . }}
+    {{- range $i, $h := after $skip . }}
     <li class="hop{{ if $h.current }} is-current{{ end }}">
-      <span class="hop-n">{{ add $i 1 }}</span>
+      <span class="hop-n">{{ add (add $i $skip) 1 }}</span>
       <span class="hop-period">{{ $h.period }}</span>
       <span class="hop-org">{{ $h.org }}</span>
       {{- with $h.role }}<span class="hop-role">{{ . }}</span>{{ end }}
