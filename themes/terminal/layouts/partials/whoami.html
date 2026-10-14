@@ -1,18 +1,17 @@
 {{- /* ❯ whoami block, shared by home and about so the identity never drifts.
-       Avatar, name, location and links are fixed; callers pass only the
-       page-specific lines. dict: sub, note (optional) */}}
+       Avatar, name and links are fixed; callers pass only the page-specific
+       lines. dict: sub, at (optional, defaults to profile location), note (optional) */}}
 <p class="prompt-line"><span class="cmd">whoami</span></p>
 <div class="whoami">
   <img class="avatar" src="{{ site.Params.avatar | relURL }}" alt="{{ site.Author.name }}" width="96" height="96">
   <div>
-    <h1 class="whoami-name">{{ site.Author.name }} <span>@ {{ site.Data.profile.location }}</span></h1>
+    <h1 class="whoami-name">{{ site.Author.name }} <span>@ {{ .at | default site.Data.profile.location }}</span></h1>
     <p class="whoami-sub">{{ .sub }}<span class="cursor" aria-hidden="true">▋</span></p>
     {{- with .note }}<p class="whoami-note">{{ . }}</p>{{ end }}
     <div class="social">
       {{- with site.Params.social }}
       {{- with .github }}<a href="https://github.com/{{ . }}">github</a>{{ end }}
       {{- with .linkedin }}<a href="https://www.linkedin.com/in/{{ . }}">linkedin</a>{{ end }}
-      {{- with .twitter }}<a href="https://twitter.com/{{ . }}">twitter</a>{{ end }}
       {{- with .email }}<a href="mailto:{{ . }}">email</a>{{ end }}
       {{- end }}
       <a href="{{ "index.xml" | relURL }}">rss</a>

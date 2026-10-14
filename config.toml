@@ -20,7 +20,6 @@ rssLimit = 20
   [params.social]
     github = "kylinfish"
     linkedin = "openwinyu"
-    twitter = "kylinwin"
     email = "kylinfish@gmail.com"
 
 [permalinks]

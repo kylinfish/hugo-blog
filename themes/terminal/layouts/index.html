@@ -1,6 +1,6 @@
 {{ define "main" }}
 <section class="home-block">
-  {{- partial "whoami.html" (dict "sub" site.Params.subtitle) }}
+  {{- partial "whoami.html" (dict "sub" site.Params.subtitle "at" site.Title) }}
 </section>
 
 {{- with site.Data.career.hops }}
