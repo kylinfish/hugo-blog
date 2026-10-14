@@ -5,6 +5,7 @@ hasCJKLanguage = true
 title = "墨冊"
 theme = "terminal"
 paginate = 20
+rssLimit = 20
 
 [author]
   name = "Win Yu"

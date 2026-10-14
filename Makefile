@@ -1,4 +1,4 @@
-.PHONY: all, deploy, deploy-worker, run, clean, init
+.PHONY: all, deploy, deploy-worker, run, clean
 
 all: clean
 	(git pull)
@@ -18,6 +18,3 @@ run: clean
 
 clean:
 	(rm -rf public)
-
-init:
-	git clone https://github.com/dillonzq/LoveIt.git themes/LoveIt

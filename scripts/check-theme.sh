@@ -65,6 +65,17 @@ lacks about/index.html 'class="pl pl-meta"'
 has 404.html 'command not found'
 lacks about/index.html 'about\.css'
 if [ -e layouts/_default/about.html ] || [ -e assets/css/_custom.scss ]; then fail "LoveIt overrides removed"; else pass "LoveIt overrides removed"; fi
+echo "== final fixes"
+if grep -q 'figcaption h4::before' themes/terminal/assets/css/post.css; then pass "figcaption h4 reset"; else fail "figcaption h4 reset"; fi
+if grep -q '\.post-body h1::before' themes/terminal/assets/css/post.css; then pass "body h1 style"; else fail "body h1 style"; fi
+if grep -q '8b929e' "$OUT"/css/bundle.min.*.css; then pass "muted token in bundle"; else fail "muted token in bundle"; fi
+has es-reindex/index.html 'rel="canonical" href="https://kylinyu.win/es-reindex/"'
+has es-reindex/index.html 'name="twitter:card"'
+if grep -q 'position: static' themes/terminal/assets/css/terminal.css; then pass "mobile header static"; else fail "mobile header static"; fi
+lacks index.xml '<title>About Win Yu</title>'
+if [ "$(grep -c '<item>' "$OUT/index.xml")" -le 20 ]; then pass "rss <= 20 items"; else fail "rss <= 20 items"; fi
+if grep -q LoveIt Makefile; then fail "Makefile LoveIt gone"; else pass "Makefile LoveIt gone"; fi
+if grep -q '6\.5rem' themes/terminal/assets/css/home.css; then pass "hop period column"; else fail "hop period column"; fi
 # --- assertions above this line ---
 
 echo
