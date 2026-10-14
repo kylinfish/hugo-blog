@@ -1,0 +1,40 @@
+{{ define "main" }}
+{{- $p := site.Data.profile }}
+<section class="home-block">
+  {{- partial "whoami.html" (dict "avatar" $p.avatar "avatarClass" "avatar-top" "at" $p.location "sub" $p.tagline "note" $p.status) }}
+</section>
+
+{{- with $p.role }}
+<section class="home-block">
+  <p class="prompt-line"><span class="cmd">cat ~/.role</span></p>
+  <p class="pl pl-role"><span class="pl-seg pl-user">{{ .org }}</span><span class="pl-seg pl-title">{{ .title }}</span></p>
+</section>
+{{- end }}
+
+{{- with site.Data.career.hops }}
+<section class="home-block">
+  {{- partial "traceroute.html" (dict "hops" . "limit" 0) }}
+</section>
+{{- end }}
+
+{{- with $p.focus }}
+<section class="home-block">
+  <p class="prompt-line"><span class="cmd">ls ~/focus</span></p>
+  <ul class="ls-dirs">{{ range . }}<li>{{ . }}/</li>{{ end }}</ul>
+</section>
+{{- end }}
+
+{{- with $p.certs }}
+<section class="home-block">
+  <p class="prompt-line"><span class="cmd">cat ~/certs</span></p>
+  <ul class="certs">{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
+</section>
+{{- end }}
+
+<section class="home-block">
+  <p class="prompt-line"><span class="cmd">cat ~/README.md</span></p>
+</section>
+<article class="post">
+  <div class="post-body">{{ .Content }}</div>
+</article>
+{{ end }}

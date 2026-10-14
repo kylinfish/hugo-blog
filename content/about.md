@@ -5,39 +5,12 @@ absolute_banner = "/img/aboutme.jpg"
 linktitle = "about 墨冊作者簡歷"
 title = "About Win Yu"
 og_images = ["/img/aboutme.jpg"]
+layout = "about"
 +++
-
-<img src="/img/aboutme-2.jpg" alt="Win Yu">
-
-<br>
-
-Glad to see you here!
-
-## Intro
-
-```console
-$ whoami
-Win Yu — 白天寫程式，晚上講故事
-Taipei, Taiwan · Dad mode: always on
-
-$ cat ~/.role
-RHINOSHIELD 犀牛盾 · Official Website Manager / Product Data Platform Lead
-
-$ traceroute career
- 1  2015–2019  PIXNET        Senior / Advanced Platform Engineer
- 2  2019–2021  Trend Micro   Senior Engineer
- 3  2021–now   RHINOSHIELD   Official Website Manager / Product Data Platform Lead
-
-$ ls ~/focus
-genai-on-aws/  data-platform/  search-and-discovery/  team-enablement/
-
-$ cat ~/certs
-AWS Certified AI Practitioner (2025)
-```
 
 十年多來在工程、產品資料與雲端之間來回。現在在 RHINOSHIELD 把 GenAI 帶進正式環境，也帶著團隊把日常工作改造成 agentic workflow；之前在 Trend Micro 維運大型搜尋叢集與資料管線，更早在 PIXNET 做平台與跨產品整合。
 
-### Highlights
+## Highlights
 
 - **多模態語意搜尋上線**：以 CLIP embeddings、Amazon OpenSearch 與 Bedrock 打造以圖找圖與語意商品分群。
 - **Agentic workflow 轉型**（進行中）：在 Amazon Bedrock AgentCore / Strands 上導入廣告營運、內容策展與資料查詢 agent。

@@ -53,7 +53,7 @@ has es_reindex_for_merge_indices/index.html 'class="chroma"'
 has es_reindex_for_merge_indices/index.html 'class="post-nav"'
 echo "== task 3: homepage"
 has index.html '<span class="cmd">whoami</span>'
-has index.html '<span class="cmd">traceroute career</span>'
+has index.html '<span class="cmd">traceroute (-f [0-9]+ )?career</span>'
 has index.html 'class="hop is-current"'
 has index.html 'RHINOSHIELD'
 has index.html '<span class="cmd">ls -lt posts/ \| head -8</span>'
@@ -61,7 +61,7 @@ has index.html '<span class="cmd">ls ~/projects</span>'
 has index.html 'class="project"'
 has index.html 'href="https://github.com/kylinfish"'
 echo "== task 4: about + 404 + cleanup"
-has about/index.html 'cat about\.md'
+has about/index.html 'cat ~/README\.md'
 lacks about/index.html 'class="pl pl-meta"'
 has 404.html 'command not found'
 lacks about/index.html 'about\.css'
@@ -111,6 +111,18 @@ if [ "$(grep -oE 'data-theme=[a-z-]+' "$OUT"/css/bundle.min.*.css | sort -u | wc
 if grep -q 'prefers-color-scheme:light' "$OUT"/css/bundle.min.*.css; then pass "no-JS light fallback"; else fail "no-JS light fallback"; fi
 if grep -qE '#[0-9a-fA-F]{3,6}\b' themes/terminal/assets/css/terminal.css themes/terminal/assets/css/post.css themes/terminal/assets/css/home.css; then fail "no hard-coded colors outside colorschemes.json"; else pass "no hard-coded colors outside colorschemes.json"; fi
 if python3 -I scripts/check-contrast.py >/dev/null; then pass "wcag contrast for every scheme"; else fail "wcag contrast for every scheme"; fi
+
+echo "== about intro + homepage traceroute"
+has index.html 'traceroute -f 3 career'
+has index.html '→ cd ~/about <span class="count">2 earlier hops'
+if [ "$(grep -o 'class="hop-n"' "$OUT/index.html" | wc -l | tr -d ' ')" = 1 ]; then pass "homepage shows 1 hop"; else fail "homepage shows 1 hop"; fi
+has about/index.html '<span class="cmd">traceroute career</span>'
+if [ "$(grep -o 'class="hop-n"' "$OUT/about/index.html" | wc -l | tr -d ' ')" = 3 ]; then pass "about shows all 3 hops"; else fail "about shows all 3 hops"; fi
+has about/index.html 'class="pl pl-role"'
+has about/index.html 'class="ls-dirs"'
+has about/index.html 'class="certs"'
+lacks about/index.html 'data-lang="console"'
+if [ "$(grep -o '<h1' "$OUT/about/index.html" | wc -l | tr -d ' ')" = 1 ]; then pass "about single h1"; else fail "about single h1"; fi
 
 # --- assertions above this line ---
 

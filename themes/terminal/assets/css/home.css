@@ -33,3 +33,13 @@
 @media (max-width: 640px) {
   .whoami { flex-direction: column; align-items: flex-start; }
 }
+
+/* about page intro */
+.avatar-top { object-position: 50% 15%; }
+.whoami-note { margin: -4px 0 8px; color: var(--muted); font-size: .875rem; }
+.pl-role { margin: 0; flex-wrap: wrap; row-gap: 4px; font-weight: 600; }
+.pl-role .pl-seg { white-space: normal; }
+.pl-title { background: var(--purple); }
+.ls-dirs, .certs { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 24px; font-size: .9375rem; }
+.ls-dirs li { color: var(--blue); font-weight: 600; }
+.certs li::before { content: "✓ "; color: var(--green); }
