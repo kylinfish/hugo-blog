@@ -143,7 +143,7 @@ has index.html 'class="whoami-name">Win Yu <span>@ 墨冊</span>'
 has about/index.html 'class="whoami-name">Win Yu <span>@ Taipei, Taiwan</span>'
 lacks index.html 'name="twitter:site"'
 has index.html 'class="whoami-sub">筆墨日積終將成冊'
-has about/index.html 'class="whoami-sub">白天寫程式，晚上講故事'
+has about/index.html 'class="whoami-sub">白天寫規格，晚上寫部落格'
 lacks index.html 'class="whoami-note"'
 
 # --- assertions above this line ---
