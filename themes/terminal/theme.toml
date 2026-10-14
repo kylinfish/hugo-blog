@@ -1,0 +1,4 @@
+name = "terminal"
+license = "MIT"
+description = "One Dark powerline terminal theme for 墨冊"
+min_version = "0.101.0"

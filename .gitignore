@@ -1,6 +1,7 @@
 .DS_Store
 public/
-themes/
+themes/*
+!themes/terminal/
 node_modules/
 bower_components/
 .firebase/

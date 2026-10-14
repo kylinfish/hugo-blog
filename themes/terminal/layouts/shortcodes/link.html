@@ -1,0 +1,11 @@
+{{- $href := "" -}}{{- $content := "" -}}{{- $title := "" -}}
+{{- if .IsNamedParams -}}
+  {{- $href = .Get "href" -}}
+  {{- $content = .Get "content" | default $href -}}
+  {{- $title = .Get "title" | default "" -}}
+{{- else -}}
+  {{- $href = .Get 0 -}}
+  {{- $content = .Get 1 | default $href -}}
+  {{- $title = .Get 2 | default "" -}}
+{{- end -}}
+<a href="{{ $href }}"{{ with $title }} title="{{ . }}"{{ end }}{{ if hasPrefix $href "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ $content | markdownify }}</a>

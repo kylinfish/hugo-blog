@@ -1,0 +1,9 @@
+{{ define "main" }}
+<p class="prompt-line"><span class="cmd">ls {{ .Data.Plural }}/ | wc -l</span></p>
+<h1 class="page-title">{{ .Title }} <span class="count">{{ len .Data.Terms }}</span></h1>
+<ul class="terms">
+  {{- range .Data.Terms.ByCount }}
+  <li><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a><span class="count">{{ .Count }}</span></li>
+  {{- end }}
+</ul>
+{{ end }}

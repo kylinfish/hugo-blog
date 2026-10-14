@@ -1,0 +1,6 @@
+{{ define "main" }}
+<p class="prompt-line"><span class="cmd">ls -lt posts/ | head -8</span></p>
+<ul class="rows">
+  {{- range first 8 (where site.RegularPages "Section" "posts") }}{{ partial "post-row.html" . }}{{ end }}
+</ul>
+{{ end }}

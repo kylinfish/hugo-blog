@@ -1,0 +1,23 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
+{{- $desc := .Description | default site.Params.subtitle }}
+<meta name="description" content="{{ $desc }}">
+<meta property="og:title" content="{{ .Title | default site.Title }}">
+<meta property="og:description" content="{{ $desc }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+{{- with .Params.featuredImage }}
+<meta property="og:image" content="{{ . | absURL }}">
+{{- end }}
+<meta name="theme-color" content="#21252b">
+<link rel="icon" href="{{ "favicons/favicon.ico" | relURL }}">
+<link rel="apple-touch-icon" href="{{ "favicons/apple-touch-icon.png" | relURL }}">
+{{- range .AlternativeOutputFormats }}
+<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}">
+{{- end }}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap">
+{{- $css := slice (resources.Get "css/terminal.css") (resources.Get "css/post.css") (resources.Get "css/home.css") | resources.Concat "css/bundle.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">

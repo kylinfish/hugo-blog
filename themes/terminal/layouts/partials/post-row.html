@@ -1,0 +1,12 @@
+<li class="row">
+  <time class="row-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+  <div>
+    <a class="row-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+    {{- with .GetTerms "tags" }}
+    <div class="tags">{{ range . }}<a class="tag" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}</div>
+    {{- end }}
+    {{- with .Description | default .Summary | plainify }}
+    <p class="row-desc">{{ . }}</p>
+    {{- end }}
+  </div>
+</li>

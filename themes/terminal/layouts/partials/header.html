@@ -1,0 +1,22 @@
+{{- $path := "~" }}
+{{- if eq .Kind "page" }}{{ $path = path.Join "~" .Section .File.ContentBaseName }}
+{{- else if eq .Kind "section" }}{{ $path = path.Join "~" .Section }}
+{{- else if eq .Kind "taxonomy" }}{{ $path = path.Join "~" .Data.Plural }}
+{{- else if eq .Kind "term" }}{{ $path = path.Join "~" .Data.Plural .Title }}
+{{- else if eq .Kind "404" }}{{ $path = "~/404" }}
+{{- end }}
+{{- $cur := .RelPermalink }}
+<header class="site-header">
+  <div class="bar">
+    <a class="pl" href="{{ "/" | relURL }}" aria-label="{{ site.Title }} home">
+      <span class="pl-seg pl-user">win</span>
+      <span class="pl-seg pl-path">{{ $path }}</span>
+      <span class="pl-seg pl-site">{{ site.Title }}</span>
+    </a>
+    <nav class="nav">
+      {{- range site.Menus.main }}
+      <a href="{{ .URL | relURL }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if eq $cur .URL }} class="active"{{ end }}>{{ .Name }}</a>
+      {{- end }}
+    </nav>
+  </div>
+</header>

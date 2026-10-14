@@ -1,0 +1,17 @@
+{{- $labels := dict "note" "NOTE" "notice" "NOTE" "primary" "NOTE" "abstract" "SUMMARY" "summary" "SUMMARY" "info" "INFO" "example" "EXAMPLE" "quote" "QUOTE" "tip" "TIP" "success" "OK" "question" "ASK" "warning" "WARN" "failure" "FAIL" "danger" "ERR" "bug" "BUG" -}}
+{{- $type := "note" -}}{{- $title := "" -}}{{- $openArg := "" -}}
+{{- if .IsNamedParams -}}
+  {{- $type = .Get "type" | default "note" -}}
+  {{- $title = .Get "title" | default "" -}}
+  {{- $openArg = .Get "open" -}}
+{{- else -}}
+  {{- $type = .Get 0 | default "note" -}}
+  {{- $title = .Get 1 | default "" -}}
+  {{- $openArg = .Get 2 -}}
+{{- end -}}
+{{- $open := ne (printf "%v" $openArg) "false" -}}
+{{- $label := index $labels $type | default "NOTE" -}}
+<details class="adm adm-{{ $type }}"{{ if $open }} open{{ end }}>
+  <summary class="adm-title"><span class="adm-label">[{{ $label }}]</span>{{ with $title }} {{ . }}{{ end }}</summary>
+  <div class="adm-body">{{ .Inner | .Page.RenderString }}</div>
+</details>
