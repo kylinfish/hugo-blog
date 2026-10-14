@@ -13,15 +13,19 @@ focus:
 certs:
   - AWS Certified AI Practitioner (2025)
 
-# ❯ cat ~/highlights
+# ❯ tmux attach -t highlights — one pane each; `pane` is the tmux window name
 highlights:
-  - title: "多模態語意搜尋上線"
+  - pane: "semantic-search"
+    title: "多模態語意搜尋上線"
     text: "以 CLIP embeddings、Amazon OpenSearch 與 Bedrock 打造以圖找圖與語意商品分群。"
-  - title: "產品資料平台重構"
+  - pane: "data-platform"
+    title: "產品資料平台重構"
     text: "以 SSOT 與 Data Mesh 拆分微服務，取代散落各處的試算表。"
-  - title: "大型搜尋叢集維運（Trend Micro）"
+  - pane: "opensearch-ops"
+    title: "大型搜尋叢集維運（Trend Micro）"
     text: "處理 OpenSearch 分片失衡，並用 Lambda / Step Functions 把平衡自動化。"
-  - title: "跨產品動態整合（PIXNET）"
+  - pane: "pubsub-feeds"
+    title: "跨產品動態整合（PIXNET）"
     text: "以 Google Cloud Pub/Sub 打造低耦合的動態整合，並在 ModernWeb 2018 分享。"
 
 # ❯ ls -lt ~/talks — conference talks, newest first

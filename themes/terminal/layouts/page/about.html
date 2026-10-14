@@ -40,12 +40,19 @@
 
 {{- with $p.highlights }}
 <section class="home-block">
-  <p class="prompt-line"><span class="cmd">cat ~/highlights</span></p>
-  <ul class="highlights">
-    {{- range . }}
-    <li><span class="hl-title">{{ .title }}</span><span class="hl-text">{{ .text }}</span></li>
-    {{- end }}
-  </ul>
+  <p class="prompt-line"><span class="cmd">tmux attach -t highlights</span></p>
+  {{- /* tiled panes; hovering a pane makes it the "active" one */}}
+  <div class="tmux">
+    <div class="tmux-panes">
+      {{- range $i, $h := . }}
+      <div class="tmux-pane">
+        <p class="tmux-pane-title">{{ $i }}:{{ $h.pane }}</p>
+        <p class="hl-title">{{ $h.title }}</p>
+        <p class="hl-text">{{ $h.text }}</p>
+      </div>
+      {{- end }}
+    </div>
+  </div>
 </section>
 {{- end }}
 

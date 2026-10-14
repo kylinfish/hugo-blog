@@ -42,11 +42,17 @@
 .ls-dirs, .certs { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 24px; font-size: .9375rem; }
 .ls-dirs li { color: var(--blue); font-weight: 600; }
 .certs li::before { content: "✓ "; color: var(--green); }
-.highlights { list-style: none; margin: 0; padding: 0; }
-.highlights li { display: grid; gap: 2px; padding: 8px 0 8px 1.5ch; position: relative; }
-.highlights li::before { content: "▸"; position: absolute; left: 0; top: 8px; color: var(--green); }
-.hl-title { color: var(--fg-hi); font-family: var(--cjk); font-weight: 600; }
-.hl-text { font-family: var(--cjk); font-size: .9375rem; }
+/* tmux tiled panes: 1px gaps over --line draw the pane borders */
+.tmux { border: 1px solid var(--line); }
+.tmux-panes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); }
+.tmux-pane { background: var(--bg); padding: 10px 14px 14px; box-shadow: inset 0 0 0 1px transparent; transition: box-shadow .15s; }
+.tmux-pane:hover, .tmux-panes:not(:hover) .tmux-pane:first-child { box-shadow: inset 0 0 0 1px var(--green); }
+.tmux-pane-title { margin: 0 0 8px; color: var(--muted); font-size: .75rem; }
+.tmux-pane-title::before { content: "─ "; }
+.tmux-pane:hover .tmux-pane-title, .tmux-panes:not(:hover) .tmux-pane:first-child .tmux-pane-title { color: var(--green); }
+.hl-title { margin: 0 0 4px; color: var(--fg-hi); font-family: var(--cjk); font-weight: 600; }
+.hl-text { margin: 0; font-family: var(--cjk); font-size: .9375rem; }
+@media (max-width: 640px) { .tmux-panes { grid-template-columns: minmax(0, 1fr); } }
 .talk-event::before { content: "@ "; color: var(--comment); }
 .talk-event { color: var(--cyan); }
 .row-compact { padding: 6px 0; }

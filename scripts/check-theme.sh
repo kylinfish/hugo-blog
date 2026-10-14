@@ -125,7 +125,10 @@ lacks about/index.html 'data-lang="console"'
 if [ "$(grep -o '<h1' "$OUT/about/index.html" | wc -l | tr -d ' ')" = 1 ]; then pass "about single h1"; else fail "about single h1"; fi
 
 echo "== about sections"
-has about/index.html '<span class="cmd">cat ~/highlights</span>'
+has about/index.html '<span class="cmd">tmux attach -t highlights</span>'
+if [ "$(grep -o 'class="tmux-pane"' "$OUT/about/index.html" | wc -l | tr -d ' ')" = 4 ]; then pass "4 tmux panes"; else fail "4 tmux panes"; fi
+lacks about/index.html 'class="tmux-status"'
+
 has about/index.html '<span class="cmd">ls -lt ~/talks</span>'
 has about/index.html '<span class="cmd">ls -R ~/slides</span>'
 if [ "$(grep -o 'class="talk-event"' "$OUT/about/index.html" | wc -l | tr -d ' ')" = 4 ]; then pass "4 talks"; else fail "4 talks"; fi
