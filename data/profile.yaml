@@ -4,7 +4,7 @@ tagline: 白天寫程式，晚上講故事
 status: "Dad mode: always on"
 role:
   org: RHINOSHIELD 犀牛盾
-  title: Official Website Manager / Product Data Platform Lead
+  title: IT Manager / Product Data Platform Lead
 focus:
   - genai-on-aws
   - data-platform
@@ -17,8 +17,6 @@ certs:
 highlights:
   - title: "多模態語意搜尋上線"
     text: "以 CLIP embeddings、Amazon OpenSearch 與 Bedrock 打造以圖找圖與語意商品分群。"
-  - title: "Agentic workflow 轉型（進行中）"
-    text: "在 Amazon Bedrock AgentCore / Strands 上導入廣告營運、內容策展與資料查詢 agent。"
   - title: "產品資料平台重構"
     text: "以 SSOT 與 Data Mesh 拆分微服務，取代散落各處的試算表。"
   - title: "大型搜尋叢集維運（Trend Micro）"

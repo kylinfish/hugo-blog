@@ -70,6 +70,13 @@ img { max-width: 100%; height: auto; }
 .adm-failure, .adm-danger, .adm-bug { --c: var(--red); }
 
 @media (max-width: 640px) {
+  /* row 1: prompt + scheme picker; row 2: nav scrolls sideways instead of wrapping */
+  .site-header .bar { flex-wrap: wrap; gap: 6px 8px; }
+  .pl { order: 1; flex: 1 1 auto; }
+  .cs { order: 2; }
+  .cs-name { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .nav { order: 3; flex: 0 0 100%; margin-left: 0; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; white-space: nowrap; -webkit-mask-image: linear-gradient(to right, black 85%, transparent); mask-image: linear-gradient(to right, black 85%, transparent); }
+  .nav::-webkit-scrollbar { display: none; }
   .row { grid-template-columns: minmax(0, 1fr); }
   .pl-path { max-width: 40vw; }
   .site-header { position: static; }
@@ -77,7 +84,8 @@ img { max-width: 100%; height: auto; }
 
 /* color scheme switcher */
 .cs { position: relative; font-size: .875rem; font-weight: 600; }
-.cs-btn { border: 0; cursor: pointer; font: inherit; background: var(--green); padding-left: 16px; clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 50%, calc(100% - 8px) 100%, 0 100%, 8px 50%); }
+/* right-prompt segment: points left, flat right edge = end of the bar */
+.cs-btn { border: 0; cursor: pointer; font: inherit; background: var(--green); margin-right: 0; padding: 2px 10px 2px 16px; clip-path: polygon(8px 0, 100% 0, 100% 100%, 8px 100%, 0 50%); }
 .cs-list { position: absolute; right: 0; top: calc(100% + 6px); z-index: 20; min-width: 15rem; margin: 0; padding: 6px 0; list-style: none; background: var(--bg-alt); border: 1px solid var(--line); border-radius: 6px; box-shadow: 0 8px 24px rgb(0 0 0 / .35); font-weight: 400; }
 .cs-list:focus { outline: none; }
 .cs-list [role="option"] { display: flex; align-items: center; gap: 10px; padding: 4px 14px; color: var(--fg); cursor: pointer; }

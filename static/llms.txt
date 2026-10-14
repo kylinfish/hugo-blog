@@ -11,7 +11,6 @@ Current: IT Manager / Product Data Supervisor at RHINOSHIELD.
 - Architected a product-data platform (SSOT / Data Mesh) covering ~80% of the business supply chain; internal BI users 30 → 140.
 - Built production Semantic AI Search on AWS: OpenAI CLIP embeddings on a SageMaker endpoint + Amazon OpenSearch vector search + Amazon Bedrock; the image-to-image channel took 7% of orders in its placement within two months.
 - Operated a 24TB Amazon OpenSearch cluster under heavy MLOps load; cut ~US$15K/year via right-sizing and automated shard balancing.
-- Leads a team-wide agentic-workflow transformation on Amazon Bedrock AgentCore / Strands.
 - AWS Certified AI Practitioner. Speaker at AWS Summit 2025 and AWS Retail Forum 2024 (Data Mesh).
 
 ## Links
