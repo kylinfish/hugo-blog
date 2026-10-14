@@ -1,0 +1,7 @@
+{{ define "main" }}
+<p class="prompt-line"><span class="cmd">cat {{ .File.ContentBaseName }}.md</span></p>
+<article class="post">
+  <h1 class="post-title">{{ .Title }}</h1>
+  <div class="post-body">{{ .Content }}</div>
+</article>
+{{ end }}

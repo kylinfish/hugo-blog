@@ -1,0 +1,10 @@
+{{ define "main" }}
+<p class="prompt-line"><span class="cmd">cd <span class="nf-path">this-page</span></span></p>
+<pre class="nf">zsh: command not found: <span class="nf-path">this-page</span>
+[exit 127]</pre>
+<p><a href="{{ "/" | relURL }}">cd ~</a> · <a href="{{ "posts/" | relURL }}">ls posts/</a></p>
+<script>
+  document.querySelectorAll('.nf-path').forEach(function (el) { el.textContent = decodeURIComponent(location.pathname); });
+</script>
+<style>.nf { color: var(--red); font-size: .9375rem; white-space: pre-wrap; }</style>
+{{ end }}

@@ -59,6 +59,12 @@ has index.html '<span class="cmd">ls -lt posts/ \| head -8</span>'
 has index.html '<span class="cmd">ls ~/projects</span>'
 has index.html 'class="project"'
 has index.html 'href="https://github.com/kylinfish"'
+echo "== task 4: about + 404 + cleanup"
+has about/index.html 'cat about\.md'
+lacks about/index.html 'class="pl pl-meta"'
+has 404.html 'command not found'
+lacks about/index.html 'about\.css'
+if [ -e layouts/_default/about.html ] || [ -e assets/css/_custom.scss ]; then fail "LoveIt overrides removed"; else pass "LoveIt overrides removed"; fi
 # --- assertions above this line ---
 
 echo
