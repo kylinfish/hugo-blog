@@ -1,0 +1,22 @@
+{{- /* powerline segment + listbox; behavior lives in js/terminal.js */}}
+{{- $cs := site.Data.colorschemes }}
+<div class="cs">
+  <button class="pl-seg cs-btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="cs-list" title="color scheme (or type :colorscheme)">
+    <span aria-hidden="true">◐</span> <span class="cs-name">auto</span> <span aria-hidden="true">▾</span>
+  </button>
+  <ul id="cs-list" class="cs-list" role="listbox" aria-label="color scheme" tabindex="-1" hidden>
+    <li id="cs-auto" role="option" data-id="auto" aria-selected="false">auto <small>system</small></li>
+    {{- range slice "dark" "light" }}
+    {{- $mode := . }}
+    <li class="cs-group" role="presentation">── {{ $mode }}</li>
+    {{- range where $cs.schemes "mode" $mode }}
+    {{- $s := . }}
+    <li id="cs-{{ .id }}" role="option" data-id="{{ .id }}" aria-selected="false">
+      <span class="cs-sw" aria-hidden="true">
+        {{- range slice "bg" "blue" "purple" "green" "yellow" }}<i style="background: {{ index $s.colors . | safeCSS }}"></i>{{ end -}}
+      </span>{{ $s.id }}
+    </li>
+    {{- end }}
+    {{- end }}
+  </ul>
+</div>

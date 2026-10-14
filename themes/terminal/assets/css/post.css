@@ -7,12 +7,12 @@
 .pl-meta { flex-wrap: wrap; row-gap: 4px; margin: 12px 0 8px; font-weight: 400; }
 .pl-date { background: var(--blue); }
 .pl-time { background: var(--green); }
-.pl-cat { background: var(--yellow); color: var(--bg); }
+.pl-cat { background: var(--yellow); color: var(--on-accent); }
 .post-tags { margin-bottom: 16px; }
 .post-cover { display: block; width: 100%; border: 1px solid var(--line); border-radius: 6px; margin: 16px 0; }
 
 /* body */
-.post-body { font-family: var(--cjk); font-size: 1.0625rem; line-height: 1.85; color: #c8ccd4; overflow-wrap: break-word; }
+.post-body { font-family: var(--cjk); font-size: 1.0625rem; line-height: 1.85; color: var(--fg-body); overflow-wrap: break-word; }
 .post-body h1, .post-body h2, .post-body h3, .post-body h4 { font-family: var(--mono), var(--cjk); color: var(--fg-hi); line-height: 1.4; margin: 2em 0 .6em; scroll-margin-top: 72px; }
 .post-body h1 { font-size: 1.5rem; }
 .post-body h1::before { content: "# "; color: var(--purple); }
@@ -67,17 +67,17 @@
 }
 
 /* chroma — One Dark */
-.chroma { color: #abb2bf; background: var(--bg-alt); }
-.chroma .k, .chroma .kc, .chroma .kd, .chroma .kn, .chroma .kp, .chroma .kr { color: #c678dd; }
-.chroma .kt, .chroma .nc, .chroma .nn { color: #e5c07b; }
-.chroma .na, .chroma .nf, .chroma .fm { color: #61afef; }
-.chroma .nb, .chroma .bp, .chroma .o, .chroma .ow { color: #56b6c2; }
-.chroma .nt, .chroma .nv, .chroma .vi, .chroma .vg, .chroma .vc, .chroma .err, .chroma .gd { color: #e06c75; }
-.chroma .s, .chroma .s1, .chroma .s2, .chroma .sb, .chroma .sc, .chroma .sd, .chroma .se, .chroma .sh, .chroma .si, .chroma .sx, .chroma .sr, .chroma .ss, .chroma .gi { color: #98c379; }
-.chroma .m, .chroma .mi, .chroma .mf, .chroma .mh, .chroma .mo, .chroma .il { color: #d19a66; }
-.chroma .c, .chroma .c1, .chroma .cm, .chroma .cs, .chroma .ch, .chroma .cp, .chroma .cpf { color: #5c6370; font-style: italic; }
-.chroma .gh, .chroma .gu { color: #61afef; }
-.chroma .hl { display: block; background: #3e4451; }
-.chroma .ln, .chroma .lnt { color: #4b5263; margin-right: 12px; }
+.chroma { color: var(--fg); background: var(--bg-alt); }
+.chroma .k, .chroma .kc, .chroma .kd, .chroma .kn, .chroma .kp, .chroma .kr { color: var(--purple); }
+.chroma .kt, .chroma .nc, .chroma .nn { color: var(--yellow); }
+.chroma .na, .chroma .nf, .chroma .fm { color: var(--blue); }
+.chroma .nb, .chroma .bp, .chroma .o, .chroma .ow { color: var(--cyan); }
+.chroma .nt, .chroma .nv, .chroma .vi, .chroma .vg, .chroma .vc, .chroma .err, .chroma .gd { color: var(--red); }
+.chroma .s, .chroma .s1, .chroma .s2, .chroma .sb, .chroma .sc, .chroma .sd, .chroma .se, .chroma .sh, .chroma .si, .chroma .sx, .chroma .sr, .chroma .ss, .chroma .gi { color: var(--green); }
+.chroma .m, .chroma .mi, .chroma .mf, .chroma .mh, .chroma .mo, .chroma .il { color: var(--orange); }
+.chroma .c, .chroma .c1, .chroma .cm, .chroma .cs, .chroma .ch, .chroma .cp, .chroma .cpf { color: var(--comment); font-style: italic; }
+.chroma .gh, .chroma .gu { color: var(--blue); }
+.chroma .hl { display: block; background: var(--hl); }
+.chroma .ln, .chroma .lnt { color: var(--ln); margin-right: 12px; }
 .chroma .lntable { border-spacing: 0; }
 .chroma .lntd { vertical-align: top; padding: 0; }

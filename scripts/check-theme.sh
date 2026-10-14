@@ -70,7 +70,7 @@ echo "== final fixes"
 lacks beautify_slides/index.html '<figcaption>[^<]*<h4'
 has beautify_slides/index.html 'class="fig-title"'
 if grep -q '\.post-body h1::before' themes/terminal/assets/css/post.css; then pass "body h1 style"; else fail "body h1 style"; fi
-if grep -q '8b929e' "$OUT"/css/bundle.min.*.css; then pass "muted token in bundle"; else fail "muted token in bundle"; fi
+if grep -q -- '--muted:#' "$OUT"/css/bundle.min.*.css; then pass "muted token in bundle"; else fail "muted token in bundle"; fi
 has es-reindex/index.html 'rel="canonical" href="https://kylinyu.win/es-reindex/"'
 has es-reindex/index.html 'name="twitter:card"'
 if grep -q 'position: static' themes/terminal/assets/css/terminal.css; then pass "mobile header static"; else fail "mobile header static"; fi
@@ -101,6 +101,16 @@ noalt="$(cat "$OUT"/*/index.html | grep -o '<img [^>]*>' | grep -cv 'alt="[^"]')
 if [ "$noalt" -eq 0 ]; then pass "every img has alt"; else fail "every img has alt ($noalt missing)"; fi
 if grep -q 'rewrites' firebase.json; then fail "no SPA rewrite in firebase.json"; else pass "no SPA rewrite in firebase.json"; fi
 if grep -q 'Sitemap: https://' robots.txt; then pass "robots sitemap https"; else fail "robots sitemap https"; fi
+
+echo "== color schemes"
+has index.html "localStorage.getItem\('theme'\)"
+has index.html 'id="cs-list"'
+if [ "$(grep -o 'role="option"' "$OUT/index.html" | wc -l | tr -d ' ')" = 7 ]; then pass "7 scheme options (auto + 6)"; else fail "7 scheme options (auto + 6)"; fi
+has index.html 'class="cmdline"'
+if [ "$(grep -oE 'data-theme=[a-z-]+' "$OUT"/css/bundle.min.*.css | sort -u | wc -l | tr -d ' ')" = 6 ]; then pass "6 schemes in css bundle"; else fail "6 schemes in css bundle"; fi
+if grep -q 'prefers-color-scheme:light' "$OUT"/css/bundle.min.*.css; then pass "no-JS light fallback"; else fail "no-JS light fallback"; fi
+if grep -qE '#[0-9a-fA-F]{3,6}\b' themes/terminal/assets/css/terminal.css themes/terminal/assets/css/post.css themes/terminal/assets/css/home.css; then fail "no hard-coded colors outside colorschemes.json"; else pass "no hard-coded colors outside colorschemes.json"; fi
+if python3 -I scripts/check-contrast.py >/dev/null; then pass "wcag contrast for every scheme"; else fail "wcag contrast for every scheme"; fi
 
 # --- assertions above this line ---
 

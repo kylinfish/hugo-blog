@@ -4,3 +4,8 @@
     <span><a href="{{ "index.xml" | relURL }}">rss</a> · <span class="ok">exit 0</span></span>
   </div>
 </footer>
+{{- /* vim-style command line, opened with ":" (see js/terminal.js) */}}
+<form class="cmdline" hidden autocomplete="off">
+  <label><span aria-hidden="true">:</span><input name="cmd" spellcheck="false" autocapitalize="off" aria-label="command, e.g. colorscheme tokyonight"></label>
+</form>
+<p class="cmd-msg" role="status" aria-live="polite" hidden></p>

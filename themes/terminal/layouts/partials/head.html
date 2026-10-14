@@ -67,6 +67,19 @@
 <script type="application/ld+json">{{ $ld | jsonify | safeJS }}</script>
 {{- end }}
 
+{{- /* color scheme: apply the saved (or system) scheme before CSS paints, so there is no flash */}}
+{{- $cs := site.Data.colorschemes }}
+{{- $ids := slice }}{{ range $cs.schemes }}{{ $ids = $ids | append .id }}{{ end }}
+<script>
+  window.__cs = {{ dict "ids" $ids "dark" $cs.default_dark "light" $cs.default_light | jsonify | safeJS }};
+  (function (cs, root) {
+    var saved = null;
+    try { saved = localStorage.getItem('theme'); } catch (e) {}
+    var auto = cs.ids.indexOf(saved) < 0;
+    root.dataset.theme = auto ? (matchMedia('(prefers-color-scheme: light)').matches ? cs.light : cs.dark) : saved;
+    root.dataset.themeMode = auto ? 'auto' : 'manual';
+  })(window.__cs, document.documentElement);
+</script>
 <meta name="theme-color" content="#21252b">
 <link rel="icon" href="{{ "favicons/favicon.ico" | relURL }}">
 <link rel="apple-touch-icon" href="{{ "favicons/apple-touch-icon.png" | relURL }}">
@@ -82,5 +95,6 @@
 <link rel="preload" as="style" href="{{ $font }}">
 <link rel="stylesheet" href="{{ $font }}" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="{{ $font }}"></noscript>
-{{- $css := slice (resources.Get "css/terminal.css") (resources.Get "css/post.css") (resources.Get "css/home.css") | resources.Concat "css/bundle.css" | minify | fingerprint }}
+{{- $themes := resources.Get "css/themes.css" | resources.ExecuteAsTemplate "css/themes.gen.css" . }}
+{{- $css := slice $themes (resources.Get "css/terminal.css") (resources.Get "css/post.css") (resources.Get "css/home.css") | resources.Concat "css/bundle.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">

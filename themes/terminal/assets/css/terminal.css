@@ -1,12 +1,7 @@
 :root {
-  --bg: #282c34; --bg-alt: #21252b; --line: #3e4451;
-  --fg: #abb2bf; --fg-hi: #e6e6e6; --comment: #5c6370; --muted: #8b929e;
-  --blue: #61afef; --purple: #c678dd; --green: #98c379; --yellow: #e5c07b;
-  --red: #e06c75; --cyan: #56b6c2; --orange: #d19a66;
   --mono: "Source Code Pro", "SauceCodePro Nerd Font", ui-monospace, Menlo, monospace;
   --cjk: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", system-ui, sans-serif;
   --wrap: 1100px;
-  color-scheme: dark;
 }
 * { box-sizing: border-box; }
 html { font-size: 16px; }
@@ -26,12 +21,12 @@ img { max-width: 100%; height: auto; }
 .site-header .bar { max-width: var(--wrap); margin: 0 auto; padding: 8px 16px; display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; justify-content: space-between; }
 .pl { display: flex; align-items: stretch; min-width: 0; font-size: .875rem; font-weight: 600; }
 .pl:hover { text-decoration: none; }
-.pl-seg { padding: 2px 16px 2px 10px; margin-right: -6px; color: var(--bg); white-space: nowrap; clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 50%, calc(100% - 8px) 100%, 0 100%); }
+.pl-seg { padding: 2px 16px 2px 10px; margin-right: -6px; color: var(--on-accent); white-space: nowrap; clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 50%, calc(100% - 8px) 100%, 0 100%); }
 .pl-seg + .pl-seg { padding-left: 16px; clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 50%, calc(100% - 8px) 100%, 0 100%, 8px 50%); }
 .pl-user { background: var(--blue); }
-.pl-path { background: var(--purple); overflow: hidden; text-overflow: ellipsis; max-width: 50vw; }
+.pl-path { background: var(--purple); overflow: hidden; text-overflow: ellipsis; max-width: min(50vw, 16ch); }
 .pl-site { background: var(--line); color: var(--fg-hi); }
-.nav { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: .875rem; }
+.nav { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: .875rem; margin-left: auto; }
 .nav a { color: var(--fg); }
 .nav a::before { content: "cd "; color: var(--comment); }
 .nav a.active { color: var(--yellow); }
@@ -79,3 +74,24 @@ img { max-width: 100%; height: auto; }
   .pl-path { max-width: 40vw; }
   .site-header { position: static; }
 }
+
+/* color scheme switcher */
+.cs { position: relative; font-size: .875rem; font-weight: 600; }
+.cs-btn { border: 0; cursor: pointer; font: inherit; background: var(--green); padding-left: 16px; clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 50%, calc(100% - 8px) 100%, 0 100%, 8px 50%); }
+.cs-list { position: absolute; right: 0; top: calc(100% + 6px); z-index: 20; min-width: 15rem; margin: 0; padding: 6px 0; list-style: none; background: var(--bg-alt); border: 1px solid var(--line); border-radius: 6px; box-shadow: 0 8px 24px rgb(0 0 0 / .35); font-weight: 400; }
+.cs-list:focus { outline: none; }
+.cs-list [role="option"] { display: flex; align-items: center; gap: 10px; padding: 4px 14px; color: var(--fg); cursor: pointer; }
+.cs-list [role="option"]::before { content: " "; width: 1ch; color: var(--green); }
+.cs-list [aria-selected="true"]::before { content: "●"; }
+.cs-list .focus { background: var(--hl); color: var(--fg-hi); }
+.cs-list small { color: var(--muted); }
+.cs-group { padding: 6px 14px 2px; color: var(--muted); font-size: .75rem; }
+.cs-sw { display: inline-flex; border: 1px solid var(--line); }
+.cs-sw i { width: 8px; height: 12px; }
+
+/* vim-style command line */
+.cmdline, .cmd-msg { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; margin: 0; padding: 6px 16px; background: var(--bg-alt); border-top: 1px solid var(--line); font-size: .9375rem; }
+.cmdline label { display: flex; gap: 2px; color: var(--fg-hi); }
+.cmdline input { flex: 1; min-width: 0; border: 0; outline: none; background: transparent; color: var(--fg-hi); font: inherit; caret-color: var(--green); }
+.cmd-msg { color: var(--fg); }
+.cmd-msg.err { color: var(--red); }

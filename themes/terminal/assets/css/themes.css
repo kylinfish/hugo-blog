@@ -1,0 +1,21 @@
+/* Generated from data/colorschemes.json — edit colors there, not here. */
+{{- $d := site.Data.colorschemes }}
+{{- range $d.schemes }}
+{{ if eq .id $d.default_dark }}:root, {{ end }}:root[data-theme="{{ .id }}"] {
+  color-scheme: {{ .mode }};
+  {{- range $k, $v := .colors }}
+  --{{ $k }}: {{ $v }};
+  {{- end }}
+}
+{{- if eq .id $d.default_light }}
+/* no-JS fallback: follow the system light preference */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    color-scheme: light;
+    {{- range $k, $v := .colors }}
+    --{{ $k }}: {{ $v }};
+    {{- end }}
+  }
+}
+{{- end }}
+{{- end }}

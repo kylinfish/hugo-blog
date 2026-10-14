@@ -10,7 +10,7 @@
   <div class="bar">
     <a class="pl" href="{{ "/" | relURL }}" aria-label="{{ site.Title }} home">
       <span class="pl-seg pl-user">win</span>
-      <span class="pl-seg pl-path">{{ $path }}</span>
+      <span class="pl-seg pl-path" title="{{ $path }}">{{ $path }}</span>
       <span class="pl-seg pl-site">{{ site.Title }}</span>
     </a>
     <nav class="nav">
@@ -18,5 +18,6 @@
       <a href="{{ .URL | relURL }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if eq $cur .URL }} class="active"{{ end }}>{{ .Name }}</a>
       {{- end }}
     </nav>
+    {{- partial "colorscheme-menu.html" . }}
   </div>
 </header>
