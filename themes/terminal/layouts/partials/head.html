@@ -80,7 +80,7 @@
     root.dataset.themeMode = auto ? 'auto' : 'manual';
   })(window.__cs, document.documentElement);
 </script>
-<meta name="theme-color" content="#21252b">
+<meta name="theme-color" content="{{ range where $cs.schemes "id" $cs.default_dark }}{{ index .colors "bg-alt" }}{{ end }}">
 <link rel="icon" href="{{ "favicons/favicon.ico" | relURL }}">
 <link rel="apple-touch-icon" href="{{ "favicons/apple-touch-icon.png" | relURL }}">
 <link rel="manifest" href="{{ "favicons/manifest.json" | relURL }}">

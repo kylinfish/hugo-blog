@@ -21,7 +21,7 @@ shortcodes, URLs unchanged, and the site reads like a terminal session.
 | Scope | Custom theme, LoveIt removed from the build |
 | Features kept | TOC, code copy button |
 | Features dropped | Site search, comments (Disqus/FB), share buttons, GA (UA id is dead) |
-| Palette | One Dark default; 6 switchable schemes (amended 2026-10-14, see below) |
+| Palette | Tokyo Night default; 4 switchable schemes (amended 2026-10-14, see below) |
 | Homepage blocks | `whoami` + `traceroute career`, latest posts, 造物誌 projects |
 
 ## 1. Architecture
@@ -119,17 +119,17 @@ edits (other than seeding `data/career.yaml`).
 
 ## Amendment 2026-10-14 — color schemes
 
-Supersedes "dark mode only". Six schemes, defined once in
+Supersedes "dark mode only". Four schemes, defined once in
 `themes/terminal/data/colorschemes.json` and rendered to CSS custom properties
 by `assets/css/themes.css` (a Hugo template):
 
-- dark: onedark (default), tokyonight, catppuccin-mocha, rose-pine
+- dark: tokyonight (default), rose-pine (onedark and catppuccin-mocha dropped by the author)
 - light: catppuccin-latte (default when the system prefers light), rose-pine-dawn
 
 First visit follows `prefers-color-scheme`; a manual pick is saved in
 localStorage (`theme`), and `auto` returns to following the system. An inline
 head script sets `data-theme` before CSS paints (no flash); without JS the CSS
-falls back to onedark / latte via the media query.
+falls back to tokyonight / latte via the media query.
 
 Switching: a powerline `◐ <scheme> ▾` segment in the header opens a listbox,
 and pressing `:` opens a vim-style command line (`:colorscheme <name>`,

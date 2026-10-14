@@ -105,9 +105,9 @@ if grep -q 'Sitemap: https://' robots.txt; then pass "robots sitemap https"; els
 echo "== color schemes"
 has index.html "localStorage.getItem\('theme'\)"
 has index.html 'id="cs-list"'
-if [ "$(grep -o 'role="option"' "$OUT/index.html" | wc -l | tr -d ' ')" = 7 ]; then pass "7 scheme options (auto + 6)"; else fail "7 scheme options (auto + 6)"; fi
+if [ "$(grep -o 'role="option"' "$OUT/index.html" | wc -l | tr -d ' ')" = 5 ]; then pass "5 scheme options (auto + 4)"; else fail "5 scheme options (auto + 4)"; fi
 has index.html 'class="cmdline"'
-if [ "$(grep -oE 'data-theme=[a-z-]+' "$OUT"/css/bundle.min.*.css | sort -u | wc -l | tr -d ' ')" = 6 ]; then pass "6 schemes in css bundle"; else fail "6 schemes in css bundle"; fi
+if [ "$(grep -oE 'data-theme=[a-z-]+' "$OUT"/css/bundle.min.*.css | sort -u | wc -l | tr -d ' ')" = 4 ]; then pass "4 schemes in css bundle"; else fail "4 schemes in css bundle"; fi
 if grep -q 'prefers-color-scheme:light' "$OUT"/css/bundle.min.*.css; then pass "no-JS light fallback"; else fail "no-JS light fallback"; fi
 if grep -qE '#[0-9a-fA-F]{3,6}\b' themes/terminal/assets/css/terminal.css themes/terminal/assets/css/post.css themes/terminal/assets/css/home.css; then fail "no hard-coded colors outside colorschemes.json"; else pass "no hard-coded colors outside colorschemes.json"; fi
 if python3 -I scripts/check-contrast.py >/dev/null; then pass "wcag contrast for every scheme"; else fail "wcag contrast for every scheme"; fi

@@ -1,32 +1,7 @@
 {
-  "default_dark": "onedark",
+  "default_dark": "tokyonight",
   "default_light": "catppuccin-latte",
   "schemes": [
-    {
-      "id": "onedark",
-      "name": "One Dark",
-      "mode": "dark",
-      "colors": {
-        "bg": "#282c34",
-        "bg-alt": "#21252b",
-        "line": "#3e4451",
-        "hl": "#3e4451",
-        "ln": "#4b5263",
-        "fg": "#abb2bf",
-        "fg-hi": "#e6e6e6",
-        "fg-body": "#c8ccd4",
-        "comment": "#5c6370",
-        "muted": "#8e95a0",
-        "blue": "#61afef",
-        "purple": "#c678dd",
-        "green": "#98c379",
-        "yellow": "#e5c07b",
-        "red": "#e06c75",
-        "cyan": "#56b6c2",
-        "orange": "#d19a66",
-        "on-accent": "#282c34"
-      }
-    },
     {
       "id": "tokyonight",
       "name": "Tokyo Night",
@@ -50,31 +25,6 @@
         "cyan": "#7dcfff",
         "orange": "#ff9e64",
         "on-accent": "#1a1b26"
-      }
-    },
-    {
-      "id": "catppuccin-mocha",
-      "name": "Catppuccin Mocha",
-      "mode": "dark",
-      "colors": {
-        "bg": "#1e1e2e",
-        "bg-alt": "#181825",
-        "line": "#313244",
-        "hl": "#313244",
-        "ln": "#585b70",
-        "fg": "#bac2de",
-        "fg-hi": "#cdd6f4",
-        "fg-body": "#cdd6f4",
-        "comment": "#6c7086",
-        "muted": "#a6adc8",
-        "blue": "#89b4fa",
-        "purple": "#cba6f7",
-        "green": "#a6e3a1",
-        "yellow": "#f9e2af",
-        "red": "#f38ba8",
-        "cyan": "#94e2d5",
-        "orange": "#fab387",
-        "on-accent": "#1e1e2e"
       }
     },
     {
