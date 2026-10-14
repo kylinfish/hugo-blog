@@ -144,6 +144,7 @@ has about/index.html 'class="whoami-name">Win Yu <span>@ Taipei, Taiwan</span>'
 lacks index.html 'name="twitter:site"'
 has index.html 'class="whoami-sub">筆墨日積終將成冊'
 has about/index.html 'class="whoami-sub">白天寫規格，晚上寫部落格'
+has about/index.html 'class="whoami-note">Dad mode: running in background'
 lacks index.html 'class="whoami-note"'
 
 # --- assertions above this line ---
