@@ -17,6 +17,7 @@ if echo "$LOG" | grep -E 'ERROR|found no layout'; then fail "build log clean"; e
 echo "== post urls"
 missing=0
 for f in content/posts/*.md; do
+  [ "$(basename "$f")" = _index.md ] && continue
   grep -qE '^draft *[:=] *true' "$f" && continue
   slug="$(basename "$f" .md)"
   [ -f "$OUT/$slug/index.html" ] || { fail "missing /$slug/"; missing=$((missing + 1)); }
@@ -66,7 +67,8 @@ has 404.html 'command not found'
 lacks about/index.html 'about\.css'
 if [ -e layouts/_default/about.html ] || [ -e assets/css/_custom.scss ]; then fail "LoveIt overrides removed"; else pass "LoveIt overrides removed"; fi
 echo "== final fixes"
-if grep -q 'figcaption h4::before' themes/terminal/assets/css/post.css; then pass "figcaption h4 reset"; else fail "figcaption h4 reset"; fi
+lacks beautify_slides/index.html '<figcaption>[^<]*<h4'
+has beautify_slides/index.html 'class="fig-title"'
 if grep -q '\.post-body h1::before' themes/terminal/assets/css/post.css; then pass "body h1 style"; else fail "body h1 style"; fi
 if grep -q '8b929e' "$OUT"/css/bundle.min.*.css; then pass "muted token in bundle"; else fail "muted token in bundle"; fi
 has es-reindex/index.html 'rel="canonical" href="https://kylinyu.win/es-reindex/"'
@@ -76,6 +78,30 @@ lacks index.xml '<title>About Win Yu</title>'
 if [ "$(grep -c '<item>' "$OUT/index.xml")" -le 20 ]; then pass "rss <= 20 items"; else fail "rss <= 20 items"; fi
 if grep -q LoveIt Makefile; then fail "Makefile LoveIt gone"; else pass "Makefile LoveIt gone"; fi
 if grep -q '6\.5rem' themes/terminal/assets/css/home.css; then pass "hop period column"; else fail "hop period column"; fi
+echo "== seo"
+has index.html '<title>墨冊 · '
+has index.html '"@type":"WebSite"'
+has es-reindex/index.html '"@type":"BlogPosting"'
+has es-reindex/index.html 'property="og:site_name" content="墨冊"'
+has es-reindex/index.html 'property="article:published_time"'
+has es-reindex/index.html 'class="post-cover" src="[^"]+" alt="ElasticSearch'
+if [ "$(grep -o '<h1' "$OUT/es-reindex/index.html" | wc -l | tr -d ' ')" = 1 ]; then pass "es-reindex single h1"; else fail "es-reindex single h1"; fi
+has about/index.html 'property="og:image" content="https://kylinyu.win/img/aboutme'
+has posts/index.html '<title>所有文章 · 墨冊'
+has posts/page/2/index.html '<title>所有文章 · 第 2 頁 · 墨冊'
+has tags/index.html '<title>標籤 · 墨冊'
+has tags/mysql/index.html '<title>標籤：MySQL · 墨冊'
+has tags/mysql/index.html 'name="description" content="標籤「MySQL」的 [0-9]+ 篇文章'
+lacks tags/mysql/index.html 'noindex'
+has lumen_tinker/index.html 'name="description" content="Lumen 不像 Laravel'
+has 404.html 'name="robots" content="noindex,follow"'
+lacks sitemap.xml '/404.html'
+has sitemap.xml '<loc>https://kylinyu.win/es-reindex/</loc>'
+noalt="$(cat "$OUT"/*/index.html | grep -o '<img [^>]*>' | grep -cv 'alt="[^"]')"
+if [ "$noalt" -eq 0 ]; then pass "every img has alt"; else fail "every img has alt ($noalt missing)"; fi
+if grep -q 'rewrites' firebase.json; then fail "no SPA rewrite in firebase.json"; else pass "no SPA rewrite in firebase.json"; fi
+if grep -q 'Sitemap: https://' robots.txt; then pass "robots sitemap https"; else fail "robots sitemap https"; fi
+
 # --- assertions above this line ---
 
 echo

@@ -19,8 +19,7 @@
 .post-body h2::before { content: "## "; color: var(--purple); }
 .post-body h3::before { content: "### "; color: var(--purple); }
 .post-body h4::before { content: "#### "; color: var(--purple); }
-.post-body figcaption h4 { font: inherit; color: inherit; margin: .3em 0 0; }
-.post-body figcaption h4::before { content: none; }
+.post-body .fig-title { display: block; margin-top: .3em; color: var(--fg); font-weight: 600; }
 .post-body a { text-decoration: underline; text-underline-offset: 3px; }
 .post-body blockquote { margin: 1.2em 0; padding: 4px 16px; border-left: 3px solid var(--comment); background: var(--bg-alt); color: var(--fg); }
 .post-body table { display: block; overflow-x: auto; border-collapse: collapse; font-size: .9375rem; }

@@ -20,7 +20,7 @@
       {{- end }}
     </header>
     {{- with .Params.featuredImage }}
-    <img class="post-cover" src="{{ . }}" alt="" loading="eager">
+    <img class="post-cover" src="{{ . }}" alt="{{ $.Title }}" loading="eager">
     {{- end }}
     {{- if $toc }}
     <details class="toc toc-inline"><summary>tree .</summary>{{ .TableOfContents }}</details>

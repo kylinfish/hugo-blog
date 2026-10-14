@@ -16,6 +16,7 @@ rssLimit = 20
   subtitle = "筆墨日積終將成冊，知識月累便可結果"
   avatar = "/img/avatar-2.jpg"
   since = 2017
+  images = ["/img/aboutme.jpg"]
   [params.social]
     github = "kylinfish"
     linkedin = "openwinyu"
@@ -26,9 +27,7 @@ rssLimit = 20
   posts = "/:filename"
 
 [sitemap]
-  changefreq = "weekly"
   filename = "sitemap.xml"
-  priority = 0.5
 
 [menu]
   [[menu.main]]

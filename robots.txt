@@ -2,4 +2,4 @@
 # www.kylinyu.win
 User-agent: *
 Allow: /
-Sitemap: http://kylinyu.win/sitemap.xml
+Sitemap: https://kylinyu.win/sitemap.xml

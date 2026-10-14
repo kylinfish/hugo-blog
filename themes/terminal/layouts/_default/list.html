@@ -1,7 +1,7 @@
 {{ define "main" }}
 <p class="prompt-line"><span class="cmd">ls -l {{ .Title }}/</span></p>
 <h1 class="page-title">{{ .Title }} <span class="count">({{ len .Pages }})</span></h1>
-{{- $pag := .Paginate .Pages.ByDate.Reverse }}
+{{- $pag := .Paginator }}
 {{- range $pag.Pages.GroupByDate "2006" }}
 <h2 class="year">{{ .Key }}</h2>
 <ul class="rows">

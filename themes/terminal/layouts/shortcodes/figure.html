@@ -1,0 +1,24 @@
+{{- /* Hugo's built-in figure, with an alt fallback (alt → caption → title → page title)
+       and the title as a span instead of an <h4>, so captions stay out of the heading outline. */ -}}
+{{- $alt := .Get "alt" | default (.Get "caption" | markdownify | plainify) | default (.Get "title") | default .Page.Title -}}
+<figure{{ with .Get "class" }} class="{{ . }}"{{ end }}>
+    {{- if .Get "link" -}}
+        <a href="{{ .Get "link" }}"{{ with .Get "target" }} target="{{ . }}"{{ end }}{{ with .Get "rel" }} rel="{{ . }}"{{ end }}>
+    {{- end -}}
+    <img src="{{ .Get "src" }}" alt="{{ $alt }}" loading="lazy"
+         {{- with .Get "width" }} width="{{ . }}"{{ end -}}
+         {{- with .Get "height" }} height="{{ . }}"{{ end -}}
+    >
+    {{- if .Get "link" }}</a>{{ end -}}
+    {{- if or (or (.Get "title") (.Get "caption")) (.Get "attr") -}}
+        <figcaption>
+            {{- with .Get "title" }}<span class="fig-title">{{ . }}</span>{{ end -}}
+            {{- if or (.Get "caption") (.Get "attr") -}}<p>
+                {{- .Get "caption" | markdownify -}}
+                {{- with .Get "attrlink" }}<a href="{{ . }}">{{ end -}}
+                {{- .Get "attr" | markdownify -}}
+                {{- if .Get "attrlink" }}</a>{{ end }}</p>
+            {{- end }}
+        </figcaption>
+    {{- end }}
+</figure>
