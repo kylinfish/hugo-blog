@@ -9,17 +9,17 @@ categories: ["技術"]
 featuredImage: "/img/post/ElasticSearch.png"
 images: [ "/img/post/ElasticSearch.png" ]
 ---
-# Change Alias Pointer
+## Change Alias Pointer
 
 The alias is your writer enterance, sometimes if you need to change the alias pointer to different concrete indices.
 
-## Run Step 1. Create the new target concrete indices
+### Run Step 1. Create the new target concrete indices
 
 ```
 PUT /test_new_target_indices
 ```
 
-##  Run Step2. Change pointer
+###  Run Step2. Change pointer
 
 {{<admonition warning>}}
 Update old indices is_write_index to false, the new one to true

@@ -1,5 +1,6 @@
 ---
 title: "Lumen 使用 php artisan tinker"
+description: "Lumen 不像 Laravel 內建 Tinker。記錄用 composer 安裝 vluzrmos/tinker、註冊 service provider，在 Lumen 使用 php artisan tinker 的步驟。"
 date: "2017-07-12T17:21:50+08:00"
 draft: false
 tags: [ "Lumen", "tinker", "PHP" ]

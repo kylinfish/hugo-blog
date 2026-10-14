@@ -1,7 +1,7 @@
 ---
 title: "Head First JSON Web Token (JWT)"
-description: "JWT 初步認識與介紹"
-date: "2017-07-24T14:58:50+50:00"
+description: "設計 Web API 授權時常見 OAuth 與 JWT。認識 JSON Web Token（RFC 7519）的 Header、Payload、Signature 結構，以及為什麼要用 JWT。"
+date: "2017-07-24T14:58:50+08:00"
 lastmod: "2021-07-07T09:30:12+08:00"
 draft: false
 tags: [ "JWT", "JSON" ]

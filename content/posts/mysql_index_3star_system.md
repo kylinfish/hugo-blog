@@ -1,6 +1,6 @@
 ---
 title: "MySQL Index 設計第二節 - 三星評分法則"
-description: "介紹 Index 設計心法 - 何謂三星評分法則"
+description: "MySQL Index 設計心法：用三星評分法則（Three-Star System）替 Query 的索引設計打分，逐一說明每顆星代表的條件。"
 date: "2018-05-14T13:25:13+08:00"
 lastmod: "2021-07-07T09:30:12+08:00"
 draft: false

@@ -145,7 +145,7 @@ $ echo '<?php phpinfo(); ?>' > ~/staging/index.php
 ```
 
 拜訪 <a href="">http://{YOUR IP ADDRESS}/staging/</a>
-<img src="/img/post/workshop/2/11.jpg" width="100%">
+<img src="/img/post/workshop/2/11.jpg" alt="瀏覽器開啟 staging 目錄看到 phpinfo 頁面" width="100%" loading="lazy">
 
 
 ## 5. Homework: put your PHP example for staging
@@ -154,7 +154,7 @@ $ echo '<?php phpinfo(); ?>' > ~/staging/index.php
 
 [PIXNET Emma API Example Source Code](https://github.com/kylinfish/pixnet-emma-demo)
 
-<img class="lazy" data-src="/img/post/workshop/2/12.jpg" width="100%">
+<img src="/img/post/workshop/2/12.jpg" alt="PIXNET Emma API 範例執行結果" width="100%" loading="lazy">
 
 {{< admonition summary 文章系列>}}
 

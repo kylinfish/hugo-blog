@@ -10,7 +10,7 @@ featuredImage: "/img/post/ElasticSearch.png"
 images: [ "/img/post/ElasticSearch.png" ]
 ---
 
-# Force Merge
+## Force Merge
 
 Force merge action can clean up `docs.delete`, make read preformace better and save more disks space for the snapshot.
 

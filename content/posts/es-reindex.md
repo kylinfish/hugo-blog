@@ -10,25 +10,25 @@ featuredImage: "/img/post/ElasticSearch.png"
 images: [ "/img/post/ElasticSearch.png" ]
 ---
 
-# Reindex
+## Reindex
 Refer to https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-reindex.html
 
 Reindex: If you want to merge different concrete indices.
 
 Sometimes if the indices is not balance like too many tiny indices or can not shrink number of shards to suitable number.
 
-## Brief introduction
+### Brief introduction
 1. Create the new dest indices
 2. Call `_reindex` action
 3. Check reindex running status
 4. Recover the indices setting to the new dest indices
 5. Delete the old indices
 
-## Example
+### Example
 We want to merge `qlog-fff-202105-000002`, `qlog-fff-202104-1`
 
 
-### Run Step 1.
+#### Run Step 1.
 Create the dest indices with the right mappings and settings.
 Check the template for index name if you want to apply some default settings.
 
@@ -46,7 +46,7 @@ PUT  qlog-fff-202104-0000-1
 }
 ```
 
-### Run Step 2.
+#### Run Step 2.
 - `slices` can speed up reindex process.
 - By default `_reindex` uses scroll batches of 1000. You can change the batch size with the `size` field in the source element:
 - Set dest indices by the previous one
@@ -64,7 +64,7 @@ POST _reindex?wait_for_completion=false&slices=auto&refresh=false
 }
 ```
 
-### Run Step 3.
+#### Run Step 3.
 check reindex status
 
 ```
@@ -72,7 +72,7 @@ GET _tasks?detailed=true&actions=*reindex
 
 ```
 
-### Run Step 4.
+#### Run Step 4.
 Check the new indices `doc.size` whether is expected or not
 Recover Settings
 ```
@@ -87,7 +87,7 @@ PUT qlog-fff-202104-0000-1/_settings
 
 ```
 
-### Run Step 5.
+#### Run Step 5.
 Delete unnecessary indices.
 ```
 

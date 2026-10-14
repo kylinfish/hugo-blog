@@ -1,7 +1,7 @@
 ---
 title: "初探 Lumen Micro Framework - Controller"
 description:  "Lumen 入門筆記 - Middleware, Lumen 介紹, Lumen 中文"
-date: "2017-07-14T18:05:50+50:00"
+date: "2017-07-14T18:05:50+08:00"
 draft: false
 tags: [ "Lumen", "Controller" ]
 categories: ["技術"]

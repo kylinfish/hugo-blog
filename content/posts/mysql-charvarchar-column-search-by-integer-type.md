@@ -1,5 +1,6 @@
 ---
 title: "MySQL 字串(char/varchar) 欄位搜尋數字(integer)"
+description: "一條用數字 id 查詢 varchar 欄位的 SQL 跑了近 2 分鐘。透過 profiling、show index 與 explain 找出吃不到 index 的原因。"
 subtitle: ""
 date: 2022-04-14T17:53:09+08:00
 draft: false

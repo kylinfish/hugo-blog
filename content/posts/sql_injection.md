@@ -1,6 +1,6 @@
 ---
 title: "基本的網頁安全與防護 - SQL Injection"
-description: "SQL Injection 防範"
+description: "自組 Raw SQL 才發現防護不足。整理 SQL Injection 的基礎防護：prepared statements、parameterized queries 與 PDO 用法。"
 date: "2017-06-28T18:02:51+08:00"
 draft: false
 tags:  ["PHP", "sql_injection", "web_security"]

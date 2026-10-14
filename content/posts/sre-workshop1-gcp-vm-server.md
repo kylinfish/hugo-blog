@@ -51,7 +51,6 @@ images: ["/img/post/workshop/workshop-1.jpg"]
 - `機器類型` : 微型(1 個共用 vCPU) <small class="text-warning">其餘類型收費標準會顯示於右邊</small>
 - `防火牆`: 開啟 HTTP, HTTPS 流量 (詳見下圖)
 
-<img src="/img/post/workshop/1/4.jpg" width="100%">
 {{< figure src="/img/post/workshop/1/4.jpg" title="Select free instance options." >}}
 
 過幾秒鐘後，會看見你開的 instance 已經 on 起來了，你的第一台 GCP 機器就開好了

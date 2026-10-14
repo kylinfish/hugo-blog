@@ -7,7 +7,7 @@ title = "About Win Yu"
 og_images = ["/img/aboutme.jpg"]
 +++
 
-<img src="/img/aboutme-2.jpg">
+<img src="/img/aboutme-2.jpg" alt="Win Yu">
 
 <br>
 

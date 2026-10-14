@@ -1,6 +1,6 @@
 ---
 title: "利用 KPI Review 的自我檢核"
-description: "關於 2017 年的自我檢核"
+description: "利用一年兩次的 KPI Review 回顧 2017 年：閱讀 12 本書、開始經營部落格，用統計數據檢視自己的技術深耕。"
 date: "2017-11-12T20:05:12+08:00"
 draft: false
 tags: [ "JWT", "JSON" ]

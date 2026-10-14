@@ -1,5 +1,5 @@
 +++
-description = "description"
+description = "ModernWeb18 演講分享：以彈性軟體設計實作 PIXNET Timeline 動態功能，並導入 Cloud Pub/Sub 打造低耦合的跨產品整合架構。"
 tags = ['Google', 'Cloud Pub/Sub', 'ModernWeb', 'NewsFeed']
 categories = [ "技術" ]
 date = "2018-07-26T11:49:06+08:00"

@@ -1,6 +1,6 @@
 ---
 title: "Filco 87 忍茶 開箱 Ninja"
-description: "Filco 87 忍茶開箱文"
+description: "Filco 87 鍵茶軸（忍茶）機械鍵盤開箱。長時間打字手痠，從 MacBook 鍵盤換成機械式鍵盤，看按壓觸感能否改善。"
 date: "2018-05-16T22:23:46+08:00"
 draft: false
 tags: [ "filco" ]

@@ -10,9 +10,9 @@ featuredImage: "/img/post/ElasticSearch.png"
 images: [ "/img/post/ElasticSearch.png" ]
 ---
 
-# Shrink the number of shards
+## Shrink the number of shards
 
-## Brief introduction
+### Brief introduction
 
 1. Move all indices data into the same data node and block writing
 2. Check data moving status util finish
@@ -22,7 +22,7 @@ images: [ "/img/post/ElasticSearch.png" ]
 6. Delete old indices. (Be careful for all deletion, double check the snapshot before the deletion)
 
 
-## Example
+### Example
 If we want to shrink the number of shards from 4 to 1 on `log-202105-0503-000005` indices.
 
 ```
@@ -30,7 +30,7 @@ health status index                     uuid   pri rep docs.count docs.deleted s
 green  open   log-202105-0530-000005 xxxx   4   0   14845131            0     28.5gb         28.5gb
 ```
 
-### Run Step 1.
+#### Run Step 1.
    - Choose one unbusy data node and fill in `index.routing.allocation.require._name"` 
    - Set replica to 0 (for speed up whole progress)
    - Block write action
@@ -49,7 +49,7 @@ PUT /log-202105-0530-000005/_settings
   }
 }
 ```
-### Run Step 2. Check Status
+#### Run Step 2. Check Status
 
 ```
 GET _cat/recovery/log-202105-0530-000005?v&detailed&h=s,t,ty,source_node,target_node,files_recovered,bytes_percent&s=bytes_percent:desc
@@ -76,7 +76,7 @@ PUT /log-202105-0530-000005/_settings
 ```
 
 
-### Run Step 3. do _shrink action
+#### Run Step 3. do _shrink action
    - `number_of_replica: 0` and `refresh_interval: -1` is for speedup action
 
 {{<admonition warning>}}
@@ -99,7 +99,7 @@ POST /log-202105-0530-000005/_shrink/log-202105-0530-000005-s
 ```
 
 
-### Run Step 4. check status 
+#### Run Step 4. check status 
 
 ```
 GET /_cat/recovery/log-202105-0530-000005-s/?v&h=index,shard,time
@@ -112,7 +112,7 @@ log-202105-0530-000005-s 0     3.2s
 ```
 
 
-### Run Step 5. Set replica back
+#### Run Step 5. Set replica back
 
 ```
 PUT log-202105-0530-000005-s/_settings
@@ -137,7 +137,7 @@ Check the number of `docs.count` and `health` util all are ready.
 
 
 
-### Run Step 6. Delete all indices
+#### Run Step 6. Delete all indices
 ```
 DELETE log-202105-0530-000005
 ```

@@ -1,7 +1,7 @@
 ---
 title: "深入探討 JSON Web Token (JWT)"
-description: "深入探討 JWT 的特性，以及使用情境跟安全顧慮"
-date: "2017-07-29T22:26:50+50:00"
+description: "讀完〈Stop Using JWT for Sessions〉後，深入探討 JWT 的特性、Stateless Token 的使用情境，以及拿 JWT 取代 Session 的安全顧慮。"
+date: "2017-07-29T22:26:50+08:00"
 lastmod: "2021-07-07T09:30:12+08:00"
 draft: false
 tags: [ "JWT", "JSON" ]

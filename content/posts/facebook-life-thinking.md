@@ -1,5 +1,6 @@
 ---
 title: "走訪 Facebook 工程師的職涯 - 心得分享"
+description: "參訪 Facebook 後的心得，對照前 Facebook 工程師給年輕人的 8 個提醒：主動找事做與思考，避免自我滿足式的瞎忙。"
 date: "2017-04-12T00:25:22+08:00"
 draft: false
 tags: ["facebook" ]

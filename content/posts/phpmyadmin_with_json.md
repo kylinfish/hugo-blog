@@ -1,7 +1,7 @@
 ---
 title: "phpMyAdmin 與 JSON 的小雷踩坑"
 description: "phpMyAdmin 瀏覽 JSON 的錯誤案例，及 Sequel Pro 匯出與 phpMyAdmin 的差異"
-date: "2017-08-03T17:45:50+50:00"
+date: "2017-08-03T17:45:50+08:00"
 draft: false
 tags: [ "phpMyAdmin", "JSON", "Sequel Pro"]
 categories: ["技術"]

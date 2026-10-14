@@ -1,6 +1,6 @@
 ---
 title: "2018 年度回顧 - 分享之路"
-description: "年度分享歷程，簡報釋出總整理"
+description: "2018 年度回顧：在 PIXNET 完成兩大專案，下半年透過演講與教學強化表達能力，並整理全年分享簡報。"
 date: "2018-12-28T10:04:29+08:00"
 draft: false
 tags: [ "pubsub", "MySQL", "Agile", "AI", "DesignPattern" ]

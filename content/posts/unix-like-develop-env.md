@@ -1,7 +1,7 @@
 ---
 title: "在 Terminal 環境下的開發配置"
 description: "Terminal 底下的開發環境 vim 的設定 tmux zsh fzf 套件整合"
-date: "2017-07-21T11:15:50+50:00"
+date: "2017-07-21T11:15:50+08:00"
 draft: false
 tags: [ "vim", "zsh", "bash", "tmux" ]
 categories: ["技術"]

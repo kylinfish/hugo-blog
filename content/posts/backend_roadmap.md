@@ -1,7 +1,7 @@
 ---
 title: "網頁後端工程師的學習技能 Roadmap - The Roadmap for Web Backend Developer in PIXNET"
-description: "條列關於 PHP 網頁後端工作者該學習的技術指標"
-date: "2018-01-19T14:52:50+50:00"
+description: "以在 PIXNET 兩年半的經驗，條列 PHP 網頁後端工程師該學習的技能 Roadmap，從 Unix、Trac 等基本工具到後端技術指標。"
+date: "2018-01-19T14:52:50+08:00"
 draft: false
 tags: [ "roadmap", "PHP" , "XSS", "JWT", "AWS", "GCP", "RDBMS", "GIT"]
 categories: ["技術"]
