@@ -37,4 +37,53 @@
 <article class="post">
   <div class="post-body">{{ .Content }}</div>
 </article>
+
+{{- with $p.highlights }}
+<section class="home-block">
+  <p class="prompt-line"><span class="cmd">cat ~/highlights</span></p>
+  <ul class="highlights">
+    {{- range . }}
+    <li><span class="hl-title">{{ .title }}</span><span class="hl-text">{{ .text }}</span></li>
+    {{- end }}
+  </ul>
+</section>
+{{- end }}
+
+{{- with $p.talks }}
+<section class="home-block">
+  <p class="prompt-line"><span class="cmd">ls -lt ~/talks</span></p>
+  <ul class="rows">
+    {{- range . }}
+    <li class="row">
+      <time class="row-date" datetime="{{ .date }}">{{ .date }}</time>
+      <div>
+        <a class="row-title" href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a>
+        <div class="tags"><a class="talk-event" href="{{ .event_url }}" target="_blank" rel="noopener noreferrer">{{ .event }}</a></div>
+      </div>
+    </li>
+    {{- end }}
+  </ul>
+</section>
+{{- end }}
+
+{{- with $p.slides }}
+<section class="home-block">
+  <p class="prompt-line"><span class="cmd">ls -R ~/slides</span></p>
+  {{- range . }}
+  {{- $year := .year }}
+  <h2 class="year">{{ $year }}</h2>
+  <ul class="rows">
+    {{- range .items }}
+    <li class="row row-compact">
+      <time class="row-date">{{ $year }}/{{ .date }}</time>
+      <div>
+        {{- if .url }}<a class="row-title" href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a>
+        {{- else }}<span class="row-title is-plain">{{ .title }}</span>{{ end }}
+      </div>
+    </li>
+    {{- end }}
+  </ul>
+  {{- end }}
+</section>
+{{- end }}
 {{ end }}

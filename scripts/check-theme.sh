@@ -124,6 +124,16 @@ has about/index.html 'class="certs"'
 lacks about/index.html 'data-lang="console"'
 if [ "$(grep -o '<h1' "$OUT/about/index.html" | wc -l | tr -d ' ')" = 1 ]; then pass "about single h1"; else fail "about single h1"; fi
 
+echo "== about sections"
+has about/index.html '<span class="cmd">cat ~/highlights</span>'
+has about/index.html '<span class="cmd">ls -lt ~/talks</span>'
+has about/index.html '<span class="cmd">ls -R ~/slides</span>'
+if [ "$(grep -o 'class="talk-event"' "$OUT/about/index.html" | wc -l | tr -d ' ')" = 4 ]; then pass "4 talks"; else fail "4 talks"; fi
+if [ "$(grep -o 'class="row row-compact"' "$OUT/about/index.html" | wc -l | tr -d ' ')" = 20 ]; then pass "20 slides"; else fail "20 slides"; fi
+if [ "$(grep -o 'class="year"' "$OUT/about/index.html" | wc -l | tr -d ' ')" = 7 ]; then pass "7 slide years"; else fail "7 slide years"; fi
+has about/index.html 'CS 未來之路\(高應大系友分享\)'
+lacks about/index.html 'Technical Speaker'
+
 # --- assertions above this line ---
 
 echo

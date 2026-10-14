@@ -43,3 +43,13 @@
 .ls-dirs, .certs { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 24px; font-size: .9375rem; }
 .ls-dirs li { color: var(--blue); font-weight: 600; }
 .certs li::before { content: "✓ "; color: var(--green); }
+.highlights { list-style: none; margin: 0; padding: 0; }
+.highlights li { display: grid; gap: 2px; padding: 8px 0 8px 1.5ch; position: relative; }
+.highlights li::before { content: "▸"; position: absolute; left: 0; top: 8px; color: var(--green); }
+.hl-title { color: var(--fg-hi); font-family: var(--cjk); font-weight: 600; }
+.hl-text { font-family: var(--cjk); font-size: .9375rem; }
+.talk-event::before { content: "@ "; color: var(--comment); }
+.talk-event { color: var(--cyan); }
+.row-compact { padding: 6px 0; }
+.row-compact .row-title { font-size: 1rem; font-weight: 500; }
+.row-title.is-plain { color: var(--fg); }
