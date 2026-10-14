@@ -1,5 +1,4 @@
 # about page intro (rendered by themes/terminal/layouts/page/about.html)
-avatar: /img/avatar-about.jpg
 location: Taipei, Taiwan
 tagline: 白天寫程式，晚上講故事
 status: "Dad mode: always on"

@@ -35,7 +35,6 @@
 }
 
 /* about page intro */
-.avatar-top { object-position: 50% 15%; }
 .whoami-note { margin: -4px 0 8px; color: var(--muted); font-size: .875rem; }
 .pl-role { margin: 0; flex-wrap: wrap; row-gap: 4px; font-weight: 600; }
 .pl-role .pl-seg { white-space: normal; }

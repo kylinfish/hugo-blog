@@ -134,6 +134,15 @@ if [ "$(grep -o 'class="year"' "$OUT/about/index.html" | wc -l | tr -d ' ')" = 7
 has about/index.html 'CS 未來之路\(高應大系友分享\)'
 lacks about/index.html 'Technical Speaker'
 
+echo "== whoami identity is the same on home and about"
+for f in index.html about/index.html; do
+  has $f 'class="avatar" src="/img/avatar-about.jpg"'
+  has $f 'class="whoami-name">Win Yu <span>@ Taipei, Taiwan</span>'
+done
+has index.html 'class="whoami-sub">筆墨日積終將成冊'
+has about/index.html 'class="whoami-sub">白天寫程式，晚上講故事'
+lacks index.html 'class="whoami-note"'
+
 # --- assertions above this line ---
 
 echo

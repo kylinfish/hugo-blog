@@ -14,7 +14,7 @@ rssLimit = 20
 
 [params]
   subtitle = "筆墨日積終將成冊，知識月累便可結果"
-  avatar = "/img/avatar-2.jpg"
+  avatar = "/img/avatar-about.jpg"
   since = 2017
   images = ["/img/aboutme.jpg"]
   [params.social]

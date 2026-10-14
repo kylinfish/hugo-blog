@@ -1,7 +1,7 @@
 {{ define "main" }}
 {{- $p := site.Data.profile }}
 <section class="home-block">
-  {{- partial "whoami.html" (dict "avatar" $p.avatar "avatarClass" "avatar-top" "at" $p.location "sub" $p.tagline "note" $p.status) }}
+  {{- partial "whoami.html" (dict "sub" $p.tagline "note" $p.status) }}
 </section>
 
 {{- with $p.role }}
