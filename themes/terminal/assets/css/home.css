@@ -1,1 +1,35 @@
-/* homepage — filled in Task 3 */
+.home-block { margin-bottom: 40px; }
+.home-block .prompt-line:first-child { margin-top: 16px; }
+
+/* whoami */
+.whoami { display: flex; gap: 20px; align-items: center; }
+.avatar { flex: none; width: 96px; height: 96px; border-radius: 50%; border: 2px solid var(--green); object-fit: cover; }
+.whoami-name { margin: 0; color: var(--fg-hi); font-size: 1.5rem; }
+.whoami-name span { color: var(--comment); font-size: 1rem; font-weight: 400; }
+.whoami-sub { margin: 4px 0 8px; color: var(--green); font-family: var(--cjk); }
+.cursor { margin-left: 2px; color: var(--green); animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .cursor { animation: none; } }
+.social { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: .875rem; }
+.social a::before { content: "→ "; color: var(--comment); }
+
+/* traceroute */
+.hops { list-style: none; margin: 0; padding: 0; font-size: .9375rem; }
+.hop { display: grid; grid-template-columns: 2rem 5rem minmax(0, 1fr); gap: 0 12px; padding: 4px 0; }
+.hop-n { color: var(--comment); text-align: right; }
+.hop-period { color: var(--yellow); }
+.hop-org { color: var(--fg-hi); font-family: var(--mono), var(--cjk); }
+.hop-role, .hop-now { grid-column: 3; }
+.hop-role { font-family: var(--cjk); font-size: .875rem; }
+.hop-now { color: var(--green); font-size: .8125rem; }
+
+/* projects */
+.projects { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.project { display: block; padding: 12px 14px; background: var(--bg-alt); border: 1px solid var(--line); border-radius: 6px; color: var(--fg); }
+.project:hover { border-color: var(--blue); text-decoration: none; }
+.project-name { display: block; color: var(--blue); font-weight: 600; overflow-wrap: anywhere; }
+.project-title { display: block; margin-top: 4px; font-family: var(--cjk); font-size: .875rem; }
+
+@media (max-width: 640px) {
+  .whoami { flex-direction: column; align-items: flex-start; }
+}

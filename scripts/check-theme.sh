@@ -50,6 +50,15 @@ has mailquill-gmail-statements-to-ledger/index.html 'class="toc toc-side"'
 lacks lumen_tinker/index.html 'class="toc'
 has es_reindex_for_merge_indices/index.html 'class="chroma"'
 has es_reindex_for_merge_indices/index.html 'class="post-nav"'
+echo "== task 3: homepage"
+has index.html '<span class="cmd">whoami</span>'
+has index.html '<span class="cmd">traceroute career</span>'
+has index.html 'class="hop is-current"'
+has index.html 'RHINOSHIELD'
+has index.html '<span class="cmd">ls -lt posts/ \| head -8</span>'
+has index.html '<span class="cmd">ls ~/projects</span>'
+has index.html 'class="project"'
+has index.html 'href="https://github.com/kylinfish"'
 # --- assertions above this line ---
 
 echo

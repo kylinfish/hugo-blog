@@ -1,6 +1,62 @@
 {{ define "main" }}
-<p class="prompt-line"><span class="cmd">ls -lt posts/ | head -8</span></p>
-<ul class="rows">
-  {{- range first 8 (where site.RegularPages "Section" "posts") }}{{ partial "post-row.html" . }}{{ end }}
-</ul>
+<section class="home-block">
+  <p class="prompt-line"><span class="cmd">whoami</span></p>
+  <div class="whoami">
+    <img class="avatar" src="{{ site.Params.avatar | relURL }}" alt="{{ site.Author.name }}" width="96" height="96">
+    <div>
+      <h1 class="whoami-name">{{ site.Author.name }} <span>@ {{ site.Title }}</span></h1>
+      <p class="whoami-sub">{{ site.Params.subtitle }}<span class="cursor" aria-hidden="true">▋</span></p>
+      <div class="social">
+        {{- with site.Params.social }}
+        {{- with .github }}<a href="https://github.com/{{ . }}">github</a>{{ end }}
+        {{- with .linkedin }}<a href="https://www.linkedin.com/in/{{ . }}">linkedin</a>{{ end }}
+        {{- with .twitter }}<a href="https://twitter.com/{{ . }}">twitter</a>{{ end }}
+        {{- with .email }}<a href="mailto:{{ . }}">email</a>{{ end }}
+        {{- end }}
+        <a href="{{ "index.xml" | relURL }}">rss</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{- with site.Data.career.hops }}
+<section class="home-block">
+  <p class="prompt-line"><span class="cmd">traceroute career</span></p>
+  <ol class="hops">
+    {{- range $i, $h := . }}
+    <li class="hop{{ if $h.current }} is-current{{ end }}">
+      <span class="hop-n">{{ add $i 1 }}</span>
+      <span class="hop-period">{{ $h.period }}</span>
+      <span class="hop-org">{{ $h.org }}</span>
+      {{- with $h.role }}<span class="hop-role">{{ . }}</span>{{ end }}
+      {{- if $h.current }}<span class="hop-now">● current</span>{{ end }}
+    </li>
+    {{- end }}
+  </ol>
+  <a class="more" href="{{ "about/" | relURL }}">→ about</a>
+</section>
+{{- end }}
+
+<section class="home-block">
+  <p class="prompt-line"><span class="cmd">ls -lt posts/ | head -8</span></p>
+  <ul class="rows">
+    {{- range first 8 (where site.RegularPages "Section" "posts") }}{{ partial "post-row.html" . }}{{ end }}
+  </ul>
+  <a class="more" href="{{ "posts/" | relURL }}">ls posts/ →</a>
+</section>
+
+{{- with index site.Taxonomies.categories "造物誌" }}
+<section class="home-block">
+  <p class="prompt-line"><span class="cmd">ls ~/projects</span></p>
+  <div class="projects">
+    {{- range first 6 .Pages }}
+    <a class="project" href="{{ .RelPermalink }}">
+      <span class="project-name">{{ .File.ContentBaseName }}/</span>
+      <span class="project-title">{{ .Title }}</span>
+    </a>
+    {{- end }}
+  </div>
+  <a class="more" href="{{ "categories/造物誌/" | relURL }}">cd ~/projects →</a>
+</section>
+{{- end }}
 {{ end }}

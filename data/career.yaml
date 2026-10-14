@@ -1,0 +1,10 @@
+# traceroute career — oldest first; mark the last hop current: true
+# period is free text ("2015–2019", "2018", "now")
+hops:
+  - period: "2018"
+    org: "PIXNET"
+    role: ""
+  - period: "now"
+    org: "RHINOSHIELD 犀牛盾"
+    role: "Official Web Manager"
+    current: true
