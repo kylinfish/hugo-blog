@@ -1,6 +1,6 @@
 +++
 date = "2017-06-17T22:52:12+08:00"
-description = "墨冊作者簡歷 自我介紹"
+description = "Win Yu，RHINOSHIELD Official Website Manager / Product Data Platform Lead。專注 AWS 上的 GenAI、資料平台與搜尋，AWS Summit / AWS Retail Forum 講者。墨冊作者自我介紹。"
 absolute_banner = "/img/aboutme.jpg"
 linktitle = "about 墨冊作者簡歷"
 title = "About Win Yu"
@@ -15,25 +15,35 @@ Glad to see you here!
 
 ## Intro
 
-```shell
-******************************* 1. row ******************************
+```console
+$ whoami
+Win Yu — 白天寫程式，晚上講故事
+Taipei, Taiwan · Dad mode: always on
 
-id              | 9527
-name            | Win "Super Dad"
-current_company | RHINOSHIELD 犀牛盾
-position        | Official Web Manager - 白天寫程式，晚上講故事
-blog            | kylinyu.win
-hobbies         | 抓出生活的 NullPointerException
-status          | Dad mode: Always ON. Always querying for new ideas...
+$ cat ~/.role
+RHINOSHIELD 犀牛盾 · Official Website Manager / Product Data Platform Lead
 
+$ traceroute career
+ 1  2015–2019  PIXNET        Senior / Advanced Platform Engineer
+ 2  2019–2021  Trend Micro   Senior Engineer
+ 3  2021–now   RHINOSHIELD   Official Website Manager / Product Data Platform Lead
 
-1 rows in set (0.01 sec)
+$ ls ~/focus
+genai-on-aws/  data-platform/  search-and-discovery/  team-enablement/
 
-WARNING:
-High stress level detected. Recommend coffee intake.
+$ cat ~/certs
+AWS Certified AI Practitioner (2025)
 ```
 
+十年多來在工程、產品資料與雲端之間來回。現在在 RHINOSHIELD 把 GenAI 帶進正式環境，也帶著團隊把日常工作改造成 agentic workflow；之前在 Trend Micro 維運大型搜尋叢集與資料管線，更早在 PIXNET 做平台與跨產品整合。
 
+### Highlights
+
+- **多模態語意搜尋上線**：以 CLIP embeddings、Amazon OpenSearch 與 Bedrock 打造以圖找圖與語意商品分群。
+- **Agentic workflow 轉型**（進行中）：在 Amazon Bedrock AgentCore / Strands 上導入廣告營運、內容策展與資料查詢 agent。
+- **產品資料平台重構**：以 SSOT 與 Data Mesh 拆分微服務，取代散落各處的試算表。
+- **大型搜尋叢集維運**（Trend Micro）：處理 OpenSearch 分片失衡，並用 Lambda / Step Functions 把平衡自動化。
+- **跨產品動態整合**（PIXNET）：以 Google Cloud Pub/Sub 打造低耦合的動態整合，並在 ModernWeb 2018 分享。
 
 ## Technical Speaker
 - 2025/07/30 [2025 AWS Summit](https://aws.amazon.com/tw/events/summits/taipei/2025-startup-day/) - [犀牛盾品牌電商萬花筒 - AI 多模態策展新戰略](https://docs.google.com/presentation/d/1QYHUGDF_F8RHCI7R09ix_ZEMUAJrDTtpYN5-lKuVAOs/edit?usp=sharing)

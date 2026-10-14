@@ -77,6 +77,10 @@
 .chroma .m, .chroma .mi, .chroma .mf, .chroma .mh, .chroma .mo, .chroma .il { color: var(--orange); }
 .chroma .c, .chroma .c1, .chroma .cm, .chroma .cs, .chroma .ch, .chroma .cp, .chroma .cpf { color: var(--comment); font-style: italic; }
 .chroma .gh, .chroma .gu { color: var(--blue); }
+/* console sessions: green prompt, bright command, normal output */
+.chroma code[data-lang="console"] .cl { color: var(--fg-hi); }
+.chroma .gp { color: var(--green); font-weight: 600; }
+.chroma .go { color: var(--fg); }
 .chroma .hl { display: block; background: var(--hl); }
 .chroma .ln, .chroma .lnt { color: var(--ln); margin-right: 12px; }
 .chroma .lntable { border-spacing: 0; }
