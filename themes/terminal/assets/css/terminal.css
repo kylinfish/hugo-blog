@@ -26,9 +26,8 @@ img { max-width: 100%; height: auto; }
 .pl-user { background: var(--blue); }
 .pl-path { background: var(--purple); overflow: hidden; text-overflow: ellipsis; max-width: min(50vw, 16ch); }
 .pl-site { background: var(--line); color: var(--fg-hi); }
-.nav { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: .875rem; margin-left: auto; }
+.nav { display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: .875rem; margin-left: auto; }
 .nav a { color: var(--fg); }
-.nav a::before { content: "cd "; color: var(--comment); }
 .nav a.active { color: var(--yellow); }
 
 /* footer */

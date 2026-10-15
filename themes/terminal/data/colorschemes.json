@@ -1,6 +1,6 @@
 {
   "default_dark": "tokyonight",
-  "default_light": "catppuccin-latte",
+  "default_light": "rose-pine-dawn",
   "schemes": [
     {
       "id": "tokyonight",
@@ -25,56 +25,6 @@
         "cyan": "#7dcfff",
         "orange": "#ff9e64",
         "on-accent": "#1a1b26"
-      }
-    },
-    {
-      "id": "rose-pine",
-      "name": "Rosé Pine",
-      "mode": "dark",
-      "colors": {
-        "bg": "#191724",
-        "bg-alt": "#1f1d2e",
-        "line": "#26233a",
-        "hl": "#26233a",
-        "ln": "#524f67",
-        "fg": "#e0def4",
-        "fg-hi": "#ffffff",
-        "fg-body": "#e0def4",
-        "comment": "#6e6a86",
-        "muted": "#908caa",
-        "blue": "#9ccfd8",
-        "purple": "#c4a7e7",
-        "green": "#3e8fb0",
-        "yellow": "#f6c177",
-        "red": "#eb6f92",
-        "cyan": "#ebbcba",
-        "orange": "#ea9a97",
-        "on-accent": "#191724"
-      }
-    },
-    {
-      "id": "catppuccin-latte",
-      "name": "Catppuccin Latte",
-      "mode": "light",
-      "colors": {
-        "bg": "#eff1f5",
-        "bg-alt": "#e6e9ef",
-        "line": "#ccd0da",
-        "hl": "#ccd0da",
-        "ln": "#9ca0b0",
-        "fg": "#5c5f77",
-        "fg-hi": "#4c4f69",
-        "fg-body": "#4c4f69",
-        "comment": "#9ca0b0",
-        "muted": "#696b81",
-        "blue": "#145ff5",
-        "purple": "#8839ef",
-        "green": "#317a21",
-        "yellow": "#976014",
-        "red": "#d20f39",
-        "cyan": "#13777c",
-        "orange": "#fe640b",
-        "on-accent": "#eff1f5"
       }
     },
     {
