@@ -1,13 +1,17 @@
-{{- /* ❯ traceroute career. dict: hops, limit (0 = all).
-       When hops are cut, `traceroute -f N` starts at hop N and the rest link to about. */}}
+{{- /* ❯ traceroute career. dict: hops (oldest first), limit (0 = all), reverse (newest first).
+       When hops are cut, `traceroute -f N` starts at hop N and the rest link to about;
+       reverse pipes through `tac`. Hop numbers always keep their real position. */}}
 {{- $hops := .hops }}
 {{- $skip := 0 }}
 {{- if and .limit (gt (len $hops) .limit) }}{{ $skip = sub (len $hops) .limit }}{{ end }}
-<p class="prompt-line"><span class="cmd">traceroute {{ with $skip }}-f {{ add . 1 }} {{ end }}career</span></p>
+{{- $order := seq (add $skip 1) (len $hops) }}
+{{- if .reverse }}{{ $order = seq (len $hops) (add $skip 1) }}{{ end }}
+<p class="prompt-line"><span class="cmd">traceroute {{ with $skip }}-f {{ add . 1 }} {{ end }}career{{ if .reverse }} | tac{{ end }}</span></p>
 <ol class="hops">
-  {{- range $i, $h := after $skip $hops }}
+  {{- range $n := $order }}
+  {{- $h := index $hops (sub $n 1) }}
   <li class="hop{{ if $h.current }} is-current{{ end }}">
-    <span class="hop-n">{{ add (add $i $skip) 1 }}</span>
+    <span class="hop-n">{{ $n }}</span>
     <span class="hop-period">{{ $h.period }}</span>
     <span class="hop-org">{{ $h.org }}</span>
     {{- with $h.role }}<span class="hop-role">{{ . }}</span>{{ end }}

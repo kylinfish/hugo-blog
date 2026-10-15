@@ -13,7 +13,7 @@
 
 {{- with site.Data.career.hops }}
 <section class="home-block">
-  {{- partial "traceroute.html" (dict "hops" . "limit" 0) }}
+  {{- partial "traceroute.html" (dict "hops" . "limit" 0 "reverse" true) }}
 </section>
 {{- end }}
 

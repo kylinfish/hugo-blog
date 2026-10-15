@@ -117,7 +117,8 @@ echo "== about intro + homepage traceroute"
 has index.html 'traceroute -f 3 career'
 has index.html '→ cd ~/about <span class="count">2 earlier hops'
 if [ "$(grep -o 'class="hop-n"' "$OUT/index.html" | wc -l | tr -d ' ')" = 1 ]; then pass "homepage shows 1 hop"; else fail "homepage shows 1 hop"; fi
-has about/index.html '<span class="cmd">traceroute career</span>'
+has about/index.html '<span class="cmd">traceroute career \| tac</span>'
+if [ "$(grep -oE 'class="hop-n">[0-9]+' "$OUT/about/index.html" | grep -oE '[0-9]+$' | tr -d '\n')" = 321 ]; then pass "about hops newest first (3,2,1)"; else fail "about hops newest first (3,2,1)"; fi
 if [ "$(grep -o 'class="hop-n"' "$OUT/about/index.html" | wc -l | tr -d ' ')" = 3 ]; then pass "about shows all 3 hops"; else fail "about shows all 3 hops"; fi
 has about/index.html 'class="pl pl-role"'
 has about/index.html 'class="ls-dirs"'
